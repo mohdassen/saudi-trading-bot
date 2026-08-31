@@ -7,6 +7,14 @@ market:
   symbols_file: data/universe.csv
   tasi_symbol: "^TASI.SR"
 
+tasi:
+  yahoo_chart_url: "https://query1.finance.yahoo.com/v8/finance/chart"
+  reference_url: "https://english.mubasher.info/markets/TDWL/indices/TASI/"
+  timeout_seconds: 15
+  min_history_rows: 220
+  max_reference_gap_pct: 1.5
+  max_history_age_days: 7
+
 data:
   provider: yfinance
   free_only: true
