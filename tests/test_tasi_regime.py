@@ -40,7 +40,7 @@ def test_verified_regime_passes_with_matching_sources() -> None:
     index = pd.date_range(end=end, periods=260, freq="B", tz="UTC")
     history = pd.DataFrame({"close": range(10800, 11060)}, index=index)
     verifier.fetch_history = lambda: history
-    verifier.fetch_reference_close = lambda: 11060.0
+    verifier.fetch_reference_close = lambda: 11059.0
 
     result = verifier.evaluate()
 
