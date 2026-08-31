@@ -8,6 +8,7 @@ import pandas as pd
 @dataclass(frozen=True)
 class MarketBreadthResult:
     allowed: bool
+    state: str
     note: str
     eligible_symbols: int
     pct_above_ema50: float | None = None
@@ -16,26 +17,33 @@ class MarketBreadthResult:
 
 
 class SaudiMarketBreadth:
-    """Market regime derived from the same free Saudi stock data used by the bot.
+    """Classify the Saudi Sharia universe using robust market breadth.
 
-    This deliberately avoids a hard dependency on a TASI website/API because
-    public index pages commonly block cloud/datacenter IPs. The gate fails
-    closed when too few stocks have enough history.
+    RISK_ON requires broad confirmation across short/long trend and momentum.
+    RECOVERY allows selective Paper entries when short-term breadth is strong,
+    momentum is positive, and long-term breadth is recovering from a lower base.
+    RISK_OFF blocks new entries. Too little data always fails closed.
     """
 
     def __init__(
         self,
         min_eligible_symbols: int = 150,
         min_history_rows: int = 220,
-        min_pct_above_ema50: float = 45.0,
-        min_pct_above_ema200: float = 40.0,
-        min_median_mom20_pct: float = -1.5,
+        risk_on_min_pct_above_ema50: float = 50.0,
+        risk_on_min_pct_above_ema200: float = 45.0,
+        risk_on_min_median_mom20_pct: float = 0.0,
+        recovery_min_pct_above_ema50: float = 55.0,
+        recovery_min_pct_above_ema200: float = 30.0,
+        recovery_min_median_mom20_pct: float = 1.0,
     ) -> None:
         self.min_eligible_symbols = min_eligible_symbols
         self.min_history_rows = min_history_rows
-        self.min_pct_above_ema50 = min_pct_above_ema50
-        self.min_pct_above_ema200 = min_pct_above_ema200
-        self.min_median_mom20_pct = min_median_mom20_pct
+        self.risk_on_min_pct_above_ema50 = risk_on_min_pct_above_ema50
+        self.risk_on_min_pct_above_ema200 = risk_on_min_pct_above_ema200
+        self.risk_on_min_median_mom20_pct = risk_on_min_median_mom20_pct
+        self.recovery_min_pct_above_ema50 = recovery_min_pct_above_ema50
+        self.recovery_min_pct_above_ema200 = recovery_min_pct_above_ema200
+        self.recovery_min_median_mom20_pct = recovery_min_median_mom20_pct
 
     def evaluate(self, histories: dict[str, pd.DataFrame]) -> MarketBreadthResult:
         above_50: list[bool] = []
@@ -68,6 +76,7 @@ class SaudiMarketBreadth:
         if eligible < self.min_eligible_symbols:
             return MarketBreadthResult(
                 False,
+                "RISK_OFF",
                 (
                     "Saudi breadth insufficient: "
                     f"eligible={eligible} required={self.min_eligible_symbols}"
@@ -79,14 +88,27 @@ class SaudiMarketBreadth:
         pct200 = sum(above_200) / eligible * 100.0
         median20 = float(pd.Series(momentum_20).median())
 
-        checks = {
-            "aboveEMA50": pct50 >= self.min_pct_above_ema50,
-            "aboveEMA200": pct200 >= self.min_pct_above_ema200,
-            "median20d": median20 >= self.min_median_mom20_pct,
-        }
-        allowed = all(checks.values())
-        failed = ",".join(name for name, passed in checks.items() if not passed)
-        state = "PASS" if allowed else f"BLOCK({failed})"
+        risk_on = (
+            pct50 >= self.risk_on_min_pct_above_ema50
+            and pct200 >= self.risk_on_min_pct_above_ema200
+            and median20 >= self.risk_on_min_median_mom20_pct
+        )
+        recovery = (
+            pct50 >= self.recovery_min_pct_above_ema50
+            and pct200 >= self.recovery_min_pct_above_ema200
+            and median20 >= self.recovery_min_median_mom20_pct
+        )
+
+        if risk_on:
+            state = "RISK_ON"
+            allowed = True
+        elif recovery:
+            state = "RECOVERY"
+            allowed = True
+        else:
+            state = "RISK_OFF"
+            allowed = False
+
         note = (
             f"Saudi breadth {state}: eligible={eligible} "
             f"aboveEMA50={pct50:.1f}% aboveEMA200={pct200:.1f}% "
@@ -94,6 +116,7 @@ class SaudiMarketBreadth:
         )
         return MarketBreadthResult(
             allowed,
+            state,
             note,
             eligible,
             round(pct50, 2),
