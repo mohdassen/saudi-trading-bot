@@ -27,7 +27,7 @@ disclosures:
   enabled: true
   source_url: "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/issuer-announcements?locale=en"
   cache_file: data/disclosures_cache.json
-  fallback_url: "https://www.saudiexchange.sa/wps/portal/saudiexchange/home/?locale=en"
+  fallback_url: "https://english.mubasher.info/news/sa/now/announcements"
   lookback_days: 7
   timeout_seconds: 20
 

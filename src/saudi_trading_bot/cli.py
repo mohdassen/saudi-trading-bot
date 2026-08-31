@@ -103,9 +103,7 @@ def scan(send: bool = False) -> int:
         s_disc["lookback_days"],
         s_disc.get("fallback_url", ""),
     )
-    announcements = (
-        disclosures.refresh() if s_disc.get("enabled", True) else []
-    )
+    announcements = disclosures.refresh() if s_disc.get("enabled", True) else []
 
     end = datetime.now(RIYADH).date() + timedelta(days=1)
     start = end - timedelta(days=int(s_data["lookback_days"]) * 2)
@@ -146,7 +144,9 @@ def scan(send: bool = False) -> int:
             )
 
         try:
-            impact = disclosures.impact_for(symbol, announcements)
+            impact = disclosures.impact_for(
+                symbol, announcements, str(universe_row.get("name_en", ""))
+            )
             signal = engine.score(symbol, hist, impact)
         except ValueError as exc:
             print(exc)
