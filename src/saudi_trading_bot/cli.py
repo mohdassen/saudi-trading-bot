@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 from saudi_trading_bot.backtest.core import run_symbol_backtest
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
+from saudi_trading_bot.data.market_breadth import SaudiMarketBreadth
 from saudi_trading_bot.data.resilient import ResilientFreeProvider
-from saudi_trading_bot.data.tasi import TasiRegimeVerifier
 from saudi_trading_bot.disclosures.saudi_exchange import SaudiExchangeDisclosures
 from saudi_trading_bot.doctor import run_doctor
 from saudi_trading_bot.models import SignalState
@@ -47,19 +47,25 @@ def _provider(cfg):
     )
 
 
-def _market_regime_ok(cfg) -> tuple[bool, str]:
+def _market_regime_ok(
+    cfg,
+    histories: dict[str, pd.DataFrame],
+) -> tuple[bool, str]:
     s_risk = cfg.section("risk")
-    if not bool(s_risk.get("no_trade_if_tasi_below_market_ma", True)):
-        return True, "gate disabled"
+    if not bool(s_risk.get("no_trade_if_market_breadth_weak", True)):
+        return True, "Saudi breadth gate disabled"
 
-    s_tasi = cfg.section("tasi")
-    verifier = TasiRegimeVerifier(
-        primary_url=s_tasi["primary_url"],
-        reference_url=s_tasi["reference_url"],
-        timeout_seconds=int(s_tasi["timeout_seconds"]),
-        max_reference_gap_pct=float(s_tasi["max_reference_gap_pct"]),
-    )
-    result = verifier.evaluate()
+    settings = cfg.section("market_regime")
+    if settings.get("method") != "sharia_breadth":
+        raise RuntimeError("Only sharia_breadth market regime is approved")
+
+    result = SaudiMarketBreadth(
+        min_eligible_symbols=int(settings["min_eligible_symbols"]),
+        min_history_rows=int(settings["min_history_rows"]),
+        min_pct_above_ema50=float(settings["min_pct_above_ema50"]),
+        min_pct_above_ema200=float(settings["min_pct_above_ema200"]),
+        min_median_mom20_pct=float(settings["min_median_mom20_pct"]),
+    ).evaluate(histories)
     return result.allowed, result.note
 
 
@@ -103,14 +109,14 @@ def scan(send: bool = False) -> int:
 
     end = datetime.now(RIYADH).date() + timedelta(days=1)
     start = end - timedelta(days=int(s_data["lookback_days"]) * 2)
-    regime_ok, regime_note = _market_regime_ok(cfg)
-    print(f"MARKET_REGIME {'PASS' if regime_ok else 'BLOCK'}: {regime_note}")
-    if disclosures.last_error:
-        print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
 
-    rows = []
+    records: list[dict] = []
+    histories: dict[str, pd.DataFrame] = {}
     blocked_sharia = 0
     no_data = 0
+
+    # First pass: use the same successfully fetched Saudi equity histories to
+    # build the market-breadth regime. No separate TASI website/API is needed.
     for _, universe_row in _universe(cfg.path(s_market["symbols_file"])).iterrows():
         symbol = str(universe_row["symbol"])
         decision = sharia.check(symbol)
@@ -124,6 +130,28 @@ def scan(send: bool = False) -> int:
             no_data += 1
             print(f"NO_DATA {symbol}: {provider.last_error}")
             continue
+
+        histories[symbol] = hist
+        records.append(
+            {
+                "row": universe_row,
+                "decision": decision,
+                "history": hist,
+                "data_source": provider.last_source,
+            }
+        )
+
+    regime_ok, regime_note = _market_regime_ok(cfg, histories)
+    print(f"MARKET_REGIME {'PASS' if regime_ok else 'BLOCK'}: {regime_note}")
+    if disclosures.last_error:
+        print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
+
+    rows = []
+    for record in records:
+        universe_row = record["row"]
+        decision = record["decision"]
+        hist = record["history"]
+        symbol = str(universe_row["symbol"])
 
         last = hist.iloc[-1]
         closed = portfolio.mark_daily_bar(
@@ -153,7 +181,7 @@ def scan(send: bool = False) -> int:
                 signal,
                 state=SignalState.WATCH,
                 rationale=signal.rationale
-                + ("TASI regime gate يمنع دخول Paper جديد",),
+                + ("Saudi market breadth gate يمنع دخول Paper جديد",),
             )
 
         rows.append(
@@ -162,12 +190,19 @@ def scan(send: bool = False) -> int:
                 "state": signal.state.value,
                 "score": signal.total_score,
                 "price": signal.price,
-                "data_source": provider.last_source,
+                "data_source": record["data_source"],
             }
         )
         print(format_signal(signal, decision.source, decision.source_period))
+
         if regime_ok:
-            portfolio.consider(signal)
+            opened = portfolio.consider(signal)
+            if opened:
+                print(
+                    f"PAPER_ENTRY {opened.symbol} qty={opened.qty} "
+                    f"entry={opened.entry:.2f} stop={opened.stop:.2f} "
+                    f"target={opened.target:.2f} score={opened.score:.1f}"
+                )
 
         changed = alert_state.changed(signal)
         should_send = send and signal.state.value in {"READY", "WATCH"}
