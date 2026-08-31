@@ -11,7 +11,6 @@ from bs4 import BeautifulSoup
 
 from saudi_trading_bot.models import DisclosureImpact
 
-
 POSITIVE = (
     "ارتفاع صافي الربح",
     "نمو الأرباح",
