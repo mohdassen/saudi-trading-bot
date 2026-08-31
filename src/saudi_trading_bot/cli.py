@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import replace
-from datetime import datetime, timedelta
+from datetime import datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -45,6 +45,17 @@ def _provider(cfg):
         primary,
         MarketDataCache(cfg.path(s_data["cache_dir"])),
     )
+
+
+def _completed_history(history: pd.DataFrame, now: datetime) -> pd.DataFrame:
+    """Exclude an in-progress Saudi daily candle from signal/Paper logic."""
+    if history.empty:
+        return history
+    result = history.sort_index().copy()
+    latest_date = pd.Timestamp(result.index[-1]).date()
+    if latest_date == now.date() and now.time() < time(15, 10):
+        result = result.iloc[:-1].copy()
+    return result
 
 
 def _market_regime(
@@ -127,7 +138,8 @@ def scan(send: bool = False) -> int:
     )
     announcements = disclosures.refresh() if s_disc.get("enabled", True) else []
 
-    end = datetime.now(RIYADH).date() + timedelta(days=1)
+    now = datetime.now(RIYADH)
+    end = now.date() + timedelta(days=1)
     start = end - timedelta(days=int(s_data["lookback_days"]) * 2)
 
     records: list[dict] = []
@@ -135,8 +147,8 @@ def scan(send: bool = False) -> int:
     blocked_sharia = 0
     no_data = 0
 
-    # First pass builds the market regime from the same successfully fetched
-    # Saudi Sharia-compliant equities. There is no fragile external TASI API.
+    # First pass uses completed Saudi daily bars only. This same dataset powers
+    # the market regime and Paper execution, avoiding fragile external TASI APIs.
     for _, universe_row in _universe(cfg.path(s_market["symbols_file"])).iterrows():
         symbol = str(universe_row["symbol"])
         decision = sharia.check(symbol)
@@ -145,7 +157,8 @@ def scan(send: bool = False) -> int:
             print(f"BLOCKED {symbol}: Sharia {decision.reason}")
             continue
 
-        hist = provider.history(symbol, start, end, s_data["interval"])
+        raw_history = provider.history(symbol, start, end, s_data["interval"])
+        hist = _completed_history(raw_history, now)
         if hist.empty:
             no_data += 1
             print(f"NO_DATA {symbol}: {provider.last_error}")
@@ -166,27 +179,32 @@ def scan(send: bool = False) -> int:
     if disclosures.last_error:
         print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
 
+    # Execute signals queued from an earlier completed bar at the first later
+    # session open. Only after that do we evaluate that session's stop/target.
+    for opened in portfolio.execute_pending(histories):
+        print(
+            f"PAPER_ENTRY {opened.symbol} qty={opened.qty} "
+            f"entry={opened.entry:.2f} stop={opened.stop:.2f} "
+            f"target={opened.target:.2f} score={opened.score:.1f} "
+            f"opened_on={opened.opened_on}"
+        )
+    for closed in portfolio.mark_histories(
+        histories,
+        max_hold_days=int(s_paper["max_hold_days"]),
+    ):
+        print(
+            f"PAPER_EXIT {closed.symbol} {closed.reason} "
+            f"PnL={closed.pnl_sar:.2f} SAR closed_on={closed.closed_on}"
+        )
+
     recovery_min_entry_score = float(s_regime["recovery_min_entry_score"])
     rows = []
+    ready_candidates = []
     for record in records:
         universe_row = record["row"]
         decision = record["decision"]
         hist = record["history"]
         symbol = str(universe_row["symbol"])
-
-        last = hist.iloc[-1]
-        closed = portfolio.mark_daily_bar(
-            symbol,
-            float(last["low"]),
-            float(last["high"]),
-            float(last["close"]),
-            max_hold_days=s_paper["max_hold_days"],
-        )
-        if closed:
-            print(
-                f"PAPER_EXIT {closed.symbol} {closed.reason} "
-                f"PnL={closed.pnl_sar:.2f} SAR"
-            )
 
         try:
             impact = disclosures.impact_for(
@@ -230,14 +248,9 @@ def scan(send: bool = False) -> int:
         )
         print(format_signal(signal, decision.source, decision.source_period))
 
-        if regime.allowed:
-            opened = portfolio.consider(signal)
-            if opened:
-                print(
-                    f"PAPER_ENTRY {opened.symbol} qty={opened.qty} "
-                    f"entry={opened.entry:.2f} stop={opened.stop:.2f} "
-                    f"target={opened.target:.2f} score={opened.score:.1f}"
-                )
+        if regime.allowed and signal.state == SignalState.READY:
+            signal_bar_date = pd.Timestamp(hist.index[-1]).date()
+            ready_candidates.append((signal, signal_bar_date))
 
         changed = alert_state.changed(signal)
         should_send = send and signal.state.value in {"READY", "WATCH"}
@@ -247,6 +260,29 @@ def scan(send: bool = False) -> int:
             send_telegram(
                 format_signal(signal, decision.source, decision.source_period)
             )
+
+    # Rank the whole market first, then queue only the strongest daily setups.
+    # This avoids symbol-order bias and mirrors the daily new-position limit.
+    queued_count = 0
+    for signal, signal_bar_date in sorted(
+        ready_candidates,
+        key=lambda item: item[0].total_score,
+        reverse=True,
+    ):
+        if queued_count >= int(s_risk["max_daily_new_positions"]):
+            break
+        queued = portfolio.queue(
+            signal,
+            signal_bar_date=signal_bar_date,
+            reward_risk=float(s_risk["reward_risk"]),
+        )
+        if queued is None:
+            continue
+        queued_count += 1
+        print(
+            f"PAPER_QUEUED {queued.symbol} score={queued.score:.1f} "
+            f"signal_bar={queued.signal_bar_date} execute=next_session_open"
+        )
 
     out = cfg.root / "artifacts/latest_scan.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -258,7 +294,8 @@ def scan(send: bool = False) -> int:
     print(
         f"SUMMARY scanned={len(rows)} sharia_blocked={blocked_sharia} "
         f"no_data={no_data} open_paper={len(portfolio.positions)} "
-        f"equity={portfolio.equity_sar:.2f} regime={regime.state}"
+        f"pending={len(portfolio.pending)} equity={portfolio.equity_sar:.2f} "
+        f"regime={regime.state}"
     )
     print(f"Saved {out}")
     return 0
