@@ -8,6 +8,13 @@ def _history(start: float, step: float, rows: int = 260) -> pd.DataFrame:
     return pd.DataFrame({"close": close})
 
 
+def _recovering_history() -> pd.DataFrame:
+    values = [120.0 - 0.1 * n for n in range(230)]
+    last = values[-1]
+    values.extend(last + 0.2 * n for n in range(1, 31))
+    return pd.DataFrame({"close": values})
+
+
 def test_breadth_classifies_broad_uptrend_as_risk_on() -> None:
     histories = {str(i): _history(50.0, 0.1) for i in range(160)}
     result = SaudiMarketBreadth(min_eligible_symbols=150).evaluate(histories)
@@ -20,19 +27,20 @@ def test_breadth_classifies_broad_uptrend_as_risk_on() -> None:
 
 def test_breadth_classifies_recovery_market() -> None:
     histories: dict[str, pd.DataFrame] = {}
-    for i in range(160):
-        if i < 100:
-            # Strong recent recovery, but not enough time to repair EMA200 fully.
-            values = [100.0 - 0.12 * n for n in range(200)]
-            last = values[-1]
-            values.extend(last + 0.8 * n for n in range(1, 61))
-            histories[str(i)] = pd.DataFrame({"close": values})
-        else:
-            histories[str(i)] = _history(100.0, -0.05)
+    # 60 long-term uptrends + 40 recent recoveries + 60 downtrends yields
+    # strong EMA50 breadth, ~37.5% EMA200 breadth, and positive median momentum.
+    for i in range(60):
+        histories[f"up-{i}"] = _history(50.0, 0.1)
+    for i in range(40):
+        histories[f"recovery-{i}"] = _recovering_history()
+    for i in range(60):
+        histories[f"down-{i}"] = _history(100.0, -0.05)
 
     result = SaudiMarketBreadth(min_eligible_symbols=150).evaluate(histories)
     assert result.allowed is True
-    assert result.state in {"RECOVERY", "RISK_ON"}
+    assert result.state == "RECOVERY"
+    assert result.pct_above_ema50 == 62.5
+    assert result.pct_above_ema200 == 37.5
     assert result.median_mom20_pct is not None and result.median_mom20_pct > 0
 
 
