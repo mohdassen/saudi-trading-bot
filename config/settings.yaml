@@ -10,9 +10,13 @@ market_regime:
   method: sharia_breadth
   min_eligible_symbols: 150
   min_history_rows: 220
-  min_pct_above_ema50: 45.0
-  min_pct_above_ema200: 40.0
-  min_median_mom20_pct: -1.5
+  risk_on_min_pct_above_ema50: 50.0
+  risk_on_min_pct_above_ema200: 45.0
+  risk_on_min_median_mom20_pct: 0.0
+  recovery_min_pct_above_ema50: 55.0
+  recovery_min_pct_above_ema200: 30.0
+  recovery_min_median_mom20_pct: 1.0
+  recovery_min_entry_score: 80.0
 
 data:
   provider: yfinance
