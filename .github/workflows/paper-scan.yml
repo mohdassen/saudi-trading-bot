@@ -1,0 +1,53 @@
+name: Saudi Paper Scan
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    # 09:15 Riyadh (06:15 UTC), Sun-Thu.
+    - cron: "15 6 * * 0-4"
+    # 15:20 Riyadh (12:20 UTC), Sun-Thu.
+    - cron: "20 12 * * 0-4"
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    # Hard zero-cost guard: GitHub-hosted scheduling is allowed only on public repos.
+    if: ${{ github.event.repository.private == false }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore free persistent bot cache/state
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/market_cache
+            data/disclosures_cache.json
+            data/sharia_allowlist.csv
+            data/universe.csv
+            artifacts/paper_portfolio.json
+            artifacts/alert_state.json
+          key: saudi-paper-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            saudi-paper-${{ runner.os }}-
+      - run: pip install -e .
+      - name: Refresh free Sharia allowlist (best effort)
+        run: saudi-bot sync-sharia --best-effort
+      - name: Run paper scan
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BOT_MODE: paper
+          ZERO_PAID_SERVICES: "true"
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            saudi-bot scan --send
+          else
+            echo "Telegram secrets are not configured; running paper scan without sending alerts."
+            saudi-bot scan
+          fi

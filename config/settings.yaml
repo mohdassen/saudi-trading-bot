@@ -1,0 +1,67 @@
+market:
+  timezone: Asia/Riyadh
+  exchange: SAU
+  trading_days: [SUN, MON, TUE, WED, THU]
+  session_start: "10:00"
+  session_end: "15:00"
+  symbols_file: data/universe.csv
+  tasi_symbol: "^TASI.SR"
+
+data:
+  provider: yfinance
+  free_only: true
+  lookback_days: 420
+  interval: 1d
+  suffix: .SR
+  cache_dir: data/market_cache
+  max_cache_age_days: 7
+
+sharia:
+  mode: strict_allowlist
+  allowlist_file: data/sharia_allowlist.csv
+  source_url: "https://alrajhi-capital.sa/shariah-group/about-us-guidelines"
+  max_source_check_age_days: 14
+  block_unknown: true
+
+disclosures:
+  enabled: true
+  source_url: "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/issuer-announcements?locale=en"
+  cache_file: data/disclosures_cache.json
+  fallback_url: "https://www.saudiexchange.sa/wps/portal/saudiexchange/home/?locale=en"
+  lookback_days: 7
+  timeout_seconds: 20
+
+signals:
+  min_history_rows: 220
+  min_price_sar: 3.0
+  min_avg_value_sar_20d: 1000000
+  score_threshold_watch: 62
+  score_threshold_entry: 72
+  weights:
+    trend: 0.35
+    momentum: 0.30
+    swing: 0.20
+    disclosure: 0.15
+
+risk:
+  paper_equity_sar: 100000
+  risk_per_trade_pct: 0.75
+  max_position_pct: 12.5
+  max_open_positions: 5
+  atr_stop_multiple: 1.8
+  reward_risk: 2.2
+  max_daily_new_positions: 2
+  no_trade_if_tasi_below_ema200: true
+
+paper:
+  portfolio_file: artifacts/paper_portfolio.json
+  slippage_bps: 10
+  commission_bps: 15.5
+  min_hold_days: 2
+  max_hold_days: 25
+
+notifications:
+  telegram_enabled: true
+  send_watchlist_digest: true
+  send_only_state_changes: true
+  state_file: artifacts/alert_state.json
