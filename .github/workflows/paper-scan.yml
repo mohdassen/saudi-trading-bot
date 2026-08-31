@@ -4,9 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    # 09:15 Riyadh (06:15 UTC), Sun-Thu.
-    - cron: "15 6 * * 0-4"
-    # 15:20 Riyadh (12:20 UTC), Sun-Thu.
+    # Daily swing scan after Saudi market close: 15:20 Riyadh (12:20 UTC), Sun-Thu.
     - cron: "20 12 * * 0-4"
 
 permissions:
@@ -14,7 +12,7 @@ permissions:
 
 # A single Paper portfolio must never be mutated by overlapping runs.
 concurrency:
-  group: saudi-paper-scan
+  group: saudi-paper-scan-v2
   cancel-in-progress: true
 
 jobs:
@@ -37,9 +35,11 @@ jobs:
             data/universe.csv
             artifacts/paper_portfolio.json
             artifacts/alert_state.json
-          key: saudi-paper-${{ runner.os }}-${{ github.run_id }}
+          # v2 deliberately starts a clean Paper ledger because v1 filled signals
+          # on the signal close instead of the next session open.
+          key: saudi-paper-v2-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
-            saudi-paper-${{ runner.os }}-
+            saudi-paper-v2-${{ runner.os }}-
       - run: pip install -e .
       - name: Refresh free Sharia allowlist (best effort)
         run: saudi-bot sync-sharia --best-effort
