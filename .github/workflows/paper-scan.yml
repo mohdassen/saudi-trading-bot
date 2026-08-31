@@ -12,6 +12,11 @@ on:
 permissions:
   contents: read
 
+# A single Paper portfolio must never be mutated by overlapping runs.
+concurrency:
+  group: saudi-paper-scan
+  cancel-in-progress: true
+
 jobs:
   scan:
     # Hard zero-cost guard: GitHub-hosted scheduling is allowed only on public repos.
