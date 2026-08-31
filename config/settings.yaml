@@ -5,15 +5,12 @@ market:
   session_start: "10:00"
   session_end: "15:00"
   symbols_file: data/universe.csv
-  tasi_symbol: "^TASI.SR"
 
 tasi:
-  yahoo_chart_url: "https://query1.finance.yahoo.com/v8/finance/chart"
+  primary_url: "https://sa.marketscreener.com/quote/index/TADAWUL-ALL-SHARE-169754563/quotes/"
   reference_url: "https://english.mubasher.info/markets/TDWL/indices/TASI/"
   timeout_seconds: 15
-  min_history_rows: 220
   max_reference_gap_pct: 1.5
-  max_history_age_days: 7
 
 data:
   provider: yfinance
@@ -59,7 +56,7 @@ risk:
   atr_stop_multiple: 1.8
   reward_risk: 2.2
   max_daily_new_positions: 2
-  no_trade_if_tasi_below_ema200: true
+  no_trade_if_tasi_below_market_ma: true
 
 paper:
   portfolio_file: artifacts/paper_portfolio.json
