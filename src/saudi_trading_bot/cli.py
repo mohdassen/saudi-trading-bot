@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from saudi_trading_bot.backtest.core import run_symbol_backtest
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
-from saudi_trading_bot.data.market_breadth import SaudiMarketBreadth
+from saudi_trading_bot.data.market_breadth import MarketBreadthResult, SaudiMarketBreadth
 from saudi_trading_bot.data.resilient import ResilientFreeProvider
 from saudi_trading_bot.disclosures.saudi_exchange import SaudiExchangeDisclosures
 from saudi_trading_bot.doctor import run_doctor
@@ -47,26 +47,45 @@ def _provider(cfg):
     )
 
 
-def _market_regime_ok(
+def _market_regime(
     cfg,
     histories: dict[str, pd.DataFrame],
-) -> tuple[bool, str]:
+) -> MarketBreadthResult:
     s_risk = cfg.section("risk")
     if not bool(s_risk.get("no_trade_if_market_breadth_weak", True)):
-        return True, "Saudi breadth gate disabled"
+        return MarketBreadthResult(
+            True,
+            "RISK_ON",
+            "Saudi breadth gate disabled",
+            len(histories),
+        )
 
     settings = cfg.section("market_regime")
     if settings.get("method") != "sharia_breadth":
         raise RuntimeError("Only sharia_breadth market regime is approved")
 
-    result = SaudiMarketBreadth(
+    return SaudiMarketBreadth(
         min_eligible_symbols=int(settings["min_eligible_symbols"]),
         min_history_rows=int(settings["min_history_rows"]),
-        min_pct_above_ema50=float(settings["min_pct_above_ema50"]),
-        min_pct_above_ema200=float(settings["min_pct_above_ema200"]),
-        min_median_mom20_pct=float(settings["min_median_mom20_pct"]),
+        risk_on_min_pct_above_ema50=float(
+            settings["risk_on_min_pct_above_ema50"]
+        ),
+        risk_on_min_pct_above_ema200=float(
+            settings["risk_on_min_pct_above_ema200"]
+        ),
+        risk_on_min_median_mom20_pct=float(
+            settings["risk_on_min_median_mom20_pct"]
+        ),
+        recovery_min_pct_above_ema50=float(
+            settings["recovery_min_pct_above_ema50"]
+        ),
+        recovery_min_pct_above_ema200=float(
+            settings["recovery_min_pct_above_ema200"]
+        ),
+        recovery_min_median_mom20_pct=float(
+            settings["recovery_min_median_mom20_pct"]
+        ),
     ).evaluate(histories)
-    return result.allowed, result.note
 
 
 def scan(send: bool = False) -> int:
@@ -79,6 +98,7 @@ def scan(send: bool = False) -> int:
     s_paper = cfg.section("paper")
     s_disc = cfg.section("disclosures")
     s_notify = cfg.section("notifications")
+    s_regime = cfg.section("market_regime")
 
     provider = _provider(cfg)
     sharia = StrictShariaFilter(
@@ -115,8 +135,8 @@ def scan(send: bool = False) -> int:
     blocked_sharia = 0
     no_data = 0
 
-    # First pass: use the same successfully fetched Saudi equity histories to
-    # build the market-breadth regime. No separate TASI website/API is needed.
+    # First pass builds the market regime from the same successfully fetched
+    # Saudi Sharia-compliant equities. There is no fragile external TASI API.
     for _, universe_row in _universe(cfg.path(s_market["symbols_file"])).iterrows():
         symbol = str(universe_row["symbol"])
         decision = sharia.check(symbol)
@@ -141,11 +161,12 @@ def scan(send: bool = False) -> int:
             }
         )
 
-    regime_ok, regime_note = _market_regime_ok(cfg, histories)
-    print(f"MARKET_REGIME {'PASS' if regime_ok else 'BLOCK'}: {regime_note}")
+    regime = _market_regime(cfg, histories)
+    print(f"MARKET_REGIME {regime.state}: {regime.note}")
     if disclosures.last_error:
         print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
 
+    recovery_min_entry_score = float(s_regime["recovery_min_entry_score"])
     rows = []
     for record in records:
         universe_row = record["row"]
@@ -176,12 +197,26 @@ def scan(send: bool = False) -> int:
             print(exc)
             continue
 
-        if not regime_ok and signal.state.value == "READY":
+        if regime.state == "RISK_OFF" and signal.state.value == "READY":
             signal = replace(
                 signal,
                 state=SignalState.WATCH,
                 rationale=signal.rationale
-                + ("Saudi market breadth gate يمنع دخول Paper جديد",),
+                + ("Saudi market RISK_OFF يمنع دخول Paper جديد",),
+            )
+        elif (
+            regime.state == "RECOVERY"
+            and signal.state.value == "READY"
+            and signal.total_score < recovery_min_entry_score
+        ):
+            signal = replace(
+                signal,
+                state=SignalState.WATCH,
+                rationale=signal.rationale
+                + (
+                    "RECOVERY market: Paper entry يتطلب تقييم "
+                    f"{recovery_min_entry_score:.0f}+",
+                ),
             )
 
         rows.append(
@@ -195,7 +230,7 @@ def scan(send: bool = False) -> int:
         )
         print(format_signal(signal, decision.source, decision.source_period))
 
-        if regime_ok:
+        if regime.allowed:
             opened = portfolio.consider(signal)
             if opened:
                 print(
@@ -223,7 +258,7 @@ def scan(send: bool = False) -> int:
     print(
         f"SUMMARY scanned={len(rows)} sharia_blocked={blocked_sharia} "
         f"no_data={no_data} open_paper={len(portfolio.positions)} "
-        f"equity={portfolio.equity_sar:.2f}"
+        f"equity={portfolio.equity_sar:.2f} regime={regime.state}"
     )
     print(f"Saved {out}")
     return 0
