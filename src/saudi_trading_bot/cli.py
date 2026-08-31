@@ -48,19 +48,16 @@ def _provider(cfg):
 
 
 def _market_regime_ok(cfg) -> tuple[bool, str]:
-    s_market, s_risk = cfg.section("market"), cfg.section("risk")
-    if not bool(s_risk.get("no_trade_if_tasi_below_ema200", True)):
+    s_risk = cfg.section("risk")
+    if not bool(s_risk.get("no_trade_if_tasi_below_market_ma", True)):
         return True, "gate disabled"
 
     s_tasi = cfg.section("tasi")
     verifier = TasiRegimeVerifier(
-        symbol=s_market.get("tasi_symbol", "^TASI.SR"),
-        yahoo_chart_url=s_tasi["yahoo_chart_url"],
+        primary_url=s_tasi["primary_url"],
         reference_url=s_tasi["reference_url"],
         timeout_seconds=int(s_tasi["timeout_seconds"]),
-        min_history_rows=int(s_tasi["min_history_rows"]),
         max_reference_gap_pct=float(s_tasi["max_reference_gap_pct"]),
-        max_history_age_days=int(s_tasi["max_history_age_days"]),
     )
     result = verifier.evaluate()
     return result.allowed, result.note
