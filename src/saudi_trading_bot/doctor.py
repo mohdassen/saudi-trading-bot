@@ -1,10 +1,13 @@
 from __future__ import annotations
 
-from datetime import date
 import os
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from saudi_trading_bot.config import Settings
 from saudi_trading_bot.sharia.filter import StrictShariaFilter
+
+RIYADH = ZoneInfo("Asia/Riyadh")
 
 
 def run_doctor(cfg: Settings) -> list[tuple[str, bool, str]]:
@@ -32,10 +35,11 @@ def run_doctor(cfg: Settings) -> list[tuple[str, bool, str]]:
     )
     allowed = 0
     stale = 0
+    today = datetime.now(RIYADH).date()
     for symbol in flt.df["symbol"].astype(str):
-        d = flt.check(symbol, today=date.today())
-        allowed += int(d.allowed)
-        stale += int(d.stale)
+        decision = flt.check(symbol, today=today)
+        allowed += int(decision.allowed)
+        stale += int(decision.stale)
     checks.append(
         (
             "sharia_allowlist",

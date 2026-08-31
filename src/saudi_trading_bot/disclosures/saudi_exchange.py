@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
-from datetime import datetime, timedelta
-from pathlib import Path
 import json
 import re
+from dataclasses import asdict, dataclass
+from datetime import UTC, datetime, timedelta
+from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -87,10 +87,9 @@ class SaudiExchangeDisclosures:
         base_url: str = "https://www.saudiexchange.sa",
     ) -> list[Announcement]:
         soup = BeautifulSoup(html, "html.parser")
-        now = datetime.now().isoformat(timespec="seconds")
+        now = datetime.now(UTC).isoformat(timespec="seconds")
         found: dict[tuple[str, str], Announcement] = {}
 
-        # First pass: structured links and their nearby parent text.
         for a in soup.find_all("a", href=True):
             title = " ".join(a.stripped_strings).strip()
             if not _looks_like_announcement(title):
@@ -113,18 +112,13 @@ class SaudiExchangeDisclosures:
             for symbol in symbols:
                 found[(symbol, title)] = Announcement(symbol, title, url, now)
 
-        # Second pass: Saudi Exchange sometimes renders title + symbol as sibling text,
-        # without a useful anchor relationship.
         tokens = [" ".join(x.split()) for x in soup.stripped_strings if x.strip()]
         for i, title in enumerate(tokens):
             if not _looks_like_announcement(title):
                 continue
             window = " ".join(tokens[i + 1 : i + 6])
             for symbol in _symbols(window):
-                found.setdefault(
-                    (symbol, title),
-                    Announcement(symbol, title, "", now),
-                )
+                found.setdefault((symbol, title), Announcement(symbol, title, "", now))
 
         return list(found.values())
 
@@ -134,7 +128,7 @@ class SaudiExchangeDisclosures:
         try:
             raw = json.loads(self.cache_file.read_text(encoding="utf-8"))
             return [Announcement(**x) for x in raw.get("announcements", [])]
-        except Exception:
+        except (OSError, TypeError, ValueError):
             return []
 
     def refresh(self) -> list[Announcement]:
@@ -152,7 +146,7 @@ class SaudiExchangeDisclosures:
                     raise ValueError("announcement page parsed zero items")
                 self.cache_file.parent.mkdir(parents=True, exist_ok=True)
                 payload = {
-                    "updated_at": datetime.now().isoformat(),
+                    "updated_at": datetime.now(UTC).isoformat(),
                     "source_url": url,
                     "announcements": [asdict(x) for x in items],
                 }
@@ -163,7 +157,7 @@ class SaudiExchangeDisclosures:
                 self.last_error = ""
                 self.last_url = url
                 return items
-            except Exception as exc:
+            except (OSError, ValueError, requests.RequestException) as exc:
                 errors.append(f"{url}: {type(exc).__name__}: {exc}")
         self.last_error = " | ".join(errors)
         self.last_url = "cache"
@@ -174,17 +168,19 @@ class SaudiExchangeDisclosures:
         symbol: str,
         announcements: list[Announcement],
     ) -> DisclosureImpact | None:
-        cutoff = datetime.now() - timedelta(days=self.lookback_days)
+        cutoff = datetime.now(UTC) - timedelta(days=self.lookback_days)
         matches = []
-        for a in announcements:
-            if a.symbol != str(symbol):
+        for announcement in announcements:
+            if announcement.symbol != str(symbol):
                 continue
             try:
-                fetched = datetime.fromisoformat(a.fetched_at)
+                fetched = datetime.fromisoformat(announcement.fetched_at)
             except ValueError:
                 continue
+            if fetched.tzinfo is None:
+                fetched = fetched.replace(tzinfo=UTC)
             if fetched >= cutoff:
-                matches.append(a)
+                matches.append(announcement)
         if not matches:
             return None
         scored = [classify_disclosure(a.title, a.url) for a in matches]

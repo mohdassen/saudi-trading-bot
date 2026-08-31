@@ -17,7 +17,13 @@ class ResilientFreeProvider(MarketDataProvider):
         self.last_source = "none"
         self.last_error = ""
 
-    def history(self, symbol: str, start: date, end: date, interval: str = "1d") -> pd.DataFrame:
+    def history(
+        self,
+        symbol: str,
+        start: date,
+        end: date,
+        interval: str = "1d",
+    ) -> pd.DataFrame:
         try:
             df = self.primary.history(symbol, start, end, interval)
             if not df.empty:
@@ -26,7 +32,7 @@ class ResilientFreeProvider(MarketDataProvider):
                 self.last_error = ""
                 return df
             self.last_error = "primary returned empty data"
-        except Exception as exc:  # provider/network failures must not crash the whole scan
+        except Exception as exc:  # noqa: BLE001 - external provider isolation boundary
             self.last_error = f"{type(exc).__name__}: {exc}"
 
         cached = self.cache.load(symbol, start, end)

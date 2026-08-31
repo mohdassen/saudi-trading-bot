@@ -3,7 +3,6 @@ from __future__ import annotations
 from datetime import date
 
 import pandas as pd
-import yfinance as yf
 
 from .base import MarketDataProvider
 
@@ -14,8 +13,17 @@ class YahooSaudiProvider(MarketDataProvider):
     def __init__(self, suffix: str = ".SR") -> None:
         self.suffix = suffix
 
+    def ticker_for(self, symbol: str) -> str:
+        """Return the Yahoo ticker without duplicating an existing market suffix."""
+        symbol = str(symbol).strip()
+        if symbol.startswith("^") or symbol.endswith(self.suffix):
+            return symbol
+        return f"{symbol}{self.suffix}"
+
     def history(self, symbol: str, start: date, end: date, interval: str = "1d") -> pd.DataFrame:
-        ticker = f"{symbol}{self.suffix}"
+        import yfinance as yf
+
+        ticker = self.ticker_for(symbol)
         df = yf.download(
             ticker,
             start=start.isoformat(),
@@ -32,5 +40,9 @@ class YahooSaudiProvider(MarketDataProvider):
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = [c[0] for c in df.columns]
         df = df.rename(columns=str.lower)
-        keep = [c for c in ["open", "high", "low", "close", "adj close", "volume"] if c in df.columns]
+        keep = [
+            c
+            for c in ["open", "high", "low", "close", "adj close", "volume"]
+            if c in df.columns
+        ]
         return df[keep].dropna(subset=["close"])

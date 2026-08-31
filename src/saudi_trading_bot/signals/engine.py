@@ -6,6 +6,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from saudi_trading_bot.models import DisclosureImpact, Signal, SignalState
+
 from .indicators import enrich
 
 

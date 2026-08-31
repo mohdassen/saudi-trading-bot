@@ -1,11 +1,14 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
-from datetime import date
-from pathlib import Path
 import json
+from dataclasses import asdict, dataclass
+from datetime import date, datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from saudi_trading_bot.models import Signal, SignalState
+
+RIYADH = ZoneInfo("Asia/Riyadh")
 
 
 @dataclass
@@ -80,7 +83,7 @@ class PaperPortfolio:
     def _opened_today(self, today: date) -> int:
         iso = today.isoformat()
         opened = sum(1 for p in self.positions.values() if p.opened_on == iso)
-        already_closed = sum(1 for t in self.closed if t.opened_on == iso)
+        already_closed = sum(1 for trade in self.closed if trade.opened_on == iso)
         return opened + already_closed
 
     def consider(
@@ -88,7 +91,7 @@ class PaperPortfolio:
         signal: Signal,
         today: date | None = None,
     ) -> PaperPosition | None:
-        today = today or date.today()
+        today = today or datetime.now(RIYADH).date()
         if signal.state != SignalState.READY or signal.symbol in self.positions:
             return None
         if len(self.positions) >= self.max_open_positions:
@@ -107,7 +110,7 @@ class PaperPortfolio:
             return None
 
         entry_exec = signal.price * (1 + self.slippage_bps / 10000.0)
-        p = PaperPosition(
+        position = PaperPosition(
             signal.symbol,
             qty,
             round(entry_exec, 4),
@@ -116,9 +119,9 @@ class PaperPortfolio:
             signal.total_score,
             today.isoformat(),
         )
-        self.positions[signal.symbol] = p
+        self.positions[signal.symbol] = position
         self.save()
-        return p
+        return position
 
     def mark_daily_bar(
         self,
@@ -129,37 +132,40 @@ class PaperPortfolio:
         today: date | None = None,
         max_hold_days: int = 25,
     ) -> PaperTrade | None:
-        today = today or date.today()
-        p = self.positions.get(symbol)
-        if not p:
+        today = today or datetime.now(RIYADH).date()
+        position = self.positions.get(symbol)
+        if not position:
             return None
 
-        opened = date.fromisoformat(p.opened_on)
+        opened = date.fromisoformat(position.opened_on)
         held = (today - opened).days
         raw_exit = None
         reason = ""
-        if low <= p.stop:
-            raw_exit, reason = p.stop, "stop"
-        elif high >= p.target:
-            raw_exit, reason = p.target, "target"
+        if low <= position.stop:
+            raw_exit, reason = position.stop, "stop"
+        elif high >= position.target:
+            raw_exit, reason = position.target, "target"
         elif held >= max_hold_days:
             raw_exit, reason = close, "max_hold"
         if raw_exit is None:
             return None
 
         exit_exec = raw_exit * (1 - self.slippage_bps / 10000.0)
-        gross = (exit_exec - p.entry) * p.qty
+        gross = (exit_exec - position.entry) * position.qty
         commission = (
-            (p.entry + exit_exec) * p.qty * self.commission_bps / 10000.0
+            (position.entry + exit_exec)
+            * position.qty
+            * self.commission_bps
+            / 10000.0
         )
         pnl = gross - commission
-        ret = pnl / (p.entry * p.qty) * 100
+        ret = pnl / (position.entry * position.qty) * 100
         trade = PaperTrade(
-            p.symbol,
-            p.qty,
-            p.entry,
+            position.symbol,
+            position.qty,
+            position.entry,
             round(exit_exec, 4),
-            p.opened_on,
+            position.opened_on,
             today.isoformat(),
             reason,
             round(pnl, 2),

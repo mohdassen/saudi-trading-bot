@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import pandas as pd
@@ -17,7 +17,12 @@ class MarketDataCache:
         safe = symbol.replace("^", "INDEX_").replace("/", "_")
         return self.root / f"{safe}.csv"
 
-    def load(self, symbol: str, start: date | None = None, end: date | None = None) -> pd.DataFrame:
+    def load(
+        self,
+        symbol: str,
+        start: date | None = None,
+        end: date | None = None,
+    ) -> pd.DataFrame:
         path = self.path_for(symbol)
         if not path.exists():
             return pd.DataFrame()
@@ -43,6 +48,6 @@ class MarketDataCache:
         path = self.path_for(symbol)
         if not path.exists():
             return None
-        today = today or date.today()
-        modified = datetime.fromtimestamp(path.stat().st_mtime).date()
+        today = today or datetime.now(UTC).date()
+        modified = datetime.fromtimestamp(path.stat().st_mtime, tz=UTC).date()
         return (today - modified).days
