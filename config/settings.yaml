@@ -6,11 +6,13 @@ market:
   session_end: "15:00"
   symbols_file: data/universe.csv
 
-tasi:
-  primary_url: "https://sa.marketscreener.com/quote/index/TADAWUL-ALL-SHARE-169754563/quotes/"
-  reference_url: "https://english.mubasher.info/markets/TDWL/indices/TASI/"
-  timeout_seconds: 15
-  max_reference_gap_pct: 1.5
+market_regime:
+  method: sharia_breadth
+  min_eligible_symbols: 150
+  min_history_rows: 220
+  min_pct_above_ema50: 45.0
+  min_pct_above_ema200: 40.0
+  min_median_mom20_pct: -1.5
 
 data:
   provider: yfinance
@@ -56,7 +58,7 @@ risk:
   atr_stop_multiple: 1.8
   reward_risk: 2.2
   max_daily_new_positions: 2
-  no_trade_if_tasi_below_market_ma: true
+  no_trade_if_market_breadth_weak: true
 
 paper:
   portfolio_file: artifacts/paper_portfolio.json
