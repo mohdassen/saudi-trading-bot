@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import replace
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -13,6 +13,7 @@ from saudi_trading_bot.backtest.core import run_symbol_backtest
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
 from saudi_trading_bot.data.resilient import ResilientFreeProvider
+from saudi_trading_bot.data.tasi import TasiRegimeVerifier
 from saudi_trading_bot.disclosures.saudi_exchange import SaudiExchangeDisclosures
 from saudi_trading_bot.doctor import run_doctor
 from saudi_trading_bot.models import SignalState
@@ -22,7 +23,6 @@ from saudi_trading_bot.paper.portfolio import PaperPortfolio
 from saudi_trading_bot.sharia.alrajhi import sync_allowlist
 from saudi_trading_bot.sharia.filter import StrictShariaFilter
 from saudi_trading_bot.signals.engine import SignalEngine
-from saudi_trading_bot.signals.indicators import enrich
 
 RIYADH = ZoneInfo("Asia/Riyadh")
 
@@ -47,24 +47,23 @@ def _provider(cfg):
     )
 
 
-def _market_regime_ok(provider, cfg, start: date, end: date) -> tuple[bool, str]:
+def _market_regime_ok(cfg) -> tuple[bool, str]:
     s_market, s_risk = cfg.section("market"), cfg.section("risk")
     if not bool(s_risk.get("no_trade_if_tasi_below_ema200", True)):
         return True, "gate disabled"
-    hist = provider.history(
-        s_market.get("tasi_symbol", "^TASI.SR"),
-        start,
-        end,
-        "1d",
+
+    s_tasi = cfg.section("tasi")
+    verifier = TasiRegimeVerifier(
+        symbol=s_market.get("tasi_symbol", "^TASI.SR"),
+        yahoo_chart_url=s_tasi["yahoo_chart_url"],
+        reference_url=s_tasi["reference_url"],
+        timeout_seconds=int(s_tasi["timeout_seconds"]),
+        min_history_rows=int(s_tasi["min_history_rows"]),
+        max_reference_gap_pct=float(s_tasi["max_reference_gap_pct"]),
+        max_history_age_days=int(s_tasi["max_history_age_days"]),
     )
-    if hist.empty or len(hist) < 220:
-        return False, "TASI data unavailable/insufficient"
-    enriched = enrich(hist).dropna(subset=["ema200"])
-    if enriched.empty:
-        return False, "TASI EMA200 unavailable"
-    last = enriched.iloc[-1]
-    ok = float(last["close"]) >= float(last["ema200"])
-    return ok, f"TASI {last['close']:.1f} vs EMA200 {last['ema200']:.1f}"
+    result = verifier.evaluate()
+    return result.allowed, result.note
 
 
 def scan(send: bool = False) -> int:
@@ -107,7 +106,7 @@ def scan(send: bool = False) -> int:
 
     end = datetime.now(RIYADH).date() + timedelta(days=1)
     start = end - timedelta(days=int(s_data["lookback_days"]) * 2)
-    regime_ok, regime_note = _market_regime_ok(provider, cfg, start, end)
+    regime_ok, regime_note = _market_regime_ok(cfg)
     print(f"MARKET_REGIME {'PASS' if regime_ok else 'BLOCK'}: {regime_note}")
     if disclosures.last_error:
         print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
