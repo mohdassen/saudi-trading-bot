@@ -26,6 +26,10 @@ data:
   suffix: .SR
   cache_dir: data/market_cache
   max_cache_age_days: 7
+  # Fail closed unless a broad, coherent cross-section reports today's latest
+  # completed Saudi session. A holiday may intentionally block until next day.
+  min_fresh_symbols: 150
+  min_session_consensus_pct: 80.0
 
 sharia:
   mode: strict_allowlist
