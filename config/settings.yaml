@@ -52,6 +52,14 @@ signals:
   min_avg_value_sar_20d: 1000000
   score_threshold_watch: 62
   score_threshold_entry: 72
+  entry_rules:
+    rsi_min: 52
+    rsi_max: 68
+    momentum_20d_min_pct: 2
+    momentum_20d_max_pct: 22
+    volume_ratio_min: 1.05
+    near_high20_ratio: 0.98
+    require_ema_stack: true
   weights:
     trend: 0.35
     momentum: 0.30
@@ -82,6 +90,7 @@ notifications:
   state_file: artifacts/alert_state.json
 
 validation:
+  engine: portfolio_walk_forward_v2
   years: 5
   min_oos_trades: 80
   min_win_rate_pct: 38.0

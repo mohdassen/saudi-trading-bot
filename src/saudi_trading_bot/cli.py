@@ -357,7 +357,6 @@ def validate_strategy() -> int:
     """Run five-year research plus rolling out-of-sample validation."""
     cfg = load_settings()
     s_market = cfg.section("market")
-    s_paper = cfg.section("paper")
     s_sharia = cfg.section("sharia")
     s_validation = cfg.section("validation")
     provider = _provider(cfg)
@@ -377,12 +376,7 @@ def validate_strategy() -> int:
         if len(history) >= 300:
             histories[symbol] = history
 
-    folds = walk_forward(
-        histories,
-        float(s_paper["commission_bps"]),
-        float(s_paper["slippage_bps"]),
-        int(s_paper["max_hold_days"]),
-    )
+    folds = walk_forward(histories, cfg.raw)
     decision = decide(folds, s_validation)
     write_report(cfg.root / "artifacts", folds, decision)
     print(f"VALIDATION {decision.status}: symbols={len(histories)} folds={len(folds)}")
