@@ -275,9 +275,10 @@ def _select_strategy(
     matrix: dict[tuple[str, int], FoldResult],
     target_year: int,
     lab: dict,
+    strategies: tuple[str, ...] = STRATEGIES,
 ) -> str | None:
     choices = []
-    for strategy in STRATEGIES:
+    for strategy in strategies:
         training_years = int(lab.get("training_years", 2))
         training = [
             matrix[(strategy, target_year - offset)]
