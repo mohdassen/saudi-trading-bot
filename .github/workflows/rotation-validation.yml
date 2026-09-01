@@ -1,0 +1,47 @@
+name: Saudi Monthly Rotation Validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/saudi_trading_bot/backtest/rotation.py"
+      - "src/saudi_trading_bot/backtest/validation.py"
+      - "src/saudi_trading_bot/signals/strategies.py"
+      - "config/settings.yaml"
+      - ".github/workflows/rotation-validation.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: saudi-monthly-rotation-validation
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: ${{ github.event.repository.private == false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Refresh free Sharia allowlist
+        run: saudi-bot sync-sharia --best-effort
+      - name: Run ten-year monthly rotation validation
+        env:
+          ZERO_PAID_SERVICES: "true"
+        run: saudi-bot validate-rotation
+      - name: Upload rotation validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: saudi-rotation-validation-${{ github.run_id }}
+          path: |
+            artifacts/rotation_validation_report.json
+            artifacts/rotation_validation_report.md
+          if-no-files-found: error
+          retention-days: 30
