@@ -29,6 +29,11 @@ from saudi_trading_bot.paper.portfolio import PaperPortfolio
 from saudi_trading_bot.sharia.alrajhi import sync_allowlist
 from saudi_trading_bot.sharia.filter import StrictShariaFilter
 from saudi_trading_bot.signals.engine import SignalEngine
+from saudi_trading_bot.signals.strategies import (
+    STRATEGIES,
+    gate_signal,
+    latest_strategy_rows,
+)
 
 RIYADH = ZoneInfo("Asia/Riyadh")
 
@@ -192,12 +197,22 @@ def scan(send: bool = False) -> int:
     if disclosures.last_error:
         print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
 
+    active_strategy = str(s_signals.get("active_strategy", "CASH"))
+    if active_strategy != "CASH" and active_strategy not in STRATEGIES:
+        raise RuntimeError(f"Unknown active_strategy: {active_strategy}")
+    strategy_rows = (
+        latest_strategy_rows(histories) if active_strategy != "CASH" else {}
+    )
+    print(f"ACTIVE_STRATEGY {active_strategy}")
+    for symbol in portfolio.discard_unapproved_pending(active_strategy):
+        print(f"PAPER_PENDING_CANCELLED {symbol}: strategy validation gate")
+
     # Execute signals queued from an earlier completed bar at the first later
     # session open. Only after that do we evaluate that session's stop/target.
     safe_histories = histories if quality.allowed else {}
     for opened in portfolio.execute_pending(safe_histories):
         print(
-            f"PAPER_ENTRY {opened.symbol} qty={opened.qty} "
+            f"PAPER_ENTRY {opened.symbol} strategy={opened.strategy} qty={opened.qty} "
             f"entry={opened.entry:.2f} stop={opened.stop:.2f} "
             f"target={opened.target:.2f} score={opened.score:.1f} "
             f"opened_on={opened.opened_on}"
@@ -211,7 +226,9 @@ def scan(send: bool = False) -> int:
             f"PnL={closed.pnl_sar:.2f} SAR closed_on={closed.closed_on}"
         )
 
-    recovery_min_entry_score = float(s_regime["recovery_min_entry_score"])
+    recovery_breakout_min_score = float(
+        s_regime["recovery_breakout_min_strategy_score"]
+    )
     rows = []
     ready_candidates = []
     for record in records:
@@ -225,6 +242,13 @@ def scan(send: bool = False) -> int:
                 symbol, announcements, str(universe_row.get("name_en", ""))
             )
             signal = engine.score(symbol, hist, impact)
+            signal = gate_signal(
+                signal,
+                strategy_rows.get(symbol),
+                s_signals,
+                active_strategy,
+                float(s_risk["reward_risk"]),
+            )
         except ValueError as exc:
             print(exc)
             continue
@@ -239,15 +263,16 @@ def scan(send: bool = False) -> int:
         elif (
             regime.state == "RECOVERY"
             and signal.state.value == "READY"
-            and signal.total_score < recovery_min_entry_score
+            and active_strategy == "breakout"
+            and signal.strategy_score < recovery_breakout_min_score
         ):
             signal = replace(
                 signal,
                 state=SignalState.WATCH,
                 rationale=signal.rationale
                 + (
-                    "RECOVERY market: Paper entry يتطلب تقييم "
-                    f"{recovery_min_entry_score:.0f}+",
+                    "RECOVERY market: breakout strategy يتطلب تقييم "
+                    f"{recovery_breakout_min_score:.0f}+",
                 ),
             )
 
@@ -256,6 +281,8 @@ def scan(send: bool = False) -> int:
                 "symbol": symbol,
                 "state": signal.state.value,
                 "score": signal.total_score,
+                "strategy": signal.strategy,
+                "strategy_score": signal.strategy_score,
                 "price": signal.price,
                 "data_source": record["data_source"],
             }
@@ -280,7 +307,7 @@ def scan(send: bool = False) -> int:
     queued_count = 0
     for signal, signal_bar_date in sorted(
         ready_candidates,
-        key=lambda item: item[0].total_score,
+        key=lambda item: item[0].strategy_score,
         reverse=True,
     ):
         if queued_count >= int(s_risk["max_daily_new_positions"]):
@@ -294,16 +321,26 @@ def scan(send: bool = False) -> int:
             continue
         queued_count += 1
         print(
-            f"PAPER_QUEUED {queued.symbol} score={queued.score:.1f} "
+            f"PAPER_QUEUED {queued.symbol} strategy={queued.strategy} "
+            f"score={queued.score:.1f} "
             f"signal_bar={queued.signal_bar_date} execute=next_session_open"
         )
 
     out = cfg.root / "artifacts/latest_scan.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
-    columns = ["symbol", "state", "score", "price", "data_source"]
+    columns = [
+        "symbol",
+        "state",
+        "score",
+        "strategy",
+        "strategy_score",
+        "price",
+        "data_source",
+    ]
     frame = pd.DataFrame(rows, columns=columns)
     if not frame.empty:
-        frame = frame.sort_values("score", ascending=False)
+        rank_column = "strategy_score" if active_strategy != "CASH" else "score"
+        frame = frame.sort_values(rank_column, ascending=False)
     frame.to_csv(out, index=False)
     print(
         f"SUMMARY scanned={len(rows)} sharia_blocked={blocked_sharia} "
