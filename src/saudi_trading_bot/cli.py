@@ -10,6 +10,10 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from saudi_trading_bot.backtest.core import run_symbol_backtest
+from saudi_trading_bot.backtest.rotation import (
+    evaluate_rotation_lab,
+    write_rotation_report,
+)
 from saudi_trading_bot.backtest.validation import (
     decide,
     evaluate_strategy_lab,
@@ -440,6 +444,55 @@ def validate_strategy() -> int:
     return 0
 
 
+def validate_rotation() -> int:
+    """Run the independent monthly/quarterly Saudi rotation lab."""
+    cfg = load_settings()
+    s_market = cfg.section("market")
+    s_sharia = cfg.section("sharia")
+    s_validation = cfg.section("validation")
+    provider = _provider(cfg)
+    sharia = StrictShariaFilter(
+        cfg.path(s_sharia["allowlist_file"]),
+        99999,
+        s_sharia["block_unknown"],
+    )
+    end = datetime.now(RIYADH).date() + timedelta(days=1)
+    start = end - timedelta(days=365 * int(s_validation["years"]) + 300)
+    histories: dict[str, pd.DataFrame] = {}
+    for _, row in _universe(cfg.path(s_market["symbols_file"])).iterrows():
+        symbol = str(row["symbol"])
+        if not sharia.check(symbol).allowed:
+            continue
+        history = provider.history(symbol, start, end, "1d")
+        if len(history) >= 320:
+            histories[symbol] = history
+
+    folds, matrix = evaluate_rotation_lab(histories, cfg.raw)
+    decision = decide(folds, s_validation)
+    write_rotation_report(cfg.root / "artifacts", folds, matrix, decision)
+    print(
+        f"ROTATION_VALIDATION {decision.status}: "
+        f"symbols={len(histories)} folds={len(folds)}"
+    )
+    for fold in folds:
+        print(
+            f"ROTATION_OOS {fold.year}: strategy={fold.strategy} "
+            f"trades={fold.trades} win={fold.win_rate:.1f}% "
+            f"return={fold.return_pct:.1f}% dd={fold.max_drawdown_pct:.1f}% "
+            f"pf={fold.profit_factor:.2f}"
+        )
+    for key in sorted(matrix, key=lambda item: (item[1], item[0])):
+        fold = matrix[key]
+        print(
+            f"ROTATION_LAB {fold.year}: strategy={fold.strategy} "
+            f"trades={fold.trades} return={fold.return_pct:.1f}% "
+            f"dd={fold.max_drawdown_pct:.1f}% pf={fold.profit_factor:.2f}"
+        )
+    if decision.reasons:
+        print("ROTATION_BLOCK_REASONS: " + "; ".join(decision.reasons))
+    return 0
+
+
 def sync_sharia(best_effort: bool = False) -> int:
     cfg = load_settings()
     settings = cfg.section("sharia")
@@ -480,6 +533,7 @@ def main() -> int:
     scan_parser.add_argument("--send", action="store_true")
     sub.add_parser("backtest")
     sub.add_parser("validate")
+    sub.add_parser("validate-rotation")
     sharia_parser = sub.add_parser("sync-sharia")
     sharia_parser.add_argument("--best-effort", action="store_true")
     sub.add_parser("doctor")
@@ -493,6 +547,8 @@ def main() -> int:
         return validate_strategy()
     if args.cmd == "sync-sharia":
         return sync_sharia(best_effort=args.best_effort)
+    if args.cmd == "validate-rotation":
+        return validate_rotation()
 
     cfg = load_settings()
     checks = run_doctor(cfg)
