@@ -59,9 +59,22 @@ class SignalEngine:
 
         liquid = float(row["avg_value20"]) >= float(self.s["min_avg_value_sar_20d"])
         above_min_price = price >= float(self.s["min_price_sar"])
+        rules = self.s.get("entry_rules", {})
+        entry_quality = (
+            (not rules.get("require_ema_stack", True)
+             or price > row["ema20"] > row["ema50"] > row["ema200"])
+            and float(rules.get("rsi_min", 52))
+            <= rsi
+            <= float(rules.get("rsi_max", 68))
+            and float(rules.get("momentum_20d_min_pct", 2))
+            <= roc20
+            <= float(rules.get("momentum_20d_max_pct", 22))
+            and vol_ratio >= float(rules.get("volume_ratio_min", 1.05))
+            and price >= high20 * float(rules.get("near_high20_ratio", 0.98))
+        )
         if not liquid or not above_min_price:
             state = SignalState.IGNORE
-        elif total >= float(self.s["score_threshold_entry"]):
+        elif total >= float(self.s["score_threshold_entry"]) and entry_quality:
             state = SignalState.READY
         elif total >= float(self.s["score_threshold_watch"]):
             state = SignalState.WATCH
@@ -81,6 +94,8 @@ class SignalEngine:
             rationale.append(f"حجم تداول {vol_ratio:.1f}× المتوسط")
         if disclosure and disclosure.label != "neutral":
             rationale.append(f"إفصاح {disclosure.label}: {disclosure.title[:70]}")
+        if total >= float(self.s["score_threshold_entry"]) and not entry_quality:
+            rationale.append("شروط جودة الدخول V2 غير مكتملة")
 
         return Signal(
             symbol=symbol,
