@@ -65,7 +65,13 @@ def _breadth(rows: list[pd.Series], cfg: dict) -> str:
     return "RISK_OFF"
 
 
-STRATEGIES = ("breakout", "trend_pullback", "momentum_6m", "low_vol_trend")
+STRATEGIES = (
+    "breakout",
+    "trend_pullback",
+    "momentum_6m",
+    "low_vol_trend",
+    "contrarian_3m",
+)
 
 
 def _candidate(row: pd.Series, cfg: dict, strategy: str) -> tuple[float, float] | None:
@@ -127,6 +133,23 @@ def _candidate(row: pd.Series, cfg: dict, strategy: str) -> tuple[float, float] 
             - 4 * float(row["atr_pct"])
             + float(row["ema50_slope20"])
         )
+    elif strategy == "contrarian_3m":
+        # Saudi-market research reports a cross-sectional contrarian effect at
+        # a three-month observation horizon. Keep it long-only and require the
+        # broader long-term trend so a weak stock is not bought blindly.
+        valid = (
+            price > row["ema200"]
+            and float(row["xs_roc63_percentile"]) <= 0.20
+            and -25 <= float(row["roc63"]) <= -3
+            and 30 <= rsi <= 50
+            and float(row["atr_pct"]) <= 6
+            and volume >= 0.80
+        )
+        score = (
+            (0.20 - float(row["xs_roc63_percentile"])) * 100
+            - float(row["roc63"])
+            - 2 * float(row["atr_pct"])
+        )
     else:
         raise ValueError(f"Unknown strategy: {strategy}")
     if not valid:
@@ -153,13 +176,28 @@ def _portfolio_fold(
     equity, peak, max_dd = starting_equity, starting_equity, 0.0
     commission = float(paper["commission_bps"]) / 10000
     slippage = float(paper["slippage_bps"]) / 10000
+    historical_regime = dict(cfg["market_regime"])
+    historical_regime["min_eligible_symbols"] = historical_regime.get(
+        "historical_min_eligible_symbols",
+        historical_regime["min_eligible_symbols"],
+    )
     pending: dict[str, _Pending] = {}
     positions: dict[str, _Position] = {}
     pnls: list[float] = []
 
     for session in dates:
         timestamp = pd.Timestamp(session)
-        rows = {s: f.loc[timestamp] for s, f in frames.items() if timestamp in f.index}
+        rows = {
+            s: f.loc[timestamp].copy()
+            for s, f in frames.items()
+            if timestamp in f.index
+        }
+        roc63 = pd.Series(
+            {symbol: float(row["roc63"]) for symbol, row in rows.items()}
+        )
+        percentiles = roc63.rank(method="average", pct=True)
+        for symbol, row in rows.items():
+            row["xs_roc63_percentile"] = float(percentiles[symbol])
 
         opened = 0
         for symbol, order in sorted(pending.items(), key=lambda x: x[1].score, reverse=True):
@@ -216,7 +254,7 @@ def _portfolio_fold(
         peak = max(peak, marked)
         max_dd = min(max_dd, marked / peak - 1)
 
-        regime = _breadth(list(rows.values()), cfg["market_regime"])
+        regime = _breadth(list(rows.values()), historical_regime)
         if regime == "RISK_OFF":
             continue
         candidates = []
@@ -232,6 +270,25 @@ def _portfolio_fold(
         slots = max(0, int(risk["max_open_positions"]) - len(positions))
         for score, symbol, distance in sorted(candidates, reverse=True)[:slots]:
             pending[symbol] = _Pending(session, distance, score)
+
+    # Folds are deliberately independent calendar-year tests. Realise every
+    # remaining position at that symbol's final available close in the year so
+    # return, trade count, and profit factor never omit an open loss or profit.
+    for symbol, position in list(positions.items()):
+        frame = frames[symbol]
+        year_rows = frame[pd.DatetimeIndex(frame.index).year == year]
+        if year_rows.empty:
+            continue
+        exit_price = float(year_rows.iloc[-1]["close"]) * (1 - slippage)
+        pnl = (
+            position.qty * (exit_price - position.entry)
+            - position.qty * exit_price * commission
+        )
+        equity += pnl
+        pnls.append(pnl)
+        del positions[symbol]
+    peak = max(peak, equity)
+    max_dd = min(max_dd, equity / peak - 1)
 
     if not pnls:
         return FoldResult(year, 0, 0.0, 0.0, 0.0, 0.0, strategy)
@@ -249,10 +306,13 @@ def _portfolio_fold(
     )
 
 
-def walk_forward(histories: dict[str, pd.DataFrame], settings: dict) -> list[FoldResult]:
+def evaluate_strategy_lab(
+    histories: dict[str, pd.DataFrame],
+    settings: dict,
+) -> tuple[list[FoldResult], dict[tuple[str, int], FoldResult]]:
     all_dates = [pd.Timestamp(i).date() for h in histories.values() for i in h.index]
     if not all_dates:
-        return []
+        return [], {}
     frames = {}
     for symbol, history in histories.items():
         frame = enrich(history)
@@ -262,21 +322,28 @@ def walk_forward(histories: dict[str, pd.DataFrame], settings: dict) -> list[Fol
         frame["ema50_slope20"] = frame["ema50"].pct_change(20) * 100
         frames[symbol] = frame.dropna()
     latest_year = max(all_dates).year
-    first_training_year = latest_year - 5
+    lab = settings["validation"].get("strategy_lab", {})
+    training_years = int(lab.get("training_years", 2))
+    oos_years = int(lab.get("oos_years", 4))
+    first_training_year = latest_year - (training_years + oos_years - 1)
     matrix = {
         (strategy, year): _portfolio_fold(year, frames, settings, strategy)
         for strategy in STRATEGIES
         for year in range(first_training_year, latest_year + 1)
     }
     selected_folds = []
-    lab = settings["validation"].get("strategy_lab", {})
-    for target_year in range(latest_year - 3, latest_year + 1):
+    for target_year in range(latest_year - oos_years + 1, latest_year + 1):
         strategy = _select_strategy(matrix, target_year, lab)
         if strategy is None:
             selected_folds.append(FoldResult(target_year, 0, 0, 0, 0, 0, "CASH"))
             continue
         selected_folds.append(matrix[(strategy, target_year)])
-    return selected_folds
+    return selected_folds, matrix
+
+
+def walk_forward(histories: dict[str, pd.DataFrame], settings: dict) -> list[FoldResult]:
+    folds, _ = evaluate_strategy_lab(histories, settings)
+    return folds
 
 
 def _select_strategy(
@@ -286,7 +353,11 @@ def _select_strategy(
 ) -> str | None:
     choices = []
     for strategy in STRATEGIES:
-        training = [matrix[(strategy, target_year - offset)] for offset in (2, 1)]
+        training_years = int(lab.get("training_years", 2))
+        training = [
+            matrix[(strategy, target_year - offset)]
+            for offset in range(training_years, 0, -1)
+        ]
         trades = sum(f.trades for f in training)
         combined_return = sum(f.return_pct for f in training)
         factors = [f.profit_factor for f in training if f.trades]
@@ -322,14 +393,27 @@ def decide(folds: list[FoldResult], settings: dict) -> ValidationDecision:
     return ValidationDecision("BACKTEST_PASS" if not failed else "BLOCK", failed)
 
 
-def write_report(output_dir: Path, folds: list[FoldResult], decision: ValidationDecision) -> None:
+def write_report(
+    output_dir: Path,
+    folds: list[FoldResult],
+    decision: ValidationDecision,
+    matrix: dict[tuple[str, int], FoldResult] | None = None,
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    payload = {"decision": asdict(decision), "folds": [asdict(f) for f in folds]}
+    matrix_rows = [
+        asdict(matrix[key])
+        for key in sorted(matrix or {}, key=lambda item: (item[1], item[0]))
+    ]
+    payload = {
+        "decision": asdict(decision),
+        "folds": [asdict(f) for f in folds],
+        "strategy_matrix": matrix_rows,
+    }
     (output_dir / "validation_report.json").write_text(
         json.dumps(payload, indent=2), encoding="utf-8"
     )
     lines = [
-        "# Saudi Trading Bot — Nested Strategy Lab V3",
+        "# Saudi Trading Bot — Nested Strategy Lab V3.1",
         "",
         f"Decision: **{decision.status}**",
         "",
@@ -337,7 +421,7 @@ def write_report(output_dir: Path, folds: list[FoldResult], decision: Validation
         "commission, slippage, stops, targets, and maximum holding period.",
         "Current Sharia allowlist is applied historically (survivorship-bias limitation).",
         "",
-        "Each OOS year uses only the prior two years to select among four predefined",
+        "Each OOS year uses only prior years to select among five predefined",
         "strategy families. The target year remains unseen during selection.",
         "",
         "| OOS year | Selected | Trades | Win rate | Return | Max drawdown | Profit factor |",
@@ -349,6 +433,24 @@ def write_report(output_dir: Path, folds: list[FoldResult], decision: Validation
     )
     if decision.reasons:
         lines.extend(["", "Failed gates:", *[f"- {r}" for r in decision.reasons]])
+    if matrix_rows:
+        lines.extend(
+            [
+                "",
+                "## Full strategy matrix",
+                "",
+                "This diagnostic matrix is not used to select the same year's strategy.",
+                "",
+                "| Year | Strategy | Trades | Return | Max drawdown | Profit factor |",
+                "|---:|---|---:|---:|---:|---:|",
+            ]
+        )
+        lines.extend(
+            f"| {row['year']} | {row['strategy']} | {row['trades']} | "
+            f"{row['return_pct']:.1f}% | {row['max_drawdown_pct']:.1f}% | "
+            f"{row['profit_factor']:.2f} |"
+            for row in matrix_rows
+        )
     lines.extend(["", "A PASS still requires 3–5 clean Paper sessions before a tiny pilot."])
     (output_dir / "validation_report.md").write_text(
         "\n".join(lines) + "\n", encoding="utf-8"

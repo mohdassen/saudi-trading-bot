@@ -9,6 +9,7 @@ market:
 market_regime:
   method: sharia_breadth
   min_eligible_symbols: 150
+  historical_min_eligible_symbols: 80
   min_history_rows: 220
   risk_on_min_pct_above_ema50: 50.0
   risk_on_min_pct_above_ema200: 45.0
@@ -90,14 +91,15 @@ notifications:
   state_file: artifacts/alert_state.json
 
 validation:
-  engine: nested_strategy_lab_v3
-  years: 5
-  min_oos_trades: 80
+  engine: nested_strategy_lab_v3_1
+  years: 10
+  min_oos_trades: 120
   min_win_rate_pct: 38.0
   min_profit_factor: 1.20
   max_drawdown_pct: 15.0
-  min_profitable_folds: 3
+  min_profitable_folds: 5
   strategy_lab:
     training_years: 2
+    oos_years: 8
     min_train_trades: 12
     min_train_profit_factor: 1.05
