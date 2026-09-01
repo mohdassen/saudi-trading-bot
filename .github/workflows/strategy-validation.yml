@@ -31,7 +31,7 @@ jobs:
       - run: pip install -e .
       - name: Refresh free Sharia allowlist
         run: saudi-bot sync-sharia --best-effort
-      - name: Run five-year walk-forward validation
+      - name: Run ten-year nested walk-forward validation
         env:
           ZERO_PAID_SERVICES: "true"
         run: saudi-bot validate
