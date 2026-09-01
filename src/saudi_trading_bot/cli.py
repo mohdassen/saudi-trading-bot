@@ -13,6 +13,7 @@ from saudi_trading_bot.backtest.core import run_symbol_backtest
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
 from saudi_trading_bot.data.market_breadth import MarketBreadthResult, SaudiMarketBreadth
+from saudi_trading_bot.data.quality import validate_market_data
 from saudi_trading_bot.data.resilient import ResilientFreeProvider
 from saudi_trading_bot.disclosures.saudi_exchange import SaudiExchangeDisclosures
 from saudi_trading_bot.doctor import run_doctor
@@ -175,13 +176,21 @@ def scan(send: bool = False) -> int:
         )
 
     regime = _market_regime(cfg, histories)
+    quality = validate_market_data(
+        histories,
+        now,
+        min_symbols=int(s_data["min_fresh_symbols"]),
+        min_consensus_pct=float(s_data["min_session_consensus_pct"]),
+    )
+    print(f"DATA_QUALITY {'PASS' if quality.allowed else 'BLOCK'}: {quality.note}")
     print(f"MARKET_REGIME {regime.state}: {regime.note}")
     if disclosures.last_error:
         print(f"DISCLOSURES_FALLBACK: {disclosures.last_error}")
 
     # Execute signals queued from an earlier completed bar at the first later
     # session open. Only after that do we evaluate that session's stop/target.
-    for opened in portfolio.execute_pending(histories):
+    safe_histories = histories if quality.allowed else {}
+    for opened in portfolio.execute_pending(safe_histories):
         print(
             f"PAPER_ENTRY {opened.symbol} qty={opened.qty} "
             f"entry={opened.entry:.2f} stop={opened.stop:.2f} "
@@ -189,7 +198,7 @@ def scan(send: bool = False) -> int:
             f"opened_on={opened.opened_on}"
         )
     for closed in portfolio.mark_histories(
-        histories,
+        safe_histories,
         max_hold_days=int(s_paper["max_hold_days"]),
     ):
         print(
@@ -248,7 +257,7 @@ def scan(send: bool = False) -> int:
         )
         print(format_signal(signal, decision.source, decision.source_period))
 
-        if regime.allowed and signal.state == SignalState.READY:
+        if quality.allowed and regime.allowed and signal.state == SignalState.READY:
             signal_bar_date = pd.Timestamp(hist.index[-1]).date()
             ready_candidates.append((signal, signal_bar_date))
 
@@ -295,7 +304,7 @@ def scan(send: bool = False) -> int:
         f"SUMMARY scanned={len(rows)} sharia_blocked={blocked_sharia} "
         f"no_data={no_data} open_paper={len(portfolio.positions)} "
         f"pending={len(portfolio.pending)} equity={portfolio.equity_sar:.2f} "
-        f"regime={regime.state}"
+        f"regime={regime.state} data_quality={'PASS' if quality.allowed else 'BLOCK'}"
     )
     print(f"Saved {out}")
     return 0

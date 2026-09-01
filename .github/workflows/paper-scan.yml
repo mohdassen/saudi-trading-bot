@@ -4,8 +4,11 @@ on:
   push:
     branches: [main]
   schedule:
-    # Daily swing scan after Saudi market close: 15:20 Riyadh (12:20 UTC), Sun-Thu.
+    # Redundant post-close windows. GitHub schedules may be delayed or a single
+    # cron event may be dropped. Portfolio operations are date-idempotent.
     - cron: "20 12 * * 0-4"
+    - cron: "50 12 * * 0-4"
+    - cron: "20 13 * * 0-4"
 
 permissions:
   contents: read
