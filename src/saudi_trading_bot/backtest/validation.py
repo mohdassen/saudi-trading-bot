@@ -18,6 +18,7 @@ class FoldResult:
     return_pct: float
     max_drawdown_pct: float
     profit_factor: float
+    strategy: str = "unknown"
 
 
 @dataclass(frozen=True)
@@ -64,29 +65,81 @@ def _breadth(rows: list[pd.Series], cfg: dict) -> str:
     return "RISK_OFF"
 
 
-def _candidate(row: pd.Series, cfg: dict) -> tuple[float, float] | None:
+STRATEGIES = ("breakout", "trend_pullback", "momentum_6m", "low_vol_trend")
+
+
+def _candidate(row: pd.Series, cfg: dict, strategy: str) -> tuple[float, float] | None:
     price = float(row["close"])
     rsi, momentum = float(row["rsi14"]), float(row["roc20"])
     volume = float(row["vol_ratio"])
     rules = cfg["entry_rules"]
-    valid = (
+    liquid = (
         price >= float(cfg["min_price_sar"])
         and float(row["avg_value20"]) >= float(cfg["min_avg_value_sar_20d"])
-        and price > row["ema20"] > row["ema50"] > row["ema200"]
-        and float(rules["rsi_min"]) <= rsi <= float(rules["rsi_max"])
-        and float(rules["momentum_20d_min_pct"])
-        <= momentum
-        <= float(rules["momentum_20d_max_pct"])
-        and volume >= float(rules["volume_ratio_min"])
-        and price >= float(row["high20"]) * float(rules["near_high20_ratio"])
     )
+    if not liquid:
+        return None
+
+    if strategy == "breakout":
+        valid = (
+            price > row["ema20"] > row["ema50"] > row["ema200"]
+            and float(rules["rsi_min"]) <= rsi <= float(rules["rsi_max"])
+            and float(rules["momentum_20d_min_pct"])
+            <= momentum
+            <= float(rules["momentum_20d_max_pct"])
+            and volume >= float(rules["volume_ratio_min"])
+            and price >= float(row["high20"]) * float(rules["near_high20_ratio"])
+        )
+        score = momentum * 2 + volume * 15 + (68 - abs(60 - rsi))
+    elif strategy == "trend_pullback":
+        distance20 = price / float(row["ema20"]) - 1
+        valid = (
+            price > row["ema50"] > row["ema200"]
+            and -0.03 <= distance20 <= 0.02
+            and 45 <= rsi <= 59
+            and float(row["roc63"]) >= 3
+            and volume >= 0.70
+        )
+        score = float(row["roc63"]) + (60 - rsi) * 2 - abs(distance20) * 100
+    elif strategy == "momentum_6m":
+        valid = (
+            price > row["ema50"] > row["ema200"]
+            and 8 <= float(row["roc126"]) <= 60
+            and float(row["roc63"]) >= 3
+            and 50 <= rsi <= 70
+            and volume >= 0.80
+        )
+        score = (
+            float(row["roc126"])
+            + 0.5 * float(row["roc63"])
+            - 2 * float(row["atr_pct"])
+        )
+    elif strategy == "low_vol_trend":
+        valid = (
+            price > row["ema50"] > row["ema200"]
+            and float(row["ema50_slope20"]) > 0
+            and 3 <= float(row["roc63"]) <= 25
+            and float(row["atr_pct"]) <= 4.5
+            and 48 <= rsi <= 64
+        )
+        score = (
+            2 * float(row["roc63"])
+            - 4 * float(row["atr_pct"])
+            + float(row["ema50_slope20"])
+        )
+    else:
+        raise ValueError(f"Unknown strategy: {strategy}")
     if not valid:
         return None
-    score = momentum * 2 + volume * 15 + (68 - abs(60 - rsi))
     return score, max(0.01, float(row["atr14"]) * 1.8)
 
 
-def _portfolio_fold(year: int, frames: dict[str, pd.DataFrame], cfg: dict) -> FoldResult:
+def _portfolio_fold(
+    year: int,
+    frames: dict[str, pd.DataFrame],
+    cfg: dict,
+    strategy: str,
+) -> FoldResult:
     risk, paper = cfg["risk"], cfg["paper"]
     dates = sorted(
         {
@@ -170,10 +223,10 @@ def _portfolio_fold(year: int, frames: dict[str, pd.DataFrame], cfg: dict) -> Fo
         for symbol, row in rows.items():
             if symbol in positions:
                 continue
-            item = _candidate(row, cfg["signals"])
+            item = _candidate(row, cfg["signals"], strategy)
             if item:
                 score, distance = item
-                if regime == "RECOVERY" and score < 105:
+                if regime == "RECOVERY" and strategy == "breakout" and score < 105:
                     continue
                 candidates.append((score, symbol, distance))
         slots = max(0, int(risk["max_open_positions"]) - len(positions))
@@ -181,7 +234,7 @@ def _portfolio_fold(year: int, frames: dict[str, pd.DataFrame], cfg: dict) -> Fo
             pending[symbol] = _Pending(session, distance, score)
 
     if not pnls:
-        return FoldResult(year, 0, 0.0, 0.0, 0.0, 0.0)
+        return FoldResult(year, 0, 0.0, 0.0, 0.0, 0.0, strategy)
     series = pd.Series(pnls)
     wins, losses = float(series[series > 0].sum()), float(-series[series < 0].sum())
     factor = wins / losses if losses else float("inf")
@@ -192,6 +245,7 @@ def _portfolio_fold(year: int, frames: dict[str, pd.DataFrame], cfg: dict) -> Fo
         round((equity / starting_equity - 1) * 100, 2),
         round(max_dd * 100, 2),
         round(factor, 2),
+        strategy,
     )
 
 
@@ -199,12 +253,54 @@ def walk_forward(histories: dict[str, pd.DataFrame], settings: dict) -> list[Fol
     all_dates = [pd.Timestamp(i).date() for h in histories.values() for i in h.index]
     if not all_dates:
         return []
-    frames = {symbol: enrich(history).dropna() for symbol, history in histories.items()}
+    frames = {}
+    for symbol, history in histories.items():
+        frame = enrich(history)
+        frame["roc63"] = frame["close"].pct_change(63) * 100
+        frame["roc126"] = frame["close"].pct_change(126) * 100
+        frame["atr_pct"] = frame["atr14"] / frame["close"] * 100
+        frame["ema50_slope20"] = frame["ema50"].pct_change(20) * 100
+        frames[symbol] = frame.dropna()
     latest_year = max(all_dates).year
-    return [
-        _portfolio_fold(year, frames, settings)
-        for year in range(latest_year - 3, latest_year + 1)
-    ]
+    first_training_year = latest_year - 5
+    matrix = {
+        (strategy, year): _portfolio_fold(year, frames, settings, strategy)
+        for strategy in STRATEGIES
+        for year in range(first_training_year, latest_year + 1)
+    }
+    selected_folds = []
+    lab = settings["validation"].get("strategy_lab", {})
+    for target_year in range(latest_year - 3, latest_year + 1):
+        strategy = _select_strategy(matrix, target_year, lab)
+        if strategy is None:
+            selected_folds.append(FoldResult(target_year, 0, 0, 0, 0, 0, "CASH"))
+            continue
+        selected_folds.append(matrix[(strategy, target_year)])
+    return selected_folds
+
+
+def _select_strategy(
+    matrix: dict[tuple[str, int], FoldResult],
+    target_year: int,
+    lab: dict,
+) -> str | None:
+    choices = []
+    for strategy in STRATEGIES:
+        training = [matrix[(strategy, target_year - offset)] for offset in (2, 1)]
+        trades = sum(f.trades for f in training)
+        combined_return = sum(f.return_pct for f in training)
+        factors = [f.profit_factor for f in training if f.trades]
+        median_factor = float(pd.Series(factors).median()) if factors else 0
+        worst_dd = min((f.max_drawdown_pct for f in training), default=-100)
+        if (
+            trades < int(lab.get("min_train_trades", 12))
+            or combined_return <= 0
+            or median_factor < float(lab.get("min_train_profit_factor", 1.05))
+        ):
+            continue
+        score = combined_return + 10 * (median_factor - 1) + worst_dd * 0.25
+        choices.append((score, strategy))
+    return max(choices)[1] if choices else None
 
 
 def decide(folds: list[FoldResult], settings: dict) -> ValidationDecision:
@@ -233,7 +329,7 @@ def write_report(output_dir: Path, folds: list[FoldResult], decision: Validation
         json.dumps(payload, indent=2), encoding="utf-8"
     )
     lines = [
-        "# Saudi Trading Bot — Portfolio Walk-Forward Validation v2",
+        "# Saudi Trading Bot — Nested Strategy Lab V3",
         "",
         f"Decision: **{decision.status}**",
         "",
@@ -241,11 +337,14 @@ def write_report(output_dir: Path, folds: list[FoldResult], decision: Validation
         "commission, slippage, stops, targets, and maximum holding period.",
         "Current Sharia allowlist is applied historically (survivorship-bias limitation).",
         "",
-        "| OOS year | Trades | Win rate | Return | Max drawdown | Profit factor |",
-        "|---:|---:|---:|---:|---:|---:|",
+        "Each OOS year uses only the prior two years to select among four predefined",
+        "strategy families. The target year remains unseen during selection.",
+        "",
+        "| OOS year | Selected | Trades | Win rate | Return | Max drawdown | Profit factor |",
+        "|---:|---|---:|---:|---:|---:|---:|",
     ]
     lines.extend(
-        f"| {f.year} | {f.trades} | {f.win_rate:.1f}% | {f.return_pct:.1f}% | "
+        f"| {f.year} | {f.strategy} | {f.trades} | {f.win_rate:.1f}% | {f.return_pct:.1f}% | "
         f"{f.max_drawdown_pct:.1f}% | {f.profit_factor:.2f} |" for f in folds
     )
     if decision.reasons:
