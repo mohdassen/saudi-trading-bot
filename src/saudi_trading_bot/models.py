@@ -35,3 +35,5 @@ class Signal:
     atr: float
     rationale: tuple[str, ...]
     generated_at: datetime
+    strategy: str = "CASH"
+    strategy_score: float = 0.0

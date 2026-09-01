@@ -15,7 +15,7 @@ permissions:
 
 # A single Paper portfolio must never be mutated by overlapping runs.
 concurrency:
-  group: saudi-paper-scan-v2
+  group: saudi-paper-scan-v3
   cancel-in-progress: true
 
 jobs:
@@ -38,11 +38,11 @@ jobs:
             data/universe.csv
             artifacts/paper_portfolio.json
             artifacts/alert_state.json
-          # v2 deliberately starts a clean Paper ledger because v1 filled signals
-          # on the signal close instead of the next session open.
-          key: saudi-paper-v2-${{ runner.os }}-${{ github.run_id }}
+          # v3 starts a clean ledger because only a validation-approved active
+          # strategy may now create a pending Paper entry.
+          key: saudi-paper-v3-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
-            saudi-paper-v2-${{ runner.os }}-
+            saudi-paper-v3-${{ runner.os }}-
       - run: pip install -e .
       - name: Refresh free Sharia allowlist (best effort)
         run: saudi-bot sync-sharia --best-effort

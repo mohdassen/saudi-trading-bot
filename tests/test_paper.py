@@ -1,3 +1,4 @@
+from dataclasses import replace
 from datetime import UTC, date, datetime
 from pathlib import Path
 
@@ -65,3 +66,14 @@ def test_next_session_open_then_target_exit(tmp_path: Path):
     assert trades[0].reason == "target"
     assert trades[0].pnl_sar > 0
     assert "1120" not in portfolio.positions
+
+
+def test_cash_gate_discards_pending_strategy(tmp_path: Path):
+    portfolio = PaperPortfolio(tmp_path / "paper.json", 100000, 0.75, 12.5, 5, 2)
+    validated = replace(signal(), strategy="momentum_6m", strategy_score=31)
+    queued = portfolio.queue(validated, signal_bar_date=date(2026, 9, 1))
+
+    assert queued is not None
+    assert queued.score == 31
+    assert portfolio.discard_unapproved_pending("CASH") == ["1120"]
+    assert portfolio.pending == {}

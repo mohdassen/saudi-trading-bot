@@ -95,7 +95,7 @@ class SignalEngine:
         if disclosure and disclosure.label != "neutral":
             rationale.append(f"إفصاح {disclosure.label}: {disclosure.title[:70]}")
         if total >= float(self.s["score_threshold_entry"]) and not entry_quality:
-            rationale.append("شروط جودة الدخول V2 غير مكتملة")
+            rationale.append("شروط breakout الأساسية غير مكتملة")
 
         return Signal(
             symbol=symbol,

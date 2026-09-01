@@ -17,7 +17,7 @@ market_regime:
   recovery_min_pct_above_ema50: 55.0
   recovery_min_pct_above_ema200: 30.0
   recovery_min_median_mom20_pct: 1.0
-  recovery_min_entry_score: 80.0
+  recovery_breakout_min_strategy_score: 105.0
 
 data:
   provider: yfinance
@@ -48,6 +48,7 @@ disclosures:
   timeout_seconds: 20
 
 signals:
+  active_strategy: CASH
   min_history_rows: 220
   min_price_sar: 3.0
   min_avg_value_sar_20d: 1000000
