@@ -7,7 +7,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from saudi_trading_bot.signals.indicators import enrich
+from saudi_trading_bot.signals.strategies import (
+    STRATEGIES,
+    enrich_strategy,
+    evaluate_candidate,
+)
 
 
 @dataclass(frozen=True)
@@ -65,96 +69,11 @@ def _breadth(rows: list[pd.Series], cfg: dict) -> str:
     return "RISK_OFF"
 
 
-STRATEGIES = (
-    "breakout",
-    "trend_pullback",
-    "momentum_6m",
-    "low_vol_trend",
-    "contrarian_3m",
-)
-
-
 def _candidate(row: pd.Series, cfg: dict, strategy: str) -> tuple[float, float] | None:
-    price = float(row["close"])
-    rsi, momentum = float(row["rsi14"]), float(row["roc20"])
-    volume = float(row["vol_ratio"])
-    rules = cfg["entry_rules"]
-    liquid = (
-        price >= float(cfg["min_price_sar"])
-        and float(row["avg_value20"]) >= float(cfg["min_avg_value_sar_20d"])
-    )
-    if not liquid:
+    candidate = evaluate_candidate(row, cfg, strategy)
+    if candidate is None:
         return None
-
-    if strategy == "breakout":
-        valid = (
-            price > row["ema20"] > row["ema50"] > row["ema200"]
-            and float(rules["rsi_min"]) <= rsi <= float(rules["rsi_max"])
-            and float(rules["momentum_20d_min_pct"])
-            <= momentum
-            <= float(rules["momentum_20d_max_pct"])
-            and volume >= float(rules["volume_ratio_min"])
-            and price >= float(row["high20"]) * float(rules["near_high20_ratio"])
-        )
-        score = momentum * 2 + volume * 15 + (68 - abs(60 - rsi))
-    elif strategy == "trend_pullback":
-        distance20 = price / float(row["ema20"]) - 1
-        valid = (
-            price > row["ema50"] > row["ema200"]
-            and -0.03 <= distance20 <= 0.02
-            and 45 <= rsi <= 59
-            and float(row["roc63"]) >= 3
-            and volume >= 0.70
-        )
-        score = float(row["roc63"]) + (60 - rsi) * 2 - abs(distance20) * 100
-    elif strategy == "momentum_6m":
-        valid = (
-            price > row["ema50"] > row["ema200"]
-            and 8 <= float(row["roc126"]) <= 60
-            and float(row["roc63"]) >= 3
-            and 50 <= rsi <= 70
-            and volume >= 0.80
-        )
-        score = (
-            float(row["roc126"])
-            + 0.5 * float(row["roc63"])
-            - 2 * float(row["atr_pct"])
-        )
-    elif strategy == "low_vol_trend":
-        valid = (
-            price > row["ema50"] > row["ema200"]
-            and float(row["ema50_slope20"]) > 0
-            and 3 <= float(row["roc63"]) <= 25
-            and float(row["atr_pct"]) <= 4.5
-            and 48 <= rsi <= 64
-        )
-        score = (
-            2 * float(row["roc63"])
-            - 4 * float(row["atr_pct"])
-            + float(row["ema50_slope20"])
-        )
-    elif strategy == "contrarian_3m":
-        # Saudi-market research reports a cross-sectional contrarian effect at
-        # a three-month observation horizon. Keep it long-only and require the
-        # broader long-term trend so a weak stock is not bought blindly.
-        valid = (
-            price > row["ema200"]
-            and float(row["xs_roc63_percentile"]) <= 0.20
-            and -25 <= float(row["roc63"]) <= -3
-            and 30 <= rsi <= 50
-            and float(row["atr_pct"]) <= 6
-            and volume >= 0.80
-        )
-        score = (
-            (0.20 - float(row["xs_roc63_percentile"])) * 100
-            - float(row["roc63"])
-            - 2 * float(row["atr_pct"])
-        )
-    else:
-        raise ValueError(f"Unknown strategy: {strategy}")
-    if not valid:
-        return None
-    return score, max(0.01, float(row["atr14"]) * 1.8)
+    return candidate.score, candidate.risk_distance
 
 
 def _portfolio_fold(
@@ -264,7 +183,17 @@ def _portfolio_fold(
             item = _candidate(row, cfg["signals"], strategy)
             if item:
                 score, distance = item
-                if regime == "RECOVERY" and strategy == "breakout" and score < 105:
+                if (
+                    regime == "RECOVERY"
+                    and strategy == "breakout"
+                    and score
+                    < float(
+                        historical_regime.get(
+                            "recovery_breakout_min_strategy_score",
+                            105,
+                        )
+                    )
+                ):
                     continue
                 candidates.append((score, symbol, distance))
         slots = max(0, int(risk["max_open_positions"]) - len(positions))
@@ -315,11 +244,7 @@ def evaluate_strategy_lab(
         return [], {}
     frames = {}
     for symbol, history in histories.items():
-        frame = enrich(history)
-        frame["roc63"] = frame["close"].pct_change(63) * 100
-        frame["roc126"] = frame["close"].pct_change(126) * 100
-        frame["atr_pct"] = frame["atr14"] / frame["close"] * 100
-        frame["ema50_slope20"] = frame["ema50"].pct_change(20) * 100
+        frame = enrich_strategy(history)
         frames[symbol] = frame.dropna()
     latest_year = max(all_dates).year
     lab = settings["validation"].get("strategy_lab", {})
