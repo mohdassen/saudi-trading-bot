@@ -10,6 +10,7 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from saudi_trading_bot.backtest.core import run_symbol_backtest
+from saudi_trading_bot.backtest.validation import decide, walk_forward, write_report
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
 from saudi_trading_bot.data.market_breadth import MarketBreadthResult, SaudiMarketBreadth
@@ -352,6 +353,50 @@ def backtest() -> int:
     return 0
 
 
+def validate_strategy() -> int:
+    """Run five-year research plus rolling out-of-sample validation."""
+    cfg = load_settings()
+    s_market = cfg.section("market")
+    s_paper = cfg.section("paper")
+    s_sharia = cfg.section("sharia")
+    s_validation = cfg.section("validation")
+    provider = _provider(cfg)
+    sharia = StrictShariaFilter(
+        cfg.path(s_sharia["allowlist_file"]),
+        99999,
+        s_sharia["block_unknown"],
+    )
+    end = datetime.now(RIYADH).date() + timedelta(days=1)
+    start = end - timedelta(days=365 * int(s_validation["years"]) + 250)
+    histories: dict[str, pd.DataFrame] = {}
+    for _, row in _universe(cfg.path(s_market["symbols_file"])).iterrows():
+        symbol = str(row["symbol"])
+        if not sharia.check(symbol).allowed:
+            continue
+        history = provider.history(symbol, start, end, "1d")
+        if len(history) >= 300:
+            histories[symbol] = history
+
+    folds = walk_forward(
+        histories,
+        float(s_paper["commission_bps"]),
+        float(s_paper["slippage_bps"]),
+        int(s_paper["max_hold_days"]),
+    )
+    decision = decide(folds, s_validation)
+    write_report(cfg.root / "artifacts", folds, decision)
+    print(f"VALIDATION {decision.status}: symbols={len(histories)} folds={len(folds)}")
+    for fold in folds:
+        print(
+            f"OOS {fold.year}: trades={fold.trades} win={fold.win_rate:.1f}% "
+            f"return={fold.return_pct:.1f}% dd={fold.max_drawdown_pct:.1f}% "
+            f"pf={fold.profit_factor:.2f}"
+        )
+    if decision.reasons:
+        print("BLOCK_REASONS: " + "; ".join(decision.reasons))
+    return 0
+
+
 def sync_sharia(best_effort: bool = False) -> int:
     cfg = load_settings()
     settings = cfg.section("sharia")
@@ -391,6 +436,7 @@ def main() -> int:
     scan_parser = sub.add_parser("scan")
     scan_parser.add_argument("--send", action="store_true")
     sub.add_parser("backtest")
+    sub.add_parser("validate")
     sharia_parser = sub.add_parser("sync-sharia")
     sharia_parser.add_argument("--best-effort", action="store_true")
     sub.add_parser("doctor")
@@ -400,6 +446,8 @@ def main() -> int:
         return scan(send=args.send)
     if args.cmd == "backtest":
         return backtest()
+    if args.cmd == "validate":
+        return validate_strategy()
     if args.cmd == "sync-sharia":
         return sync_sharia(best_effort=args.best_effort)
 

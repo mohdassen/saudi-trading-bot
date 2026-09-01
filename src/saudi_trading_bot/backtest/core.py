@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 
 import pandas as pd
 
@@ -17,20 +18,28 @@ class BacktestResult:
     profit_factor: float
 
 
-def run_symbol_backtest(
-    symbol: str,
+def simulate_trade_returns(
     df: pd.DataFrame,
     commission_bps: float = 15.5,
     slippage_bps: float = 10.0,
     max_hold_days: int = 25,
-) -> BacktestResult:
+    signal_start: date | None = None,
+    signal_end: date | None = None,
+) -> list[float]:
+    """Return net trade returns with next-session execution and no look-ahead."""
     x = enrich(df).dropna().copy()
     if len(x) < 80:
-        return BacktestResult(symbol, 0, 0.0, 0.0, 0.0, 0.0)
+        return []
 
     returns: list[float] = []
     i = 0
     while i < len(x) - 2:
+        signal_date = pd.Timestamp(x.index[i]).date()
+        if signal_start and signal_date < signal_start:
+            i += 1
+            continue
+        if signal_end and signal_date > signal_end:
+            break
         r = x.iloc[i]
         setup = (
             r["close"] > r["ema50"] > r["ema200"]
@@ -47,8 +56,8 @@ def run_symbol_backtest(
         atr = float(r["atr14"])
         stop = entry - 1.8 * atr
         target = entry + 2.2 * (entry - stop)
-        exit_price = float(x.iloc[min(i + 1 + max_hold_days, len(x) - 1)]["close"])
         exit_i = min(i + 1 + max_hold_days, len(x) - 1)
+        exit_price = float(x.iloc[exit_i]["close"])
         for j in range(i + 1, exit_i + 1):
             day = x.iloc[j]
             if float(day["low"]) <= stop:
@@ -61,10 +70,12 @@ def run_symbol_backtest(
                 break
 
         friction = 2 * (commission_bps + slippage_bps) / 10000.0
-        ret = (exit_price / entry - 1.0) - friction
-        returns.append(ret)
+        returns.append((exit_price / entry - 1.0) - friction)
         i = exit_i + 1
+    return returns
 
+
+def summarize_returns(symbol: str, returns: list[float]) -> BacktestResult:
     if not returns:
         return BacktestResult(symbol, 0, 0.0, 0.0, 0.0, 0.0)
     s = pd.Series(returns)
@@ -80,4 +91,19 @@ def run_symbol_backtest(
         total_return_pct=round(float((equity.iloc[-1] - 1) * 100), 2),
         max_drawdown_pct=round(float(dd.min() * 100), 2),
         profit_factor=round(pf, 2),
+    )
+
+
+def run_symbol_backtest(
+    symbol: str,
+    df: pd.DataFrame,
+    commission_bps: float = 15.5,
+    slippage_bps: float = 10.0,
+    max_hold_days: int = 25,
+) -> BacktestResult:
+    return summarize_returns(
+        symbol,
+        simulate_trade_returns(
+            df, commission_bps, slippage_bps, max_hold_days
+        ),
     )

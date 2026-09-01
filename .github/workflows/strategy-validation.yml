@@ -1,0 +1,47 @@
+name: Saudi Strategy Validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/saudi_trading_bot/backtest/**"
+      - "config/settings.yaml"
+      - ".github/workflows/strategy-validation.yml"
+  schedule:
+    - cron: "30 14 * * 6"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: saudi-strategy-validation
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: ${{ github.event.repository.private == false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Refresh free Sharia allowlist
+        run: saudi-bot sync-sharia --best-effort
+      - name: Run five-year walk-forward validation
+        env:
+          ZERO_PAID_SERVICES: "true"
+        run: saudi-bot validate
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: saudi-strategy-validation-${{ github.run_id }}
+          path: |
+            artifacts/validation_report.json
+            artifacts/validation_report.md
+          if-no-files-found: error
+          retention-days: 30
