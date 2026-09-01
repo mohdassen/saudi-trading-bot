@@ -21,9 +21,13 @@ def format_signal(
     )
     reasons = "\n".join(f"• {r}" for r in signal.rationale) or "• لا يوجد سبب قوي كافٍ"
     sharia = sharia_source + (f" ({sharia_period})" if sharia_period else "")
+    strategy = f"الاستراتيجية: {signal.strategy}"
+    if signal.strategy != "CASH":
+        strategy += f" | تقييمها: {signal.strategy_score:.1f}"
     return (
         f"{icon} Saudi Trading Bot — {signal.state.value}\n"
         f"السهم: {signal.symbol}\n"
+        f"{strategy}\n"
         f"السعر: {signal.price:.2f} ر.س\n"
         f"التقييم: {signal.total_score:.1f}/100\n"
         f"Trend {signal.trend_score:.0f} | Momentum {signal.momentum_score:.0f} | "
