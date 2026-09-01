@@ -21,6 +21,7 @@ class PendingEntry:
     reward_risk: float
     signal_bar_date: str
     queued_on: str
+    strategy: str = "unknown"
 
 
 @dataclass
@@ -34,6 +35,7 @@ class PaperPosition:
     opened_on: str
     last_marked_on: str = ""
     bars_held: int = 0
+    strategy: str = "unknown"
 
 
 @dataclass
@@ -47,6 +49,7 @@ class PaperTrade:
     reason: str
     pnl_sar: float
     return_pct: float
+    strategy: str = "unknown"
 
 
 class PaperPortfolio:
@@ -112,6 +115,18 @@ class PaperPortfolio:
             encoding="utf-8",
         )
 
+    def discard_unapproved_pending(self, active_strategy: str) -> list[str]:
+        removed = [
+            symbol
+            for symbol, pending in self.pending.items()
+            if active_strategy == "CASH" or pending.strategy != active_strategy
+        ]
+        for symbol in removed:
+            self.pending.pop(symbol, None)
+        if removed:
+            self.save()
+        return removed
+
     def _opened_on(self, session_date: date) -> int:
         iso = session_date.isoformat()
         opened = sum(1 for p in self.positions.values() if p.opened_on == iso)
@@ -134,11 +149,16 @@ class PaperPortfolio:
         risk_distance = max(0.01, signal.price - signal.stop)
         pending = PendingEntry(
             symbol=signal.symbol,
-            score=signal.total_score,
+            score=(
+                signal.strategy_score
+                if signal.strategy != "CASH"
+                else signal.total_score
+            ),
             risk_distance=round(risk_distance, 4),
             reward_risk=float(reward_risk),
             signal_bar_date=signal_bar_date.isoformat(),
             queued_on=datetime.now(RIYADH).date().isoformat(),
+            strategy=signal.strategy,
         )
         self.pending[signal.symbol] = pending
         self.save()
@@ -216,6 +236,7 @@ class PaperPortfolio:
                 target=round(target, 4),
                 score=pending.score,
                 opened_on=session_date.isoformat(),
+                strategy=pending.strategy,
             )
             self.positions[pending.symbol] = position
             opened.append(position)
@@ -295,6 +316,7 @@ class PaperPortfolio:
                     reason=reason,
                     pnl_sar=round(pnl, 2),
                     return_pct=round(ret, 2),
+                    strategy=position.strategy,
                 )
                 self.closed.append(trade)
                 self.equity_sar += pnl
