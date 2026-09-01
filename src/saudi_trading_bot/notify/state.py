@@ -17,7 +17,7 @@ class AlertState:
                 self.state = {}
 
     def changed(self, signal: Signal) -> bool:
-        new = signal.state.value
+        new = f"{signal.strategy}:{signal.state.value}"
         old = self.state.get(signal.symbol)
         self.state[signal.symbol] = new
         self.path.parent.mkdir(parents=True, exist_ok=True)
