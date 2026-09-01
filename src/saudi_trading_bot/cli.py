@@ -10,7 +10,11 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from saudi_trading_bot.backtest.core import run_symbol_backtest
-from saudi_trading_bot.backtest.validation import decide, walk_forward, write_report
+from saudi_trading_bot.backtest.validation import (
+    decide,
+    evaluate_strategy_lab,
+    write_report,
+)
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
 from saudi_trading_bot.data.market_breadth import MarketBreadthResult, SaudiMarketBreadth
@@ -354,7 +358,7 @@ def backtest() -> int:
 
 
 def validate_strategy() -> int:
-    """Run five-year research plus rolling out-of-sample validation."""
+    """Run long-horizon nested out-of-sample strategy validation."""
     cfg = load_settings()
     s_market = cfg.section("market")
     s_sharia = cfg.section("sharia")
@@ -376,13 +380,21 @@ def validate_strategy() -> int:
         if len(history) >= 300:
             histories[symbol] = history
 
-    folds = walk_forward(histories, cfg.raw)
+    folds, matrix = evaluate_strategy_lab(histories, cfg.raw)
     decision = decide(folds, s_validation)
-    write_report(cfg.root / "artifacts", folds, decision)
+    write_report(cfg.root / "artifacts", folds, decision, matrix)
     print(f"VALIDATION {decision.status}: symbols={len(histories)} folds={len(folds)}")
     for fold in folds:
         print(
-            f"OOS {fold.year}: trades={fold.trades} win={fold.win_rate:.1f}% "
+            f"OOS {fold.year}: strategy={fold.strategy} trades={fold.trades} "
+            f"win={fold.win_rate:.1f}% "
+            f"return={fold.return_pct:.1f}% dd={fold.max_drawdown_pct:.1f}% "
+            f"pf={fold.profit_factor:.2f}"
+        )
+    for key in sorted(matrix, key=lambda item: (item[1], item[0])):
+        fold = matrix[key]
+        print(
+            f"LAB {fold.year}: strategy={fold.strategy} trades={fold.trades} "
             f"return={fold.return_pct:.1f}% dd={fold.max_drawdown_pct:.1f}% "
             f"pf={fold.profit_factor:.2f}"
         )
