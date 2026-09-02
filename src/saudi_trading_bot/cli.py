@@ -29,6 +29,8 @@ from saudi_trading_bot.doctor import run_doctor
 from saudi_trading_bot.models import SignalState
 from saudi_trading_bot.notify.state import AlertState
 from saudi_trading_bot.notify.telegram import format_signal, send_telegram
+from saudi_trading_bot.paper.explorer import candidate as explorer_candidate
+from saudi_trading_bot.paper.explorer import health as explorer_health
 from saudi_trading_bot.paper.portfolio import PaperPortfolio
 from saudi_trading_bot.sharia.alrajhi import sync_allowlist
 from saudi_trading_bot.sharia.filter import StrictShariaFilter
@@ -122,6 +124,7 @@ def scan(send: bool = False) -> int:
     s_signals = cfg.section("signals")
     s_risk = cfg.section("risk")
     s_paper = cfg.section("paper")
+    s_explorer = cfg.section("explorer")
     s_disc = cfg.section("disclosures")
     s_notify = cfg.section("notifications")
     s_regime = cfg.section("market_regime")
@@ -140,6 +143,16 @@ def scan(send: bool = False) -> int:
         s_risk["max_position_pct"],
         s_risk["max_open_positions"],
         s_risk["max_daily_new_positions"],
+        s_paper["commission_bps"],
+        s_paper["slippage_bps"],
+    )
+    explorer = PaperPortfolio(
+        cfg.path(s_explorer["portfolio_file"]),
+        s_risk["paper_equity_sar"],
+        s_explorer["risk_per_trade_pct"],
+        s_explorer["max_position_pct"],
+        s_explorer["max_open_positions"],
+        s_explorer["max_daily_new_positions"],
         s_paper["commission_bps"],
         s_paper["slippage_bps"],
     )
@@ -204,9 +217,7 @@ def scan(send: bool = False) -> int:
     active_strategy = str(s_signals.get("active_strategy", "CASH"))
     if active_strategy != "CASH" and active_strategy not in STRATEGIES:
         raise RuntimeError(f"Unknown active_strategy: {active_strategy}")
-    strategy_rows = (
-        latest_strategy_rows(histories) if active_strategy != "CASH" else {}
-    )
+    strategy_rows = latest_strategy_rows(histories)
     print(f"ACTIVE_STRATEGY {active_strategy}")
     for symbol in portfolio.discard_unapproved_pending(active_strategy):
         print(f"PAPER_PENDING_CANCELLED {symbol}: strategy validation gate")
@@ -230,11 +241,34 @@ def scan(send: bool = False) -> int:
             f"PnL={closed.pnl_sar:.2f} SAR closed_on={closed.closed_on}"
         )
 
+    explorer_enabled = bool(s_explorer.get("enabled", False))
+    explorer_status = explorer_health(
+        explorer, s_explorer, float(s_risk["paper_equity_sar"])
+    )
+    print(f"EXPLORER {'ENABLED' if explorer_enabled else 'DISABLED'}: {explorer_status.note}")
+    if explorer_enabled:
+        for opened in explorer.execute_pending(safe_histories):
+            print(
+                f"EXPLORER_ENTRY {opened.symbol} qty={opened.qty} entry={opened.entry:.2f} "
+                f"stop={opened.stop:.2f} target={opened.target:.2f}"
+            )
+        for closed in explorer.mark_histories(
+            safe_histories, max_hold_days=int(s_explorer["max_hold_days"])
+        ):
+            print(
+                f"EXPLORER_EXIT {closed.symbol} {closed.reason} "
+                f"PnL={closed.pnl_sar:.2f} SAR"
+            )
+        explorer_status = explorer_health(
+            explorer, s_explorer, float(s_risk["paper_equity_sar"])
+        )
+
     recovery_breakout_min_score = float(
         s_regime["recovery_breakout_min_strategy_score"]
     )
     rows = []
     ready_candidates = []
+    explorer_candidates = []
     for record in records:
         universe_row = record["row"]
         decision = record["decision"]
@@ -246,6 +280,9 @@ def scan(send: bool = False) -> int:
                 symbol, announcements, str(universe_row.get("name_en", ""))
             )
             signal = engine.score(symbol, hist, impact)
+            exploratory = explorer_candidate(
+                signal, strategy_rows.get(symbol), s_explorer
+            )
             signal = gate_signal(
                 signal,
                 strategy_rows.get(symbol),
@@ -296,6 +333,15 @@ def scan(send: bool = False) -> int:
         if quality.allowed and regime.allowed and signal.state == SignalState.READY:
             signal_bar_date = pd.Timestamp(hist.index[-1]).date()
             ready_candidates.append((signal, signal_bar_date))
+        if (
+            quality.allowed
+            and explorer_enabled
+            and explorer_status.allowed
+            and exploratory is not None
+        ):
+            explorer_candidates.append(
+                (exploratory, pd.Timestamp(hist.index[-1]).date())
+            )
 
         changed = alert_state.changed(signal)
         should_send = send and signal.state.value in {"READY", "WATCH"}
@@ -330,6 +376,27 @@ def scan(send: bool = False) -> int:
             f"signal_bar={queued.signal_bar_date} execute=next_session_open"
         )
 
+    explorer_queued = 0
+    for signal, signal_bar_date in sorted(
+        explorer_candidates,
+        key=lambda item: item[0].strategy_score,
+        reverse=True,
+    ):
+        if explorer_queued >= int(s_explorer["max_daily_new_positions"]):
+            break
+        queued = explorer.queue(
+            signal,
+            signal_bar_date=signal_bar_date,
+            reward_risk=float(s_explorer["reward_risk"]),
+        )
+        if queued is None:
+            continue
+        explorer_queued += 1
+        print(
+            f"EXPLORER_QUEUED {queued.symbol} score={queued.score:.1f} "
+            f"signal_bar={queued.signal_bar_date} execute=next_session_open"
+        )
+
     out = cfg.root / "artifacts/latest_scan.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
     columns = [
@@ -351,6 +418,11 @@ def scan(send: bool = False) -> int:
         f"no_data={no_data} open_paper={len(portfolio.positions)} "
         f"pending={len(portfolio.pending)} equity={portfolio.equity_sar:.2f} "
         f"regime={regime.state} data_quality={'PASS' if quality.allowed else 'BLOCK'}"
+    )
+    print(
+        f"EXPLORER_SUMMARY open={len(explorer.positions)} "
+        f"pending={len(explorer.pending)} closed={len(explorer.closed)} "
+        f"equity={explorer.equity_sar:.2f} brake={'OFF' if explorer_status.allowed else 'ON'}"
     )
     print(f"Saved {out}")
     return 0
