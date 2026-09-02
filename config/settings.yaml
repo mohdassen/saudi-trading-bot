@@ -85,6 +85,23 @@ paper:
   min_hold_days: 2
   max_hold_days: 25
 
+# Independent learning portfolio. It may collect conservative Paper evidence
+# while Core remains CASH, but it can never place or expose a broker order.
+explorer:
+  enabled: true
+  portfolio_file: artifacts/explorer_portfolio.json
+  risk_per_trade_pct: 0.25
+  max_position_pct: 5.0
+  max_open_positions: 3
+  max_daily_new_positions: 1
+  min_signal_score: 78
+  reward_risk: 1.8
+  max_hold_days: 10
+  performance_window: 10
+  min_trades_before_brake: 10
+  min_profit_factor: 0.80
+  max_loss_pct: 2.0
+
 notifications:
   telegram_enabled: true
   send_watchlist_digest: true
