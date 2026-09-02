@@ -37,6 +37,7 @@ jobs:
             data/sharia_allowlist.csv
             data/universe.csv
             artifacts/paper_portfolio.json
+            artifacts/explorer_portfolio.json
             artifacts/alert_state.json
           # v3 starts a clean ledger because only a validation-approved active
           # strategy may now create a pending Paper entry.
