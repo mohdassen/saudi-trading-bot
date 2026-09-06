@@ -4,25 +4,27 @@ on:
   push:
     branches: [main]
   schedule:
-    # Redundant post-close windows. GitHub schedules may be delayed or a single
-    # cron event may be dropped. Portfolio operations are date-idempotent.
-    - cron: "20 12 * * 0-4"
-    - cron: "50 12 * * 0-4"
-    - cron: "20 13 * * 0-4"
+    # Multiple staggered post-close windows. Avoid :00/:30 congestion peaks.
+    # Saudi market closes 15:00 Asia/Riyadh (12:00 UTC).
+    - cron: "17 12 * * 0-4"
+    - cron: "47 12 * * 0-4"
+    - cron: "17 13 * * 0-4"
+    - cron: "47 13 * * 0-4"
 
 permissions:
   contents: read
 
-# A single Paper portfolio must never be mutated by overlapping runs.
+# Do not cancel a healthy run just because a recovery window starts.
 concurrency:
-  group: saudi-paper-scan-v3
-  cancel-in-progress: true
+  group: saudi-paper-scan-v4
+  cancel-in-progress: false
 
 jobs:
   scan:
     # Hard zero-cost guard: GitHub-hosted scheduling is allowed only on public repos.
     if: ${{ github.event.repository.private == false }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,10 +41,9 @@ jobs:
             artifacts/paper_portfolio.json
             artifacts/explorer_portfolio.json
             artifacts/alert_state.json
-          # v3 starts a clean ledger because only a validation-approved active
-          # strategy may now create a pending Paper entry.
-          key: saudi-paper-v3-${{ runner.os }}-${{ github.run_id }}
+          key: saudi-paper-v4-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
+            saudi-paper-v4-${{ runner.os }}-
             saudi-paper-v3-${{ runner.os }}-
       - run: pip install -e .
       - name: Refresh free Sharia allowlist (best effort)
