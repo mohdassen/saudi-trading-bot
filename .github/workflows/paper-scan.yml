@@ -103,7 +103,7 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Persist durable forward evidence
-        if: always()
+        if: success()
         run: |
           python -m saudi_trading_bot.state_persistence snapshot
           git config user.name "saudi-trading-bot"
