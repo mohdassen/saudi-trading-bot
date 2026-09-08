@@ -1,10 +1,11 @@
+from collections import Counter
+
 from saudi_trading_bot.decision_intelligence import (
     _diagnosis,
     _loss_analysis,
     _max_drawdown_r,
     _score_strategy,
 )
-from collections import Counter
 
 
 def test_max_drawdown_r_uses_cumulative_r_curve():
@@ -29,10 +30,30 @@ def test_strategy_is_not_ranked_before_five_closed_trades():
 def test_loss_analyzer_detects_stop_dominated_failures():
     payload = {
         "closed": [
-            {"pnl_sar": -100.0, "initial_risk_sar": 100.0, "reason": "stop", "strategy": "x"},
-            {"pnl_sar": -100.0, "initial_risk_sar": 100.0, "reason": "stop", "strategy": "x"},
-            {"pnl_sar": -100.0, "initial_risk_sar": 100.0, "reason": "stop", "strategy": "x"},
-            {"pnl_sar": 200.0, "initial_risk_sar": 100.0, "reason": "target", "strategy": "x"},
+            {
+                "pnl_sar": -100.0,
+                "initial_risk_sar": 100.0,
+                "reason": "stop",
+                "strategy": "x",
+            },
+            {
+                "pnl_sar": -100.0,
+                "initial_risk_sar": 100.0,
+                "reason": "stop",
+                "strategy": "x",
+            },
+            {
+                "pnl_sar": -100.0,
+                "initial_risk_sar": 100.0,
+                "reason": "stop",
+                "strategy": "x",
+            },
+            {
+                "pnl_sar": 200.0,
+                "initial_risk_sar": 100.0,
+                "reason": "target",
+                "strategy": "x",
+            },
         ]
     }
     result = _loss_analysis(payload)
