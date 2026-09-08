@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from zoneinfo import ZoneInfo
 
 from saudi_trading_bot.freshness import expected_completed_session, is_fresh_session
@@ -18,4 +18,4 @@ def test_weekend_rolls_back() -> None:
 
 def test_one_session_tolerance() -> None:
     now = datetime(2026, 9, 9, 18, 0, tzinfo=RIYADH)
-    assert is_fresh_session(datetime(2026, 9, 8).date(), now, tolerance_sessions=1)
+    assert is_fresh_session(date(2026, 9, 8), now, tolerance_sessions=1)
