@@ -25,10 +25,9 @@ data:
   lookback_days: 420
   interval: 1d
   suffix: .SR
-  cache_dir: data/market_cache
+  cache_dir: data/market_cache_adjusted_v1
+  price_adjustment: split_dividend_adjusted
   max_cache_age_days: 7
-  # Fail closed unless a broad, coherent cross-section reports today's latest
-  # completed Saudi session. A holiday may intentionally block until next day.
   min_fresh_symbols: 150
   min_session_consensus_pct: 80.0
 
@@ -85,8 +84,6 @@ paper:
   min_hold_days: 2
   max_hold_days: 25
 
-# Independent learning portfolio. It may collect conservative Paper evidence
-# while Core remains CASH, but it can never place or expose a broker order.
 explorer:
   enabled: true
   portfolio_file: artifacts/explorer_portfolio.json
@@ -101,6 +98,52 @@ explorer:
   min_trades_before_brake: 10
   min_profit_factor: 0.80
   max_loss_pct: 2.0
+
+edge_lab:
+  enabled: true
+  target_closed_trades: 30
+  progress_file: artifacts/edge_lab_progress.json
+  announcements_cache_file: data/edge_announcements_cache.json
+  earnings_cache_file: data/earnings_cache.json
+  official_home_fallback_url: "https://www.saudiexchange.sa/wps/portal/saudiexchange/home?locale=en"
+  qualification:
+    min_expectancy_r: 0.10
+    min_profit_factor: 1.30
+    max_drawdown_r: 6.0
+  pead:
+    portfolio_file: artifacts/pead_shadow_portfolio.json
+    risk_per_trade_pct: 0.25
+    max_position_pct: 5.0
+    max_open_positions: 5
+    max_daily_new_positions: 1
+    reward_risk: 2.0
+    atr_stop_multiple: 2.0
+    max_hold_days: 20
+    announcement_lookback_days: 12
+    min_sessions_after_announcement: 1
+    max_sessions_after_announcement: 5
+    min_earnings_score: 70
+    min_technical_score: 60
+    min_avg_value_sar_20d: 1000000
+    min_post_event_return_pct: -2.0
+    max_post_event_return_pct: 15.0
+  momentum:
+    portfolio_file: artifacts/momentum_shadow_portfolio.json
+    risk_per_trade_pct: 0.25
+    max_position_pct: 5.0
+    max_open_positions: 5
+    max_daily_new_positions: 1
+    reward_risk: 2.0
+    atr_stop_multiple: 2.0
+    max_hold_days: 25
+    min_cross_section_percentile: 0.75
+    min_mom6_1_pct: 8.0
+    min_mom3_1_pct: 3.0
+    min_52w_high_proximity: 0.85
+    recent20_min_pct: -5.0
+    recent20_max_pct: 15.0
+    max_atr_pct: 6.0
+    min_avg_value_sar_20d: 1000000
 
 notifications:
   telegram_enabled: true
