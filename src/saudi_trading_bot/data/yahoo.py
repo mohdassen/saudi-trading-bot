@@ -8,7 +8,12 @@ from .base import MarketDataProvider
 
 
 class YahooSaudiProvider(MarketDataProvider):
-    """Research/development adapter. Not an official Saudi Exchange market-data feed."""
+    """Research/development adapter. Not an official Saudi Exchange market-data feed.
+
+    OHLC is adjusted for splits/dividends so momentum and backtests are not
+    corrupted by historical corporate-action jumps. The latest bar remains on
+    today's price scale, so Paper entry/stop calculations stay interpretable.
+    """
 
     def __init__(self, suffix: str = ".SR") -> None:
         self.suffix = suffix
@@ -20,7 +25,13 @@ class YahooSaudiProvider(MarketDataProvider):
             return symbol
         return f"{symbol}{self.suffix}"
 
-    def history(self, symbol: str, start: date, end: date, interval: str = "1d") -> pd.DataFrame:
+    def history(
+        self,
+        symbol: str,
+        start: date,
+        end: date,
+        interval: str = "1d",
+    ) -> pd.DataFrame:
         import yfinance as yf
 
         ticker = self.ticker_for(symbol)
@@ -29,7 +40,7 @@ class YahooSaudiProvider(MarketDataProvider):
             start=start.isoformat(),
             end=end.isoformat(),
             interval=interval,
-            auto_adjust=False,
+            auto_adjust=True,
             actions=False,
             progress=False,
             threads=False,
@@ -42,7 +53,7 @@ class YahooSaudiProvider(MarketDataProvider):
         df = df.rename(columns=str.lower)
         keep = [
             c
-            for c in ["open", "high", "low", "close", "adj close", "volume"]
+            for c in ["open", "high", "low", "close", "volume"]
             if c in df.columns
         ]
         return df[keep].dropna(subset=["close"])
