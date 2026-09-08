@@ -14,7 +14,7 @@ RIYADH = ZoneInfo("Asia/Riyadh")
 
 
 class ResilientFreeProvider(MarketDataProvider):
-    """Free primary feed + free rescue feed + local cache fallback."""
+    """Free primary feed + optional free rescue feed + local cache fallback."""
 
     def __init__(
         self,
@@ -24,9 +24,9 @@ class ResilientFreeProvider(MarketDataProvider):
     ):
         self.primary = primary
         self.cache = cache
-        if rescue is None:
-            # Saudi-specific free rescue is deliberately lazy-imported so the
-            # common path remains lightweight. It is only queried for stale bars.
+        if rescue is None and primary.__class__.__name__ == "YahooSaudiProvider":
+            # Only the approved Saudi Yahoo adapter receives the Saudi-specific
+            # live rescue. Generic/test providers remain completely isolated.
             from .argaam import ArgaamSaudiProvider
 
             rescue = ArgaamSaudiProvider()
