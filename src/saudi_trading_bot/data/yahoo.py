@@ -25,6 +25,26 @@ class YahooSaudiProvider(MarketDataProvider):
             return symbol
         return f"{symbol}{self.suffix}"
 
+    @staticmethod
+    def _normalize(df: pd.DataFrame) -> pd.DataFrame:
+        if df.empty:
+            return df
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = [c[0] for c in df.columns]
+        df = df.rename(columns=str.lower)
+        keep = [
+            c
+            for c in ["open", "high", "low", "close", "volume"]
+            if c in df.columns
+        ]
+        result = df[keep].dropna(subset=["close"]).copy()
+        # yfinance may return timezone-aware indexes through Ticker.history.
+        try:
+            result.index = pd.DatetimeIndex(result.index).tz_localize(None)
+        except TypeError:
+            result.index = pd.DatetimeIndex(result.index).tz_convert(None)
+        return result
+
     def history(
         self,
         symbol: str,
@@ -46,14 +66,24 @@ class YahooSaudiProvider(MarketDataProvider):
             threads=False,
             timeout=12,
         )
-        if df.empty:
-            return df
-        if isinstance(df.columns, pd.MultiIndex):
-            df.columns = [c[0] for c in df.columns]
-        df = df.rename(columns=str.lower)
-        keep = [
-            c
-            for c in ["open", "high", "low", "close", "volume"]
-            if c in df.columns
-        ]
-        return df[keep].dropna(subset=["close"])
+        return self._normalize(df)
+
+    def history_recent(self, symbol: str, interval: str = "1d") -> pd.DataFrame:
+        """Independent free freshness path used when batch download lags.
+
+        Ticker.history follows a different yfinance request path and uses a
+        short period window. It remains the same free Yahoo source; no paid
+        provider is introduced.
+        """
+        import yfinance as yf
+
+        ticker = yf.Ticker(self.ticker_for(symbol))
+        df = ticker.history(
+            period="1mo",
+            interval=interval,
+            auto_adjust=True,
+            actions=False,
+            repair=True,
+            timeout=12,
+        )
+        return self._normalize(df)
