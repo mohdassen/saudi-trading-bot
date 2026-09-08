@@ -113,6 +113,6 @@ jobs:
           git worktree add /tmp/saudi-bot-state origin/bot-state
           mkdir -p /tmp/saudi-bot-state/artifacts
           cp artifacts/durable_state_snapshot.json /tmp/saudi-bot-state/artifacts/durable_state_snapshot.json
-          git -C /tmp/saudi-bot-state add artifacts/durable_state_snapshot.json
+          git -C /tmp/saudi-bot-state add -f artifacts/durable_state_snapshot.json
           git -C /tmp/saudi-bot-state commit -m "state: persist forward evidence from run ${{ github.run_id }}" || true
           git -C /tmp/saudi-bot-state push origin HEAD:bot-state
