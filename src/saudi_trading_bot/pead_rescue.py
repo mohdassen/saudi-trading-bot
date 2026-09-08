@@ -192,7 +192,11 @@ def _mubasher_published_at(text: str, now: datetime) -> datetime | None:
 
     today = re.search(r"(?i)\btoday\s+(\d{1,2}:\d{2}\s*[AP]M)\b", text)
     if today:
-        clock = datetime.strptime(today.group(1).upper(), "%I:%M %p").time()
+        clock = (
+            datetime.strptime(today.group(1).upper(), "%I:%M %p")
+            .replace(tzinfo=RIYADH)
+            .time()
+        )
         return datetime.combine(local_now.date(), clock, tzinfo=RIYADH)
 
     yesterday = re.search(
@@ -200,7 +204,11 @@ def _mubasher_published_at(text: str, now: datetime) -> datetime | None:
         text,
     )
     if yesterday:
-        clock = datetime.strptime(yesterday.group(1).upper(), "%I:%M %p").time()
+        clock = (
+            datetime.strptime(yesterday.group(1).upper(), "%I:%M %p")
+            .replace(tzinfo=RIYADH)
+            .time()
+        )
         return datetime.combine(
             local_now.date() - timedelta(days=1),
             clock,
