@@ -14,11 +14,23 @@ RIYADH = ZoneInfo("Asia/Riyadh")
 
 
 class ResilientFreeProvider(MarketDataProvider):
-    """Free primary feed + local cache fallback. Never upgrades to a paid provider."""
+    """Free primary feed + optional free rescue feed + local cache fallback."""
 
-    def __init__(self, primary: MarketDataProvider, cache: MarketDataCache):
+    def __init__(
+        self,
+        primary: MarketDataProvider,
+        cache: MarketDataCache,
+        rescue: MarketDataProvider | None = None,
+    ):
         self.primary = primary
         self.cache = cache
+        if rescue is None and primary.__class__.__name__ == "YahooSaudiProvider":
+            # Only the approved Saudi Yahoo adapter receives the Saudi-specific
+            # live rescue. Generic/test providers remain completely isolated.
+            from .argaam import ArgaamSaudiProvider
+
+            rescue = ArgaamSaudiProvider()
+        self.rescue = rescue
         self.last_source = "none"
         self.last_error = ""
 
@@ -27,6 +39,15 @@ class ResilientFreeProvider(MarketDataProvider):
         if df.empty:
             return None
         return pd.Timestamp(df.index[-1]).date()
+
+    @staticmethod
+    def _merge(*frames: pd.DataFrame) -> pd.DataFrame:
+        usable = [frame for frame in frames if not frame.empty]
+        if not usable:
+            return pd.DataFrame()
+        result = pd.concat(usable).sort_index()
+        result = result[~result.index.duplicated(keep="last")]
+        return result
 
     def history(
         self,
@@ -37,6 +58,7 @@ class ResilientFreeProvider(MarketDataProvider):
     ) -> pd.DataFrame:
         primary_df = pd.DataFrame()
         recent_df = pd.DataFrame()
+        rescue_df = pd.DataFrame()
         errors: list[str] = []
 
         try:
@@ -45,10 +67,9 @@ class ResilientFreeProvider(MarketDataProvider):
             errors.append(f"primary {type(exc).__name__}: {exc}")
 
         expected = expected_completed_session(datetime.now(RIYADH))
-        primary_is_stale = self._newest(primary_df) is None or self._newest(primary_df) < expected
+        newest_primary = self._newest(primary_df)
+        primary_is_stale = newest_primary is None or newest_primary < expected
 
-        # Only stale/empty symbols use the independent short-window Yahoo path.
-        # Normal scans therefore keep roughly the same request volume as before.
         recent_method = getattr(self.primary, "history_recent", None)
         if primary_is_stale and callable(recent_method):
             try:
@@ -56,27 +77,36 @@ class ResilientFreeProvider(MarketDataProvider):
             except Exception as exc:  # noqa: BLE001
                 errors.append(f"recent {type(exc).__name__}: {exc}")
 
-        candidates = [df for df in (primary_df, recent_df) if not df.empty]
-        if candidates:
-            best = max(candidates, key=lambda df: self._newest(df) or date.min)
-            if not primary_df.empty and not recent_df.empty:
-                best = pd.concat([primary_df, recent_df]).sort_index()
-                best = best[~best.index.duplicated(keep="last")]
-                best = best.loc[
-                    (pd.DatetimeIndex(best.index).date >= start)
-                    & (pd.DatetimeIndex(best.index).date < end)
-                ]
-            self.cache.save(symbol, best)
-            recent_won = (
-                not recent_df.empty
-                and (self._newest(recent_df) or date.min) >= (self._newest(primary_df) or date.min)
-            )
-            self.last_source = "free_primary_recent" if recent_won else "free_primary"
-            self.last_error = "; ".join(errors)
-            return best
+        newest_after_recent = max(
+            self._newest(primary_df) or date.min,
+            self._newest(recent_df) or date.min,
+        )
+        if newest_after_recent < expected and self.rescue is not None:
+            try:
+                rescue_df = self.rescue.history(symbol, start, end, interval)
+            except Exception as exc:  # noqa: BLE001
+                errors.append(f"rescue {type(exc).__name__}: {exc}")
+
+        best = self._merge(primary_df, recent_df, rescue_df)
+        if not best.empty:
+            dates = pd.DatetimeIndex(best.index).date
+            best = best.loc[(dates >= start) & (dates < end)]
+            if not best.empty:
+                self.cache.save(symbol, best)
+                newest_rescue = self._newest(rescue_df) or date.min
+                newest_recent = self._newest(recent_df) or date.min
+                newest_primary = self._newest(primary_df) or date.min
+                if newest_rescue >= max(newest_recent, newest_primary) and not rescue_df.empty:
+                    self.last_source = "free_argaam_rescue"
+                elif newest_recent >= newest_primary and not recent_df.empty:
+                    self.last_source = "free_primary_recent"
+                else:
+                    self.last_source = "free_primary"
+                self.last_error = "; ".join(errors)
+                return best
 
         if not errors:
-            errors.append("primary returned empty data")
+            errors.append("all free providers returned empty data")
         self.last_error = "; ".join(errors)
         cached = self.cache.load(symbol, start, end)
         if not cached.empty:
