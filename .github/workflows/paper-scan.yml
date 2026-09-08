@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: saudi-paper-scan-v7
+  group: saudi-paper-scan-v8
   cancel-in-progress: false
 
 jobs:
@@ -49,12 +49,13 @@ jobs:
             artifacts/edge_lab_progress.json
             artifacts/pead_source_health.json
             artifacts/forward_summary.json
+            artifacts/decision_intelligence.json
             artifacts/alert_state.json
-          key: saudi-paper-v7-${{ runner.os }}-${{ github.run_id }}
+          key: saudi-paper-v8-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
+            saudi-paper-v8-${{ runner.os }}-
             saudi-paper-v7-${{ runner.os }}-
             saudi-paper-v6-${{ runner.os }}-
-            saudi-paper-v5-${{ runner.os }}-
       - run: pip install -e .
       - name: Refresh free Sharia allowlist (best effort)
         run: saudi-bot sync-sharia --best-effort
@@ -91,5 +92,17 @@ jobs:
             echo "### Saudi Forward Shadow"
             echo '```text'
             cat /tmp/forward-summary.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Build decision intelligence scoreboard
+        env:
+          BOT_MODE: shadow
+          ZERO_PAID_SERVICES: "true"
+        run: |
+          python -m saudi_trading_bot.decision_intelligence | tee /tmp/decision-intelligence.txt
+          {
+            echo "### Decision Intelligence"
+            echo '```text'
+            cat /tmp/decision-intelligence.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
