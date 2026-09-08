@@ -4,20 +4,17 @@ on:
   push:
     branches: [main]
   schedule:
-    # 09:27 Riyadh: capture morning earnings announcements before they rotate
-    # out of the market-announcement discovery list.
     - cron: "27 6 * * 0-4"
-    # Post-close recovery windows. GitHub cron is best-effort, hence redundancy.
     - cron: "17 12 * * 0-4"
     - cron: "47 12 * * 0-4"
     - cron: "17 13 * * 0-4"
     - cron: "47 13 * * 0-4"
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: saudi-paper-scan-v8
+  group: saudi-paper-scan-v9
   cancel-in-progress: false
 
 jobs:
@@ -30,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Restore free persistent bot cache/state
+      - name: Restore free performance cache
         uses: actions/cache@v4
         with:
           path: |
@@ -42,21 +39,20 @@ jobs:
             data/pead_verified_events.json
             data/sharia_allowlist.csv
             data/universe.csv
-            artifacts/paper_portfolio.json
-            artifacts/explorer_portfolio.json
-            artifacts/pead_shadow_portfolio.json
-            artifacts/momentum_shadow_portfolio.json
-            artifacts/edge_lab_progress.json
-            artifacts/pead_source_health.json
-            artifacts/forward_summary.json
-            artifacts/decision_intelligence.json
-            artifacts/alert_state.json
-          key: saudi-paper-v8-${{ runner.os }}-${{ github.run_id }}
+          key: saudi-paper-v9-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
+            saudi-paper-v9-${{ runner.os }}-
             saudi-paper-v8-${{ runner.os }}-
-            saudi-paper-v7-${{ runner.os }}-
-            saudi-paper-v6-${{ runner.os }}-
       - run: pip install -e .
+      - name: Restore durable forward evidence
+        run: |
+          mkdir -p artifacts
+          git fetch origin bot-state:refs/remotes/origin/bot-state || true
+          if git show origin/bot-state:artifacts/durable_state_snapshot.json > artifacts/durable_state_snapshot.json 2>/dev/null; then
+            python -m saudi_trading_bot.state_persistence restore
+          else
+            echo "No durable snapshot found yet; starting from repository/default state."
+          fi
       - name: Refresh free Sharia allowlist (best effort)
         run: saudi-bot sync-sharia --best-effort
       - name: Run production-gated Paper scan
@@ -106,3 +102,17 @@ jobs:
             cat /tmp/decision-intelligence.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Persist durable forward evidence
+        if: success()
+        run: |
+          python -m saudi_trading_bot.state_persistence snapshot
+          git config user.name "saudi-trading-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git fetch origin bot-state:refs/remotes/origin/bot-state || true
+          rm -rf /tmp/saudi-bot-state
+          git worktree add /tmp/saudi-bot-state origin/bot-state
+          mkdir -p /tmp/saudi-bot-state/artifacts
+          cp artifacts/durable_state_snapshot.json /tmp/saudi-bot-state/artifacts/durable_state_snapshot.json
+          git -C /tmp/saudi-bot-state add artifacts/durable_state_snapshot.json
+          git -C /tmp/saudi-bot-state commit -m "state: persist forward evidence from run ${{ github.run_id }}" || true
+          git -C /tmp/saudi-bot-state push origin HEAD:bot-state
