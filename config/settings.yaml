@@ -105,6 +105,8 @@ edge_lab:
   progress_file: artifacts/edge_lab_progress.json
   announcements_cache_file: data/edge_announcements_cache.json
   earnings_cache_file: data/earnings_cache.json
+  pead_event_cache_file: data/pead_official_events.json
+  pead_source_health_file: artifacts/pead_source_health.json
   official_home_fallback_url: "https://www.saudiexchange.sa/wps/portal/saudiexchange/home?locale=en"
   qualification:
     min_expectancy_r: 0.10
@@ -127,6 +129,10 @@ edge_lab:
     min_avg_value_sar_20d: 1000000
     min_post_event_return_pct: -2.0
     max_post_event_return_pct: 15.0
+    fallback_min_technical_score: 68
+    fallback_min_volume_ratio: 1.0
+    fallback_min_post_event_return_pct: 1.0
+    fallback_max_post_event_return_pct: 12.0
   momentum:
     portfolio_file: artifacts/momentum_shadow_portfolio.json
     risk_per_trade_pct: 0.25
