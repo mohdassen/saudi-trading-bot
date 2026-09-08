@@ -47,6 +47,7 @@ jobs:
             artifacts/momentum_shadow_portfolio.json
             artifacts/edge_lab_progress.json
             artifacts/pead_source_health.json
+            artifacts/forward_summary.json
             artifacts/alert_state.json
           key: saudi-paper-v6-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
@@ -78,3 +79,15 @@ jobs:
           BOT_MODE: shadow
           ZERO_PAID_SERVICES: "true"
         run: python -m saudi_trading_bot.pead_rescue
+      - name: Emit auditable forward shadow summary
+        env:
+          BOT_MODE: shadow
+          ZERO_PAID_SERVICES: "true"
+        run: |
+          python -m saudi_trading_bot.forward_summary | tee /tmp/forward-summary.txt
+          {
+            echo "### Saudi Forward Shadow"
+            echo '```text'
+            cat /tmp/forward-summary.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
