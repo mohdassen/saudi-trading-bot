@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import asdict, replace
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -8,6 +9,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import requests
+from bs4 import BeautifulSoup
 
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
@@ -26,6 +28,20 @@ from saudi_trading_bot.signals.strategies import latest_strategy_rows
 
 RIYADH = ZoneInfo("Asia/Riyadh")
 UTC = ZoneInfo("UTC")
+
+_COMPANY_STOPWORDS = {
+    "and",
+    "co",
+    "company",
+    "for",
+    "group",
+    "holding",
+    "holdings",
+    "limited",
+    "ltd",
+    "of",
+    "the",
+}
 
 
 def _event_time(item: Announcement) -> datetime | None:
@@ -77,7 +93,6 @@ def _merge_events(
         if old is None:
             merged[key] = item
             continue
-        # Prefer the copy that carries an actual exchange publication time.
         if item.published_at and not old.published_at:
             merged[key] = item
 
@@ -89,7 +104,6 @@ def _merge_events(
             if stamp.astimezone(RIYADH) >= cutoff:
                 kept.append(item)
             continue
-        # Never use an unknown-time event for a trade, but retain it briefly for diagnostics.
         try:
             fetched = datetime.fromisoformat(item.fetched_at)
             if fetched.tzinfo is None:
@@ -106,12 +120,171 @@ def _merge_events(
     )
 
 
+def _company_tokens(text: str) -> set[str]:
+    words = re.findall(r"[a-z0-9]+", text.lower())
+    return {
+        word
+        for word in words
+        if len(word) >= 3 and word not in _COMPANY_STOPWORDS
+    }
+
+
+def _normalize_company(text: str) -> str:
+    return " ".join(sorted(_company_tokens(text)))
+
+
+def _resolve_mubasher_symbol(
+    title: str,
+    companies: list[tuple[str, str]],
+) -> str:
+    prefix = re.split(r"\bannounces?\b", title, maxsplit=1, flags=re.IGNORECASE)[0]
+    title_tokens = _company_tokens(prefix)
+    if not title_tokens:
+        return ""
+
+    normalized_prefix = _normalize_company(prefix)
+    ranked: list[tuple[float, str]] = []
+    for symbol, name in companies:
+        name_tokens = _company_tokens(name)
+        if not name_tokens:
+            continue
+        common = title_tokens & name_tokens
+        minimum = 1 if min(len(title_tokens), len(name_tokens)) == 1 else 2
+        if len(common) < minimum:
+            continue
+        coverage = len(common) / len(name_tokens)
+        precision = len(common) / len(title_tokens)
+        score = 0.70 * coverage + 0.30 * precision
+        normalized_name = _normalize_company(name)
+        if normalized_name and (
+            normalized_name in normalized_prefix
+            or normalized_prefix in normalized_name
+        ):
+            score += 0.25
+        ranked.append((score, str(symbol)))
+
+    if not ranked:
+        return ""
+    ranked.sort(reverse=True)
+    best_score, best_symbol = ranked[0]
+    if best_score < 0.55:
+        return ""
+    if len(ranked) > 1 and ranked[1][0] >= best_score - 0.05:
+        return ""
+    return best_symbol
+
+
+def _mubasher_published_at(text: str, now: datetime) -> datetime | None:
+    local_now = now.astimezone(RIYADH)
+    relative = re.search(
+        r"(?i)\b(\d+)\s+(minute|hour|day)s?\s+ago\b",
+        text,
+    )
+    if relative:
+        count = int(relative.group(1))
+        unit = relative.group(2).lower()
+        delta = {
+            "minute": timedelta(minutes=count),
+            "hour": timedelta(hours=count),
+            "day": timedelta(days=count),
+        }[unit]
+        return local_now - delta
+
+    today = re.search(r"(?i)\btoday\s+(\d{1,2}:\d{2}\s*[AP]M)\b", text)
+    if today:
+        clock = (
+            datetime.strptime(today.group(1).upper(), "%I:%M %p")
+            .replace(tzinfo=RIYADH)
+            .time()
+        )
+        return datetime.combine(local_now.date(), clock, tzinfo=RIYADH)
+
+    yesterday = re.search(
+        r"(?i)\byesterday\s+(\d{1,2}:\d{2}\s*[AP]M)\b",
+        text,
+    )
+    if yesterday:
+        clock = (
+            datetime.strptime(yesterday.group(1).upper(), "%I:%M %p")
+            .replace(tzinfo=RIYADH)
+            .time()
+        )
+        return datetime.combine(
+            local_now.date() - timedelta(days=1),
+            clock,
+            tzinfo=RIYADH,
+        )
+
+    absolute = re.search(
+        r"(?i)\b(\d{1,2}\s+[A-Z][a-z]+\s+\d{1,2}:\d{2}\s*[AP]M)\b",
+        text,
+    )
+    if not absolute:
+        return None
+    try:
+        parsed = datetime.strptime(
+            f"{local_now.year} {absolute.group(1).title()}",
+            "%Y %d %B %I:%M %p",
+        ).replace(tzinfo=RIYADH)
+    except ValueError:
+        return None
+    if parsed > local_now + timedelta(days=1):
+        parsed = parsed.replace(year=local_now.year - 1)
+    return parsed
+
+
+def _parse_mubasher_financial_events(
+    html: str,
+    now: datetime,
+    companies: list[tuple[str, str]],
+) -> list[Announcement]:
+    soup = BeautifulSoup(html, "html.parser")
+    fetched = now.astimezone(UTC).isoformat(timespec="seconds")
+    found: dict[tuple[str, str], Announcement] = {}
+
+    for anchor in soup.find_all("a", href=True):
+        title = " ".join(anchor.stripped_strings).strip()
+        href = str(anchor.get("href", ""))
+        if "/news/" not in href or not _financial_title(title):
+            continue
+
+        previous = []
+        for node in anchor.find_all_previous(string=True, limit=8):
+            cleaned = " ".join(str(node).split())
+            if cleaned and cleaned != title:
+                previous.append(cleaned)
+        context = " ".join(reversed(previous))
+        if "saudi stock exchange" not in context.lower():
+            continue
+
+        published = _mubasher_published_at(context, now)
+        if published is None:
+            continue
+        symbol = _resolve_mubasher_symbol(title, companies)
+        if not symbol:
+            continue
+        url = (
+            href
+            if href.startswith("http")
+            else "https://english.mubasher.info/" + href.lstrip("/")
+        )
+        found[(symbol, title)] = Announcement(
+            symbol=symbol,
+            title=title,
+            url=url,
+            fetched_at=fetched,
+            published_at=published.isoformat(),
+        )
+    return list(found.values())
+
+
 def _refresh_official_events(
     urls: list[str],
     cache_file: Path,
     now: datetime,
     keep_days: int,
     timeout: int,
+    companies: list[tuple[str, str]],
 ) -> tuple[list[Announcement], str, list[str]]:
     previous = _load_saved(cache_file)
     errors: list[str] = []
@@ -133,17 +306,24 @@ def _refresh_official_events(
         try:
             response = session.get(url, timeout=timeout, headers=headers)
             response.raise_for_status()
-            parsed = SaudiExchangeDisclosures.parse(
-                response.text,
-                base_url="https://www.saudiexchange.sa",
-            )
-            parsed = [
-                item
-                for item in parsed
-                if item.symbol and _financial_title(item.title)
-            ]
+            if "mubasher.info" in url:
+                parsed = _parse_mubasher_financial_events(
+                    response.text,
+                    now,
+                    companies,
+                )
+            else:
+                parsed = SaudiExchangeDisclosures.parse(
+                    response.text,
+                    base_url="https://www.saudiexchange.sa",
+                )
+                parsed = [
+                    item
+                    for item in parsed
+                    if item.symbol and _financial_title(item.title)
+                ]
             if not parsed:
-                raise ValueError("official page parsed zero financial-result events")
+                raise ValueError("page parsed zero usable financial-result events")
             fresh.extend(parsed)
             source = url
             break
@@ -155,7 +335,10 @@ def _refresh_official_events(
     return events, source, errors
 
 
-def _histories_from_cache(cache: MarketDataCache, symbols: list[str]) -> dict[str, pd.DataFrame]:
+def _histories_from_cache(
+    cache: MarketDataCache,
+    symbols: list[str],
+) -> dict[str, pd.DataFrame]:
     result: dict[str, pd.DataFrame] = {}
     for symbol in symbols:
         frame = cache.load(symbol)
@@ -209,11 +392,25 @@ def _price_confirmed_candidate(base, row, history, event: Announcement, cfg: dic
         strategy_score=round(score, 2),
         rationale=base.rationale
         + (
-            "Official financial-results event; detail table unavailable",
+            "Financial-results event; detailed result table unavailable",
             f"price-confirmed PEAD sessions={sessions} return={reaction * 100:.1f}%",
             f"volume ratio={float(row['vol_ratio']):.2f}",
         ),
     )
+
+
+def _allowed_companies(allowlist: pd.DataFrame) -> list[tuple[str, str]]:
+    allowed = allowlist[
+        allowlist["status"].astype(str).str.lower().eq("allowed")
+    ].copy()
+    name_column = "name" if "name" in allowed.columns else "name_en"
+    if name_column not in allowed.columns:
+        return []
+    return [
+        (str(row["symbol"]), str(row[name_column]))
+        for _, row in allowed.iterrows()
+        if str(row[name_column]).strip()
+    ]
 
 
 def run() -> int:
@@ -225,10 +422,25 @@ def run() -> int:
     signal_cfg = cfg.section("signals")
     now = datetime.now(RIYADH)
 
-    event_cache = cfg.path(edge.get("pead_event_cache_file", "data/pead_official_events.json"))
+    allowlist = pd.read_csv(
+        cfg.path(cfg.section("sharia")["allowlist_file"]),
+        dtype={"symbol": str},
+    )
+    allowed = set(
+        allowlist.loc[
+            allowlist["status"].astype(str).str.lower().eq("allowed"),
+            "symbol",
+        ].astype(str)
+    )
+    companies = _allowed_companies(allowlist)
+
+    event_cache = cfg.path(
+        edge.get("pead_event_cache_file", "data/pead_official_events.json")
+    )
     urls = [
         edge.get("official_home_fallback_url", ""),
         disc_cfg.get("source_url", ""),
+        disc_cfg.get("fallback_url", ""),
     ]
     events, source, errors = _refresh_official_events(
         urls,
@@ -236,15 +448,9 @@ def run() -> int:
         now,
         int(pead_cfg["announcement_lookback_days"]),
         int(disc_cfg["timeout_seconds"]),
+        companies,
     )
 
-    allowlist = pd.read_csv(cfg.path(cfg.section("sharia")["allowlist_file"]), dtype={"symbol": str})
-    allowed = set(
-        allowlist.loc[
-            allowlist["status"].astype(str).str.lower().eq("allowed"),
-            "symbol",
-        ].astype(str)
-    )
     symbols = sorted({item.symbol for item in events if item.symbol in allowed})
     histories = _histories_from_cache(
         MarketDataCache(cfg.path(data_cfg["cache_dir"])),
@@ -282,13 +488,24 @@ def run() -> int:
             continue
         inspected += 1
 
-        snapshot = reader.read(event.symbol, event.url) if event.url else None
+        is_official_detail = "saudiexchange.sa" in event.url.lower()
+        snapshot = (
+            reader.read(event.symbol, event.url)
+            if event.url and is_official_detail
+            else None
+        )
         candidate = None
         if snapshot is not None:
             detailed += 1
             candidate = _pead_candidate(base, row, history, snapshot, pead_cfg)
         if candidate is None:
-            candidate = _price_confirmed_candidate(base, row, history, event, pead_cfg)
+            candidate = _price_confirmed_candidate(
+                base,
+                row,
+                history,
+                event,
+                pead_cfg,
+            )
             if candidate is not None:
                 price_fallback += 1
         if candidate is not None:
@@ -322,7 +539,9 @@ def run() -> int:
         "queued": [item.symbol for item in queued],
         "production_unchanged": "CASH",
     }
-    health_path = cfg.path(edge.get("pead_source_health_file", "artifacts/pead_source_health.json"))
+    health_path = cfg.path(
+        edge.get("pead_source_health_file", "artifacts/pead_source_health.json")
+    )
     health_path.parent.mkdir(parents=True, exist_ok=True)
     health_path.write_text(
         json.dumps(diagnostic, ensure_ascii=False, indent=2),
