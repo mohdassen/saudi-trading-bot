@@ -5,7 +5,7 @@ on:
     branches: [main]
   schedule:
     # 09:27 Riyadh: capture morning earnings announcements before they rotate
-    # out of the Saudi Exchange home-page Latest News list.
+    # out of the market-announcement discovery list.
     - cron: "27 6 * * 0-4"
     # Post-close recovery windows. GitHub cron is best-effort, hence redundancy.
     - cron: "17 12 * * 0-4"
@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: saudi-paper-scan-v6
+  group: saudi-paper-scan-v7
   cancel-in-progress: false
 
 jobs:
@@ -39,6 +39,7 @@ jobs:
             data/edge_announcements_cache.json
             data/earnings_cache.json
             data/pead_official_events.json
+            data/pead_verified_events.json
             data/sharia_allowlist.csv
             data/universe.csv
             artifacts/paper_portfolio.json
@@ -49,8 +50,9 @@ jobs:
             artifacts/pead_source_health.json
             artifacts/forward_summary.json
             artifacts/alert_state.json
-          key: saudi-paper-v6-${{ runner.os }}-${{ github.run_id }}
+          key: saudi-paper-v7-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
+            saudi-paper-v7-${{ runner.os }}-
             saudi-paper-v6-${{ runner.os }}-
             saudi-paper-v5-${{ runner.os }}-
       - run: pip install -e .
@@ -74,11 +76,11 @@ jobs:
           BOT_MODE: shadow
           ZERO_PAID_SERVICES: "true"
         run: python -m saudi_trading_bot.edge_lab
-      - name: Harden PEAD official-event discovery
+      - name: Verify PEAD events from announcement detail pages
         env:
           BOT_MODE: shadow
           ZERO_PAID_SERVICES: "true"
-        run: python -m saudi_trading_bot.pead_rescue
+        run: python -m saudi_trading_bot.pead_verified_rescue
       - name: Emit auditable forward shadow summary
         env:
           BOT_MODE: shadow
