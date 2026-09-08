@@ -4,8 +4,6 @@ on:
   push:
     branches: [main]
   schedule:
-    # Multiple staggered post-close windows. Avoid :00/:30 congestion peaks.
-    # Saudi market closes 15:00 Asia/Riyadh (12:00 UTC).
     - cron: "17 12 * * 0-4"
     - cron: "47 12 * * 0-4"
     - cron: "17 13 * * 0-4"
@@ -14,17 +12,15 @@ on:
 permissions:
   contents: read
 
-# Do not cancel a healthy run just because a recovery window starts.
 concurrency:
-  group: saudi-paper-scan-v4
+  group: saudi-paper-scan-v5
   cancel-in-progress: false
 
 jobs:
   scan:
-    # Hard zero-cost guard: GitHub-hosted scheduling is allowed only on public repos.
     if: ${{ github.event.repository.private == false }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,21 +30,25 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            data/market_cache
+            data/market_cache_adjusted_v1
             data/disclosures_cache.json
+            data/edge_announcements_cache.json
+            data/earnings_cache.json
             data/sharia_allowlist.csv
             data/universe.csv
             artifacts/paper_portfolio.json
             artifacts/explorer_portfolio.json
+            artifacts/pead_shadow_portfolio.json
+            artifacts/momentum_shadow_portfolio.json
+            artifacts/edge_lab_progress.json
             artifacts/alert_state.json
-          key: saudi-paper-v4-${{ runner.os }}-${{ github.run_id }}
+          key: saudi-paper-v5-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
-            saudi-paper-v4-${{ runner.os }}-
-            saudi-paper-v3-${{ runner.os }}-
+            saudi-paper-v5-${{ runner.os }}-
       - run: pip install -e .
       - name: Refresh free Sharia allowlist (best effort)
         run: saudi-bot sync-sharia --best-effort
-      - name: Run paper scan
+      - name: Run production-gated Paper scan
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -61,3 +61,8 @@ jobs:
             echo "Telegram secrets are not configured; running paper scan without sending alerts."
             saudi-bot scan
           fi
+      - name: Run Saudi Edge Lab V2 shadows
+        env:
+          BOT_MODE: shadow
+          ZERO_PAID_SERVICES: "true"
+        run: python -m saudi_trading_bot.edge_lab
