@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import asdict
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -23,9 +23,10 @@ def _load_json(path: Path) -> dict[str, Any]:
 def _published_key(event: dict[str, Any]) -> datetime:
     raw = str(event.get("published_at", ""))
     try:
-        return datetime.fromisoformat(raw)
+        value = datetime.fromisoformat(raw)
     except ValueError:
-        return datetime.min
+        return datetime.min.replace(tzinfo=UTC)
+    return value if value.tzinfo else value.replace(tzinfo=UTC)
 
 
 def _queued_event_audit(
