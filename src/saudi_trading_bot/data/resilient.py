@@ -24,6 +24,12 @@ class ResilientFreeProvider(MarketDataProvider):
     ):
         self.primary = primary
         self.cache = cache
+        if rescue is None:
+            # Saudi-specific free rescue is deliberately lazy-imported so the
+            # common path remains lightweight. It is only queried for stale bars.
+            from .argaam import ArgaamSaudiProvider
+
+            rescue = ArgaamSaudiProvider()
         self.rescue = rescue
         self.last_source = "none"
         self.last_error = ""
