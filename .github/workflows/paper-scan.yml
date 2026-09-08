@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: saudi-paper-scan-v7
+  group: saudi-paper-scan-v8
   cancel-in-progress: false
 
 jobs:
@@ -50,8 +50,9 @@ jobs:
             artifacts/pead_source_health.json
             artifacts/forward_summary.json
             artifacts/alert_state.json
-          key: saudi-paper-v7-${{ runner.os }}-${{ github.run_id }}
+          key: saudi-paper-v8-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
+            saudi-paper-v8-${{ runner.os }}-
             saudi-paper-v7-${{ runner.os }}-
             saudi-paper-v6-${{ runner.os }}-
             saudi-paper-v5-${{ runner.os }}-
@@ -93,3 +94,16 @@ jobs:
             cat /tmp/forward-summary.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Persist forward evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: saudi-forward-evidence-${{ github.run_id }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            artifacts/forward_summary.json
+            artifacts/pead_source_health.json
+            artifacts/pead_shadow_portfolio.json
+            artifacts/momentum_shadow_portfolio.json
+            data/pead_verified_events.json
