@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
-
 
 STATE_PATHS = (
     "artifacts/paper_portfolio.json",
@@ -38,7 +37,10 @@ def restore_state(snapshot: dict, root: Path = Path(".")) -> int:
         if isinstance(payload, dict) and set(payload) == {"raw"}:
             path.write_text(str(payload["raw"]), encoding="utf-8")
         else:
-            path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            path.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
         restored += 1
     return restored
 
@@ -54,7 +56,10 @@ def main() -> None:
 
     if args.action == "snapshot":
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(json.dumps(snapshot_state(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        target.write_text(
+            json.dumps(snapshot_state(), ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
         print(f"DURABLE_STATE_SNAPSHOT file={target}")
         return
 
