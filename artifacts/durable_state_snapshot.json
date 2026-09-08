@@ -19,6 +19,15 @@
           "signal_bar_date": "2026-09-08",
           "queued_on": "2026-09-09",
           "strategy": "explorer_swing"
+        },
+        "2070": {
+          "symbol": "2070",
+          "score": 83.65,
+          "risk_distance": 1.04,
+          "reward_risk": 1.8,
+          "signal_bar_date": "2026-09-08",
+          "queued_on": "2026-09-09",
+          "strategy": "explorer_swing"
         }
       },
       "closed": []
@@ -41,12 +50,21 @@
           "signal_bar_date": "2026-09-08",
           "queued_on": "2026-09-09",
           "strategy": "momentum_leadership_shadow"
+        },
+        "7200": {
+          "symbol": "7200",
+          "score": 97.23,
+          "risk_distance": 24.07,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-08",
+          "queued_on": "2026-09-09",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": []
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-09T00:55:33.073823+03:00",
+      "updated_at": "2026-09-09T01:03:14.942093+03:00",
       "data_quality": "verified session 2026-09-08, consensus 99.6%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -79,7 +97,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 0,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 0/30"
         }
@@ -117,7 +135,7 @@
         "max_drawdown_r": null,
         "pnl_sar": 0,
         "open_positions": 0,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 0/30"
       },
@@ -136,7 +154,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-09T00:58:25.861288+03:00",
+      "updated_at": "2026-09-09T01:06:24.719790+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -172,7 +190,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 0,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 0/30",
           "rank_score": null
         },
@@ -187,7 +205,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 0,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 0/30",
           "rank_score": null
         }
