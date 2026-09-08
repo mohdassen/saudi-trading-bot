@@ -16,16 +16,18 @@ class ArgaamSaudiProvider(MarketDataProvider):
 
     This provider is deliberately secondary. It is only called when Yahoo is
     stale/empty and never overrides a fresher primary bar. No synthetic bars
-    are created.
+    are created. Discovery failures trip a circuit breaker for the remainder
+    of the process so a blocked website cannot stall a full-market scan.
     """
 
     BASE = "https://www.argaam.com"
     COMPANIES_URL = f"{BASE}/en/company/companies-prices"
     SYMBOL_RE = re.compile(r"\b(\d{4})\s*-\s*")
 
-    def __init__(self, timeout: int = 12) -> None:
+    def __init__(self, timeout: int = 5) -> None:
         self.timeout = timeout
         self._symbol_urls: dict[str, str] | None = None
+        self._disabled_reason = ""
         self.session = requests.Session()
         self.session.headers.update(
             {
@@ -105,11 +107,19 @@ class ArgaamSaudiProvider(MarketDataProvider):
     def _symbols(self) -> dict[str, str]:
         if self._symbol_urls is not None:
             return self._symbol_urls
-        response = self.session.get(self.COMPANIES_URL, timeout=self.timeout)
-        response.raise_for_status()
-        self._symbol_urls = self.parse_symbol_map(response.text)
-        if not self._symbol_urls:
-            raise RuntimeError("Argaam symbol map returned no Saudi symbols")
+        # Mark the discovery attempt as consumed before doing network I/O. If
+        # it raises, all later symbols fail fast instead of retrying 254 times.
+        self._symbol_urls = {}
+        try:
+            response = self.session.get(self.COMPANIES_URL, timeout=self.timeout)
+            response.raise_for_status()
+            parsed = self.parse_symbol_map(response.text)
+            if not parsed:
+                raise RuntimeError("Argaam symbol map returned no Saudi symbols")
+            self._symbol_urls = parsed
+        except Exception as exc:
+            self._disabled_reason = f"{type(exc).__name__}: {exc}"
+            raise RuntimeError(f"Argaam rescue disabled: {self._disabled_reason}") from exc
         return self._symbol_urls
 
     def history(
@@ -120,6 +130,8 @@ class ArgaamSaudiProvider(MarketDataProvider):
         interval: str = "1d",
     ) -> pd.DataFrame:
         if interval != "1d":
+            return pd.DataFrame()
+        if self._disabled_reason:
             return pd.DataFrame()
         clean = str(symbol).removesuffix(".SR")
         url = self._symbols().get(clean)
