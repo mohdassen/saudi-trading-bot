@@ -50,6 +50,7 @@ class PaperTrade:
     pnl_sar: float
     return_pct: float
     strategy: str = "unknown"
+    initial_risk_sar: float = 0.0
 
 
 class PaperPortfolio:
@@ -99,7 +100,12 @@ class PaperPortfolio:
         self.pending = {
             k: PendingEntry(**v) for k, v in raw.get("pending", {}).items()
         }
-        self.closed = [PaperTrade(**v) for v in raw.get("closed", [])]
+        trades = []
+        for value in raw.get("closed", []):
+            item = dict(value)
+            item.setdefault("initial_risk_sar", 0.0)
+            trades.append(PaperTrade(**item))
+        self.closed = trades
         self.equity_sar = float(raw.get("equity_sar", self.equity_sar))
 
     def save(self) -> None:
@@ -201,8 +207,6 @@ class PaperPortfolio:
                 continue
             session_date, row = next_bar
 
-            # A missed next-session signal is not carried forward indefinitely.
-            # If the daily/open-position limits were already consumed, expire it.
             if len(self.positions) >= self.max_open_positions:
                 remove.add(pending.symbol)
                 continue
@@ -282,8 +286,6 @@ class PaperPortfolio:
                 raw_exit: float | None = None
                 reason = ""
 
-                # Stop-first is deliberately conservative when a daily bar
-                # touches both stop and target and intraday ordering is unknown.
                 if low <= position.stop:
                     raw_exit, reason = position.stop, "stop"
                 elif high >= position.target:
@@ -306,6 +308,9 @@ class PaperPortfolio:
                 )
                 pnl = gross - commission
                 ret = pnl / (position.entry * position.qty) * 100
+                initial_risk_sar = (
+                    max(0.01, position.entry - position.stop) * position.qty
+                )
                 trade = PaperTrade(
                     symbol=position.symbol,
                     qty=position.qty,
@@ -317,6 +322,7 @@ class PaperPortfolio:
                     pnl_sar=round(pnl, 2),
                     return_pct=round(ret, 2),
                     strategy=position.strategy,
+                    initial_risk_sar=round(initial_risk_sar, 2),
                 )
                 self.closed.append(trade)
                 self.equity_sar += pnl

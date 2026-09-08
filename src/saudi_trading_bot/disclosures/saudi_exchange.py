@@ -5,11 +5,14 @@ import re
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
 
 from saudi_trading_bot.models import DisclosureImpact
+
+RIYADH = ZoneInfo("Asia/Riyadh")
 
 POSITIVE = (
     "ارتفاع صافي الربح",
@@ -63,6 +66,29 @@ class Announcement:
     title: str
     url: str
     fetched_at: str
+    published_at: str = ""
+
+
+def _published_at(text: str) -> str:
+    match = re.search(
+        r"(?<!\d)(\d{2})/(\d{2})/(\d{4})\s+(\d{2}):(\d{2}):(\d{2})(?!\d)",
+        text,
+    )
+    if not match:
+        return ""
+    day, month, year, hour, minute, second = map(int, match.groups())
+    try:
+        return datetime(
+            year,
+            month,
+            day,
+            hour,
+            minute,
+            second,
+            tzinfo=RIYADH,
+        ).isoformat()
+    except ValueError:
+        return ""
 
 
 def classify_disclosure(title: str, url: str = "") -> DisclosureImpact:
@@ -122,16 +148,27 @@ class SaudiExchangeDisclosures:
                 if href.startswith("http")
                 else base_url.rstrip("/") + "/" + href.lstrip("/")
             )
+            published = _published_at(nearby)
             for symbol in symbols:
-                found[(symbol, title)] = Announcement(symbol, title, url, now)
+                found[(symbol, title)] = Announcement(
+                    symbol,
+                    title,
+                    url,
+                    now,
+                    published,
+                )
 
         tokens = [" ".join(x.split()) for x in soup.stripped_strings if x.strip()]
         for index, title in enumerate(tokens):
             if not _looks_like_announcement(title):
                 continue
-            window = " ".join(tokens[index + 1 : index + 6])
+            window = " ".join(tokens[index + 1 : index + 7])
+            published = _published_at(window)
             for symbol in _symbols(window):
-                found.setdefault((symbol, title), Announcement(symbol, title, "", now))
+                found.setdefault(
+                    (symbol, title),
+                    Announcement(symbol, title, "", now, published),
+                )
 
         return list(found.values())
 
@@ -166,14 +203,37 @@ class SaudiExchangeDisclosures:
         except (OSError, TypeError, ValueError):
             return []
 
+    @staticmethod
+    def _stable_first_seen(
+        items: list[Announcement],
+        previous: list[Announcement],
+    ) -> list[Announcement]:
+        previous_by_key = {
+            (item.symbol, item.title, item.url): item for item in previous
+        }
+        stable = []
+        for item in items:
+            old = previous_by_key.get((item.symbol, item.title, item.url))
+            if old is not None and not item.published_at:
+                item = Announcement(
+                    item.symbol,
+                    item.title,
+                    item.url,
+                    old.fetched_at,
+                    old.published_at,
+                )
+            stable.append(item)
+        return stable
+
     def refresh(self) -> list[Announcement]:
         errors: list[str] = []
+        previous = self._load_cache()
         for url in self.urls:
             try:
                 response = requests.get(
                     url,
                     timeout=self.timeout,
-                    headers={"User-Agent": "SaudiTradingBot/0.2 (+paper-research)"},
+                    headers={"User-Agent": "SaudiTradingBot/0.3 (+paper-research)"},
                 )
                 response.raise_for_status()
                 items = (
@@ -183,6 +243,7 @@ class SaudiExchangeDisclosures:
                 )
                 if not items:
                     raise ValueError("announcement page parsed zero items")
+                items = self._stable_first_seen(items, previous)
                 self.cache_file.parent.mkdir(parents=True, exist_ok=True)
                 payload = {
                     "updated_at": datetime.now(UTC).isoformat(),
@@ -200,7 +261,7 @@ class SaudiExchangeDisclosures:
                 errors.append(f"{url}: {type(exc).__name__}: {exc}")
         self.last_error = " | ".join(errors)
         self.last_url = "cache"
-        return self._load_cache()
+        return previous
 
     def impact_for(
         self,
@@ -219,13 +280,14 @@ class SaudiExchangeDisclosures:
             )
             if not symbol_match and not name_match:
                 continue
+            timestamp = announcement.published_at or announcement.fetched_at
             try:
-                fetched = datetime.fromisoformat(announcement.fetched_at)
+                event_time = datetime.fromisoformat(timestamp)
             except ValueError:
                 continue
-            if fetched.tzinfo is None:
-                fetched = fetched.replace(tzinfo=UTC)
-            if fetched >= cutoff:
+            if event_time.tzinfo is None:
+                event_time = event_time.replace(tzinfo=UTC)
+            if event_time.astimezone(UTC) >= cutoff:
                 matches.append(announcement)
         if not matches:
             return None
