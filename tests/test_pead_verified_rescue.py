@@ -1,11 +1,11 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+from saudi_trading_bot.disclosures.saudi_exchange import Announcement
 from saudi_trading_bot.pead_verified_rescue import (
     _detail_published_at,
     _recent_event,
 )
-from saudi_trading_bot.disclosures.saudi_exchange import Announcement
 
 RIYADH = ZoneInfo("Asia/Riyadh")
 
