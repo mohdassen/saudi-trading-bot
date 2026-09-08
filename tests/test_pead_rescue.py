@@ -5,7 +5,12 @@ import pandas as pd
 
 from saudi_trading_bot.disclosures.saudi_exchange import Announcement
 from saudi_trading_bot.models import Signal, SignalState
-from saudi_trading_bot.pead_rescue import _merge_events, _price_confirmed_candidate
+from saudi_trading_bot.pead_rescue import (
+    _merge_events,
+    _parse_mubasher_financial_events,
+    _price_confirmed_candidate,
+    _resolve_mubasher_symbol,
+)
 
 RIYADH = ZoneInfo("Asia/Riyadh")
 
@@ -29,6 +34,53 @@ def test_merge_events_preserves_real_published_time():
     merged = _merge_events([old], [refreshed_without_time], now, 12)
     assert len(merged) == 1
     assert merged[0].published_at == old.published_at
+
+
+def test_mubasher_financial_event_resolves_symbol_and_relative_time():
+    now = datetime(2026, 9, 8, 12, 0, tzinfo=RIYADH)
+    html = """
+    <div class="announcement">
+      <span>2 hours ago</span>
+      <span>Saudi Stock Exchange</span>
+      <a href="/news/4652442/example/news">
+        Flynas Co. announces its Interim Financial results for the Period
+        Ending on 2026-06-30 ( Six Months )
+      </a>
+    </div>
+    """
+    events = _parse_mubasher_financial_events(
+        html,
+        now,
+        [("4264", "FLYNAS")],
+    )
+    assert len(events) == 1
+    assert events[0].symbol == "4264"
+    assert events[0].url.startswith("https://english.mubasher.info/news/")
+    assert datetime.fromisoformat(events[0].published_at) == now - timedelta(hours=2)
+
+
+def test_mubasher_parser_rejects_non_exchange_news():
+    now = datetime(2026, 9, 8, 12, 0, tzinfo=RIYADH)
+    html = """
+    <div>
+      <span>2 hours ago</span>
+      <span>Mubasher Exclusive</span>
+      <a href="/news/1/example/news">
+        Flynas Co. announces its Interim Financial results for Six Months
+      </a>
+    </div>
+    """
+    assert not _parse_mubasher_financial_events(
+        html,
+        now,
+        [("4264", "FLYNAS")],
+    )
+
+
+def test_mubasher_symbol_resolution_refuses_ambiguous_names():
+    title = "Alpha Beta Co. announces its Interim Financial Results"
+    companies = [("1001", "Alpha Beta"), ("1002", "Alpha Beta Holdings")]
+    assert _resolve_mubasher_symbol(title, companies) == ""
 
 
 def test_price_confirmed_pead_requires_positive_post_event_confirmation():
