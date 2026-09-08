@@ -36,6 +36,28 @@ def test_queued_event_audit_selects_latest_event_per_queued_symbol():
     assert audit[0]["title"] == "Latest financial results"
     assert audit[0]["published_at"] == "2026-09-07T08:00:00+03:00"
     assert audit[0]["discovery_source"].startswith("https://english.mubasher.info")
+    assert audit[0]["mode"] == ""
+
+
+def test_queued_event_audit_prefers_verified_health_provenance():
+    health = {
+        "source": "verified-source",
+        "queued_events": [
+            {
+                "symbol": "9999",
+                "mode": "fundamental+price",
+                "title": "Verified results",
+                "published_at": "2026-09-07T08:00:00+03:00",
+                "url": "https://example.test/verified",
+            }
+        ],
+    }
+
+    audit = _queued_event_audit(health, {"events": []})
+
+    assert audit[0]["symbol"] == "9999"
+    assert audit[0]["mode"] == "fundamental+price"
+    assert audit[0]["discovery_source"] == "verified-source"
 
 
 def test_queued_event_audit_keeps_symbol_even_if_event_cache_is_missing():
@@ -51,5 +73,6 @@ def test_queued_event_audit_keeps_symbol_even_if_event_cache_is_missing():
             "published_at": "",
             "url": "",
             "discovery_source": "cache",
+            "mode": "",
         }
     ]
