@@ -35,6 +35,15 @@
           "signal_bar_date": "2026-09-09",
           "queued_on": "2026-09-09",
           "strategy": "explorer_swing"
+        },
+        "2223": {
+          "symbol": "2223",
+          "score": 84.36,
+          "risk_distance": 4.83,
+          "reward_risk": 1.8,
+          "signal_bar_date": "2026-09-09",
+          "queued_on": "2026-09-09",
+          "strategy": "explorer_swing"
         }
       },
       "closed": []
@@ -73,12 +82,21 @@
           "signal_bar_date": "2026-09-09",
           "queued_on": "2026-09-09",
           "strategy": "momentum_leadership_shadow"
+        },
+        "8280": {
+          "symbol": "8280",
+          "score": 95.99,
+          "risk_distance": 1.0,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-09",
+          "queued_on": "2026-09-09",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": []
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-09T18:44:12.289352+03:00",
+      "updated_at": "2026-09-09T18:49:44.074530+03:00",
       "data_quality": "verified session 2026-09-09, consensus 99.6%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -111,7 +129,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 1,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 0/30"
         }
@@ -149,7 +167,7 @@
         "max_drawdown_r": null,
         "pnl_sar": 0,
         "open_positions": 1,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 0/30"
       },
@@ -168,7 +186,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-09T18:45:06.024973+03:00",
+      "updated_at": "2026-09-09T18:49:52.010213+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -204,7 +222,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 1,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 0/30",
           "rank_score": null
         },
@@ -219,7 +237,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 1,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 0/30",
           "rank_score": null
         }
@@ -272,7 +290,7 @@
       "1183": "CASH:IGNORE",
       "1201": "CASH:IGNORE",
       "1202": "CASH:IGNORE",
-      "1210": "CASH:WATCH",
+      "1210": "CASH:IGNORE",
       "1211": "CASH:WATCH",
       "1212": "CASH:IGNORE",
       "1213": "CASH:IGNORE",
@@ -295,8 +313,8 @@
       "1835": "CASH:WATCH",
       "2001": "CASH:IGNORE",
       "2010": "CASH:IGNORE",
-      "2020": "CASH:WATCH",
-      "2030": "CASH:WATCH",
+      "2020": "CASH:IGNORE",
+      "2030": "CASH:IGNORE",
       "2040": "CASH:IGNORE",
       "2050": "CASH:IGNORE",
       "2060": "CASH:IGNORE",
@@ -342,14 +360,14 @@
       "2330": "CASH:IGNORE",
       "2340": "CASH:IGNORE",
       "2350": "CASH:WATCH",
-      "2360": "CASH:WATCH",
+      "2360": "CASH:IGNORE",
       "2370": "CASH:WATCH",
       "2380": "CASH:WATCH",
       "2381": "CASH:WATCH",
       "2382": "CASH:IGNORE",
       "3002": "CASH:IGNORE",
       "3003": "CASH:IGNORE",
-      "3004": "CASH:WATCH",
+      "3004": "CASH:IGNORE",
       "3005": "CASH:IGNORE",
       "3007": "CASH:IGNORE",
       "3008": "CASH:IGNORE",
@@ -357,7 +375,7 @@
       "3020": "CASH:IGNORE",
       "3030": "CASH:IGNORE",
       "3040": "CASH:WATCH",
-      "3050": "CASH:WATCH",
+      "3050": "CASH:IGNORE",
       "3060": "CASH:WATCH",
       "3080": "CASH:IGNORE",
       "3090": "CASH:IGNORE",
@@ -385,7 +403,7 @@
       "4030": "CASH:WATCH",
       "4031": "CASH:IGNORE",
       "4040": "CASH:IGNORE",
-      "4050": "CASH:IGNORE",
+      "4050": "CASH:WATCH",
       "4051": "CASH:IGNORE",
       "4061": "CASH:IGNORE",
       "4070": "CASH:WATCH",
@@ -442,7 +460,7 @@
       "4321": "CASH:IGNORE",
       "4322": "CASH:IGNORE",
       "4323": "CASH:IGNORE",
-      "4324": "CASH:IGNORE",
+      "4324": "CASH:WATCH",
       "4325": "CASH:IGNORE",
       "4326": "CASH:IGNORE",
       "4328": "CASH:IGNORE",
