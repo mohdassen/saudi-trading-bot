@@ -77,7 +77,7 @@ jobs:
         env:
           BOT_MODE: shadow
           ZERO_PAID_SERVICES: "true"
-        run: python -m saudi_trading_bot.pead_verified_rescue
+        run: python -m saudi_trading_bot.pead_verified_v2
       - name: Emit auditable forward shadow summary
         env:
           BOT_MODE: shadow
