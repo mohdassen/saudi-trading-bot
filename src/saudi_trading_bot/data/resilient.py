@@ -56,6 +56,18 @@ class ResilientFreeProvider(MarketDataProvider):
         end: date,
         interval: str = "1d",
     ) -> pd.DataFrame:
+        expected = expected_completed_session(datetime.now(RIYADH))
+
+        # A cache row from the expected completed Saudi session is already
+        # trustworthy enough for repeated consumers inside the same workflow
+        # (Production scan -> Edge Lab). Reusing it avoids hundreds of duplicate
+        # Yahoo/Argaam requests while never accepting a stale cache as fresh.
+        cached = self.cache.load(symbol, start, end)
+        if not cached.empty and (self._newest(cached) or date.min) >= expected:
+            self.last_source = "local_cache_fresh"
+            self.last_error = ""
+            return cached
+
         primary_df = pd.DataFrame()
         recent_df = pd.DataFrame()
         rescue_df = pd.DataFrame()
@@ -66,7 +78,6 @@ class ResilientFreeProvider(MarketDataProvider):
         except Exception as exc:  # noqa: BLE001 - external provider isolation boundary
             errors.append(f"primary {type(exc).__name__}: {exc}")
 
-        expected = expected_completed_session(datetime.now(RIYADH))
         newest_primary = self._newest(primary_df)
         primary_is_stale = newest_primary is None or newest_primary < expected
 
@@ -108,7 +119,6 @@ class ResilientFreeProvider(MarketDataProvider):
         if not errors:
             errors.append("all free providers returned empty data")
         self.last_error = "; ".join(errors)
-        cached = self.cache.load(symbol, start, end)
         if not cached.empty:
             self.last_source = "local_cache"
             return cached
