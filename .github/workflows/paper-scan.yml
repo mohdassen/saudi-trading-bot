@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: saudi-paper-scan-v9
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   scan:
