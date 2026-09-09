@@ -102,6 +102,18 @@ jobs:
             cat /tmp/decision-intelligence.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Measure clean edge evidence
+        env:
+          BOT_MODE: shadow
+          ZERO_PAID_SERVICES: "true"
+        run: |
+          python -m saudi_trading_bot.edge_acceleration | tee /tmp/edge-acceleration.txt
+          {
+            echo "### Edge Acceleration"
+            echo '```text'
+            cat /tmp/edge-acceleration.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Persist durable forward evidence
         if: success()
         run: |
