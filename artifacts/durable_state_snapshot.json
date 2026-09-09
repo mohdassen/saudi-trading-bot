@@ -91,12 +91,21 @@
           "signal_bar_date": "2026-09-09",
           "queued_on": "2026-09-09",
           "strategy": "momentum_leadership_shadow"
+        },
+        "6015": {
+          "symbol": "6015",
+          "score": 95.93,
+          "risk_distance": 0.12,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-09",
+          "queued_on": "2026-09-09",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": []
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-09T18:49:44.074530+03:00",
+      "updated_at": "2026-09-09T18:56:32.571309+03:00",
       "data_quality": "verified session 2026-09-09, consensus 99.6%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -129,7 +138,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 1,
-          "pending": 2,
+          "pending": 3,
           "qualified": false,
           "status": "LEARNING 0/30"
         }
@@ -167,17 +176,17 @@
         "max_drawdown_r": null,
         "pnl_sar": 0,
         "open_positions": 1,
-        "pending": 2,
+        "pending": 3,
         "qualified": false,
         "status": "LEARNING 0/30"
       },
       "pead_source": {
         "verification": "detail-page-v1",
-        "source": "verified-cache",
-        "verified_recent_financial_events": 0,
-        "eligible_symbols_with_events": 0,
-        "events_inspected": 0,
-        "financial_tables_parsed": 0,
+        "source": "https://english.mubasher.info/news/sa/now/announcements",
+        "verified_recent_financial_events": 1,
+        "eligible_symbols_with_events": 1,
+        "events_inspected": 1,
+        "financial_tables_parsed": 1,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
@@ -186,7 +195,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-09T18:49:52.010213+03:00",
+      "updated_at": "2026-09-09T18:56:42.438239+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -222,7 +231,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 1,
-          "pending": 2,
+          "pending": 3,
           "status": "LEARNING 0/30",
           "rank_score": null
         },
