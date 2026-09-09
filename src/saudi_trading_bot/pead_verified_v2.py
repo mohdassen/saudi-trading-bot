@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from saudi_trading_bot import pead_mubasher
 from saudi_trading_bot import pead_verified_rescue as verified
+from saudi_trading_bot.pead_diagnostics import diagnose_pead, format_diagnostic
 from saudi_trading_bot.pead_verified_runner import mubasher_published_at
 
 
@@ -14,6 +15,16 @@ def run() -> int:
     verified._parse_mubasher_financial_events = (
         pead_mubasher.parse_mubasher_financial_events
     )
+
+    original_candidate = verified._pead_candidate
+
+    def audited_candidate(base, row, history, snapshot, cfg):
+        candidate = original_candidate(base, row, history, snapshot, cfg)
+        if snapshot is not None:
+            print(format_diagnostic(diagnose_pead(base, row, history, snapshot, cfg)))
+        return candidate
+
+    verified._pead_candidate = audited_candidate
     return verified.run()
 
 
