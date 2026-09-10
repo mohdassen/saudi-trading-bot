@@ -103,12 +103,21 @@
           "signal_bar_date": "2026-09-10",
           "queued_on": "2026-09-10",
           "strategy": "momentum_leadership_shadow"
+        },
+        "2223": {
+          "symbol": "2223",
+          "score": 97.59,
+          "risk_distance": 5.46,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-10",
+          "queued_on": "2026-09-10",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": []
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-10T19:23:01.480349+03:00",
+      "updated_at": "2026-09-10T19:42:17.995584+03:00",
       "data_quality": "verified session 2026-09-10, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -141,7 +150,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 2,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 0/30"
         }
@@ -179,7 +188,7 @@
         "max_drawdown_r": null,
         "pnl_sar": 0,
         "open_positions": 2,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 0/30"
       },
@@ -198,7 +207,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-10T19:23:13.127232+03:00",
+      "updated_at": "2026-09-10T19:42:28.116517+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -234,7 +243,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 2,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 0/30",
           "rank_score": null
         },
@@ -303,7 +312,7 @@
       "1201": "CASH:IGNORE",
       "1202": "CASH:IGNORE",
       "1210": "CASH:IGNORE",
-      "1211": "CASH:IGNORE",
+      "1211": "CASH:WATCH",
       "1212": "CASH:IGNORE",
       "1213": "CASH:IGNORE",
       "1214": "CASH:IGNORE",
@@ -326,7 +335,7 @@
       "2001": "CASH:IGNORE",
       "2010": "CASH:IGNORE",
       "2020": "CASH:WATCH",
-      "2030": "CASH:WATCH",
+      "2030": "CASH:IGNORE",
       "2040": "CASH:IGNORE",
       "2050": "CASH:IGNORE",
       "2060": "CASH:IGNORE",
@@ -416,7 +425,7 @@
       "4031": "CASH:IGNORE",
       "4040": "CASH:IGNORE",
       "4050": "CASH:IGNORE",
-      "4051": "CASH:IGNORE",
+      "4051": "CASH:WATCH",
       "4061": "CASH:IGNORE",
       "4070": "CASH:WATCH",
       "4071": "CASH:IGNORE",
