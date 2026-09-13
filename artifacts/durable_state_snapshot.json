@@ -203,11 +203,11 @@
       },
       "pead_source": {
         "verification": "detail-page-v1",
-        "source": "https://english.mubasher.info/news/sa/now/announcements",
+        "source": "verified-cache",
         "verified_recent_financial_events": 1,
         "eligible_symbols_with_events": 1,
         "events_inspected": 1,
-        "financial_tables_parsed": 1,
+        "financial_tables_parsed": 0,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
@@ -216,7 +216,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-10T20:17:24.493719+03:00",
+      "updated_at": "2026-09-13T15:12:42.370819+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -547,7 +547,7 @@
       "8020": "CASH:IGNORE",
       "8030": "CASH:WATCH",
       "8050": "CASH:IGNORE",
-      "8060": "CASH:WATCH",
+      "8060": "CASH:IGNORE",
       "8070": "CASH:IGNORE",
       "8120": "CASH:WATCH",
       "8150": "CASH:IGNORE",
