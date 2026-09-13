@@ -117,6 +117,15 @@
           "signal_bar_date": "2026-09-13",
           "queued_on": "2026-09-13",
           "strategy": "momentum_leadership_shadow"
+        },
+        "8280": {
+          "symbol": "8280",
+          "score": 97.22,
+          "risk_distance": 1.02,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-13",
+          "queued_on": "2026-09-13",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": [
@@ -139,7 +148,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-13T19:39:38.440246+03:00",
+      "updated_at": "2026-09-13T19:58:37.026580+03:00",
       "data_quality": "verified session 2026-09-13, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -172,7 +181,7 @@
           "max_drawdown_r": 1.054,
           "pnl_sar": -262.92,
           "open_positions": 2,
-          "pending": 2,
+          "pending": 3,
           "qualified": false,
           "status": "LEARNING 1/30"
         }
@@ -210,7 +219,7 @@
         "max_drawdown_r": 1.054,
         "pnl_sar": -262.92,
         "open_positions": 2,
-        "pending": 2,
+        "pending": 3,
         "qualified": false,
         "status": "LEARNING 1/30"
       },
@@ -229,7 +238,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-13T19:39:48.947848+03:00",
+      "updated_at": "2026-09-13T19:58:47.578605+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -265,7 +274,7 @@
           "max_drawdown_r": 1.054,
           "pnl_sar": -262.92,
           "open_positions": 2,
-          "pending": 2,
+          "pending": 3,
           "status": "LEARNING 1/30",
           "rank_score": null
         },
