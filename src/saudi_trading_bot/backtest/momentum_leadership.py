@@ -4,7 +4,6 @@ import json
 from collections import defaultdict
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta
-from pathlib import Path
 from statistics import median
 from zoneinfo import ZoneInfo
 
@@ -192,7 +191,9 @@ def build_report(start: date | None = None, end: date | None = None) -> dict:
         if len(raw) < 252:
             continue
         x = enrich(raw).copy()
-        x["avg_value20"] = (x["close"].astype(float) * x["volume"].astype(float)).rolling(20).mean()
+        x["avg_value20"] = (
+            x["close"].astype(float) * x["volume"].astype(float)
+        ).rolling(20).mean()
         x["mom6_1"] = x["close"].shift(21) / x["close"].shift(126) - 1.0
         x["mom3_1"] = x["close"].shift(21) / x["close"].shift(63) - 1.0
         x["high252"] = x["high"].rolling(252).max()
@@ -217,7 +218,18 @@ def build_report(start: date | None = None, end: date | None = None) -> dict:
         mom20_values: list[float] = []
         for symbol, i in rows:
             row = frames[symbol].iloc[i]
-            required = ["close", "ema50", "ema200", "roc63", "mom6_1", "mom3_1", "high252", "recent20", "atr14", "avg_value20"]
+            required = [
+                "close",
+                "ema50",
+                "ema200",
+                "roc63",
+                "mom6_1",
+                "mom3_1",
+                "high252",
+                "recent20",
+                "atr14",
+                "avg_value20",
+            ]
             if any(pd.isna(row.get(k)) for k in required):
                 continue
             close = float(row["close"])
@@ -233,30 +245,40 @@ def build_report(start: date | None = None, end: date | None = None) -> dict:
         pct50 = sum(breadth50) / len(breadth50) * 100.0
         pct200 = sum(breadth200) / len(breadth200) * 100.0
         med20 = median(mom20_values) * 100.0 if mom20_values else 0.0
-        regime = _regime({"pct50": pct50, "pct200": pct200, "med20": med20}, regime_rules)
+        regime = _regime(
+            {"pct50": pct50, "pct200": pct200, "med20": med20}, regime_rules
+        )
         roc_values = pd.Series([x[2] for x in eligible])
         percentiles = roc_values.rank(pct=True, method="average").tolist()
-        for (symbol, i, _), xs in zip(eligible, percentiles):
+        for (symbol, i, _), xs in zip(eligible, percentiles, strict=True):
             if blocked_until.get(symbol) and d <= blocked_until[symbol]:
                 continue
             row = frames[symbol].iloc[i]
             price = float(row["close"])
             atr_pct = float(row["atr14"]) / price if price > 0 else 99.0
-            high_proximity = price / float(row["high252"]) if float(row["high252"]) > 0 else 0.0
+            high252 = float(row["high252"])
+            high_proximity = price / high252 if high252 > 0 else 0.0
             valid = (
                 price > float(row["ema50"]) > float(row["ema200"])
                 and xs >= float(momentum_cfg["min_cross_section_percentile"])
-                and float(row["mom6_1"]) >= float(momentum_cfg["min_mom6_1_pct"]) / 100.0
-                and float(row["mom3_1"]) >= float(momentum_cfg["min_mom3_1_pct"]) / 100.0
+                and float(row["mom6_1"])
+                >= float(momentum_cfg["min_mom6_1_pct"]) / 100.0
+                and float(row["mom3_1"])
+                >= float(momentum_cfg["min_mom3_1_pct"]) / 100.0
                 and high_proximity >= float(momentum_cfg["min_52w_high_proximity"])
-                and float(momentum_cfg["recent20_min_pct"]) / 100.0 <= float(row["recent20"]) <= float(momentum_cfg["recent20_max_pct"]) / 100.0
+                and float(momentum_cfg["recent20_min_pct"]) / 100.0
+                <= float(row["recent20"])
+                <= float(momentum_cfg["recent20_max_pct"]) / 100.0
                 and atr_pct <= float(momentum_cfg["max_atr_pct"]) / 100.0
-                and float(row["avg_value20"]) >= float(momentum_cfg["min_avg_value_sar_20d"])
+                and float(row["avg_value20"])
+                >= float(momentum_cfg["min_avg_value_sar_20d"])
                 and price >= float(signal_cfg["min_price_sar"])
             )
             if not valid:
                 continue
-            trade = _simulate_trade(symbol, frames[symbol], i, regime, momentum_cfg, paper_cfg)
+            trade = _simulate_trade(
+                symbol, frames[symbol], i, regime, momentum_cfg, paper_cfg
+            )
             if trade is None:
                 continue
             trades.append(trade)
@@ -267,7 +289,12 @@ def build_report(start: date | None = None, end: date | None = None) -> dict:
         slices.append(_summarize(regime, [t for t in trades if t.regime == regime]))
     yearly = []
     for year in sorted({pd.Timestamp(t.signal_date).year for t in trades}):
-        yearly.append(_summarize(str(year), [t for t in trades if pd.Timestamp(t.signal_date).year == year]))
+        yearly.append(
+            _summarize(
+                str(year),
+                [t for t in trades if pd.Timestamp(t.signal_date).year == year],
+            )
+        )
 
     qualification = edge_cfg["qualification"]
     all_result = slices[0]
@@ -303,14 +330,16 @@ def run() -> int:
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
         "MOMENTUM_HISTORICAL "
-        f"trades={report['trade_count']} gate={'PASS' if report['historical_gate_pass'] else 'FAIL'} "
+        f"trades={report['trade_count']} "
+        f"gate={'PASS' if report['historical_gate_pass'] else 'FAIL'} "
         f"symbols={report['symbols']} production=CASH"
     )
     for item in report["slices"]:
         print(
             "MOMENTUM_HIST_SLICE "
-            f"name={item['name']} trades={item['trades']} WR={item['win_rate_pct']:.1f}% "
-            f"E={item['expectancy_r']}R PF={item['profit_factor']} DD={item['max_drawdown_r']}R"
+            f"name={item['name']} trades={item['trades']} "
+            f"WR={item['win_rate_pct']:.1f}% E={item['expectancy_r']}R "
+            f"PF={item['profit_factor']} DD={item['max_drawdown_r']}R"
         )
     print(f"MOMENTUM_HISTORICAL_FILE {output}")
     return 0
