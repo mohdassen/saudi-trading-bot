@@ -18,11 +18,11 @@
           "target": 35.049,
           "score": 85.85,
           "opened_on": "2026-09-09",
-          "last_marked_on": "2026-09-10",
-          "bars_held": 2,
+          "last_marked_on": "2026-09-13",
+          "bars_held": 3,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.029464285714286803,
+          "mae_r": -0.2080363954816555,
           "mfe_r": 1.3098214285714262
         },
         "2083": {
@@ -33,25 +33,30 @@
           "target": 49.6594,
           "score": 84.68,
           "opened_on": "2026-09-10",
-          "last_marked_on": "2026-09-10",
+          "last_marked_on": "2026-09-13",
+          "bars_held": 2,
+          "strategy": "explorer_swing",
+          "entry_regime": "UNKNOWN",
+          "mae_r": -0.47442033890490876,
+          "mfe_r": 0.05776758545969569
+        },
+        "4030": {
+          "symbol": "4030",
+          "qty": 142,
+          "entry": 35.015,
+          "stop": 33.525,
+          "target": 37.697,
+          "score": 89.3,
+          "opened_on": "2026-09-13",
+          "last_marked_on": "2026-09-13",
           "bars_held": 1,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.07957133935756526,
-          "mfe_r": 0.05776758545969569
+          "mae_r": -0.09060330998977585,
+          "mfe_r": 0.3255033557046972
         }
       },
-      "pending": {
-        "4030": {
-          "symbol": "4030",
-          "score": 89.3,
-          "risk_distance": 1.49,
-          "reward_risk": 1.8,
-          "signal_bar_date": "2026-09-10",
-          "queued_on": "2026-09-10",
-          "strategy": "explorer_swing"
-        }
-      },
+      "pending": {},
       "closed": []
     },
     "artifacts/pead_shadow_portfolio.json": {
@@ -61,23 +66,8 @@
       "closed": []
     },
     "artifacts/momentum_shadow_portfolio.json": {
-      "equity_sar": 100000.0,
+      "equity_sar": 99737.08,
       "positions": {
-        "2380": {
-          "symbol": "2380",
-          "qty": 189,
-          "entry": 18.1681,
-          "stop": 16.8481,
-          "target": 20.8081,
-          "score": 97.99,
-          "opened_on": "2026-09-09",
-          "last_marked_on": "2026-09-10",
-          "bars_held": 2,
-          "strategy": "momentum_leadership_shadow",
-          "entry_regime": "UNKNOWN",
-          "mae_r": -0.14250034679065973,
-          "mfe_r": 0.21356118404504093
-        },
         "7200": {
           "symbol": "7200",
           "qty": 10,
@@ -86,48 +76,62 @@
           "target": 354.126,
           "score": 97.14,
           "opened_on": "2026-09-10",
-          "last_marked_on": "2026-09-10",
-          "bars_held": 1,
+          "last_marked_on": "2026-09-13",
+          "bars_held": 2,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.12990329539810697,
-          "mfe_r": 0.2632373945426872
+          "mfe_r": 0.4221662022787288
+        },
+        "6015": {
+          "symbol": "6015",
+          "qty": 2038,
+          "entry": 2.4525,
+          "stop": 2.3425,
+          "target": 2.6725,
+          "score": 97.99,
+          "opened_on": "2026-09-13",
+          "last_marked_on": "2026-09-13",
+          "bars_held": 1,
+          "strategy": "momentum_leadership_shadow",
+          "entry_regime": "UNKNOWN",
+          "mae_r": -0.5681808645075013,
+          "mfe_r": 0.06818216497247737
         }
       },
       "pending": {
-        "6015": {
-          "symbol": "6015",
-          "score": 97.99,
-          "risk_distance": 0.11,
+        "2380": {
+          "symbol": "2380",
+          "score": 98.14,
+          "risk_distance": 1.41,
           "reward_risk": 2.0,
-          "signal_bar_date": "2026-09-10",
-          "queued_on": "2026-09-10",
-          "strategy": "momentum_leadership_shadow"
-        },
-        "2223": {
-          "symbol": "2223",
-          "score": 97.59,
-          "risk_distance": 5.46,
-          "reward_risk": 2.0,
-          "signal_bar_date": "2026-09-10",
-          "queued_on": "2026-09-10",
-          "strategy": "momentum_leadership_shadow"
-        },
-        "8280": {
-          "symbol": "8280",
-          "score": 97.47,
-          "risk_distance": 1.05,
-          "reward_risk": 2.0,
-          "signal_bar_date": "2026-09-10",
-          "queued_on": "2026-09-10",
+          "signal_bar_date": "2026-09-13",
+          "queued_on": "2026-09-13",
           "strategy": "momentum_leadership_shadow"
         }
       },
-      "closed": []
+      "closed": [
+        {
+          "symbol": "2380",
+          "qty": 189,
+          "entry": 18.1681,
+          "exit": 16.8313,
+          "opened_on": "2026-09-09",
+          "closed_on": "2026-09-13",
+          "reason": "stop",
+          "pnl_sar": -262.92,
+          "return_pct": -7.66,
+          "strategy": "momentum_leadership_shadow",
+          "initial_risk_sar": 249.48,
+          "entry_regime": "UNKNOWN",
+          "mae_r": -1.112,
+          "mfe_r": 0.214
+        }
+      ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-10T20:17:13.278219+03:00",
-      "data_quality": "verified session 2026-09-10, consensus 99.2%",
+      "updated_at": "2026-09-13T19:15:25.888573+03:00",
+      "data_quality": "verified session 2026-09-13, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
         "min_expectancy_r": 0.1,
@@ -151,17 +155,17 @@
         },
         {
           "name": "Momentum Leadership",
-          "closed_trades": 0,
+          "closed_trades": 1,
           "target_trades": 30,
           "win_rate_pct": 0.0,
-          "expectancy_r": null,
+          "expectancy_r": -1.054,
           "profit_factor": 0.0,
-          "max_drawdown_r": null,
-          "pnl_sar": 0,
+          "max_drawdown_r": 1.054,
+          "pnl_sar": -262.92,
           "open_positions": 2,
-          "pending": 3,
+          "pending": 1,
           "qualified": false,
-          "status": "LEARNING 0/30"
+          "status": "LEARNING 1/30"
         }
       ]
     },
@@ -189,17 +193,17 @@
       },
       "momentum": {
         "name": "Momentum Leadership",
-        "closed_trades": 0,
+        "closed_trades": 1,
         "target_trades": 30,
         "win_rate_pct": 0.0,
-        "expectancy_r": null,
+        "expectancy_r": -1.054,
         "profit_factor": 0.0,
-        "max_drawdown_r": null,
-        "pnl_sar": 0,
+        "max_drawdown_r": 1.054,
+        "pnl_sar": -262.92,
         "open_positions": 2,
-        "pending": 3,
+        "pending": 1,
         "qualified": false,
-        "status": "LEARNING 0/30"
+        "status": "LEARNING 1/30"
       },
       "pead_source": {
         "verification": "detail-page-v1",
@@ -216,14 +220,14 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-13T15:12:42.370819+03:00",
+      "updated_at": "2026-09-13T19:15:37.176615+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
         "eligible": 254,
-        "above_ema50_pct": 44.5,
-        "above_ema200_pct": 36.6,
-        "median_momentum20_pct": 1.1
+        "above_ema50_pct": 32.3,
+        "above_ema200_pct": 31.5,
+        "median_momentum20_pct": 0.0
       },
       "scoreboard": [
         {
@@ -243,17 +247,17 @@
         },
         {
           "name": "Momentum Leadership",
-          "closed": 0,
+          "closed": 1,
           "target": 30,
           "wins": 0,
           "win_rate_pct": 0.0,
-          "expectancy_r": null,
+          "expectancy_r": -1.054,
           "profit_factor": 0.0,
-          "max_drawdown_r": null,
-          "pnl_sar": 0,
+          "max_drawdown_r": 1.054,
+          "pnl_sar": -262.92,
           "open_positions": 2,
-          "pending": 3,
-          "status": "LEARNING 0/30",
+          "pending": 1,
+          "status": "LEARNING 1/30",
           "rank_score": null
         },
         {
@@ -266,8 +270,8 @@
           "profit_factor": 0.0,
           "max_drawdown_r": null,
           "pnl_sar": 0,
-          "open_positions": 2,
-          "pending": 1,
+          "open_positions": 3,
+          "pending": 0,
           "status": "LEARNING 0/30",
           "rank_score": null
         }
@@ -282,12 +286,16 @@
           "diagnosis": "NO_CLOSED_LOSSES_YET"
         },
         "Momentum Leadership": {
-          "closed_losses": 0,
-          "loss_rate_pct": 0.0,
-          "reasons": {},
-          "strategies": {},
-          "avg_loss_r": null,
-          "diagnosis": "NO_CLOSED_LOSSES_YET"
+          "closed_losses": 1,
+          "loss_rate_pct": 100.0,
+          "reasons": {
+            "stop": 1
+          },
+          "strategies": {
+            "momentum_leadership_shadow": 1
+          },
+          "avg_loss_r": 1.054,
+          "diagnosis": "STOP_DOMINATED: review entry quality before changing stop width"
         },
         "Explorer Control": {
           "closed_losses": 0,
@@ -315,13 +323,13 @@
       "1111": "CASH:IGNORE",
       "1120": "CASH:IGNORE",
       "1140": "CASH:IGNORE",
-      "1150": "CASH:WATCH",
+      "1150": "CASH:IGNORE",
       "1182": "CASH:IGNORE",
       "1183": "CASH:IGNORE",
       "1201": "CASH:IGNORE",
       "1202": "CASH:IGNORE",
       "1210": "CASH:IGNORE",
-      "1211": "CASH:WATCH",
+      "1211": "CASH:IGNORE",
       "1212": "CASH:IGNORE",
       "1213": "CASH:IGNORE",
       "1214": "CASH:IGNORE",
@@ -331,9 +339,9 @@
       "1304": "CASH:IGNORE",
       "1320": "CASH:WATCH",
       "1321": "CASH:WATCH",
-      "1322": "CASH:WATCH",
+      "1322": "CASH:IGNORE",
       "1323": "CASH:IGNORE",
-      "1810": "CASH:WATCH",
+      "1810": "CASH:IGNORE",
       "1820": "CASH:IGNORE",
       "1830": "CASH:WATCH",
       "1831": "CASH:IGNORE",
@@ -343,12 +351,12 @@
       "1835": "CASH:WATCH",
       "2001": "CASH:IGNORE",
       "2010": "CASH:IGNORE",
-      "2020": "CASH:WATCH",
+      "2020": "CASH:IGNORE",
       "2030": "CASH:IGNORE",
       "2040": "CASH:IGNORE",
       "2050": "CASH:IGNORE",
       "2060": "CASH:IGNORE",
-      "2070": "CASH:WATCH",
+      "2070": "CASH:IGNORE",
       "2080": "CASH:IGNORE",
       "2081": "CASH:IGNORE",
       "2082": "CASH:IGNORE",
@@ -362,14 +370,14 @@
       "2140": "CASH:IGNORE",
       "2150": "CASH:IGNORE",
       "2160": "CASH:IGNORE",
-      "2170": "CASH:WATCH",
+      "2170": "CASH:IGNORE",
       "2180": "CASH:WATCH",
-      "2190": "CASH:WATCH",
+      "2190": "CASH:IGNORE",
       "2200": "CASH:WATCH",
       "2210": "CASH:IGNORE",
       "2220": "CASH:IGNORE",
       "2222": "CASH:IGNORE",
-      "2223": "CASH:WATCH",
+      "2223": "CASH:IGNORE",
       "2230": "CASH:IGNORE",
       "2240": "CASH:IGNORE",
       "2250": "CASH:IGNORE",
@@ -377,7 +385,7 @@
       "2280": "CASH:IGNORE",
       "2281": "CASH:IGNORE",
       "2282": "CASH:WATCH",
-      "2283": "CASH:WATCH",
+      "2283": "CASH:IGNORE",
       "2284": "CASH:IGNORE",
       "2285": "CASH:IGNORE",
       "2286": "CASH:WATCH",
@@ -389,7 +397,7 @@
       "2320": "CASH:IGNORE",
       "2330": "CASH:IGNORE",
       "2340": "CASH:IGNORE",
-      "2350": "CASH:WATCH",
+      "2350": "CASH:IGNORE",
       "2360": "CASH:IGNORE",
       "2370": "CASH:WATCH",
       "2380": "CASH:WATCH",
@@ -412,8 +420,8 @@
       "3091": "CASH:IGNORE",
       "3092": "CASH:WATCH",
       "4001": "CASH:IGNORE",
-      "4002": "CASH:WATCH",
-      "4003": "CASH:WATCH",
+      "4002": "CASH:IGNORE",
+      "4003": "CASH:IGNORE",
       "4004": "CASH:IGNORE",
       "4005": "CASH:IGNORE",
       "4006": "CASH:IGNORE",
@@ -433,14 +441,14 @@
       "4030": "CASH:WATCH",
       "4031": "CASH:IGNORE",
       "4040": "CASH:IGNORE",
-      "4050": "CASH:IGNORE",
-      "4051": "CASH:WATCH",
+      "4050": "CASH:WATCH",
+      "4051": "CASH:IGNORE",
       "4061": "CASH:IGNORE",
-      "4070": "CASH:WATCH",
+      "4070": "CASH:IGNORE",
       "4071": "CASH:IGNORE",
       "4080": "CASH:IGNORE",
-      "4081": "CASH:IGNORE",
-      "4082": "CASH:WATCH",
+      "4081": "CASH:WATCH",
+      "4082": "CASH:IGNORE",
       "4083": "CASH:IGNORE",
       "4084": "CASH:IGNORE",
       "4090": "CASH:IGNORE",
@@ -469,7 +477,7 @@
       "4192": "CASH:IGNORE",
       "4193": "CASH:IGNORE",
       "4194": "CASH:IGNORE",
-      "4200": "CASH:WATCH",
+      "4200": "CASH:IGNORE",
       "4210": "CASH:IGNORE",
       "4220": "CASH:IGNORE",
       "4230": "CASH:IGNORE",
@@ -502,7 +510,7 @@
       "4335": "CASH:IGNORE",
       "4336": "CASH:IGNORE",
       "4337": "CASH:IGNORE",
-      "4338": "CASH:WATCH",
+      "4338": "CASH:IGNORE",
       "4339": "CASH:IGNORE",
       "4340": "CASH:IGNORE",
       "4342": "CASH:IGNORE",
@@ -526,7 +534,7 @@
       "6017": "CASH:IGNORE",
       "6018": "CASH:IGNORE",
       "6020": "CASH:IGNORE",
-      "6022": "CASH:IGNORE",
+      "6022": "CASH:WATCH",
       "6040": "CASH:IGNORE",
       "6050": "CASH:IGNORE",
       "6060": "CASH:IGNORE",
@@ -537,7 +545,7 @@
       "7030": "CASH:IGNORE",
       "7040": "CASH:IGNORE",
       "7200": "CASH:WATCH",
-      "7201": "CASH:WATCH",
+      "7201": "CASH:IGNORE",
       "7202": "CASH:WATCH",
       "7203": "CASH:IGNORE",
       "7204": "CASH:IGNORE",
