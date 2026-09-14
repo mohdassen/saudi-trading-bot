@@ -123,6 +123,15 @@
           "signal_bar_date": "2026-09-14",
           "queued_on": "2026-09-14",
           "strategy": "momentum_leadership_shadow"
+        },
+        "4310": {
+          "symbol": "4310",
+          "score": 96.74,
+          "risk_distance": 1.48,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-14",
+          "queued_on": "2026-09-14",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": [
@@ -145,7 +154,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-14T16:15:34.162264+03:00",
+      "updated_at": "2026-09-14T21:04:30.823729+03:00",
       "data_quality": "verified session 2026-09-14, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -178,7 +187,7 @@
           "max_drawdown_r": 1.054,
           "pnl_sar": -262.92,
           "open_positions": 3,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 1/30"
         }
@@ -216,7 +225,7 @@
         "max_drawdown_r": 1.054,
         "pnl_sar": -262.92,
         "open_positions": 3,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 1/30"
       },
@@ -235,7 +244,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-14T16:15:46.674428+03:00",
+      "updated_at": "2026-09-14T21:04:41.162534+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -271,7 +280,7 @@
           "max_drawdown_r": 1.054,
           "pnl_sar": -262.92,
           "open_positions": 3,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 1/30",
           "rank_score": null
         },
@@ -336,7 +345,7 @@
     "artifacts/alert_state.json": {
       "1020": "CASH:IGNORE",
       "1111": "CASH:IGNORE",
-      "1120": "CASH:WATCH",
+      "1120": "CASH:IGNORE",
       "1140": "CASH:IGNORE",
       "1150": "CASH:IGNORE",
       "1182": "CASH:IGNORE",
@@ -386,7 +395,7 @@
       "2150": "CASH:IGNORE",
       "2160": "CASH:IGNORE",
       "2170": "CASH:IGNORE",
-      "2180": "CASH:WATCH",
+      "2180": "CASH:IGNORE",
       "2190": "CASH:IGNORE",
       "2200": "CASH:WATCH",
       "2210": "CASH:IGNORE",
@@ -433,7 +442,7 @@
       "3080": "CASH:IGNORE",
       "3090": "CASH:IGNORE",
       "3091": "CASH:IGNORE",
-      "3092": "CASH:WATCH",
+      "3092": "CASH:IGNORE",
       "4001": "CASH:IGNORE",
       "4002": "CASH:WATCH",
       "4003": "CASH:IGNORE",
@@ -463,7 +472,7 @@
       "4071": "CASH:IGNORE",
       "4080": "CASH:IGNORE",
       "4081": "CASH:IGNORE",
-      "4082": "CASH:WATCH",
+      "4082": "CASH:IGNORE",
       "4083": "CASH:IGNORE",
       "4084": "CASH:IGNORE",
       "4090": "CASH:IGNORE",
