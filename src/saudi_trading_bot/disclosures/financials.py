@@ -72,25 +72,135 @@ def _published_at(text: str) -> str:
     return ""
 
 
+def _norm(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(text).lower()).strip()
+
+
+def _label_key(label: str) -> str | None:
+    normalized = _norm(label)
+    if any(
+        token in normalized
+        for token in (
+            "sales revenue",
+            "revenue sales",
+            "total revenue",
+            "total revenues",
+            "revenues",
+        )
+    ):
+        return "revenue"
+    if any(
+        token in normalized
+        for token in (
+            "operational profit",
+            "operating profit",
+            "operating income",
+            "profit from operations",
+            "income from operations",
+        )
+    ):
+        return "operating"
+    if (
+        ("net profit" in normalized or "net income" in normalized)
+        and "per share" not in normalized
+        and "margin" not in normalized
+    ):
+        return "net"
+    return None
+
+
+def _header_role(text: str) -> str | None:
+    normalized = _norm(text)
+    if not normalized:
+        return None
+    if any(
+        token in normalized
+        for token in (
+            "current quarter",
+            "current period",
+            "current year",
+            "current",
+        )
+    ):
+        return "current"
+    if any(
+        token in normalized
+        for token in (
+            "similar quarter for previous year",
+            "similar quarter previous year",
+            "similar period for previous year",
+            "similar period previous year",
+            "corresponding period previous year",
+            "same quarter previous year",
+            "same period previous year",
+            "previous year",
+        )
+    ):
+        return "previous_year"
+    if any(
+        token in normalized
+        for token in (
+            "previous quarter",
+            "previous period",
+            "preceding quarter",
+        )
+    ):
+        return "previous_quarter"
+    return None
+
+
+def _table_column_map(table) -> dict[str, int]:
+    best: dict[str, int] = {}
+    for tr in table.find_all("tr"):
+        cells = [" ".join(cell.stripped_strings) for cell in tr.find_all(["th", "td"])]
+        if len(cells) < 2:
+            continue
+        candidate: dict[str, int] = {}
+        for index, cell in enumerate(cells):
+            role = _header_role(cell)
+            if role is not None and role not in candidate:
+                candidate[role] = index
+        if "current" in candidate and "previous_year" in candidate:
+            best = candidate
+            break
+    return best
+
+
+def _values_from_cells(
+    cells: list[str],
+    columns: dict[str, int],
+) -> list[float | None]:
+    def value_for(role: str, fallback: int | None) -> float | None:
+        index = columns.get(role, fallback)
+        if index is None or index >= len(cells):
+            return None
+        return _number(cells[index])
+
+    return [
+        value_for("current", 1),
+        value_for("previous_year", 2),
+        value_for("previous_quarter", 4 if len(cells) > 4 else None),
+    ]
+
+
 def _rows(html: str) -> dict[str, list[float | None]]:
     soup = BeautifulSoup(html, "html.parser")
     found: dict[str, list[float | None]] = {}
-    for tr in soup.find_all("tr"):
-        cells = [" ".join(cell.stripped_strings) for cell in tr.find_all(["th", "td"])]
-        if len(cells) < 3:
-            continue
-        label = cells[0].lower()
-        values = [
-            _number(cells[1]),
-            _number(cells[2]),
-            _number(cells[4]) if len(cells) > 4 else None,
-        ]
-        if "sales/revenue" in label or "sales / revenue" in label:
-            found["revenue"] = values
-        elif "operational profit" in label or "operating profit" in label:
-            found["operating"] = values
-        elif "net profit" in label and "shareholders" in label:
-            found["net"] = values
+    for table in soup.find_all("table"):
+        columns = _table_column_map(table)
+        for tr in table.find_all("tr"):
+            cells = [
+                " ".join(cell.stripped_strings)
+                for cell in tr.find_all(["th", "td"])
+            ]
+            if len(cells) < 3:
+                continue
+            key = _label_key(cells[0])
+            if key is None:
+                continue
+            values = _values_from_cells(cells, columns)
+            if values[0] is not None:
+                found[key] = values
     return found
 
 

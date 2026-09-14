@@ -58,3 +58,39 @@ def test_turnaround_gets_positive_earnings_signal():
     assert result.net_current == 12
     assert result.net_previous_year == -8
     assert result.earnings_score >= 70
+
+
+def test_parser_follows_reordered_columns_and_alias_labels():
+    html = """
+    <html><body>
+      <table>
+        <tr>
+          <th>Metric</th><th>Previous Quarter</th><th>% Change</th>
+          <th>Current Period</th><th>Same Period Previous Year</th>
+        </tr>
+        <tr><td>Total Revenues</td><td>180</td><td>11</td><td>220</td><td>200</td></tr>
+        <tr><td>Operating Income</td><td>45</td><td>22</td><td>55</td><td>40</td></tr>
+        <tr><td>Net Income</td><td>90</td><td>33</td><td>120</td><td>80</td></tr>
+      </table>
+    </body></html>
+    """
+    result = parse_financial_result(html, "2381", "https://english.mubasher.info/x")
+    assert result is not None
+    assert result.net_current == 120
+    assert result.net_previous_year == 80
+    assert result.net_previous_quarter == 90
+    assert result.revenue_yoy_pct == 10.0
+    assert result.operating_yoy_pct == 37.5
+    assert result.net_yoy_pct == 50.0
+    assert result.net_qoq_pct == 33.333
+
+
+def test_parser_rejects_non_financial_numeric_table():
+    html = """
+    <table>
+      <tr><th>Metric</th><th>Current Period</th><th>Previous Year</th></tr>
+      <tr><td>Share Price</td><td>44</td><td>38</td></tr>
+      <tr><td>Volume</td><td>100000</td><td>80000</td></tr>
+    </table>
+    """
+    assert parse_financial_result(html, "9999", "https://example.com") is None
