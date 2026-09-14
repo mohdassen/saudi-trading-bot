@@ -154,7 +154,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-14T21:15:34.375608+03:00",
+      "updated_at": "2026-09-14T21:19:18.652689+03:00",
       "data_quality": "verified session 2026-09-14, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -231,11 +231,11 @@
       },
       "pead_source": {
         "verification": "detail-page-v1",
-        "source": "verified-cache",
+        "source": "verified-cache-rehydrated",
         "verified_recent_financial_events": 1,
         "eligible_symbols_with_events": 1,
         "events_inspected": 1,
-        "financial_tables_parsed": 0,
+        "financial_tables_parsed": 1,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
@@ -244,7 +244,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-14T21:15:44.198099+03:00",
+      "updated_at": "2026-09-14T21:19:31.013908+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
