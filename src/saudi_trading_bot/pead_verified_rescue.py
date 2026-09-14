@@ -96,20 +96,17 @@ def _verify_one(
     return verified, snapshot, None
 
 
-def _verified_mubasher_events(
-    listing_html: str,
-    now: datetime,
-    companies: list[tuple[str, str]],
+def _verify_events(
+    events: list[Announcement],
     timeout: int,
 ) -> tuple[list[Announcement], dict[str, EarningsSnapshot], list[str]]:
-    discovered = _parse_mubasher_financial_events(listing_html, now, companies)
     verified: list[Announcement] = []
     snapshots: dict[str, EarningsSnapshot] = {}
     errors: list[str] = []
 
     with ThreadPoolExecutor(max_workers=8) as pool:
         futures = {
-            pool.submit(_verify_one, event, timeout): event for event in discovered[:60]
+            pool.submit(_verify_one, event, timeout): event for event in events[:60]
         }
         for future in as_completed(futures):
             event, snapshot, error = future.result()
@@ -127,6 +124,16 @@ def _verified_mubasher_events(
         reverse=True,
     )
     return verified, snapshots, errors
+
+
+def _verified_mubasher_events(
+    listing_html: str,
+    now: datetime,
+    companies: list[tuple[str, str]],
+    timeout: int,
+) -> tuple[list[Announcement], dict[str, EarningsSnapshot], list[str]]:
+    discovered = _parse_mubasher_financial_events(listing_html, now, companies)
+    return _verify_events(discovered, timeout)
 
 
 def _save_verified_events(
@@ -189,7 +196,23 @@ def _fetch_verified_events(
         return events, snapshots, errors, url
     except (requests.RequestException, ValueError) as exc:
         cached = _load_verified_events(cache_path)
-        return cached, {}, [f"verified listing refresh failed: {exc}"], "verified-cache"
+        if not cached:
+            return [], {}, [f"verified listing refresh failed: {exc}"], "verified-cache"
+
+        reverified, snapshots, detail_errors = _verify_events(cached, timeout)
+        if reverified:
+            return (
+                reverified,
+                snapshots,
+                [f"verified listing refresh failed: {exc}", *detail_errors],
+                "verified-cache-rehydrated",
+            )
+        return (
+            cached,
+            {},
+            [f"verified listing refresh failed: {exc}", *detail_errors],
+            "verified-cache",
+        )
 
 
 def _recent_event(
