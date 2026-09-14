@@ -18,11 +18,11 @@
           "target": 35.049,
           "score": 85.85,
           "opened_on": "2026-09-09",
-          "last_marked_on": "2026-09-13",
-          "bars_held": 3,
+          "last_marked_on": "2026-09-14",
+          "bars_held": 4,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.2080363954816555,
+          "mae_r": -0.8330370766775952,
           "mfe_r": 1.3098214285714262
         },
         "2083": {
@@ -33,11 +33,11 @@
           "target": 49.6594,
           "score": 84.68,
           "opened_on": "2026-09-10",
-          "last_marked_on": "2026-09-13",
-          "bars_held": 2,
+          "last_marked_on": "2026-09-14",
+          "bars_held": 3,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.47442033890490876,
+          "mae_r": -0.7576820759916503,
           "mfe_r": 0.05776758545969569
         },
         "4030": {
@@ -48,11 +48,11 @@
           "target": 37.697,
           "score": 89.3,
           "opened_on": "2026-09-13",
-          "last_marked_on": "2026-09-13",
-          "bars_held": 1,
+          "last_marked_on": "2026-09-14",
+          "bars_held": 2,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.09060330998977585,
+          "mae_r": -0.21140888393325302,
           "mfe_r": 0.3255033557046972
         }
       },
@@ -76,12 +76,12 @@
           "target": 354.126,
           "score": 97.14,
           "opened_on": "2026-09-10",
-          "last_marked_on": "2026-09-13",
-          "bars_held": 2,
+          "last_marked_on": "2026-09-14",
+          "bars_held": 3,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.12990329539810697,
-          "mfe_r": 0.4221662022787288
+          "mfe_r": 0.530907570054372
         },
         "6015": {
           "symbol": "6015",
@@ -91,40 +91,37 @@
           "target": 2.6725,
           "score": 97.99,
           "opened_on": "2026-09-13",
-          "last_marked_on": "2026-09-13",
-          "bars_held": 1,
+          "last_marked_on": "2026-09-14",
+          "bars_held": 2,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.5681808645075013,
           "mfe_r": 0.06818216497247737
+        },
+        "2380": {
+          "symbol": "2380",
+          "qty": 176,
+          "entry": 17.6376,
+          "stop": 16.2276,
+          "target": 20.4576,
+          "score": 98.14,
+          "opened_on": "2026-09-14",
+          "last_marked_on": "2026-09-14",
+          "bars_held": 1,
+          "strategy": "momentum_leadership_shadow",
+          "entry_regime": "UNKNOWN",
+          "mae_r": -0.3103540688372666,
+          "mfe_r": 0.5052484974962606
         }
       },
       "pending": {
-        "2380": {
-          "symbol": "2380",
-          "score": 98.14,
-          "risk_distance": 1.41,
+        "2083": {
+          "symbol": "2083",
+          "score": 96.75,
+          "risk_distance": 2.39,
           "reward_risk": 2.0,
-          "signal_bar_date": "2026-09-13",
-          "queued_on": "2026-09-13",
-          "strategy": "momentum_leadership_shadow"
-        },
-        "4310": {
-          "symbol": "4310",
-          "score": 97.41,
-          "risk_distance": 1.52,
-          "reward_risk": 2.0,
-          "signal_bar_date": "2026-09-13",
-          "queued_on": "2026-09-13",
-          "strategy": "momentum_leadership_shadow"
-        },
-        "8280": {
-          "symbol": "8280",
-          "score": 97.22,
-          "risk_distance": 1.02,
-          "reward_risk": 2.0,
-          "signal_bar_date": "2026-09-13",
-          "queued_on": "2026-09-13",
+          "signal_bar_date": "2026-09-14",
+          "queued_on": "2026-09-14",
           "strategy": "momentum_leadership_shadow"
         }
       },
@@ -148,8 +145,8 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-13T23:47:06.272945+03:00",
-      "data_quality": "verified session 2026-09-13, consensus 98.8%",
+      "updated_at": "2026-09-14T16:15:34.162264+03:00",
+      "data_quality": "verified session 2026-09-14, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
         "min_expectancy_r": 0.1,
@@ -180,8 +177,8 @@
           "profit_factor": 0.0,
           "max_drawdown_r": 1.054,
           "pnl_sar": -262.92,
-          "open_positions": 2,
-          "pending": 3,
+          "open_positions": 3,
+          "pending": 1,
           "qualified": false,
           "status": "LEARNING 1/30"
         }
@@ -218,8 +215,8 @@
         "profit_factor": 0.0,
         "max_drawdown_r": 1.054,
         "pnl_sar": -262.92,
-        "open_positions": 2,
-        "pending": 3,
+        "open_positions": 3,
+        "pending": 1,
         "qualified": false,
         "status": "LEARNING 1/30"
       },
@@ -238,14 +235,14 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-13T23:47:17.511567+03:00",
+      "updated_at": "2026-09-14T16:15:46.674428+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
         "eligible": 254,
-        "above_ema50_pct": 32.3,
-        "above_ema200_pct": 31.5,
-        "median_momentum20_pct": 0.0
+        "above_ema50_pct": 31.9,
+        "above_ema200_pct": 30.3,
+        "median_momentum20_pct": -1.0
       },
       "scoreboard": [
         {
@@ -273,8 +270,8 @@
           "profit_factor": 0.0,
           "max_drawdown_r": 1.054,
           "pnl_sar": -262.92,
-          "open_positions": 2,
-          "pending": 3,
+          "open_positions": 3,
+          "pending": 1,
           "status": "LEARNING 1/30",
           "rank_score": null
         },
@@ -339,7 +336,7 @@
     "artifacts/alert_state.json": {
       "1020": "CASH:IGNORE",
       "1111": "CASH:IGNORE",
-      "1120": "CASH:IGNORE",
+      "1120": "CASH:WATCH",
       "1140": "CASH:IGNORE",
       "1150": "CASH:IGNORE",
       "1182": "CASH:IGNORE",
@@ -369,8 +366,8 @@
       "1835": "CASH:WATCH",
       "2001": "CASH:IGNORE",
       "2010": "CASH:IGNORE",
-      "2020": "CASH:IGNORE",
-      "2030": "CASH:IGNORE",
+      "2020": "CASH:WATCH",
+      "2030": "CASH:WATCH",
       "2040": "CASH:IGNORE",
       "2050": "CASH:IGNORE",
       "2060": "CASH:IGNORE",
@@ -381,7 +378,7 @@
       "2083": "CASH:WATCH",
       "2084": "CASH:IGNORE",
       "2090": "CASH:IGNORE",
-      "2100": "CASH:IGNORE",
+      "2100": "CASH:WATCH",
       "2110": "CASH:WATCH",
       "2120": "CASH:IGNORE",
       "2130": "CASH:IGNORE",
@@ -403,13 +400,13 @@
       "2280": "CASH:IGNORE",
       "2281": "CASH:IGNORE",
       "2282": "CASH:WATCH",
-      "2283": "CASH:IGNORE",
+      "2283": "CASH:WATCH",
       "2284": "CASH:IGNORE",
       "2285": "CASH:IGNORE",
-      "2286": "CASH:WATCH",
+      "2286": "CASH:IGNORE",
       "2287": "CASH:IGNORE",
       "2288": "CASH:IGNORE",
-      "2290": "CASH:WATCH",
+      "2290": "CASH:IGNORE",
       "2300": "CASH:IGNORE",
       "2310": "CASH:IGNORE",
       "2320": "CASH:IGNORE",
@@ -438,7 +435,7 @@
       "3091": "CASH:IGNORE",
       "3092": "CASH:WATCH",
       "4001": "CASH:IGNORE",
-      "4002": "CASH:IGNORE",
+      "4002": "CASH:WATCH",
       "4003": "CASH:IGNORE",
       "4004": "CASH:IGNORE",
       "4005": "CASH:IGNORE",
@@ -465,8 +462,8 @@
       "4070": "CASH:IGNORE",
       "4071": "CASH:IGNORE",
       "4080": "CASH:IGNORE",
-      "4081": "CASH:WATCH",
-      "4082": "CASH:IGNORE",
+      "4081": "CASH:IGNORE",
+      "4082": "CASH:WATCH",
       "4083": "CASH:IGNORE",
       "4084": "CASH:IGNORE",
       "4090": "CASH:IGNORE",
@@ -495,7 +492,7 @@
       "4192": "CASH:IGNORE",
       "4193": "CASH:IGNORE",
       "4194": "CASH:IGNORE",
-      "4200": "CASH:IGNORE",
+      "4200": "CASH:WATCH",
       "4210": "CASH:IGNORE",
       "4220": "CASH:IGNORE",
       "4230": "CASH:IGNORE",
@@ -508,10 +505,10 @@
       "4264": "CASH:IGNORE",
       "4270": "CASH:IGNORE",
       "4290": "CASH:IGNORE",
-      "4291": "CASH:IGNORE",
+      "4291": "CASH:WATCH",
       "4292": "CASH:IGNORE",
       "4300": "CASH:IGNORE",
-      "4310": "CASH:WATCH",
+      "4310": "CASH:IGNORE",
       "4320": "CASH:IGNORE",
       "4321": "CASH:IGNORE",
       "4322": "CASH:IGNORE",
@@ -552,7 +549,7 @@
       "6017": "CASH:IGNORE",
       "6018": "CASH:IGNORE",
       "6020": "CASH:IGNORE",
-      "6022": "CASH:WATCH",
+      "6022": "CASH:IGNORE",
       "6040": "CASH:IGNORE",
       "6050": "CASH:IGNORE",
       "6060": "CASH:IGNORE",
@@ -575,7 +572,7 @@
       "8050": "CASH:IGNORE",
       "8060": "CASH:IGNORE",
       "8070": "CASH:IGNORE",
-      "8120": "CASH:WATCH",
+      "8120": "CASH:IGNORE",
       "8150": "CASH:IGNORE",
       "8160": "CASH:IGNORE",
       "8170": "CASH:IGNORE",
@@ -590,7 +587,7 @@
       "8280": "CASH:WATCH",
       "8300": "CASH:WATCH",
       "8311": "CASH:IGNORE",
-      "8313": "CASH:IGNORE"
+      "8313": "CASH:WATCH"
     }
   }
 }
