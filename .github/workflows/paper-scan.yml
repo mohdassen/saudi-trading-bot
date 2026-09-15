@@ -68,6 +68,18 @@ jobs:
             echo "Telegram secrets are not configured; running paper scan without sending alerts."
             saudi-bot scan
           fi
+      - name: Learn from every qualified market observation
+        env:
+          BOT_MODE: shadow
+          ZERO_PAID_SERVICES: "true"
+        run: |
+          python -m saudi_trading_bot.adaptive_learning | tee /tmp/adaptive-learning.txt
+          {
+            echo "### Adaptive Learning V1"
+            echo '```text'
+            cat /tmp/adaptive-learning.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Run Saudi Edge Lab V2 shadows
         env:
           BOT_MODE: shadow
