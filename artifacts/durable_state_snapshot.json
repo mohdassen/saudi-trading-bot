@@ -172,7 +172,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-15T20:19:06.134558+03:00",
+      "updated_at": "2026-09-15T20:41:20.012154+03:00",
       "data_quality": "verified session 2026-09-15, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -262,7 +262,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-15T20:19:14.963537+03:00",
+      "updated_at": "2026-09-15T20:41:28.642710+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
