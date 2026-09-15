@@ -32,11 +32,12 @@ def _f(value: Any) -> float | None:
 
 def _candidate(row: pd.Series, session: str) -> dict[str, Any]:
     price = _f(row.get("price")) or 0.0
-    atr = _f(row.get("atr")) or 0.0
+    atr = _f(row.get("atr"))
     stop = _f(row.get("stop"))
     target = _f(row.get("target"))
+    inferred_risk = max(0.01, price * 0.02)
     if not stop or stop >= price:
-        stop = price - max(0.01, atr * 1.5)
+        stop = price - (max(inferred_risk, atr * 1.5) if atr else inferred_risk)
     if not target or target <= price:
         target = price + 2.0 * max(0.01, price - stop)
     risk = max(0.01, price - stop)
@@ -52,12 +53,13 @@ def _candidate(row: pd.Series, session: str) -> dict[str, Any]:
         "stop": round(stop, 4),
         "target": round(target, 4),
         "risk": round(risk, 4),
+        "risk_source": "signal" if _f(row.get("stop")) else "shadow_2pct_proxy",
         "features": {
             "trend_score": _f(row.get("trend_score")),
             "momentum_score": _f(row.get("momentum_score")),
             "swing_score": _f(row.get("swing_score")),
             "disclosure_score": _f(row.get("disclosure_score")),
-            "atr_pct": round(atr / price * 100.0, 4) if price else None,
+            "atr_pct": round(atr / price * 100.0, 4) if atr and price else None,
             "ema50_distance_pct": _f(row.get("ema50_distance_pct")),
             "ema200_distance_pct": _f(row.get("ema200_distance_pct")),
             "avg_value20": _f(row.get("avg_value20")),
@@ -77,8 +79,8 @@ def _update_observation(item: dict[str, Any], row: pd.Series, session: str) -> N
     if any(obs.get("session") == session for obs in observations):
         return
     close = _f(row.get("price"))
-    high = _f(row.get("high")) or close
-    low = _f(row.get("low")) or close
+    high = _f(row.get("high"))
+    low = _f(row.get("low"))
     if close is None:
         return
     observations.append({"session": session, "close": close, "high": high, "low": low})
@@ -89,11 +91,13 @@ def _update_observation(item: dict[str, Any], row: pd.Series, session: str) -> N
         if n == horizon:
             item["labels"][f"return_{horizon}d_pct"] = round((close / entry - 1.0) * 100.0, 4)
             item["labels"][f"return_{horizon}d_r"] = round((close - entry) / risk, 4)
-    highs = [float(obs["high"]) for obs in observations]
-    lows = [float(obs["low"]) for obs in observations]
-    item["labels"]["mfe_r"] = round((max(highs) - entry) / risk, 4)
-    item["labels"]["mae_r"] = round((min(lows) - entry) / risk, 4)
-    if item.get("barrier") is None:
+    valid_highs = [float(obs["high"]) for obs in observations if obs.get("high") is not None]
+    valid_lows = [float(obs["low"]) for obs in observations if obs.get("low") is not None]
+    if valid_highs:
+        item["labels"]["mfe_r"] = round((max(valid_highs) - entry) / risk, 4)
+    if valid_lows:
+        item["labels"]["mae_r"] = round((min(valid_lows) - entry) / risk, 4)
+    if item.get("barrier") is None and high is not None and low is not None:
         target_hit = high >= float(item["target"])
         stop_hit = low <= float(item["stop"])
         if target_hit and stop_hit:
