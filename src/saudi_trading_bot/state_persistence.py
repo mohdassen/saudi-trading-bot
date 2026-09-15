@@ -13,6 +13,8 @@ STATE_PATHS = (
     "artifacts/forward_summary.json",
     "artifacts/decision_intelligence.json",
     "artifacts/alert_state.json",
+    "artifacts/adaptive_learning_ledger.json",
+    "artifacts/adaptive_learning_report.json",
 )
 
 
