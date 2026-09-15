@@ -172,7 +172,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-15T19:57:03.011141+03:00",
+      "updated_at": "2026-09-15T20:19:06.134558+03:00",
       "data_quality": "verified session 2026-09-15, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -262,7 +262,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-15T19:57:15.300306+03:00",
+      "updated_at": "2026-09-15T20:19:14.963537+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -464,7 +464,7 @@
       "3080": "CASH:IGNORE",
       "3090": "CASH:IGNORE",
       "3091": "CASH:IGNORE",
-      "3092": "CASH:WATCH",
+      "3092": "CASH:IGNORE",
       "4001": "CASH:IGNORE",
       "4002": "CASH:IGNORE",
       "4003": "CASH:IGNORE",
@@ -484,7 +484,7 @@
       "4019": "CASH:IGNORE",
       "4020": "CASH:IGNORE",
       "4021": "CASH:IGNORE",
-      "4030": "CASH:WATCH",
+      "4030": "CASH:IGNORE",
       "4031": "CASH:IGNORE",
       "4040": "CASH:IGNORE",
       "4050": "CASH:IGNORE",
