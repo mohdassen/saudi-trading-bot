@@ -225,7 +225,7 @@ def scan(send: bool = False) -> int:
     # Execute signals queued from an earlier completed bar at the first later
     # session open. Only after that do we evaluate that session's stop/target.
     safe_histories = histories if quality.allowed else {}
-    for opened in portfolio.execute_pending(safe_histories):
+    for opened in portfolio.execute_pending(safe_histories, entry_regime=regime.state):
         print(
             f"PAPER_ENTRY {opened.symbol} strategy={opened.strategy} qty={opened.qty} "
             f"entry={opened.entry:.2f} stop={opened.stop:.2f} "
@@ -247,7 +247,7 @@ def scan(send: bool = False) -> int:
     )
     print(f"EXPLORER {'ENABLED' if explorer_enabled else 'DISABLED'}: {explorer_status.note}")
     if explorer_enabled:
-        for opened in explorer.execute_pending(safe_histories):
+        for opened in explorer.execute_pending(safe_histories, entry_regime=regime.state):
             print(
                 f"EXPLORER_ENTRY {opened.symbol} qty={opened.qty} entry={opened.entry:.2f} "
                 f"stop={opened.stop:.2f} target={opened.target:.2f}"
