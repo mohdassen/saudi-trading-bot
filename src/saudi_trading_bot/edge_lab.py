@@ -11,6 +11,7 @@ import pandas as pd
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
 from saudi_trading_bot.data.quality import validate_market_data
+from saudi_trading_bot.data.market_breadth import SaudiMarketBreadth
 from saudi_trading_bot.data.resilient import ResilientFreeProvider
 from saudi_trading_bot.data.yahoo import YahooSaudiProvider
 from saudi_trading_bot.disclosures.financials import EarningsSnapshot, SaudiFinancialResultReader
@@ -383,13 +384,25 @@ def run() -> int:
         print(f"EDGE_LAB DATA_BLOCK: {quality.note}")
         return 0
 
+    regime_cfg = cfg.section("market_regime")
+    regime = SaudiMarketBreadth(
+        min_eligible_symbols=int(regime_cfg["min_eligible_symbols"]),
+        min_history_rows=int(regime_cfg["min_history_rows"]),
+        risk_on_min_pct_above_ema50=float(regime_cfg["risk_on_min_pct_above_ema50"]),
+        risk_on_min_pct_above_ema200=float(regime_cfg["risk_on_min_pct_above_ema200"]),
+        risk_on_min_median_mom20_pct=float(regime_cfg["risk_on_min_median_mom20_pct"]),
+        recovery_min_pct_above_ema50=float(regime_cfg["recovery_min_pct_above_ema50"]),
+        recovery_min_pct_above_ema200=float(regime_cfg["recovery_min_pct_above_ema200"]),
+        recovery_min_median_mom20_pct=float(regime_cfg["recovery_min_median_mom20_pct"]),
+    ).evaluate(histories)
+
     pead = _portfolio(cfg, pead_cfg)
     momentum = _portfolio(cfg, momentum_cfg)
     for name, portfolio, settings in (
         ("PEAD", pead, pead_cfg),
         ("MOMENTUM", momentum, momentum_cfg),
     ):
-        for opened in portfolio.execute_pending(histories):
+        for opened in portfolio.execute_pending(histories, entry_regime=regime.state):
             print(
                 f"EDGE_{name}_ENTRY {opened.symbol} entry={opened.entry:.2f} "
                 f"stop={opened.stop:.2f} target={opened.target:.2f}"
