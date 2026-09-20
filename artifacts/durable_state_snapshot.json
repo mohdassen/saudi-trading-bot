@@ -209,7 +209,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-20T19:02:52.438322+03:00",
+      "updated_at": "2026-09-20T19:31:24.821995+03:00",
       "data_quality": "verified session 2026-09-20, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -299,7 +299,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-20T19:03:03.692610+03:00",
+      "updated_at": "2026-09-20T19:31:37.104539+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -447,7 +447,7 @@
       "2084": "CASH:IGNORE",
       "2090": "CASH:IGNORE",
       "2100": "CASH:IGNORE",
-      "2110": "CASH:WATCH",
+      "2110": "CASH:IGNORE",
       "2120": "CASH:IGNORE",
       "2130": "CASH:IGNORE",
       "2140": "CASH:IGNORE",
@@ -484,7 +484,7 @@
       "2360": "CASH:IGNORE",
       "2370": "CASH:IGNORE",
       "2380": "CASH:WATCH",
-      "2381": "CASH:WATCH",
+      "2381": "CASH:IGNORE",
       "2382": "CASH:IGNORE",
       "3002": "CASH:IGNORE",
       "3003": "CASH:IGNORE",
@@ -515,7 +515,7 @@
       "4013": "CASH:IGNORE",
       "4014": "CASH:IGNORE",
       "4015": "CASH:IGNORE",
-      "4016": "CASH:WATCH",
+      "4016": "CASH:IGNORE",
       "4017": "CASH:IGNORE",
       "4018": "CASH:IGNORE",
       "4019": "CASH:IGNORE",
@@ -542,7 +542,7 @@
       "4141": "CASH:IGNORE",
       "4142": "CASH:IGNORE",
       "4143": "CASH:IGNORE",
-      "4144": "CASH:WATCH",
+      "4144": "CASH:IGNORE",
       "4145": "CASH:IGNORE",
       "4146": "CASH:WATCH",
       "4148": "CASH:IGNORE",
@@ -560,7 +560,7 @@
       "4192": "CASH:IGNORE",
       "4193": "CASH:IGNORE",
       "4194": "CASH:IGNORE",
-      "4200": "CASH:WATCH",
+      "4200": "CASH:IGNORE",
       "4210": "CASH:IGNORE",
       "4220": "CASH:IGNORE",
       "4230": "CASH:IGNORE",
@@ -659,7 +659,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-09-20T19:02:52.040154+03:00",
+      "updated_at": "2026-09-20T19:31:24.325429+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -6480,7 +6480,7 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-09-20T19:02:52.043465+03:00",
+      "updated_at": "2026-09-20T19:31:24.330360+03:00",
       "session": "2026-09-20",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
