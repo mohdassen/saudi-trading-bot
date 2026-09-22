@@ -10,8 +10,8 @@ import pandas as pd
 
 from saudi_trading_bot.config import load_settings
 from saudi_trading_bot.data.cache import MarketDataCache
-from saudi_trading_bot.data.quality import validate_market_data
 from saudi_trading_bot.data.market_breadth import SaudiMarketBreadth
+from saudi_trading_bot.data.quality import validate_market_data
 from saudi_trading_bot.data.resilient import ResilientFreeProvider
 from saudi_trading_bot.data.yahoo import YahooSaudiProvider
 from saudi_trading_bot.disclosures.financials import EarningsSnapshot, SaudiFinancialResultReader
