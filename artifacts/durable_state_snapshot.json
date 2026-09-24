@@ -8,7 +8,7 @@
       "closed": []
     },
     "artifacts/explorer_portfolio.json": {
-      "equity_sar": 99274.13,
+      "equity_sar": 99013.61,
       "positions": {
         "4030": {
           "symbol": "4030",
@@ -18,27 +18,12 @@
           "target": 37.697,
           "score": 89.3,
           "opened_on": "2026-09-13",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 8,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 9,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.6812080536912747,
-          "mfe_r": 0.4865783076958358
-        },
-        "8313": {
-          "symbol": "8313",
-          "qty": 33,
-          "entry": 147.147,
-          "stop": 139.837,
-          "target": 160.305,
-          "score": 86.54,
-          "opened_on": "2026-09-20",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 3,
-          "strategy": "explorer_swing",
-          "entry_regime": "UNKNOWN",
-          "mae_r": -0.6904232416531279,
-          "mfe_r": 0.2945284612527798
+          "mfe_r": 0.8758387213585346
         },
         "1303": {
           "symbol": "1303",
@@ -48,15 +33,25 @@
           "target": 17.2738,
           "score": 84.17,
           "opened_on": "2026-09-21",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 2,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 3,
           "strategy": "explorer_swing",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.7355552258903602,
+          "mae_r": -0.8096298180097421,
           "mfe_r": 0.0
         }
       },
-      "pending": {},
+      "pending": {
+        "2070": {
+          "symbol": "2070",
+          "score": 82.68,
+          "risk_distance": 1.48,
+          "reward_risk": 1.8,
+          "signal_bar_date": "2026-09-24",
+          "queued_on": "2026-09-24",
+          "strategy": "explorer_swing"
+        }
+      },
       "closed": [
         {
           "symbol": "2290",
@@ -105,6 +100,22 @@
           "entry_regime": "UNKNOWN",
           "mae_r": -1.247,
           "mfe_r": 0.058
+        },
+        {
+          "symbol": "8313",
+          "qty": 33,
+          "entry": 147.147,
+          "exit": 139.6972,
+          "opened_on": "2026-09-20",
+          "closed_on": "2026-09-24",
+          "reason": "stop",
+          "pnl_sar": -260.52,
+          "return_pct": -5.37,
+          "strategy": "explorer_swing",
+          "initial_risk_sar": 241.23,
+          "entry_regime": "UNKNOWN",
+          "mae_r": -1.101,
+          "mfe_r": 0.295
         }
       ]
     },
@@ -125,8 +136,8 @@
           "target": 354.126,
           "score": 97.14,
           "opened_on": "2026-09-10",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 9,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 10,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.8241737305095936,
@@ -140,11 +151,11 @@
           "target": 2.6725,
           "score": 97.99,
           "opened_on": "2026-09-13",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 8,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 9,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.5681808645075013,
+          "mae_r": -0.7500010403719805,
           "mfe_r": 0.06818216497247737
         },
         "2380": {
@@ -155,8 +166,8 @@
           "target": 20.4576,
           "score": 98.14,
           "opened_on": "2026-09-14",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 7,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 8,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.452198581560283,
@@ -170,8 +181,8 @@
           "target": 21.098,
           "score": 96.37,
           "opened_on": "2026-09-16",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 5,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 6,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
           "mae_r": -0.024675621924462713,
@@ -185,12 +196,12 @@
           "target": 38.2734,
           "score": 93.96,
           "opened_on": "2026-09-22",
-          "last_marked_on": "2026-09-22",
-          "bars_held": 1,
+          "last_marked_on": "2026-09-24",
+          "bars_held": 2,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.09604925712930919,
-          "mfe_r": 0.5953088931487892
+          "mfe_r": 0.9492186093428473
         }
       },
       "pending": {},
@@ -230,8 +241,8 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-23T14:57:17.548463+03:00",
-      "data_quality": "verified session 2026-09-22, consensus 100.0%",
+      "updated_at": "2026-09-24T20:07:14.079848+03:00",
+      "data_quality": "verified session 2026-09-24, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
         "min_expectancy_r": 0.1,
@@ -320,7 +331,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-24T15:05:48.753368+03:00",
+      "updated_at": "2026-09-24T20:07:24.999799+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -362,17 +373,17 @@
         },
         {
           "name": "Explorer Control",
-          "closed": 3,
+          "closed": 4,
           "target": 30,
           "wins": 0,
           "win_rate_pct": 0.0,
-          "expectancy_r": -1.09,
+          "expectancy_r": -1.088,
           "profit_factor": 0.0,
-          "max_drawdown_r": 3.271,
-          "pnl_sar": -725.87,
-          "open_positions": 3,
-          "pending": 0,
-          "status": "LEARNING 3/30",
+          "max_drawdown_r": 4.351,
+          "pnl_sar": -986.39,
+          "open_positions": 2,
+          "pending": 1,
+          "status": "LEARNING 4/30",
           "rank_score": null
         }
       ],
@@ -398,15 +409,15 @@
           "diagnosis": "STOP_DOMINATED: review entry quality before changing stop width"
         },
         "Explorer Control": {
-          "closed_losses": 3,
+          "closed_losses": 4,
           "loss_rate_pct": 100.0,
           "reasons": {
-            "stop": 3
+            "stop": 4
           },
           "strategies": {
-            "explorer_swing": 3
+            "explorer_swing": 4
           },
-          "avg_loss_r": 1.09,
+          "avg_loss_r": 1.088,
           "diagnosis": "STOP_DOMINATED: review entry quality before changing stop width"
         }
       },
@@ -442,7 +453,7 @@
       "1303": "CASH:WATCH",
       "1304": "CASH:IGNORE",
       "1320": "CASH:WATCH",
-      "1321": "CASH:WATCH",
+      "1321": "CASH:IGNORE",
       "1322": "CASH:IGNORE",
       "1323": "CASH:IGNORE",
       "1810": "CASH:IGNORE",
@@ -456,7 +467,7 @@
       "2001": "CASH:IGNORE",
       "2010": "CASH:IGNORE",
       "2020": "CASH:IGNORE",
-      "2030": "CASH:WATCH",
+      "2030": "CASH:IGNORE",
       "2040": "CASH:IGNORE",
       "2050": "CASH:IGNORE",
       "2060": "CASH:IGNORE",
@@ -468,7 +479,7 @@
       "2084": "CASH:IGNORE",
       "2090": "CASH:IGNORE",
       "2100": "CASH:IGNORE",
-      "2110": "CASH:WATCH",
+      "2110": "CASH:IGNORE",
       "2120": "CASH:IGNORE",
       "2130": "CASH:IGNORE",
       "2140": "CASH:IGNORE",
@@ -481,7 +492,7 @@
       "2210": "CASH:IGNORE",
       "2220": "CASH:IGNORE",
       "2222": "CASH:IGNORE",
-      "2223": "CASH:WATCH",
+      "2223": "CASH:IGNORE",
       "2230": "CASH:IGNORE",
       "2240": "CASH:IGNORE",
       "2250": "CASH:IGNORE",
@@ -505,7 +516,7 @@
       "2360": "CASH:IGNORE",
       "2370": "CASH:WATCH",
       "2380": "CASH:IGNORE",
-      "2381": "CASH:WATCH",
+      "2381": "CASH:IGNORE",
       "2382": "CASH:IGNORE",
       "3002": "CASH:IGNORE",
       "3003": "CASH:IGNORE",
@@ -630,7 +641,7 @@
       "6002": "CASH:IGNORE",
       "6004": "CASH:IGNORE",
       "6010": "CASH:IGNORE",
-      "6012": "CASH:IGNORE",
+      "6012": "CASH:WATCH",
       "6013": "CASH:IGNORE",
       "6014": "CASH:IGNORE",
       "6015": "CASH:IGNORE",
@@ -639,18 +650,18 @@
       "6018": "CASH:IGNORE",
       "6020": "CASH:IGNORE",
       "6022": "CASH:IGNORE",
-      "6040": "CASH:IGNORE",
+      "6040": "CASH:WATCH",
       "6050": "CASH:IGNORE",
       "6060": "CASH:IGNORE",
       "6070": "CASH:IGNORE",
       "6090": "CASH:IGNORE",
-      "7010": "CASH:WATCH",
+      "7010": "CASH:IGNORE",
       "7020": "CASH:IGNORE",
       "7030": "CASH:IGNORE",
       "7040": "CASH:IGNORE",
       "7200": "CASH:IGNORE",
       "7201": "CASH:IGNORE",
-      "7202": "CASH:WATCH",
+      "7202": "CASH:IGNORE",
       "7203": "CASH:IGNORE",
       "7204": "CASH:IGNORE",
       "7211": "CASH:WATCH",
@@ -671,16 +682,16 @@
       "8210": "CASH:IGNORE",
       "8230": "CASH:IGNORE",
       "8240": "CASH:IGNORE",
-      "8250": "CASH:WATCH",
+      "8250": "CASH:IGNORE",
       "8260": "CASH:IGNORE",
       "8280": "CASH:IGNORE",
       "8300": "CASH:IGNORE",
       "8311": "CASH:IGNORE",
-      "8313": "CASH:WATCH"
+      "8313": "CASH:IGNORE"
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-09-24T15:05:43.722303+03:00",
+      "updated_at": "2026-09-24T20:07:13.581798+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -14764,11 +14775,69 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-09-24:6040:CASH",
+          "session": "2026-09-24",
+          "symbol": "6040",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.32,
+          "strategy_score": 0.0,
+          "entry": 8.99,
+          "stop": 8.8102,
+          "target": 9.3496,
+          "risk": 0.1798,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-24:6012:CASH",
+          "session": "2026-09-24",
+          "symbol": "6012",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 65.05,
+          "strategy_score": 0.0,
+          "entry": 17.23,
+          "stop": 16.8854,
+          "target": 17.9192,
+          "risk": 0.3446,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 247,
+      "candidates": 249,
       "mature_20d": 0,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -14777,7 +14846,7 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-09-24T15:05:43.734043+03:00",
+      "updated_at": "2026-09-24T20:07:13.594710+03:00",
       "session": "2026-09-24",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
