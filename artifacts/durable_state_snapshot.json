@@ -331,7 +331,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-24T20:59:35.858461+03:00",
+      "updated_at": "2026-09-27T15:17:55.131057+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -691,7 +691,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-09-24T20:59:23.234200+03:00",
+      "updated_at": "2026-09-27T15:17:50.321946+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -758,6 +758,12 @@
             {
               "session": "2026-09-24",
               "close": 56.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
               "high": null,
               "low": null
             }
@@ -839,6 +845,12 @@
               "close": 183.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -916,6 +928,12 @@
             {
               "session": "2026-09-24",
               "close": 50.85,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 50.4,
               "high": null,
               "low": null
             }
@@ -997,6 +1015,12 @@
               "close": 17.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 17.52,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1074,6 +1098,12 @@
             {
               "session": "2026-09-24",
               "close": 5.55,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
               "high": null,
               "low": null
             }
@@ -1155,6 +1185,12 @@
               "close": 27.12,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1231,6 +1267,12 @@
             },
             {
               "session": "2026-09-24",
+              "close": 64.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 64.35,
               "high": null,
               "low": null
@@ -1313,6 +1355,12 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1390,6 +1438,12 @@
             {
               "session": "2026-09-24",
               "close": 208.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
               "high": null,
               "low": null
             }
@@ -1471,6 +1525,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1548,6 +1608,12 @@
             {
               "session": "2026-09-24",
               "close": 44.66,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.56,
               "high": null,
               "low": null
             }
@@ -1629,6 +1695,12 @@
               "close": 2.42,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1706,6 +1778,12 @@
             {
               "session": "2026-09-24",
               "close": 94.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
               "high": null,
               "low": null
             }
@@ -1787,6 +1865,12 @@
               "close": 59.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1866,6 +1950,12 @@
               "close": 222.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1942,6 +2032,12 @@
             },
             {
               "session": "2026-09-24",
+              "close": 121.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 121.5,
               "high": null,
               "low": null
@@ -2024,6 +2120,12 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2101,6 +2203,12 @@
             {
               "session": "2026-09-24",
               "close": 63.65,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 63.9,
               "high": null,
               "low": null
             }
@@ -2182,6 +2290,12 @@
               "close": 289.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 295.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2259,6 +2373,12 @@
             {
               "session": "2026-09-24",
               "close": 73.05,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 72.65,
               "high": null,
               "low": null
             }
@@ -2340,6 +2460,12 @@
               "close": 42.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2417,6 +2543,12 @@
             {
               "session": "2026-09-24",
               "close": 28.14,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.84,
               "high": null,
               "low": null
             }
@@ -2498,6 +2630,12 @@
               "close": 173.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2575,6 +2713,12 @@
             {
               "session": "2026-09-24",
               "close": 14.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 14.1,
               "high": null,
               "low": null
             }
@@ -2656,6 +2800,12 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2733,6 +2883,12 @@
             {
               "session": "2026-09-24",
               "close": 16.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
               "high": null,
               "low": null
             }
@@ -2814,6 +2970,12 @@
               "close": 19.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2891,6 +3053,12 @@
             {
               "session": "2026-09-24",
               "close": 36.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.36,
               "high": null,
               "low": null
             }
@@ -2972,6 +3140,12 @@
               "close": 6.33,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 6.29,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3043,6 +3217,12 @@
             {
               "session": "2026-09-24",
               "close": 56.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
               "high": null,
               "low": null
             }
@@ -3118,6 +3298,12 @@
               "close": 183.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3189,6 +3375,12 @@
             {
               "session": "2026-09-24",
               "close": 50.85,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 50.4,
               "high": null,
               "low": null
             }
@@ -3264,6 +3456,12 @@
               "close": 17.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 17.52,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3335,6 +3533,12 @@
             {
               "session": "2026-09-24",
               "close": 5.55,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
               "high": null,
               "low": null
             }
@@ -3410,6 +3614,12 @@
               "close": 27.12,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3480,6 +3690,12 @@
             },
             {
               "session": "2026-09-24",
+              "close": 64.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 64.35,
               "high": null,
               "low": null
@@ -3556,6 +3772,12 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3627,6 +3849,12 @@
             {
               "session": "2026-09-24",
               "close": 208.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
               "high": null,
               "low": null
             }
@@ -3702,6 +3930,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3773,6 +4007,12 @@
             {
               "session": "2026-09-24",
               "close": 44.66,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.56,
               "high": null,
               "low": null
             }
@@ -3848,6 +4088,12 @@
               "close": 2.42,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3919,6 +4165,12 @@
             {
               "session": "2026-09-24",
               "close": 94.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
               "high": null,
               "low": null
             }
@@ -3994,6 +4246,12 @@
               "close": 59.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4067,6 +4325,12 @@
               "close": 222.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4137,6 +4401,12 @@
             },
             {
               "session": "2026-09-24",
+              "close": 121.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 121.5,
               "high": null,
               "low": null
@@ -4213,6 +4483,12 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4284,6 +4560,12 @@
             {
               "session": "2026-09-24",
               "close": 63.65,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 63.9,
               "high": null,
               "low": null
             }
@@ -4359,6 +4641,12 @@
               "close": 289.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 295.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4430,6 +4718,12 @@
             {
               "session": "2026-09-24",
               "close": 73.05,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 72.65,
               "high": null,
               "low": null
             }
@@ -4505,6 +4799,12 @@
               "close": 42.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4576,6 +4876,12 @@
             {
               "session": "2026-09-24",
               "close": 28.14,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.84,
               "high": null,
               "low": null
             }
@@ -4651,6 +4957,12 @@
               "close": 173.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4722,6 +5034,12 @@
             {
               "session": "2026-09-24",
               "close": 14.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 14.1,
               "high": null,
               "low": null
             }
@@ -4797,6 +5115,12 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4868,6 +5192,12 @@
             {
               "session": "2026-09-24",
               "close": 16.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
               "high": null,
               "low": null
             }
@@ -4943,6 +5273,12 @@
               "close": 19.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5014,6 +5350,12 @@
             {
               "session": "2026-09-24",
               "close": 36.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.36,
               "high": null,
               "low": null
             }
@@ -5089,6 +5431,12 @@
               "close": 6.33,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 6.29,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5160,6 +5508,12 @@
             {
               "session": "2026-09-24",
               "close": 35.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
               "high": null,
               "low": null
             }
@@ -5235,6 +5589,12 @@
               "close": 43.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.34,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5306,6 +5666,12 @@
             {
               "session": "2026-09-24",
               "close": 52.6,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 51.6,
               "high": null,
               "low": null
             }
@@ -5381,6 +5747,12 @@
               "close": 6.78,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 6.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5454,6 +5826,12 @@
               "close": 18.95,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 18.88,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5519,6 +5897,12 @@
             {
               "session": "2026-09-24",
               "close": 17.2,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 17.52,
               "high": null,
               "low": null
             }
@@ -5588,6 +5972,12 @@
               "close": 27.12,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5653,6 +6043,12 @@
             {
               "session": "2026-09-24",
               "close": 50.85,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 50.4,
               "high": null,
               "low": null
             }
@@ -5722,6 +6118,12 @@
               "close": 56.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5787,6 +6189,12 @@
             {
               "session": "2026-09-24",
               "close": 55.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
               "high": null,
               "low": null
             }
@@ -5856,6 +6264,12 @@
               "close": 5.55,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5921,6 +6335,12 @@
             {
               "session": "2026-09-24",
               "close": 2.42,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
               "high": null,
               "low": null
             }
@@ -5990,6 +6410,12 @@
               "close": 44.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6055,6 +6481,12 @@
             {
               "session": "2026-09-24",
               "close": 208.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
               "high": null,
               "low": null
             }
@@ -6124,6 +6556,12 @@
               "close": 222.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6189,6 +6627,12 @@
             {
               "session": "2026-09-24",
               "close": 43.66,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.34,
               "high": null,
               "low": null
             }
@@ -6258,6 +6702,12 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6325,6 +6775,12 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6389,6 +6845,12 @@
             },
             {
               "session": "2026-09-24",
+              "close": 121.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 121.5,
               "high": null,
               "low": null
@@ -6459,6 +6921,12 @@
               "close": 73.05,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 72.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6524,6 +6992,12 @@
             {
               "session": "2026-09-24",
               "close": 59.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
               "high": null,
               "low": null
             }
@@ -6593,6 +7067,12 @@
               "close": 42.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6658,6 +7138,12 @@
             {
               "session": "2026-09-24",
               "close": 16.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
               "high": null,
               "low": null
             }
@@ -6727,6 +7213,12 @@
               "close": 52.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 51.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6792,6 +7284,12 @@
             {
               "session": "2026-09-24",
               "close": 183.7,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
               "high": null,
               "low": null
             }
@@ -6861,6 +7359,12 @@
               "close": 35.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6926,6 +7430,12 @@
             {
               "session": "2026-09-24",
               "close": 28.14,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.84,
               "high": null,
               "low": null
             }
@@ -6995,6 +7505,12 @@
               "close": 94.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7060,6 +7576,12 @@
             {
               "session": "2026-09-24",
               "close": 6.78,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 6.7,
               "high": null,
               "low": null
             }
@@ -7129,6 +7651,12 @@
               "close": 289.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 295.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7193,6 +7721,12 @@
             },
             {
               "session": "2026-09-24",
+              "close": 64.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 64.35,
               "high": null,
               "low": null
@@ -7263,6 +7797,12 @@
               "close": 173.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7328,6 +7868,12 @@
             {
               "session": "2026-09-24",
               "close": 18.95,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 18.88,
               "high": null,
               "low": null
             }
@@ -7397,6 +7943,12 @@
               "close": 32.74,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 32.58,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7462,6 +8014,12 @@
             {
               "session": "2026-09-24",
               "close": 15.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 15.31,
               "high": null,
               "low": null
             }
@@ -7531,6 +8089,12 @@
               "close": 14.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 14.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7596,6 +8160,12 @@
             {
               "session": "2026-09-24",
               "close": 24.66,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 24.57,
               "high": null,
               "low": null
             }
@@ -7665,6 +8235,12 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7730,6 +8306,12 @@
             {
               "session": "2026-09-24",
               "close": 124.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 123.3,
               "high": null,
               "low": null
             }
@@ -7799,6 +8381,12 @@
               "close": 21.04,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.75,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7864,6 +8452,12 @@
             {
               "session": "2026-09-24",
               "close": 38.6,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 39.26,
               "high": null,
               "low": null
             }
@@ -7933,6 +8527,12 @@
               "close": 19.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7998,6 +8598,12 @@
             {
               "session": "2026-09-24",
               "close": 76.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 75.2,
               "high": null,
               "low": null
             }
@@ -8067,6 +8673,12 @@
               "close": 35.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 35.68,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8132,6 +8744,12 @@
             {
               "session": "2026-09-24",
               "close": 36.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.36,
               "high": null,
               "low": null
             }
@@ -8201,6 +8819,12 @@
               "close": 63.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 63.25,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8268,6 +8892,12 @@
               "close": 4.53,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 4.57,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8329,13 +8959,21 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.9701,
             "return_1d_r": -0.9851,
             "return_3d_pct": -3.2609,
-            "return_3d_r": -1.6304
+            "return_3d_r": -1.6304,
+            "return_5d_pct": -5.0951,
+            "return_5d_r": -2.5476
           },
           "barrier": null
         },
@@ -8388,13 +9026,21 @@
               "close": 32.74,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 32.58,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.0644,
             "return_1d_r": -1.0322,
             "return_3d_pct": -0.6072,
-            "return_3d_r": -0.3036
+            "return_3d_r": -0.3036,
+            "return_5d_pct": -1.0929,
+            "return_5d_r": -0.5464
           },
           "barrier": null
         },
@@ -8447,13 +9093,21 @@
               "close": 56.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.6086,
             "return_1d_r": 0.8043,
             "return_3d_pct": 1.4298,
-            "return_3d_r": 0.7149
+            "return_3d_r": 0.7149,
+            "return_5d_pct": -0.0894,
+            "return_5d_r": -0.0447
           },
           "barrier": null
         },
@@ -8506,13 +9160,21 @@
               "close": 15.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 15.31,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.1948,
             "return_1d_r": -0.0974,
             "return_3d_pct": -0.6494,
-            "return_3d_r": -0.3247
+            "return_3d_r": -0.3247,
+            "return_5d_pct": -0.5844,
+            "return_5d_r": -0.2922
           },
           "barrier": null
         },
@@ -8565,13 +9227,21 @@
               "close": 27.12,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.8965,
             "return_1d_r": -1.4482,
             "return_3d_pct": -1.8103,
-            "return_3d_r": -0.9051
+            "return_3d_r": -0.9051,
+            "return_5d_pct": -1.7379,
+            "return_5d_r": -0.8689
           },
           "barrier": null
         },
@@ -8624,13 +9294,21 @@
               "close": 208.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 2.0604,
             "return_1d_r": 1.0302,
             "return_3d_pct": -0.3354,
-            "return_3d_r": -0.1677
+            "return_3d_r": -0.1677,
+            "return_5d_pct": -3.2583,
+            "return_5d_r": -1.6291
           },
           "barrier": null
         },
@@ -8683,13 +9361,21 @@
               "close": 183.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.9502,
             "return_1d_r": -0.9751,
             "return_3d_pct": -0.4875,
-            "return_3d_r": -0.2438
+            "return_3d_r": -0.2438,
+            "return_5d_pct": -1.4626,
+            "return_5d_r": -0.7313
           },
           "barrier": null
         },
@@ -8742,13 +9428,21 @@
               "close": 14.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 14.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -5.7464,
             "return_1d_r": -2.8732,
             "return_3d_pct": -4.8877,
-            "return_3d_r": -2.4439
+            "return_3d_r": -2.4439,
+            "return_5d_pct": -6.8692,
+            "return_5d_r": -3.4346
           },
           "barrier": null
         },
@@ -8801,13 +9495,21 @@
               "close": 44.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.3112,
             "return_1d_r": -0.1556,
             "return_3d_pct": -0.7114,
-            "return_3d_r": -0.3557
+            "return_3d_r": -0.3557,
+            "return_5d_pct": -3.157,
+            "return_5d_r": -1.5785
           },
           "barrier": null
         },
@@ -8860,13 +9562,21 @@
               "close": 64.35,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 64.35,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.6923,
             "return_1d_r": -0.8462,
             "return_3d_pct": -1.0,
-            "return_3d_r": -0.5
+            "return_3d_r": -0.5,
+            "return_5d_pct": -1.0,
+            "return_5d_r": -0.5
           },
           "barrier": null
         },
@@ -8919,13 +9629,21 @@
               "close": 17.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 17.52,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.9168,
             "return_1d_r": -0.9584,
             "return_3d_pct": -5.805,
-            "return_3d_r": -2.9025
+            "return_3d_r": -2.9025,
+            "return_5d_pct": -4.0526,
+            "return_5d_r": -2.0263
           },
           "barrier": null
         },
@@ -8978,13 +9696,21 @@
               "close": 222.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.7778,
             "return_1d_r": -0.8889,
             "return_3d_pct": -1.1111,
-            "return_3d_r": -0.5556
+            "return_3d_r": -0.5556,
+            "return_5d_pct": -2.5778,
+            "return_5d_r": -1.2889
           },
           "barrier": null
         },
@@ -9037,13 +9763,21 @@
               "close": 2.42,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4115,
             "return_1d_r": -0.2058,
             "return_3d_pct": -0.4115,
-            "return_3d_r": -0.2058
+            "return_3d_r": -0.2058,
+            "return_5d_pct": -1.6461,
+            "return_5d_r": -0.823
           },
           "barrier": null
         },
@@ -9096,13 +9830,21 @@
               "close": 5.55,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 2.0147,
             "return_1d_r": 1.0073,
             "return_3d_pct": 1.6484,
-            "return_3d_r": 0.8242
+            "return_3d_r": 0.8242,
+            "return_5d_pct": 0.1832,
+            "return_5d_r": 0.0916
           },
           "barrier": null
         },
@@ -9155,13 +9897,21 @@
               "close": 73.05,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 72.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -7.8567,
             "return_1d_r": -3.9283,
             "return_3d_pct": -8.171,
-            "return_3d_r": -4.0855
+            "return_3d_r": -4.0855,
+            "return_5d_pct": -8.6738,
+            "return_5d_r": -4.3369
           },
           "barrier": null
         },
@@ -9214,13 +9964,21 @@
               "close": 24.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 24.57,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.9608,
             "return_1d_r": -0.9804,
             "return_3d_pct": -1.3205,
-            "return_3d_r": -0.6603
+            "return_3d_r": -0.6603,
+            "return_5d_pct": -1.6807,
+            "return_5d_r": -0.8403
           },
           "barrier": null
         },
@@ -9273,13 +10031,21 @@
               "close": 121.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 121.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.6515,
             "return_1d_r": -0.3257,
             "return_3d_pct": -1.0586,
-            "return_3d_r": -0.5293
+            "return_3d_r": -0.5293,
+            "return_5d_pct": -1.0586,
+            "return_5d_r": -0.5293
           },
           "barrier": null
         },
@@ -9332,13 +10098,21 @@
               "close": 28.14,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.84,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.3879,
             "return_1d_r": -0.694,
             "return_3d_pct": -2.3595,
-            "return_3d_r": -1.1797
+            "return_3d_r": -1.1797,
+            "return_5d_pct": -3.4004,
+            "return_5d_r": -1.7002
           },
           "barrier": null
         },
@@ -9391,13 +10165,21 @@
               "close": 173.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0581,
             "return_1d_r": 0.0291,
             "return_3d_pct": 0.523,
-            "return_3d_r": 0.2615
+            "return_3d_r": 0.2615,
+            "return_5d_pct": -1.0459,
+            "return_5d_r": -0.523
           },
           "barrier": null
         },
@@ -9450,13 +10232,21 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.5746,
             "return_1d_r": -1.2873,
             "return_3d_pct": 1.5799,
-            "return_3d_r": 0.7899
+            "return_3d_r": 0.7899,
+            "return_5d_pct": 1.1118,
+            "return_5d_r": 0.5559
           },
           "barrier": null
         },
@@ -9509,13 +10299,21 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.1664,
             "return_1d_r": 0.5832,
             "return_3d_pct": -0.6139,
-            "return_3d_r": -0.3069
+            "return_3d_r": -0.3069,
+            "return_5d_pct": -2.9466,
+            "return_5d_r": -1.4733
           },
           "barrier": null
         },
@@ -9568,13 +10366,21 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -5.1601,
             "return_1d_r": -2.5801,
             "return_3d_pct": -1.8683,
-            "return_3d_r": -0.9342
+            "return_3d_r": -0.9342,
+            "return_5d_pct": -3.7367,
+            "return_5d_r": -1.8683
           },
           "barrier": null
         },
@@ -9627,13 +10433,21 @@
               "close": 59.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.8569,
             "return_1d_r": 0.4284,
             "return_3d_pct": 1.6281,
-            "return_3d_r": 0.8141
+            "return_3d_r": 0.8141,
+            "return_5d_pct": 2.2279,
+            "return_5d_r": 1.114
           },
           "barrier": null
         },
@@ -9686,13 +10500,21 @@
               "close": 16.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4706,
             "return_1d_r": -0.2353,
             "return_3d_pct": -1.3529,
-            "return_3d_r": -0.6765
+            "return_3d_r": -0.6765,
+            "return_5d_pct": -2.0,
+            "return_5d_r": -1.0
           },
           "barrier": null
         },
@@ -9745,13 +10567,21 @@
               "close": 52.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 51.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -4.6279,
             "return_1d_r": -2.314,
             "return_3d_pct": -4.5372,
-            "return_3d_r": -2.2686
+            "return_3d_r": -2.2686,
+            "return_5d_pct": -6.3521,
+            "return_5d_r": -3.176
           },
           "barrier": null
         },
@@ -9804,13 +10634,21 @@
               "close": 4.53,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 4.57,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -3.2258,
             "return_1d_r": -1.6129,
             "return_3d_pct": -2.5806,
-            "return_3d_r": -1.2903
+            "return_3d_r": -1.2903,
+            "return_5d_pct": -1.7204,
+            "return_5d_r": -0.8602
           },
           "barrier": null
         },
@@ -9863,13 +10701,21 @@
               "close": 124.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 123.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -3.1496,
             "return_1d_r": -1.5748,
             "return_3d_pct": -2.3622,
-            "return_3d_r": -1.1811
+            "return_3d_r": -1.1811,
+            "return_5d_pct": -2.9134,
+            "return_5d_r": -1.4567
           },
           "barrier": null
         },
@@ -9922,13 +10768,21 @@
               "close": 42.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -3.5289,
             "return_1d_r": -1.7644,
             "return_3d_pct": -1.6957,
-            "return_3d_r": -0.8478
+            "return_3d_r": -0.8478,
+            "return_5d_pct": -2.3831,
+            "return_5d_r": -1.1916
           },
           "barrier": null
         },
@@ -9981,13 +10835,21 @@
               "close": 35.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.625,
             "return_1d_r": 0.3125,
             "return_3d_pct": 0.9659,
-            "return_3d_r": 0.483
+            "return_3d_r": 0.483,
+            "return_5d_pct": 2.3864,
+            "return_5d_r": 1.1932
           },
           "barrier": null
         },
@@ -10040,13 +10902,21 @@
               "close": 43.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.34,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.0917,
             "return_1d_r": -0.0458,
             "return_3d_pct": 0.0458,
-            "return_3d_r": 0.0229
+            "return_3d_r": 0.0229,
+            "return_5d_pct": -0.6874,
+            "return_5d_r": -0.3437
           },
           "barrier": null
         },
@@ -10099,13 +10969,21 @@
               "close": 19.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 6.197,
             "return_1d_r": 3.0985,
             "return_3d_pct": 5.7203,
-            "return_3d_r": 2.8602
+            "return_3d_r": 2.8602,
+            "return_5d_pct": 6.6208,
+            "return_5d_r": 3.3104
           },
           "barrier": null
         },
@@ -10158,13 +11036,21 @@
               "close": 38.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 39.26,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4737,
             "return_1d_r": -0.2368,
             "return_3d_pct": 1.5789,
-            "return_3d_r": 0.7895
+            "return_3d_r": 0.7895,
+            "return_5d_pct": 3.3158,
+            "return_5d_r": 1.6579
           },
           "barrier": null
         },
@@ -10217,13 +11103,21 @@
               "close": 289.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 295.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -5.6356,
             "return_1d_r": -2.8178,
             "return_3d_pct": -5.1769,
-            "return_3d_r": -2.5885
+            "return_3d_r": -2.5885,
+            "return_5d_pct": -3.1455,
+            "return_5d_r": -1.5727
           },
           "barrier": null
         },
@@ -10276,13 +11170,21 @@
               "close": 50.85,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 50.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.7782,
             "return_1d_r": -0.3891,
             "return_3d_pct": -1.07,
-            "return_3d_r": -0.535
+            "return_3d_r": -0.535,
+            "return_5d_pct": -1.9455,
+            "return_5d_r": -0.9728
           },
           "barrier": null
         },
@@ -10335,13 +11237,21 @@
               "close": 94.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.9646,
             "return_1d_r": 0.4823,
             "return_3d_pct": 0.8574,
-            "return_3d_r": 0.4287
+            "return_3d_r": 0.4287,
+            "return_5d_pct": -1.2326,
+            "return_5d_r": -0.6163
           },
           "barrier": null
         },
@@ -10394,13 +11304,21 @@
               "close": 76.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 75.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -5.2109,
             "return_1d_r": -2.6055,
             "return_3d_pct": -5.5831,
-            "return_3d_r": -2.7916
+            "return_3d_r": -2.7916,
+            "return_5d_pct": -6.6998,
+            "return_5d_r": -3.3499
           },
           "barrier": null
         },
@@ -10453,13 +11371,21 @@
               "close": 35.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 35.68,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.7528,
             "return_1d_r": -0.3764,
             "return_3d_pct": 4.1112,
-            "return_3d_r": 2.0556
+            "return_3d_r": 2.0556,
+            "return_5d_pct": 3.3005,
+            "return_5d_r": 1.6503
           },
           "barrier": null
         },
@@ -10512,13 +11438,21 @@
               "close": 36.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.36,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.7273,
             "return_1d_r": -1.3636,
             "return_3d_pct": -2.9412,
-            "return_3d_r": -1.4706
+            "return_3d_r": -1.4706,
+            "return_5d_pct": -2.7807,
+            "return_5d_r": -1.3904
           },
           "barrier": null
         },
@@ -10563,6 +11497,12 @@
             {
               "session": "2026-09-24",
               "close": 56.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
               "high": null,
               "low": null
             }
@@ -10618,6 +11558,12 @@
               "close": 208.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10669,6 +11615,12 @@
             {
               "session": "2026-09-24",
               "close": 32.74,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 32.58,
               "high": null,
               "low": null
             }
@@ -10724,6 +11676,12 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10775,6 +11733,12 @@
             {
               "session": "2026-09-24",
               "close": 35.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
               "high": null,
               "low": null
             }
@@ -10830,6 +11794,12 @@
               "close": 173.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10881,6 +11851,12 @@
             {
               "session": "2026-09-24",
               "close": 59.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
               "high": null,
               "low": null
             }
@@ -10936,6 +11912,12 @@
               "close": 19.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10987,6 +11969,12 @@
             {
               "session": "2026-09-24",
               "close": 5.55,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
               "high": null,
               "low": null
             }
@@ -11042,6 +12030,12 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11093,6 +12087,12 @@
             {
               "session": "2026-09-24",
               "close": 94.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
               "high": null,
               "low": null
             }
@@ -11148,6 +12148,12 @@
               "close": 222.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11199,6 +12205,12 @@
             {
               "session": "2026-09-24",
               "close": 16.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
               "high": null,
               "low": null
             }
@@ -11254,6 +12266,12 @@
               "close": 17.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 17.52,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11305,6 +12323,12 @@
             {
               "session": "2026-09-24",
               "close": 27.12,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
               "high": null,
               "low": null
             }
@@ -11360,6 +12384,12 @@
               "close": 2.42,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11411,6 +12441,12 @@
             {
               "session": "2026-09-24",
               "close": 15.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 15.31,
               "high": null,
               "low": null
             }
@@ -11466,6 +12502,12 @@
               "close": 38.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 39.26,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11517,6 +12559,12 @@
             {
               "session": "2026-09-24",
               "close": 2.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.26,
               "high": null,
               "low": null
             }
@@ -11572,6 +12620,12 @@
               "close": 183.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11625,6 +12679,12 @@
               "close": 121.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 121.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11672,11 +12732,19 @@
               "close": 56.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.1759,
-            "return_1d_r": -0.088
+            "return_1d_r": -0.088,
+            "return_3d_pct": -1.6711,
+            "return_3d_r": -0.8355
           },
           "barrier": null
         },
@@ -11717,11 +12785,19 @@
               "close": 208.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.3474,
-            "return_1d_r": -1.1737
+            "return_1d_r": -1.1737,
+            "return_3d_pct": -5.2113,
+            "return_3d_r": -2.6056
           },
           "barrier": null
         },
@@ -11762,11 +12838,19 @@
               "close": 32.74,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 32.58,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.4879,
-            "return_1d_r": 0.744
+            "return_1d_r": 0.744,
+            "return_3d_pct": 0.9919,
+            "return_3d_r": 0.496
           },
           "barrier": null
         },
@@ -11807,11 +12891,19 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.7597,
-            "return_1d_r": -0.8799
+            "return_1d_r": -0.8799,
+            "return_3d_pct": -4.0655,
+            "return_3d_r": -2.0328
           },
           "barrier": null
         },
@@ -11852,11 +12944,19 @@
               "close": 173.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.4646,
-            "return_1d_r": 0.2323
+            "return_1d_r": 0.2323,
+            "return_3d_pct": -1.1034,
+            "return_3d_r": -0.5517
           },
           "barrier": null
         },
@@ -11897,11 +12997,19 @@
               "close": 59.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.7647,
-            "return_1d_r": 0.3823
+            "return_1d_r": 0.3823,
+            "return_3d_pct": 1.3594,
+            "return_3d_r": 0.6797
           },
           "barrier": null
         },
@@ -11942,11 +13050,19 @@
               "close": 19.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4489,
-            "return_1d_r": -0.2244
+            "return_1d_r": -0.2244,
+            "return_3d_pct": 0.399,
+            "return_3d_r": 0.1995
           },
           "barrier": null
         },
@@ -11987,11 +13103,19 @@
               "close": 35.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.3388,
-            "return_1d_r": 0.1694
+            "return_1d_r": 0.1694,
+            "return_3d_pct": 1.7504,
+            "return_3d_r": 0.8752
           },
           "barrier": null
         },
@@ -12032,11 +13156,19 @@
               "close": 5.55,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.3591,
-            "return_1d_r": -0.1795
+            "return_1d_r": -0.1795,
+            "return_3d_pct": -1.7953,
+            "return_3d_r": -0.8977
           },
           "barrier": null
         },
@@ -12077,11 +13209,19 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -1.3167,
-            "return_1d_r": -0.6584
+            "return_1d_r": -0.6584,
+            "return_3d_pct": -3.1878,
+            "return_3d_r": -1.5939
           },
           "barrier": null
         },
@@ -12122,11 +13262,19 @@
               "close": 94.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.1062,
-            "return_1d_r": -0.0531
+            "return_1d_r": -0.0531,
+            "return_3d_pct": -2.1762,
+            "return_3d_r": -1.0881
           },
           "barrier": null
         },
@@ -12167,11 +13315,19 @@
               "close": 222.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.6787,
-            "return_1d_r": 0.3394
+            "return_1d_r": 0.3394,
+            "return_3d_pct": -0.8145,
+            "return_3d_r": -0.4072
           },
           "barrier": null
         },
@@ -12212,11 +13368,19 @@
               "close": 16.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.8865,
-            "return_1d_r": -0.4433
+            "return_1d_r": -0.4433,
+            "return_3d_pct": -1.5366,
+            "return_3d_r": -0.7683
           },
           "barrier": null
         },
@@ -12257,11 +13421,19 @@
               "close": 17.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 17.52,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -3.9643,
-            "return_1d_r": -1.9821
+            "return_1d_r": -1.9821,
+            "return_3d_pct": -2.1776,
+            "return_3d_r": -1.0888
           },
           "barrier": null
         },
@@ -12302,11 +13474,19 @@
               "close": 27.12,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.1186,
-            "return_1d_r": 0.5593
+            "return_1d_r": 0.5593,
+            "return_3d_pct": 1.1931,
+            "return_3d_r": 0.5966
           },
           "barrier": null
         },
@@ -12347,11 +13527,19 @@
               "close": 2.42,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.2397,
+            "return_3d_r": -0.6198
           },
           "barrier": null
         },
@@ -12392,11 +13580,19 @@
               "close": 15.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 15.31,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4554,
-            "return_1d_r": -0.2277
+            "return_1d_r": -0.2277,
+            "return_3d_pct": -0.3904,
+            "return_3d_r": -0.1952
           },
           "barrier": null
         },
@@ -12437,11 +13633,19 @@
               "close": 38.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 39.26,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 2.0624,
-            "return_1d_r": 1.0312
+            "return_1d_r": 1.0312,
+            "return_3d_pct": 3.8075,
+            "return_3d_r": 1.9038
           },
           "barrier": null
         },
@@ -12482,11 +13686,19 @@
               "close": 2.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.26,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4329,
-            "return_1d_r": -0.2165
+            "return_1d_r": -0.2165,
+            "return_3d_pct": -2.1645,
+            "return_3d_r": -1.0823
           },
           "barrier": null
         },
@@ -12527,11 +13739,19 @@
               "close": 183.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.4917,
-            "return_1d_r": 0.7459
+            "return_1d_r": 0.7459,
+            "return_3d_pct": 0.4972,
+            "return_3d_r": 0.2486
           },
           "barrier": null
         },
@@ -12572,11 +13792,19 @@
               "close": 121.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 121.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4098,
-            "return_1d_r": -0.2049
+            "return_1d_r": -0.2049,
+            "return_3d_pct": -0.4098,
+            "return_3d_r": -0.2049
           },
           "barrier": null
         },
@@ -12617,11 +13845,19 @@
               "close": 35.96,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 35.68,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -0.7786,
+            "return_3d_r": -0.3893
           },
           "barrier": null
         },
@@ -12662,11 +13898,19 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -0.4608,
+            "return_3d_r": -0.2304
           },
           "barrier": null
         },
@@ -12707,11 +13951,19 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.9039,
+            "return_3d_r": -0.9519
           },
           "barrier": null
         },
@@ -12752,11 +14004,19 @@
               "close": 135.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 133.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.0347,
+            "return_3d_r": -0.5174
           },
           "barrier": null
         },
@@ -12797,11 +14057,19 @@
               "close": 43.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.34,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -0.7329,
+            "return_3d_r": -0.3665
           },
           "barrier": null
         },
@@ -12842,11 +14110,19 @@
               "close": 11.45,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 11.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -3.4934,
+            "return_3d_r": -1.7467
           },
           "barrier": null
         },
@@ -12887,11 +14163,19 @@
               "close": 64.35,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 64.35,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 0.0,
+            "return_3d_r": 0.0
           },
           "barrier": null
         },
@@ -12932,11 +14216,19 @@
               "close": 61.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 56.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -9.3117,
+            "return_3d_r": -4.6559
           },
           "barrier": null
         },
@@ -12969,6 +14261,12 @@
             {
               "session": "2026-09-24",
               "close": 32.74,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 32.58,
               "high": null,
               "low": null
             }
@@ -13010,6 +14308,12 @@
               "close": 56.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13047,6 +14351,12 @@
             {
               "session": "2026-09-24",
               "close": 173.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
               "high": null,
               "low": null
             }
@@ -13088,6 +14398,12 @@
               "close": 35.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13125,6 +14441,12 @@
             {
               "session": "2026-09-24",
               "close": 35.96,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 35.68,
               "high": null,
               "low": null
             }
@@ -13166,6 +14488,12 @@
               "close": 59.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13203,6 +14531,12 @@
             {
               "session": "2026-09-24",
               "close": 208.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
               "high": null,
               "low": null
             }
@@ -13244,6 +14578,12 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13281,6 +14621,12 @@
             {
               "session": "2026-09-24",
               "close": 19.96,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
               "high": null,
               "low": null
             }
@@ -13322,6 +14668,12 @@
               "close": 183.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13359,6 +14711,12 @@
             {
               "session": "2026-09-24",
               "close": 5.55,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
               "high": null,
               "low": null
             }
@@ -13400,6 +14758,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13437,6 +14801,12 @@
             {
               "session": "2026-09-24",
               "close": 222.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
               "high": null,
               "low": null
             }
@@ -13478,6 +14848,12 @@
               "close": 38.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 39.26,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13515,6 +14891,12 @@
             {
               "session": "2026-09-24",
               "close": 94.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
               "high": null,
               "low": null
             }
@@ -13556,6 +14938,12 @@
               "close": 142.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13593,6 +14981,12 @@
             {
               "session": "2026-09-24",
               "close": 27.12,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
               "high": null,
               "low": null
             }
@@ -13634,6 +15028,12 @@
               "close": 135.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 133.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13671,6 +15071,12 @@
             {
               "session": "2026-09-24",
               "close": 16.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
               "high": null,
               "low": null
             }
@@ -13712,6 +15118,12 @@
               "close": 32.38,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13749,6 +15161,12 @@
             {
               "session": "2026-09-24",
               "close": 2.42,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
               "high": null,
               "low": null
             }
@@ -13790,6 +15208,12 @@
               "close": 43.66,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 43.34,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13829,6 +15253,12 @@
               "close": 15.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 15.31,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13865,6 +15295,12 @@
           "observations": [
             {
               "session": "2026-09-24",
+              "close": 121.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 121.5,
               "high": null,
               "low": null
@@ -13907,6 +15343,12 @@
               "close": 11.45,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 11.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13943,6 +15385,12 @@
           "observations": [
             {
               "session": "2026-09-24",
+              "close": 64.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-09-27",
               "close": 64.35,
               "high": null,
               "low": null
@@ -13985,6 +15433,12 @@
               "close": 61.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-09-27",
+              "close": 56.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -14018,8 +15472,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 32.58,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.4887,
+            "return_1d_r": -0.2443
+          },
           "barrier": null
         },
         {
@@ -14047,8 +15511,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 55.9,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.4978,
+            "return_1d_r": -0.7489
+          },
           "barrier": null
         },
         {
@@ -14076,8 +15550,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 170.3,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.5607,
+            "return_1d_r": -0.7803
+          },
           "barrier": null
         },
         {
@@ -14105,8 +15589,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 36.04,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 1.4069,
+            "return_1d_r": 0.7034
+          },
           "barrier": null
         },
         {
@@ -14134,8 +15628,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 35.68,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.7786,
+            "return_1d_r": -0.3893
+          },
           "barrier": null
         },
         {
@@ -14163,8 +15667,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 59.65,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.5902,
+            "return_1d_r": 0.2951
+          },
           "barrier": null
         },
         {
@@ -14192,8 +15706,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 201.9,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.9327,
+            "return_1d_r": -1.4663
+          },
           "barrier": null
         },
         {
@@ -14221,8 +15745,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 34.56,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.4608,
+            "return_1d_r": -0.2304
+          },
           "barrier": null
         },
         {
@@ -14250,8 +15784,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 20.13,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.8517,
+            "return_1d_r": 0.4259
+          },
           "barrier": null
         },
         {
@@ -14279,8 +15823,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 181.9,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.9799,
+            "return_1d_r": -0.4899
+          },
           "barrier": null
         },
         {
@@ -14308,8 +15862,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 5.47,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.4414,
+            "return_1d_r": -0.7207
+          },
           "barrier": null
         },
         {
@@ -14337,8 +15901,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 54.1,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.9039,
+            "return_1d_r": -0.9519
+          },
           "barrier": null
         },
         {
@@ -14366,8 +15940,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 219.2,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.4831,
+            "return_1d_r": -0.7416
+          },
           "barrier": null
         },
         {
@@ -14395,8 +15979,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 39.26,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 1.7098,
+            "return_1d_r": 0.8549
+          },
           "barrier": null
         },
         {
@@ -14424,8 +16018,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 92.15,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.0723,
+            "return_1d_r": -1.0361
+          },
           "barrier": null
         },
         {
@@ -14453,8 +16057,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 139.7,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.8961,
+            "return_1d_r": -0.948
+          },
           "barrier": null
         },
         {
@@ -14482,8 +16096,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 27.14,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0737,
+            "return_1d_r": 0.0369
+          },
           "barrier": null
         },
         {
@@ -14511,8 +16135,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 133.9,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.0347,
+            "return_1d_r": -0.5174
+          },
           "barrier": null
         },
         {
@@ -14540,8 +16174,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 16.66,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.6559,
+            "return_1d_r": -0.328
+          },
           "barrier": null
         },
         {
@@ -14569,8 +16213,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 31.62,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.3471,
+            "return_1d_r": -1.1736
+          },
           "barrier": null
         },
         {
@@ -14598,8 +16252,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 2.39,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.2397,
+            "return_1d_r": -0.6198
+          },
           "barrier": null
         },
         {
@@ -14627,8 +16291,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 43.34,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.7329,
+            "return_1d_r": -0.3665
+          },
           "barrier": null
         },
         {
@@ -14656,8 +16330,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 15.31,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0654,
+            "return_1d_r": 0.0327
+          },
           "barrier": null
         },
         {
@@ -14685,8 +16369,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 121.5,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0,
+            "return_1d_r": 0.0
+          },
           "barrier": null
         },
         {
@@ -14714,8 +16408,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 11.05,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -3.4934,
+            "return_1d_r": -1.7467
+          },
           "barrier": null
         },
         {
@@ -14743,8 +16447,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 64.35,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0,
+            "return_1d_r": 0.0
+          },
           "barrier": null
         },
         {
@@ -14772,8 +16486,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 56.0,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -9.3117,
+            "return_1d_r": -4.6559
+          },
           "barrier": null
         },
         {
@@ -14801,8 +16525,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 8.99,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0,
+            "return_1d_r": 0.0
+          },
           "barrier": null
         },
         {
@@ -14830,6 +16564,567 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
+          "observations": [
+            {
+              "session": "2026-09-27",
+              "close": 17.23,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0,
+            "return_1d_r": 0.0
+          },
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2070:CASH",
+          "session": "2026-09-27",
+          "symbol": "2070",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 82.68,
+          "strategy_score": 0.0,
+          "entry": 32.58,
+          "stop": 31.9284,
+          "target": 33.8832,
+          "risk": 0.6516,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2282:CASH",
+          "session": "2026-09-27",
+          "symbol": "2282",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 82.51,
+          "strategy_score": 0.0,
+          "entry": 59.65,
+          "stop": 58.457,
+          "target": 62.036,
+          "risk": 1.193,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:4030:CASH",
+          "session": "2026-09-27",
+          "symbol": "4030",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 80.05,
+          "strategy_score": 0.0,
+          "entry": 36.04,
+          "stop": 35.3192,
+          "target": 37.4816,
+          "risk": 0.7208,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:4310:CASH",
+          "session": "2026-09-27",
+          "symbol": "4310",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 74.67,
+          "strategy_score": 0.0,
+          "entry": 20.13,
+          "stop": 19.7274,
+          "target": 20.9352,
+          "risk": 0.4026,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2190:CASH",
+          "session": "2026-09-27",
+          "symbol": "2190",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 72.78,
+          "strategy_score": 0.0,
+          "entry": 39.26,
+          "stop": 38.4748,
+          "target": 40.8304,
+          "risk": 0.7852,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:4263:CASH",
+          "session": "2026-09-27",
+          "symbol": "4263",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 72.5,
+          "strategy_score": 0.0,
+          "entry": 170.3,
+          "stop": 166.894,
+          "target": 177.112,
+          "risk": 3.406,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:1320:CASH",
+          "session": "2026-09-27",
+          "symbol": "1320",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 72.44,
+          "strategy_score": 0.0,
+          "entry": 55.9,
+          "stop": 54.782,
+          "target": 58.136,
+          "risk": 1.118,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2180:CASH",
+          "session": "2026-09-27",
+          "symbol": "2180",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 71.76,
+          "strategy_score": 0.0,
+          "entry": 35.68,
+          "stop": 34.9664,
+          "target": 37.1072,
+          "risk": 0.7136,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2370:CASH",
+          "session": "2026-09-27",
+          "symbol": "2370",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 69.89,
+          "strategy_score": 0.0,
+          "entry": 34.56,
+          "stop": 33.8688,
+          "target": 35.9424,
+          "risk": 0.6912,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2200:CASH",
+          "session": "2026-09-27",
+          "symbol": "2200",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 69.68,
+          "strategy_score": 0.0,
+          "entry": 5.47,
+          "stop": 5.3606,
+          "target": 5.6888,
+          "risk": 0.1094,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:6040:CASH",
+          "session": "2026-09-27",
+          "symbol": "6040",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.32,
+          "strategy_score": 0.0,
+          "entry": 8.99,
+          "stop": 8.8102,
+          "target": 9.3496,
+          "risk": 0.1798,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:7211:CASH",
+          "session": "2026-09-27",
+          "symbol": "7211",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.12,
+          "strategy_score": 0.0,
+          "entry": 27.14,
+          "stop": 26.5972,
+          "target": 28.2256,
+          "risk": 0.5428,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:6012:CASH",
+          "session": "2026-09-27",
+          "symbol": "6012",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 65.05,
+          "strategy_score": 0.0,
+          "entry": 17.23,
+          "stop": 16.8854,
+          "target": 17.9192,
+          "risk": 0.3446,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:4146:CASH",
+          "session": "2026-09-27",
+          "symbol": "4146",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 64.84,
+          "strategy_score": 0.0,
+          "entry": 16.66,
+          "stop": 16.3268,
+          "target": 17.3264,
+          "risk": 0.3332,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:1303:CASH",
+          "session": "2026-09-27",
+          "symbol": "1303",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 62.45,
+          "strategy_score": 0.0,
+          "entry": 15.31,
+          "stop": 15.0038,
+          "target": 15.9224,
+          "risk": 0.3062,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:1321:CASH",
+          "session": "2026-09-27",
+          "symbol": "1321",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 61.96,
+          "strategy_score": 0.0,
+          "entry": 201.9,
+          "stop": 197.862,
+          "target": 209.976,
+          "risk": 4.038,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:6015:CASH",
+          "session": "2026-09-27",
+          "symbol": "6015",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 60.49,
+          "strategy_score": 0.0,
+          "entry": 2.39,
+          "stop": 2.3422,
+          "target": 2.4856,
+          "risk": 0.0478,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:2110:CASH",
+          "session": "2026-09-27",
+          "symbol": "2110",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 60.21,
+          "strategy_score": 0.0,
+          "entry": 181.9,
+          "stop": 178.262,
+          "target": 189.176,
+          "risk": 3.638,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-09-27:4016:CASH",
+          "session": "2026-09-27",
+          "symbol": "4016",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 60.08,
+          "strategy_score": 0.0,
+          "entry": 64.35,
+          "stop": 63.063,
+          "target": 66.924,
+          "risk": 1.287,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
           "observations": [],
           "labels": {},
           "barrier": null
@@ -14837,7 +17132,7 @@
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 249,
+      "candidates": 268,
       "mature_20d": 0,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -14846,8 +17141,8 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-09-24T20:59:23.246238+03:00",
-      "session": "2026-09-24",
+      "updated_at": "2026-09-27T15:17:50.332928+03:00",
+      "session": "2026-09-27",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
   }
