@@ -215,6 +215,15 @@
           "signal_bar_date": "2026-09-29",
           "queued_on": "2026-09-29",
           "strategy": "momentum_leadership_shadow"
+        },
+        "7211": {
+          "symbol": "7211",
+          "score": 89.3,
+          "risk_distance": 1.88,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-09-29",
+          "queued_on": "2026-09-29",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": [
@@ -285,7 +294,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-09-29T16:13:43.870283+03:00",
+      "updated_at": "2026-09-29T21:03:51.166030+03:00",
       "data_quality": "verified session 2026-09-29, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -318,7 +327,7 @@
           "max_drawdown_r": 3.217,
           "pnl_sar": -291.32,
           "open_positions": 3,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 4/30"
         }
@@ -356,16 +365,16 @@
         "max_drawdown_r": 3.217,
         "pnl_sar": -291.32,
         "open_positions": 3,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 4/30"
       },
       "pead_source": {
         "verification": "detail-page-v1",
         "source": "verified-cache-rehydrated",
-        "verified_recent_financial_events": 1,
-        "eligible_symbols_with_events": 1,
-        "events_inspected": 1,
+        "verified_recent_financial_events": 0,
+        "eligible_symbols_with_events": 0,
+        "events_inspected": 0,
         "financial_tables_parsed": 0,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
@@ -375,7 +384,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-09-29T16:13:58.436202+03:00",
+      "updated_at": "2026-09-29T21:04:02.031576+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -411,7 +420,7 @@
           "max_drawdown_r": 3.217,
           "pnl_sar": -291.32,
           "open_positions": 3,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 4/30",
           "rank_score": null
         },
@@ -735,7 +744,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-09-29T16:13:43.346616+03:00",
+      "updated_at": "2026-09-29T21:03:50.654785+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -21469,7 +21478,7 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-09-29T16:13:43.364333+03:00",
+      "updated_at": "2026-09-29T21:03:50.672568+03:00",
       "session": "2026-09-29",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
