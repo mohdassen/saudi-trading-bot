@@ -221,6 +221,15 @@
           "signal_bar_date": "2026-10-01",
           "queued_on": "2026-10-01",
           "strategy": "momentum_leadership_shadow"
+        },
+        "6015": {
+          "symbol": "6015",
+          "score": 97.1,
+          "risk_distance": 0.11,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-10-01",
+          "queued_on": "2026-10-01",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": [
@@ -323,7 +332,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-01T16:45:14.407344+03:00",
+      "updated_at": "2026-10-01T21:24:28.704065+03:00",
       "data_quality": "verified session 2026-10-01, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -356,7 +365,7 @@
           "max_drawdown_r": 3.374,
           "pnl_sar": -803.71,
           "open_positions": 3,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 6/30"
         }
@@ -394,7 +403,7 @@
         "max_drawdown_r": 3.374,
         "pnl_sar": -803.71,
         "open_positions": 3,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 6/30"
       },
@@ -413,7 +422,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-01T16:45:25.374113+03:00",
+      "updated_at": "2026-10-01T21:24:36.949955+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -449,7 +458,7 @@
           "max_drawdown_r": 3.374,
           "pnl_sar": -803.71,
           "open_positions": 3,
-          "pending": 1,
+          "pending": 2,
           "status": "EVALUATING 6/30",
           "rank_score": -69.36
         },
@@ -773,7 +782,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-01T16:45:13.868303+03:00",
+      "updated_at": "2026-10-01T21:24:28.231949+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -25863,7 +25872,7 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-01T16:45:13.890981+03:00",
+      "updated_at": "2026-10-01T21:24:28.249940+03:00",
       "session": "2026-10-01",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
