@@ -18,8 +18,8 @@
           "target": 64.6746,
           "score": 83.85,
           "opened_on": "2026-09-28",
-          "last_marked_on": "2026-10-07",
-          "bars_held": 8,
+          "last_marked_on": "2026-10-08",
+          "bars_held": 9,
           "strategy": "explorer_swing",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.6549772363500209,
@@ -33,25 +33,30 @@
           "target": 107.325,
           "score": 80.67,
           "opened_on": "2026-10-05",
-          "last_marked_on": "2026-10-07",
-          "bars_held": 3,
+          "last_marked_on": "2026-10-08",
+          "bars_held": 4,
           "strategy": "explorer_swing",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.34989059080962825,
           "mfe_r": 0.5253829321663003
-        }
-      },
-      "pending": {
+        },
         "4310": {
           "symbol": "4310",
+          "qty": 157,
+          "entry": 22.7928,
+          "stop": 21.2228,
+          "target": 25.6188,
           "score": 85.46,
-          "risk_distance": 1.57,
-          "reward_risk": 1.8,
-          "signal_bar_date": "2026-10-07",
-          "queued_on": "2026-10-07",
-          "strategy": "explorer_swing"
+          "opened_on": "2026-10-08",
+          "last_marked_on": "2026-10-08",
+          "bars_held": 1,
+          "strategy": "explorer_swing",
+          "entry_regime": "RISK_OFF",
+          "mae_r": -0.791592842636594,
+          "mfe_r": 0.049172509065859044
         }
       },
+      "pending": {},
       "closed": [
         {
           "symbol": "2290",
@@ -200,11 +205,11 @@
           "target": 20.4576,
           "score": 98.14,
           "opened_on": "2026-09-14",
-          "last_marked_on": "2026-10-07",
-          "bars_held": 17,
+          "last_marked_on": "2026-10-08",
+          "bars_held": 18,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "UNKNOWN",
-          "mae_r": -0.5656736506468854,
+          "mae_r": -0.7004258024607982,
           "mfe_r": 0.8031208920309736
         },
         "2370": {
@@ -215,8 +220,8 @@
           "target": 38.2734,
           "score": 93.96,
           "opened_on": "2026-09-22",
-          "last_marked_on": "2026-10-07",
-          "bars_held": 11,
+          "last_marked_on": "2026-10-08",
+          "bars_held": 12,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.7051025666915833,
@@ -230,8 +235,8 @@
           "target": 25.1914,
           "score": 97.61,
           "opened_on": "2026-10-04",
-          "last_marked_on": "2026-10-07",
-          "bars_held": 4,
+          "last_marked_on": "2026-10-08",
+          "bars_held": 5,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.08053154965664483,
@@ -245,25 +250,30 @@
           "target": 2.6024,
           "score": 97.82,
           "opened_on": "2026-10-05",
-          "last_marked_on": "2026-10-07",
-          "bars_held": 3,
+          "last_marked_on": "2026-10-08",
+          "bars_held": 4,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.11272831309925506,
           "mfe_r": 0.8872729006680579
-        }
-      },
-      "pending": {
+        },
         "7200": {
           "symbol": "7200",
+          "qty": 11,
+          "entry": 302.302,
+          "stop": 280.572,
+          "target": 345.762,
           "score": 97.06,
-          "risk_distance": 21.73,
-          "reward_risk": 2.0,
-          "signal_bar_date": "2026-10-07",
-          "queued_on": "2026-10-07",
-          "strategy": "momentum_leadership_shadow"
+          "opened_on": "2026-10-08",
+          "last_marked_on": "2026-10-08",
+          "bars_held": 1,
+          "strategy": "momentum_leadership_shadow",
+          "entry_regime": "RISK_OFF",
+          "mae_r": -0.13354837107757217,
+          "mfe_r": 0.07814081914403948
         }
       },
+      "pending": {},
       "closed": [
         {
           "symbol": "2380",
@@ -380,8 +390,8 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-07T22:34:52.634903+03:00",
-      "data_quality": "verified session 2026-10-07, consensus 99.2%",
+      "updated_at": "2026-10-08T16:52:22.060690+03:00",
+      "data_quality": "verified session 2026-10-08, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
         "min_expectancy_r": 0.1,
@@ -412,8 +422,8 @@
           "profit_factor": 0.749,
           "max_drawdown_r": 3.374,
           "pnl_sar": -323.1,
-          "open_positions": 4,
-          "pending": 1,
+          "open_positions": 5,
+          "pending": 0,
           "qualified": false,
           "status": "LEARNING 7/30"
         }
@@ -450,18 +460,18 @@
         "profit_factor": 0.749,
         "max_drawdown_r": 3.374,
         "pnl_sar": -323.1,
-        "open_positions": 4,
-        "pending": 1,
+        "open_positions": 5,
+        "pending": 0,
         "qualified": false,
         "status": "LEARNING 7/30"
       },
       "pead_source": {
         "verification": "detail-page-v1",
-        "source": "verified-cache-rehydrated",
-        "verified_recent_financial_events": 1,
-        "eligible_symbols_with_events": 1,
-        "events_inspected": 1,
-        "financial_tables_parsed": 1,
+        "source": "https://english.mubasher.info/news/sa/now/announcements",
+        "verified_recent_financial_events": 2,
+        "eligible_symbols_with_events": 2,
+        "events_inspected": 2,
+        "financial_tables_parsed": 2,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
@@ -470,14 +480,14 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-07T22:35:03.798694+03:00",
+      "updated_at": "2026-10-08T16:52:34.780625+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
         "eligible": 255,
-        "above_ema50_pct": 15.7,
-        "above_ema200_pct": 18.4,
-        "median_momentum20_pct": -6.2
+        "above_ema50_pct": 12.5,
+        "above_ema200_pct": 15.7,
+        "median_momentum20_pct": -7.7
       },
       "scoreboard": [
         {
@@ -505,8 +515,8 @@
           "profit_factor": 0.749,
           "max_drawdown_r": 3.374,
           "pnl_sar": -323.1,
-          "open_positions": 4,
-          "pending": 1,
+          "open_positions": 5,
+          "pending": 0,
           "status": "EVALUATING 7/30",
           "rank_score": -30.0
         },
@@ -520,8 +530,8 @@
           "profit_factor": 0.399,
           "max_drawdown_r": 5.698,
           "pnl_sar": -900.58,
-          "open_positions": 2,
-          "pending": 1,
+          "open_positions": 3,
+          "pending": 0,
           "status": "EVALUATING 8/30",
           "rank_score": -74.14
         }
@@ -591,7 +601,7 @@
       "1302": "CASH:IGNORE",
       "1303": "CASH:IGNORE",
       "1304": "CASH:IGNORE",
-      "1320": "CASH:WATCH",
+      "1320": "CASH:IGNORE",
       "1321": "CASH:IGNORE",
       "1322": "CASH:IGNORE",
       "1323": "CASH:IGNORE",
@@ -606,7 +616,7 @@
       "2001": "CASH:IGNORE",
       "2010": "CASH:IGNORE",
       "2020": "CASH:IGNORE",
-      "2030": "CASH:WATCH",
+      "2030": "CASH:IGNORE",
       "2040": "CASH:IGNORE",
       "2050": "CASH:IGNORE",
       "2060": "CASH:IGNORE",
@@ -631,7 +641,7 @@
       "2210": "CASH:IGNORE",
       "2220": "CASH:IGNORE",
       "2222": "CASH:IGNORE",
-      "2223": "CASH:WATCH",
+      "2223": "CASH:IGNORE",
       "2230": "CASH:IGNORE",
       "2240": "CASH:IGNORE",
       "2250": "CASH:IGNORE",
@@ -653,7 +663,7 @@
       "2340": "CASH:IGNORE",
       "2350": "CASH:IGNORE",
       "2360": "CASH:IGNORE",
-      "2370": "CASH:WATCH",
+      "2370": "CASH:IGNORE",
       "2380": "CASH:IGNORE",
       "2381": "CASH:WATCH",
       "2382": "CASH:IGNORE",
@@ -686,7 +696,7 @@
       "4013": "CASH:IGNORE",
       "4014": "CASH:IGNORE",
       "4015": "CASH:IGNORE",
-      "4016": "CASH:WATCH",
+      "4016": "CASH:IGNORE",
       "4017": "CASH:IGNORE",
       "4018": "CASH:IGNORE",
       "4019": "CASH:IGNORE",
@@ -799,7 +809,7 @@
       "7030": "CASH:IGNORE",
       "7040": "CASH:IGNORE",
       "7200": "CASH:WATCH",
-      "7201": "CASH:WATCH",
+      "7201": "CASH:IGNORE",
       "7202": "CASH:IGNORE",
       "7203": "CASH:IGNORE",
       "7204": "CASH:IGNORE",
@@ -817,7 +827,7 @@
       "8170": "CASH:IGNORE",
       "8180": "CASH:IGNORE",
       "8190": "CASH:IGNORE",
-      "8200": "CASH:WATCH",
+      "8200": "CASH:IGNORE",
       "8210": "CASH:IGNORE",
       "8230": "CASH:IGNORE",
       "8240": "CASH:IGNORE",
@@ -825,13 +835,13 @@
       "8260": "CASH:IGNORE",
       "8280": "CASH:IGNORE",
       "8300": "CASH:IGNORE",
-      "8311": "CASH:IGNORE",
-      "8313": "CASH:WATCH",
+      "8311": "CASH:WATCH",
+      "8313": "CASH:IGNORE",
       "1325": "CASH:IGNORE"
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-07T22:34:52.146137+03:00",
+      "updated_at": "2026-10-08T16:52:21.522263+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -958,6 +968,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -1101,6 +1117,12 @@
               "close": 181.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1240,6 +1262,12 @@
             {
               "session": "2026-10-07",
               "close": 50.6,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 50.0,
               "high": null,
               "low": null
             }
@@ -1383,6 +1411,12 @@
               "close": 16.97,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1522,6 +1556,12 @@
             {
               "session": "2026-10-07",
               "close": 5.23,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
               "high": null,
               "low": null
             }
@@ -1665,6 +1705,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -1804,6 +1850,12 @@
             {
               "session": "2026-10-07",
               "close": 64.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
               "high": null,
               "low": null
             }
@@ -1947,6 +1999,12 @@
               "close": 34.56,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2086,6 +2144,12 @@
             {
               "session": "2026-10-07",
               "close": 182.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
               "high": null,
               "low": null
             }
@@ -2229,6 +2293,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2367,6 +2437,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 44.28,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 44.28,
               "high": null,
               "low": null
@@ -2511,6 +2587,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2652,6 +2734,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -2790,6 +2878,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -2934,6 +3028,12 @@
               "close": 103.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3073,6 +3173,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
               "high": null,
               "low": null
             }
@@ -3216,6 +3322,12 @@
               "close": 146.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3354,6 +3466,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 63.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 63.8,
               "high": null,
               "low": null
@@ -3498,6 +3616,12 @@
               "close": 303.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 302.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3637,6 +3761,12 @@
             {
               "session": "2026-10-07",
               "close": 82.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
               "high": null,
               "low": null
             }
@@ -3780,6 +3910,12 @@
               "close": 42.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 41.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -3919,6 +4055,12 @@
             {
               "session": "2026-10-07",
               "close": 28.7,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 28.32,
               "high": null,
               "low": null
             }
@@ -4062,6 +4204,12 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4201,6 +4349,12 @@
             {
               "session": "2026-10-07",
               "close": 13.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.4,
               "high": null,
               "low": null
             }
@@ -4344,6 +4498,12 @@
               "close": 30.06,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4483,6 +4643,12 @@
             {
               "session": "2026-10-07",
               "close": 15.84,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
               "high": null,
               "low": null
             }
@@ -4626,6 +4792,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -4765,6 +4937,12 @@
             {
               "session": "2026-10-07",
               "close": 34.72,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 34.28,
               "high": null,
               "low": null
             }
@@ -4908,6 +5086,12 @@
               "close": 6.25,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 6.23,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5041,6 +5225,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -5178,6 +5368,12 @@
               "close": 181.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5311,6 +5507,12 @@
             {
               "session": "2026-10-07",
               "close": 50.6,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 50.0,
               "high": null,
               "low": null
             }
@@ -5448,6 +5650,12 @@
               "close": 16.97,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5581,6 +5789,12 @@
             {
               "session": "2026-10-07",
               "close": 5.23,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
               "high": null,
               "low": null
             }
@@ -5718,6 +5932,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -5851,6 +6071,12 @@
             {
               "session": "2026-10-07",
               "close": 64.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
               "high": null,
               "low": null
             }
@@ -5988,6 +6214,12 @@
               "close": 34.56,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6121,6 +6353,12 @@
             {
               "session": "2026-10-07",
               "close": 182.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
               "high": null,
               "low": null
             }
@@ -6258,6 +6496,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6390,6 +6634,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 44.28,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 44.28,
               "high": null,
               "low": null
@@ -6528,6 +6778,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6663,6 +6919,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -6795,6 +7057,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -6933,6 +7201,12 @@
               "close": 103.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7066,6 +7340,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
               "high": null,
               "low": null
             }
@@ -7203,6 +7483,12 @@
               "close": 146.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7335,6 +7621,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 63.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 63.8,
               "high": null,
               "low": null
@@ -7473,6 +7765,12 @@
               "close": 303.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 302.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7606,6 +7904,12 @@
             {
               "session": "2026-10-07",
               "close": 82.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
               "high": null,
               "low": null
             }
@@ -7743,6 +8047,12 @@
               "close": 42.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 41.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -7876,6 +8186,12 @@
             {
               "session": "2026-10-07",
               "close": 28.7,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 28.32,
               "high": null,
               "low": null
             }
@@ -8013,6 +8329,12 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8146,6 +8468,12 @@
             {
               "session": "2026-10-07",
               "close": 13.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.4,
               "high": null,
               "low": null
             }
@@ -8283,6 +8611,12 @@
               "close": 30.06,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8416,6 +8750,12 @@
             {
               "session": "2026-10-07",
               "close": 15.84,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
               "high": null,
               "low": null
             }
@@ -8553,6 +8893,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8686,6 +9032,12 @@
             {
               "session": "2026-10-07",
               "close": 34.72,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 34.28,
               "high": null,
               "low": null
             }
@@ -8823,6 +9175,12 @@
               "close": 6.25,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 6.23,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -8956,6 +9314,12 @@
             {
               "session": "2026-10-07",
               "close": 35.52,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
               "high": null,
               "low": null
             }
@@ -9093,6 +9457,12 @@
               "close": 43.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -9226,6 +9596,12 @@
             {
               "session": "2026-10-07",
               "close": 50.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 49.9,
               "high": null,
               "low": null
             }
@@ -9363,6 +9739,12 @@
               "close": 6.14,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 6.06,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -9498,6 +9880,12 @@
               "close": 19.27,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.67,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -9625,6 +10013,12 @@
             {
               "session": "2026-10-07",
               "close": 16.97,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.7,
               "high": null,
               "low": null
             }
@@ -9756,6 +10150,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -9883,6 +10283,12 @@
             {
               "session": "2026-10-07",
               "close": 50.6,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 50.0,
               "high": null,
               "low": null
             }
@@ -10014,6 +10420,12 @@
               "close": 55.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10141,6 +10553,12 @@
             {
               "session": "2026-10-07",
               "close": 55.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
               "high": null,
               "low": null
             }
@@ -10272,6 +10690,12 @@
               "close": 5.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10401,6 +10825,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10527,6 +10957,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 44.28,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 44.28,
               "high": null,
               "low": null
@@ -10659,6 +11095,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -10786,6 +11228,12 @@
             {
               "session": "2026-10-07",
               "close": 103.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
               "high": null,
               "low": null
             }
@@ -10917,6 +11365,12 @@
               "close": 43.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11044,6 +11498,12 @@
             {
               "session": "2026-10-07",
               "close": 146.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
               "high": null,
               "low": null
             }
@@ -11175,6 +11635,12 @@
               "close": 34.56,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11302,6 +11768,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
               "high": null,
               "low": null
             }
@@ -11433,6 +11905,12 @@
               "close": 82.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11559,6 +12037,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -11691,6 +12175,12 @@
               "close": 42.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 41.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -11818,6 +12308,12 @@
             {
               "session": "2026-10-07",
               "close": 15.84,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
               "high": null,
               "low": null
             }
@@ -11949,6 +12445,12 @@
               "close": 50.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 49.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -12076,6 +12578,12 @@
             {
               "session": "2026-10-07",
               "close": 181.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
               "high": null,
               "low": null
             }
@@ -12207,6 +12715,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -12334,6 +12848,12 @@
             {
               "session": "2026-10-07",
               "close": 28.7,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 28.32,
               "high": null,
               "low": null
             }
@@ -12465,6 +12985,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -12592,6 +13118,12 @@
             {
               "session": "2026-10-07",
               "close": 6.14,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 6.06,
               "high": null,
               "low": null
             }
@@ -12723,6 +13255,12 @@
               "close": 303.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 302.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -12850,6 +13388,12 @@
             {
               "session": "2026-10-07",
               "close": 64.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
               "high": null,
               "low": null
             }
@@ -12981,6 +13525,12 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13108,6 +13658,12 @@
             {
               "session": "2026-10-07",
               "close": 19.27,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.67,
               "high": null,
               "low": null
             }
@@ -13239,6 +13795,12 @@
               "close": 31.22,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13366,6 +13928,12 @@
             {
               "session": "2026-10-07",
               "close": 13.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
               "high": null,
               "low": null
             }
@@ -13497,6 +14065,12 @@
               "close": 13.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13624,6 +14198,12 @@
             {
               "session": "2026-10-07",
               "close": 24.36,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 23.85,
               "high": null,
               "low": null
             }
@@ -13755,6 +14335,12 @@
               "close": 30.06,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -13882,6 +14468,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 116.7,
               "high": null,
               "low": null
             }
@@ -14013,6 +14605,12 @@
               "close": 19.99,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 19.9,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -14140,6 +14738,12 @@
             {
               "session": "2026-10-07",
               "close": 37.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
               "high": null,
               "low": null
             }
@@ -14271,6 +14875,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -14398,6 +15008,12 @@
             {
               "session": "2026-10-07",
               "close": 78.25,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 77.0,
               "high": null,
               "low": null
             }
@@ -14529,6 +15145,12 @@
               "close": 37.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -14656,6 +15278,12 @@
             {
               "session": "2026-10-07",
               "close": 34.72,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 34.28,
               "high": null,
               "low": null
             }
@@ -14787,6 +15415,12 @@
               "close": 63.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -14916,6 +15550,12 @@
               "close": 4.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 4.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -15037,6 +15677,12 @@
             {
               "session": "2026-10-07",
               "close": 146.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
               "high": null,
               "low": null
             }
@@ -15162,6 +15808,12 @@
               "close": 31.22,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -15283,6 +15935,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -15408,6 +16066,12 @@
               "close": 13.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -15529,6 +16193,12 @@
             {
               "session": "2026-10-07",
               "close": 31.62,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
               "high": null,
               "low": null
             }
@@ -15654,6 +16324,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -15775,6 +16451,12 @@
             {
               "session": "2026-10-07",
               "close": 181.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
               "high": null,
               "low": null
             }
@@ -15900,6 +16582,12 @@
               "close": 13.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -16020,6 +16708,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 44.28,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 44.28,
               "high": null,
               "low": null
@@ -16146,6 +16840,12 @@
               "close": 64.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -16267,6 +16967,12 @@
             {
               "session": "2026-10-07",
               "close": 16.97,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.7,
               "high": null,
               "low": null
             }
@@ -16392,6 +17098,12 @@
               "close": 103.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -16513,6 +17225,12 @@
             {
               "session": "2026-10-07",
               "close": 2.47,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
               "high": null,
               "low": null
             }
@@ -16638,6 +17356,12 @@
               "close": 5.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -16759,6 +17483,12 @@
             {
               "session": "2026-10-07",
               "close": 82.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
               "high": null,
               "low": null
             }
@@ -16884,6 +17614,12 @@
               "close": 24.36,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 23.85,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -17005,6 +17741,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
               "high": null,
               "low": null
             }
@@ -17130,6 +17872,12 @@
               "close": 28.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 28.32,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -17251,6 +17999,12 @@
             {
               "session": "2026-10-07",
               "close": 176.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
               "high": null,
               "low": null
             }
@@ -17376,6 +18130,12 @@
               "close": 34.56,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -17497,6 +18257,12 @@
             {
               "session": "2026-10-07",
               "close": 30.06,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
               "high": null,
               "low": null
             }
@@ -17622,6 +18388,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -17742,6 +18514,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -17868,6 +18646,12 @@
               "close": 15.84,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -17989,6 +18773,12 @@
             {
               "session": "2026-10-07",
               "close": 50.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 49.9,
               "high": null,
               "low": null
             }
@@ -18114,6 +18904,12 @@
               "close": 4.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 4.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -18235,6 +19031,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 116.7,
               "high": null,
               "low": null
             }
@@ -18360,6 +19162,12 @@
               "close": 42.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 41.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -18481,6 +19289,12 @@
             {
               "session": "2026-10-07",
               "close": 35.52,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
               "high": null,
               "low": null
             }
@@ -18606,6 +19420,12 @@
               "close": 43.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 42.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -18727,6 +19547,12 @@
             {
               "session": "2026-10-07",
               "close": 22.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
               "high": null,
               "low": null
             }
@@ -18852,6 +19678,12 @@
               "close": 37.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -18973,6 +19805,12 @@
             {
               "session": "2026-10-07",
               "close": 303.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 302.0,
               "high": null,
               "low": null
             }
@@ -19098,6 +19936,12 @@
               "close": 50.6,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 50.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -19219,6 +20063,12 @@
             {
               "session": "2026-10-07",
               "close": 99.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
               "high": null,
               "low": null
             }
@@ -19344,6 +20194,12 @@
               "close": 78.25,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 77.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -19465,6 +20321,12 @@
             {
               "session": "2026-10-07",
               "close": 37.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
               "high": null,
               "low": null
             }
@@ -19590,6 +20452,12 @@
               "close": 34.72,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 34.28,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -19705,6 +20573,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -19824,6 +20698,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -19939,6 +20819,12 @@
             {
               "session": "2026-10-07",
               "close": 31.22,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
               "high": null,
               "low": null
             }
@@ -20058,6 +20944,12 @@
               "close": 30.06,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -20173,6 +21065,12 @@
             {
               "session": "2026-10-07",
               "close": 35.52,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
               "high": null,
               "low": null
             }
@@ -20292,6 +21190,12 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -20406,6 +21310,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -20526,6 +21436,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -20641,6 +21557,12 @@
             {
               "session": "2026-10-07",
               "close": 5.23,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
               "high": null,
               "low": null
             }
@@ -20760,6 +21682,12 @@
               "close": 146.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -20875,6 +21803,12 @@
             {
               "session": "2026-10-07",
               "close": 99.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
               "high": null,
               "low": null
             }
@@ -20994,6 +21928,12 @@
               "close": 103.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -21109,6 +22049,12 @@
             {
               "session": "2026-10-07",
               "close": 15.84,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
               "high": null,
               "low": null
             }
@@ -21228,6 +22174,12 @@
               "close": 16.97,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -21343,6 +22295,12 @@
             {
               "session": "2026-10-07",
               "close": 31.62,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
               "high": null,
               "low": null
             }
@@ -21462,6 +22420,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -21577,6 +22541,12 @@
             {
               "session": "2026-10-07",
               "close": 13.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
               "high": null,
               "low": null
             }
@@ -21696,6 +22666,12 @@
               "close": 37.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -21811,6 +22787,12 @@
             {
               "session": "2026-10-07",
               "close": 2.24,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.19,
               "high": null,
               "low": null
             }
@@ -21930,6 +22912,12 @@
               "close": 181.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -22047,6 +23035,12 @@
               "close": 118.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -22156,6 +23150,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -22269,6 +23269,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -22378,6 +23384,12 @@
             {
               "session": "2026-10-07",
               "close": 31.22,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
               "high": null,
               "low": null
             }
@@ -22491,6 +23503,12 @@
               "close": 30.06,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -22602,6 +23620,12 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -22710,6 +23734,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -22824,6 +23854,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -22933,6 +23969,12 @@
             {
               "session": "2026-10-07",
               "close": 35.52,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
               "high": null,
               "low": null
             }
@@ -23046,6 +24088,12 @@
               "close": 5.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -23155,6 +24203,12 @@
             {
               "session": "2026-10-07",
               "close": 146.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
               "high": null,
               "low": null
             }
@@ -23268,6 +24322,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -23377,6 +24437,12 @@
             {
               "session": "2026-10-07",
               "close": 103.1,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
               "high": null,
               "low": null
             }
@@ -23490,6 +24556,12 @@
               "close": 15.84,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -23599,6 +24671,12 @@
             {
               "session": "2026-10-07",
               "close": 16.97,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.7,
               "high": null,
               "low": null
             }
@@ -23712,6 +24790,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -23821,6 +24905,12 @@
             {
               "session": "2026-10-07",
               "close": 2.47,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
               "high": null,
               "low": null
             }
@@ -23934,6 +25024,12 @@
               "close": 13.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -24043,6 +25139,12 @@
             {
               "session": "2026-10-07",
               "close": 37.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
               "high": null,
               "low": null
             }
@@ -24156,6 +25258,12 @@
               "close": 2.24,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.19,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -24265,6 +25373,12 @@
             {
               "session": "2026-10-07",
               "close": 181.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
               "high": null,
               "low": null
             }
@@ -24378,6 +25492,12 @@
               "close": 118.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -24487,6 +25607,12 @@
             {
               "session": "2026-10-07",
               "close": 37.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
               "high": null,
               "low": null
             }
@@ -24600,6 +25726,12 @@
               "close": 34.56,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -24709,6 +25841,12 @@
             {
               "session": "2026-10-07",
               "close": 55.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
               "high": null,
               "low": null
             }
@@ -24822,6 +25960,12 @@
               "close": 131.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 129.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -24931,6 +26075,12 @@
             {
               "session": "2026-10-07",
               "close": 43.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 42.6,
               "high": null,
               "low": null
             }
@@ -25044,6 +26194,12 @@
               "close": 10.65,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 10.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -25153,6 +26309,12 @@
             {
               "session": "2026-10-07",
               "close": 64.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
               "high": null,
               "low": null
             }
@@ -25266,6 +26428,12 @@
               "close": 55.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 54.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -25369,6 +26537,12 @@
             {
               "session": "2026-10-07",
               "close": 31.22,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
               "high": null,
               "low": null
             }
@@ -25476,6 +26650,12 @@
               "close": 55.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -25579,6 +26759,12 @@
             {
               "session": "2026-10-07",
               "close": 176.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
               "high": null,
               "low": null
             }
@@ -25686,6 +26872,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -25791,6 +26983,12 @@
               "close": 37.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -25893,6 +27091,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -26001,6 +27205,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -26104,6 +27314,12 @@
             {
               "session": "2026-10-07",
               "close": 34.56,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
               "high": null,
               "low": null
             }
@@ -26211,6 +27427,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -26314,6 +27536,12 @@
             {
               "session": "2026-10-07",
               "close": 181.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
               "high": null,
               "low": null
             }
@@ -26421,6 +27649,12 @@
               "close": 5.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -26524,6 +27758,12 @@
             {
               "session": "2026-10-07",
               "close": 55.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
               "high": null,
               "low": null
             }
@@ -26631,6 +27871,12 @@
               "close": 103.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -26734,6 +27980,12 @@
             {
               "session": "2026-10-07",
               "close": 37.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
               "high": null,
               "low": null
             }
@@ -26841,6 +28093,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -26944,6 +28202,12 @@
             {
               "session": "2026-10-07",
               "close": 146.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
               "high": null,
               "low": null
             }
@@ -27051,6 +28315,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -27154,6 +28424,12 @@
             {
               "session": "2026-10-07",
               "close": 131.2,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 129.0,
               "high": null,
               "low": null
             }
@@ -27261,6 +28537,12 @@
               "close": 15.84,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -27364,6 +28646,12 @@
             {
               "session": "2026-10-07",
               "close": 30.06,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
               "high": null,
               "low": null
             }
@@ -27471,6 +28759,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -27574,6 +28868,12 @@
             {
               "session": "2026-10-07",
               "close": 43.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 42.6,
               "high": null,
               "low": null
             }
@@ -27681,6 +28981,12 @@
               "close": 13.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -27784,6 +29090,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
               "high": null,
               "low": null
             }
@@ -27891,6 +29203,12 @@
               "close": 10.65,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 10.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -27994,6 +29312,12 @@
             {
               "session": "2026-10-07",
               "close": 64.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
               "high": null,
               "low": null
             }
@@ -28101,6 +29425,12 @@
               "close": 55.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 54.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -28198,6 +29528,12 @@
             {
               "session": "2026-10-07",
               "close": 31.22,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
               "high": null,
               "low": null
             }
@@ -28299,6 +29635,12 @@
               "close": 55.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -28396,6 +29738,12 @@
             {
               "session": "2026-10-07",
               "close": 176.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
               "high": null,
               "low": null
             }
@@ -28497,6 +29845,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -28596,6 +29950,12 @@
               "close": 37.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -28692,6 +30052,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -28794,6 +30160,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -28891,6 +30263,12 @@
             {
               "session": "2026-10-07",
               "close": 34.56,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
               "high": null,
               "low": null
             }
@@ -28992,6 +30370,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -29089,6 +30473,12 @@
             {
               "session": "2026-10-07",
               "close": 181.4,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
               "high": null,
               "low": null
             }
@@ -29190,6 +30580,12 @@
               "close": 5.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -29287,6 +30683,12 @@
             {
               "session": "2026-10-07",
               "close": 55.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
               "high": null,
               "low": null
             }
@@ -29388,6 +30790,12 @@
               "close": 103.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 100.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -29485,6 +30893,12 @@
             {
               "session": "2026-10-07",
               "close": 37.54,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
               "high": null,
               "low": null
             }
@@ -29586,6 +31000,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -29683,6 +31103,12 @@
             {
               "session": "2026-10-07",
               "close": 146.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
               "high": null,
               "low": null
             }
@@ -29784,6 +31210,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -29881,6 +31313,12 @@
             {
               "session": "2026-10-07",
               "close": 131.2,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 129.0,
               "high": null,
               "low": null
             }
@@ -29982,6 +31420,12 @@
               "close": 15.84,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -30079,6 +31523,12 @@
             {
               "session": "2026-10-07",
               "close": 30.06,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 29.6,
               "high": null,
               "low": null
             }
@@ -30180,6 +31630,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -30277,6 +31733,12 @@
             {
               "session": "2026-10-07",
               "close": 43.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 42.6,
               "high": null,
               "low": null
             }
@@ -30378,6 +31840,12 @@
               "close": 13.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -30475,6 +31943,12 @@
             {
               "session": "2026-10-07",
               "close": 118.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 117.3,
               "high": null,
               "low": null
             }
@@ -30576,6 +32050,12 @@
               "close": 10.65,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 10.54,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -30673,6 +32153,12 @@
             {
               "session": "2026-10-07",
               "close": 64.15,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
               "high": null,
               "low": null
             }
@@ -30774,6 +32260,12 @@
               "close": 55.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 54.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -30871,6 +32363,12 @@
             {
               "session": "2026-10-07",
               "close": 40.04,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 38.44,
               "high": null,
               "low": null
             }
@@ -30972,6 +32470,12 @@
               "close": 18.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31065,6 +32569,12 @@
               "close": 31.22,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31073,7 +32583,9 @@
             "return_3d_pct": -4.911,
             "return_3d_r": -2.4555,
             "return_5d_pct": -5.1565,
-            "return_5d_r": -2.5783
+            "return_5d_r": -2.5783,
+            "return_10d_pct": -6.5071,
+            "return_10d_r": -3.2535
           },
           "barrier": null
         },
@@ -31156,6 +32668,12 @@
               "close": 62.35,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.35,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31164,7 +32682,9 @@
             "return_3d_pct": 0.5868,
             "return_3d_r": 0.2934,
             "return_5d_pct": 2.0956,
-            "return_5d_r": 1.0478
+            "return_5d_r": 1.0478,
+            "return_10d_pct": 4.5264,
+            "return_10d_r": 2.2632
           },
           "barrier": null
         },
@@ -31247,6 +32767,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31255,7 +32781,9 @@
             "return_3d_pct": -1.8313,
             "return_3d_r": -0.9156,
             "return_5d_pct": -1.2764,
-            "return_5d_r": -0.6382
+            "return_5d_r": -0.6382,
+            "return_10d_pct": -2.4972,
+            "return_10d_r": -1.2486
           },
           "barrier": null
         },
@@ -31338,6 +32866,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31346,7 +32880,9 @@
             "return_3d_pct": 11.2767,
             "return_3d_r": 5.6384,
             "return_5d_pct": 4.3219,
-            "return_5d_r": 2.161
+            "return_5d_r": 2.161,
+            "return_10d_pct": 7.8987,
+            "return_10d_r": 3.9493
           },
           "barrier": null
         },
@@ -31429,6 +32965,12 @@
               "close": 37.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31437,7 +32979,9 @@
             "return_3d_pct": -3.9735,
             "return_3d_r": -1.9868,
             "return_5d_pct": -4.4829,
-            "return_5d_r": -2.2415
+            "return_5d_r": -2.2415,
+            "return_10d_pct": -5.9093,
+            "return_10d_r": -2.9547
           },
           "barrier": null
         },
@@ -31520,6 +33064,12 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31528,7 +33078,9 @@
             "return_3d_pct": -0.7634,
             "return_3d_r": -0.3817,
             "return_5d_pct": -1.7029,
-            "return_5d_r": -0.8514
+            "return_5d_r": -0.8514,
+            "return_10d_pct": 2.1726,
+            "return_10d_r": 1.0863
           },
           "barrier": null
         },
@@ -31611,6 +33163,12 @@
               "close": 55.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31619,7 +33177,9 @@
             "return_3d_pct": -5.6351,
             "return_3d_r": -2.8175,
             "return_5d_pct": -5.4562,
-            "return_5d_r": -2.7281
+            "return_5d_r": -2.7281,
+            "return_10d_pct": -4.025,
+            "return_10d_r": -2.0125
           },
           "barrier": null
         },
@@ -31702,6 +33262,12 @@
               "close": 37.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31710,7 +33276,9 @@
             "return_3d_pct": -2.074,
             "return_3d_r": -1.037,
             "return_5d_pct": -2.1861,
-            "return_5d_r": -1.093
+            "return_5d_r": -1.093,
+            "return_10d_pct": 3.7556,
+            "return_10d_r": 1.8778
           },
           "barrier": null
         },
@@ -31793,6 +33361,12 @@
               "close": 34.56,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31801,7 +33375,9 @@
             "return_3d_pct": -6.713,
             "return_3d_r": -3.3565,
             "return_5d_pct": -5.9028,
-            "return_5d_r": -2.9514
+            "return_5d_r": -2.9514,
+            "return_10d_pct": -2.1991,
+            "return_10d_r": -1.0995
           },
           "barrier": null
         },
@@ -31884,6 +33460,12 @@
               "close": 5.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.11,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31892,7 +33474,9 @@
             "return_3d_pct": -4.5704,
             "return_3d_r": -2.2852,
             "return_5d_pct": -7.1298,
-            "return_5d_r": -3.5649
+            "return_5d_r": -3.5649,
+            "return_10d_pct": -6.5814,
+            "return_10d_r": -3.2907
           },
           "barrier": null
         },
@@ -31975,6 +33559,12 @@
               "close": 40.04,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 38.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -31983,7 +33573,9 @@
             "return_3d_pct": 364.0712,
             "return_3d_r": 182.0356,
             "return_5d_pct": 325.8065,
-            "return_5d_r": 162.9032
+            "return_5d_r": 162.9032,
+            "return_10d_pct": 327.5862,
+            "return_10d_r": 163.7931
           },
           "barrier": null
         },
@@ -32066,6 +33658,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32074,7 +33672,9 @@
             "return_3d_pct": 3.832,
             "return_3d_r": 1.916,
             "return_5d_pct": 6.1901,
-            "return_5d_r": 3.0951
+            "return_5d_r": 3.0951,
+            "return_10d_pct": 14.0752,
+            "return_10d_r": 7.0376
           },
           "barrier": null
         },
@@ -32157,6 +33757,12 @@
               "close": 18.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32165,7 +33771,9 @@
             "return_3d_pct": -7.0807,
             "return_3d_r": -3.5403,
             "return_5d_pct": 0.1161,
-            "return_5d_r": 0.058
+            "return_5d_r": 0.058,
+            "return_10d_pct": 5.2815,
+            "return_10d_r": 2.6407
           },
           "barrier": null
         },
@@ -32248,6 +33856,12 @@
               "close": 15.84,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 15.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32256,7 +33870,9 @@
             "return_3d_pct": -7.2029,
             "return_3d_r": -3.6014,
             "return_5d_pct": -6.0024,
-            "return_5d_r": -3.0012
+            "return_5d_r": -3.0012,
+            "return_10d_pct": -5.7623,
+            "return_10d_r": -2.8812
           },
           "barrier": null
         },
@@ -32339,6 +33955,12 @@
               "close": 13.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 13.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32347,7 +33969,9 @@
             "return_3d_pct": -9.4709,
             "return_3d_r": -4.7355,
             "return_5d_pct": -11.6917,
-            "return_5d_r": -5.8459
+            "return_5d_r": -5.8459,
+            "return_10d_pct": -13.1287,
+            "return_10d_r": -6.5643
           },
           "barrier": null
         },
@@ -32430,6 +34054,12 @@
               "close": 182.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 173.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32438,7 +34068,9 @@
             "return_3d_pct": -13.5711,
             "return_3d_r": -6.7855,
             "return_5d_pct": -15.3541,
-            "return_5d_r": -7.6771
+            "return_5d_r": -7.6771,
+            "return_10d_pct": -14.0664,
+            "return_10d_r": -7.0332
           },
           "barrier": null
         },
@@ -32521,6 +34153,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32529,7 +34167,9 @@
             "return_3d_pct": 0.8368,
             "return_3d_r": 0.4184,
             "return_5d_pct": -1.2552,
-            "return_5d_r": -0.6276
+            "return_5d_r": -0.6276,
+            "return_10d_pct": 2.0921,
+            "return_10d_r": 1.046
           },
           "barrier": null
         },
@@ -32612,6 +34252,12 @@
               "close": 181.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32620,7 +34266,9 @@
             "return_3d_pct": 0.0,
             "return_3d_r": 0.0,
             "return_5d_pct": -0.9896,
-            "return_5d_r": -0.4948
+            "return_5d_r": -0.4948,
+            "return_10d_pct": -0.8796,
+            "return_10d_r": -0.4398
           },
           "barrier": null
         },
@@ -32703,6 +34351,12 @@
               "close": 64.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32711,7 +34365,9 @@
             "return_3d_pct": -1.8648,
             "return_3d_r": -0.9324,
             "return_5d_pct": -3.3411,
-            "return_5d_r": -1.6706
+            "return_5d_r": -1.6706,
+            "return_10d_pct": -1.7094,
+            "return_10d_r": -0.8547
           },
           "barrier": null
         },
@@ -32794,6 +34450,12 @@
               "close": 63.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 63.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32802,7 +34464,9 @@
             "return_3d_pct": -0.3086,
             "return_3d_r": -0.1543,
             "return_5d_pct": -1.3117,
-            "return_5d_r": -0.6559
+            "return_5d_r": -0.6559,
+            "return_10d_pct": -1.5432,
+            "return_10d_r": -0.7716
           },
           "barrier": null
         },
@@ -32885,6 +34549,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -32893,7 +34563,9 @@
             "return_3d_pct": -5.3407,
             "return_3d_r": -2.6703,
             "return_5d_pct": -5.9853,
-            "return_5d_r": -2.9926
+            "return_5d_r": -2.9926,
+            "return_10d_pct": -1.6575,
+            "return_10d_r": -0.8287
           },
           "barrier": null
         },
@@ -32967,6 +34639,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -33055,6 +34733,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -33138,6 +34822,12 @@
             {
               "session": "2026-10-07",
               "close": 22.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
               "high": null,
               "low": null
             }
@@ -33225,6 +34915,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -33308,6 +35004,12 @@
             {
               "session": "2026-10-07",
               "close": 5.26,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 5.22,
               "high": null,
               "low": null
             }
@@ -33395,6 +35097,12 @@
               "close": 32.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 32.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -33478,6 +35186,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -33565,6 +35279,12 @@
               "close": 40.04,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 38.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -33648,6 +35368,12 @@
             {
               "session": "2026-10-07",
               "close": 37.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
               "high": null,
               "low": null
             }
@@ -33735,6 +35461,12 @@
               "close": 181.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -33820,6 +35552,12 @@
               "close": 31.22,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -33897,6 +35635,12 @@
             {
               "session": "2026-10-07",
               "close": 31.62,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
               "high": null,
               "low": null
             }
@@ -33978,6 +35722,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34055,6 +35805,12 @@
             {
               "session": "2026-10-07",
               "close": 99.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
               "high": null,
               "low": null
             }
@@ -34136,6 +35892,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34212,6 +35974,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -34294,6 +36062,12 @@
               "close": 31.22,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.46,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34373,6 +36147,12 @@
               "close": 181.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 180.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34446,6 +36226,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34516,6 +36302,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -34592,6 +36384,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34663,6 +36461,12 @@
             {
               "session": "2026-10-07",
               "close": 22.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
               "high": null,
               "low": null
             }
@@ -34738,6 +36542,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34808,6 +36618,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 63.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 63.8,
               "high": null,
               "low": null
@@ -34884,6 +36700,12 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -34957,6 +36779,12 @@
               "close": 37.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -35024,6 +36852,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -35088,6 +36922,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -35158,6 +36998,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -35223,6 +37069,12 @@
             {
               "session": "2026-10-07",
               "close": 99.75,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
               "high": null,
               "low": null
             }
@@ -35292,6 +37144,12 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -35357,6 +37215,12 @@
             {
               "session": "2026-10-07",
               "close": 18.23,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
               "high": null,
               "low": null
             }
@@ -35426,6 +37290,12 @@
               "close": 82.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -35493,6 +37363,12 @@
               "close": 37.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -35554,13 +37430,21 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.7634,
             "return_1d_r": 0.3817,
             "return_3d_pct": -1.0409,
-            "return_3d_r": -0.5205
+            "return_3d_r": -0.5205,
+            "return_5d_pct": 7.4254,
+            "return_5d_r": 3.7127
           },
           "barrier": null
         },
@@ -35613,13 +37497,21 @@
               "close": 62.35,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.35,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.4778,
             "return_1d_r": 0.7389,
             "return_3d_pct": 0.9852,
-            "return_3d_r": 0.4926
+            "return_3d_r": 0.4926,
+            "return_5d_pct": 2.381,
+            "return_5d_r": 1.1905
           },
           "barrier": null
         },
@@ -35672,13 +37564,21 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.4497,
             "return_1d_r": -0.2248,
             "return_3d_pct": -0.2248,
-            "return_3d_r": -0.1124
+            "return_3d_r": -0.1124,
+            "return_5d_pct": -1.2366,
+            "return_5d_r": -0.6183
           },
           "barrier": null
         },
@@ -35731,13 +37631,21 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 2.8571,
             "return_1d_r": 1.4286,
             "return_3d_pct": 3.3766,
-            "return_3d_r": 1.6883
+            "return_3d_r": 1.6883,
+            "return_5d_pct": 1.974,
+            "return_5d_r": 0.987
           },
           "barrier": null
         },
@@ -35790,13 +37698,21 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 4.6667,
             "return_1d_r": 2.3333,
             "return_3d_pct": 4.9048,
-            "return_3d_r": 2.4524
+            "return_3d_r": 2.4524,
+            "return_5d_pct": 3.4286,
+            "return_5d_r": 1.7143
           },
           "barrier": null
         },
@@ -35849,13 +37765,21 @@
               "close": 18.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 9.971,
             "return_1d_r": 4.9855,
             "return_3d_pct": 5.1014,
-            "return_3d_r": 2.5507
+            "return_3d_r": 2.5507,
+            "return_5d_pct": 5.1594,
+            "return_5d_r": 2.5797
           },
           "barrier": null
         },
@@ -35908,13 +37832,21 @@
               "close": 82.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 2.1108,
             "return_1d_r": 1.0554,
             "return_3d_pct": 6.0686,
-            "return_3d_r": 3.0343
+            "return_3d_r": 3.0343,
+            "return_5d_pct": 6.8602,
+            "return_5d_r": 3.4301
           },
           "barrier": null
         },
@@ -35967,13 +37899,21 @@
               "close": 37.54,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 36.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -0.2667,
             "return_1d_r": -0.1333,
             "return_3d_pct": 0.8,
-            "return_3d_r": 0.4
+            "return_3d_r": 0.4,
+            "return_5d_pct": -1.4933,
+            "return_5d_r": -0.7467
           },
           "barrier": null
         },
@@ -36017,6 +37957,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -36073,6 +38019,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -36124,6 +38076,12 @@
             {
               "session": "2026-10-07",
               "close": 31.62,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
               "high": null,
               "low": null
             }
@@ -36179,6 +38137,12 @@
               "close": 18.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -36230,6 +38194,12 @@
             {
               "session": "2026-10-07",
               "close": 22.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
               "high": null,
               "low": null
             }
@@ -36285,6 +38255,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -36336,6 +38312,12 @@
             {
               "session": "2026-10-07",
               "close": 37.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
               "high": null,
               "low": null
             }
@@ -36391,6 +38373,12 @@
               "close": 82.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -36444,6 +38432,12 @@
               "close": 64.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -36494,6 +38488,12 @@
             },
             {
               "session": "2026-10-07",
+              "close": 63.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 63.8,
               "high": null,
               "low": null
@@ -36550,6 +38550,12 @@
               "close": 32.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 32.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -36597,11 +38603,19 @@
               "close": 62.35,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.35,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 1.3821,
+            "return_3d_r": 0.6911
           },
           "barrier": null
         },
@@ -36642,11 +38656,19 @@
               "close": 37.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 0.2166,
+            "return_3d_r": 0.1083
           },
           "barrier": null
         },
@@ -36687,11 +38709,19 @@
               "close": 176.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 0.578,
+            "return_3d_r": 0.289
           },
           "barrier": null
         },
@@ -36732,11 +38762,19 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.3568,
+            "return_3d_r": -0.6784
           },
           "barrier": null
         },
@@ -36777,11 +38815,19 @@
               "close": 2.47,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 0.4115,
+            "return_3d_r": 0.2058
           },
           "barrier": null
         },
@@ -36822,11 +38868,19 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.0141,
+            "return_3d_r": -0.507
           },
           "barrier": null
         },
@@ -36867,11 +38921,19 @@
               "close": 82.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 0.7463,
+            "return_3d_r": 0.3731
           },
           "barrier": null
         },
@@ -36912,11 +38974,19 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 8.5554,
+            "return_3d_r": 4.2777
           },
           "barrier": null
         },
@@ -36957,11 +39027,19 @@
               "close": 22.77,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.4072,
+            "return_3d_r": -0.7036
           },
           "barrier": null
         },
@@ -37002,11 +39080,19 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.476,
+            "return_3d_r": -0.738
           },
           "barrier": null
         },
@@ -37047,11 +39133,19 @@
               "close": 55.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -2.4545,
+            "return_3d_r": -1.2273
           },
           "barrier": null
         },
@@ -37092,11 +39186,19 @@
               "close": 64.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -1.3354,
+            "return_3d_r": -0.6677
           },
           "barrier": null
         },
@@ -37137,11 +39239,19 @@
               "close": 18.23,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": 0.0552,
+            "return_3d_r": 0.0276
           },
           "barrier": null
         },
@@ -37182,11 +39292,19 @@
               "close": 109.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 106.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
-            "return_1d_r": 0.0
+            "return_1d_r": 0.0,
+            "return_3d_pct": -0.8396,
+            "return_3d_r": -0.4198
           },
           "barrier": null
         },
@@ -37218,6 +39336,12 @@
           "observations": [
             {
               "session": "2026-10-07",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 62.35,
               "high": null,
               "low": null
@@ -37260,6 +39384,12 @@
               "close": 37.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37297,6 +39427,12 @@
             {
               "session": "2026-10-07",
               "close": 176.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
               "high": null,
               "low": null
             }
@@ -37338,6 +39474,12 @@
               "close": 99.75,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37375,6 +39517,12 @@
             {
               "session": "2026-10-07",
               "close": 2.47,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
               "high": null,
               "low": null
             }
@@ -37416,6 +39564,12 @@
               "close": 35.52,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37453,6 +39607,12 @@
             {
               "session": "2026-10-07",
               "close": 82.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
               "high": null,
               "low": null
             }
@@ -37494,6 +39654,12 @@
               "close": 31.62,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37531,6 +39697,12 @@
             {
               "session": "2026-10-07",
               "close": 22.77,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
               "high": null,
               "low": null
             }
@@ -37572,6 +39744,12 @@
               "close": 55.15,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37609,6 +39787,12 @@
             {
               "session": "2026-10-07",
               "close": 55.3,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
               "high": null,
               "low": null
             }
@@ -37650,6 +39834,12 @@
               "close": 64.3,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 62.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37687,6 +39877,12 @@
             {
               "session": "2026-10-07",
               "close": 18.23,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
               "high": null,
               "low": null
             }
@@ -37728,6 +39924,12 @@
               "close": 109.1,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 106.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37765,6 +39967,12 @@
             {
               "session": "2026-10-07",
               "close": 34.56,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
               "high": null,
               "low": null
             }
@@ -37806,6 +40014,12 @@
               "close": 24.36,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 23.85,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37843,6 +40057,12 @@
             {
               "session": "2026-10-07",
               "close": 8.28,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 8.25,
               "high": null,
               "low": null
             }
@@ -37884,6 +40104,12 @@
               "close": 32.4,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 32.2,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37923,6 +40149,12 @@
               "close": 10.84,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 10.45,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -37959,6 +40191,12 @@
           "observations": [
             {
               "session": "2026-10-07",
+              "close": 63.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
               "close": 63.8,
               "high": null,
               "low": null
@@ -38001,6 +40239,12 @@
               "close": 131.2,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 129.0,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -38038,6 +40282,12 @@
             {
               "session": "2026-10-07",
               "close": 303.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 302.0,
               "high": null,
               "low": null
             }
@@ -38079,6 +40329,12 @@
               "close": 17.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 16.89,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -38118,6 +40374,12 @@
               "close": 146.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -38151,8 +40413,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 21.72,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -4.6113,
+            "return_1d_r": -2.3057
+          },
           "barrier": null
         },
         {
@@ -38180,8 +40452,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 30.96,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.0873,
+            "return_1d_r": -1.0436
+          },
           "barrier": null
         },
         {
@@ -38209,8 +40491,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 81.0,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.2195,
+            "return_1d_r": -0.6098
+          },
           "barrier": null
         },
         {
@@ -38238,8 +40530,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 139.7,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -4.6416,
+            "return_1d_r": -2.3208
+          },
           "barrier": null
         },
         {
@@ -38267,8 +40569,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 98.15,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.604,
+            "return_1d_r": -0.802
+          },
           "barrier": null
         },
         {
@@ -38296,8 +40608,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 37.02,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.7507,
+            "return_1d_r": -0.3753
+          },
           "barrier": null
         },
         {
@@ -38325,8 +40647,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 174.0,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.1364,
+            "return_1d_r": -0.5682
+          },
           "barrier": null
         },
         {
@@ -38354,8 +40686,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 2.44,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.2146,
+            "return_1d_r": -0.6073
+          },
           "barrier": null
         },
         {
@@ -38383,8 +40725,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 62.35,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.0,
+            "return_1d_r": 0.0
+          },
           "barrier": null
         },
         {
@@ -38412,8 +40764,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 4.04,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.6506,
+            "return_1d_r": -1.3253
+          },
           "barrier": null
         },
         {
@@ -38441,8 +40803,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 35.14,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.0698,
+            "return_1d_r": -0.5349
+          },
           "barrier": null
         },
         {
@@ -38470,8 +40842,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 8.25,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.3623,
+            "return_1d_r": -0.1812
+          },
           "barrier": null
         },
         {
@@ -38499,8 +40881,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 302.0,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.33,
+            "return_1d_r": -0.165
+          },
           "barrier": null
         },
         {
@@ -38528,8 +40920,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 28.32,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.324,
+            "return_1d_r": -0.662
+          },
           "barrier": null
         },
         {
@@ -38557,8 +40959,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 63.25,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.403,
+            "return_1d_r": -0.7015
+          },
           "barrier": null
         },
         {
@@ -38586,8 +40998,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 33.8,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.1991,
+            "return_1d_r": -1.0995
+          },
           "barrier": null
         },
         {
@@ -38615,8 +41037,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 129.0,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -1.6768,
+            "return_1d_r": -0.8384
+          },
           "barrier": null
         },
         {
@@ -38673,8 +41105,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 53.65,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.9837,
+            "return_1d_r": -1.4919
+          },
           "barrier": null
         },
         {
@@ -38702,8 +41144,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 53.4,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -3.1732,
+            "return_1d_r": -1.5866
+          },
           "barrier": null
         },
         {
@@ -38731,8 +41183,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 32.2,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.6173,
+            "return_1d_r": -0.3086
+          },
           "barrier": null
         },
         {
@@ -38760,8 +41222,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 62.8,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.3328,
+            "return_1d_r": -1.1664
+          },
           "barrier": null
         },
         {
@@ -38789,8 +41261,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 18.14,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -0.4937,
+            "return_1d_r": -0.2468
+          },
           "barrier": null
         },
         {
@@ -38818,8 +41300,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 16.31,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -3.4911,
+            "return_1d_r": -1.7456
+          },
           "barrier": null
         },
         {
@@ -38847,6 +41339,480 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
+          "observations": [
+            {
+              "session": "2026-10-08",
+              "close": 19.6,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 0.051,
+            "return_1d_r": 0.0255
+          },
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:2180:CASH",
+          "session": "2026-10-08",
+          "symbol": "2180",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 79.55,
+          "strategy_score": 0.0,
+          "entry": 37.02,
+          "stop": 36.2796,
+          "target": 38.5008,
+          "risk": 0.7404,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:6015:CASH",
+          "session": "2026-10-08",
+          "symbol": "6015",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 77.34,
+          "strategy_score": 0.0,
+          "entry": 2.44,
+          "stop": 2.3912,
+          "target": 2.5376,
+          "risk": 0.0488,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:2282:CASH",
+          "session": "2026-10-08",
+          "symbol": "2282",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 76.15,
+          "strategy_score": 0.0,
+          "entry": 62.35,
+          "stop": 61.103,
+          "target": 64.844,
+          "risk": 1.247,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:7211:CASH",
+          "session": "2026-10-08",
+          "symbol": "7211",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 74.69,
+          "strategy_score": 0.0,
+          "entry": 30.96,
+          "stop": 30.3408,
+          "target": 32.1984,
+          "risk": 0.6192,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:2381:CASH",
+          "session": "2026-10-08",
+          "symbol": "2381",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 73.45,
+          "strategy_score": 0.0,
+          "entry": 98.15,
+          "stop": 96.187,
+          "target": 102.076,
+          "risk": 1.963,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:4144:CASH",
+          "session": "2026-10-08",
+          "symbol": "4144",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 71.07,
+          "strategy_score": 0.0,
+          "entry": 81.0,
+          "stop": 79.38,
+          "target": 84.24,
+          "risk": 1.62,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:4263:CASH",
+          "session": "2026-10-08",
+          "symbol": "4263",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 70.15,
+          "strategy_score": 0.0,
+          "entry": 174.0,
+          "stop": 170.52,
+          "target": 180.96,
+          "risk": 3.48,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:6018:CASH",
+          "session": "2026-10-08",
+          "symbol": "6018",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 68.79,
+          "strategy_score": 0.0,
+          "entry": 8.25,
+          "stop": 8.085,
+          "target": 8.58,
+          "risk": 0.165,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:4310:CASH",
+          "session": "2026-10-08",
+          "symbol": "4310",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.69,
+          "strategy_score": 0.0,
+          "entry": 21.72,
+          "stop": 21.2856,
+          "target": 22.5888,
+          "risk": 0.4344,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:7200:CASH",
+          "session": "2026-10-08",
+          "symbol": "7200",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.06,
+          "strategy_score": 0.0,
+          "entry": 302.0,
+          "stop": 295.96,
+          "target": 314.08,
+          "risk": 6.04,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:4030:CASH",
+          "session": "2026-10-08",
+          "symbol": "4030",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 65.33,
+          "strategy_score": 0.0,
+          "entry": 35.14,
+          "stop": 34.4372,
+          "target": 36.5456,
+          "risk": 0.7028,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:8311:CASH",
+          "session": "2026-10-08",
+          "symbol": "8311",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 62.84,
+          "strategy_score": 0.0,
+          "entry": 10.45,
+          "stop": 10.241,
+          "target": 10.868,
+          "risk": 0.209,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:8313:CASH",
+          "session": "2026-10-08",
+          "symbol": "8313",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 61.88,
+          "strategy_score": 0.0,
+          "entry": 139.7,
+          "stop": 136.906,
+          "target": 145.288,
+          "risk": 2.794,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:8200:CASH",
+          "session": "2026-10-08",
+          "symbol": "8200",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 61.76,
+          "strategy_score": 0.0,
+          "entry": 28.32,
+          "stop": 27.7536,
+          "target": 29.4528,
+          "risk": 0.5664,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:2370:CASH",
+          "session": "2026-10-08",
+          "symbol": "2370",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 61.22,
+          "strategy_score": 0.0,
+          "entry": 33.8,
+          "stop": 33.124,
+          "target": 35.152,
+          "risk": 0.676,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-10-08:4070:CASH",
+          "session": "2026-10-08",
+          "symbol": "4070",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 61.22,
+          "strategy_score": 0.0,
+          "entry": 19.6,
+          "stop": 19.208,
+          "target": 20.384,
+          "risk": 0.392,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
           "observations": [],
           "labels": {},
           "barrier": null
@@ -38854,7 +41820,7 @@
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 386,
+      "candidates": 402,
       "mature_20d": 0,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -38863,8 +41829,8 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-07T22:34:52.173277+03:00",
-      "session": "2026-10-07",
+      "updated_at": "2026-10-08T16:52:21.557557+03:00",
+      "session": "2026-10-08",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
   }
