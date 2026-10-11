@@ -392,7 +392,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-11T16:17:40.500712+03:00",
+      "updated_at": "2026-10-11T20:40:49.578283+03:00",
       "data_quality": "verified session 2026-10-11, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -482,7 +482,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-11T16:17:52.837748+03:00",
+      "updated_at": "2026-10-11T20:40:58.927680+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -844,7 +844,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-11T16:17:39.964478+03:00",
+      "updated_at": "2026-10-11T20:40:49.154707+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -40399,13 +40399,21 @@
               "close": 62.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-11",
+              "close": 62.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.6014,
             "return_1d_r": -1.3007,
             "return_3d_pct": -1.6067,
-            "return_3d_r": -0.8034
+            "return_3d_r": -0.8034,
+            "return_5d_pct": -4.3611,
+            "return_5d_r": -2.1806
           },
           "barrier": null
         },
@@ -41235,6 +41243,12 @@
               "close": 62.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-11",
+              "close": 62.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -41983,11 +41997,19 @@
               "close": 62.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-11",
+              "close": 62.5,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 1.0212,
-            "return_1d_r": 0.5106
+            "return_1d_r": 0.5106,
+            "return_3d_pct": -1.8068,
+            "return_3d_r": -0.9034
           },
           "barrier": null
         },
@@ -43423,6 +43445,12 @@
               "close": 2.42,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-11",
+              "close": 2.66,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -43595,6 +43623,12 @@
             {
               "session": "2026-10-08",
               "close": 62.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-11",
+              "close": 62.5,
               "high": null,
               "low": null
             }
@@ -44389,8 +44423,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-11",
+              "close": 2.66,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 9.9174,
+            "return_1d_r": 4.9587
+          },
           "barrier": null
         },
         {
@@ -44885,11 +44929,40 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-10-11:1325:CASH",
+          "session": "2026-10-11",
+          "symbol": "1325",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 84.1,
+          "strategy_score": 0.0,
+          "entry": 2.66,
+          "stop": 2.6068,
+          "target": 2.7664,
+          "risk": 0.0532,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 420,
+      "candidates": 421,
       "mature_20d": 0,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -44898,7 +44971,7 @@
       "mean_20d_r": null,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-11T16:17:40.002183+03:00",
+      "updated_at": "2026-10-11T20:40:49.183893+03:00",
       "session": "2026-10-11",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
