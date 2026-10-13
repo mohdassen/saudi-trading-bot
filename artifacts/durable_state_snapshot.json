@@ -402,7 +402,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-13T17:30:10.739018+03:00",
+      "updated_at": "2026-10-13T22:14:14.035461+03:00",
       "data_quality": "verified session 2026-10-13, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -421,7 +421,7 @@
           "max_drawdown_r": null,
           "pnl_sar": 0,
           "open_positions": 0,
-          "pending": 0,
+          "pending": 1,
           "qualified": false,
           "status": "LEARNING 0/30"
         },
@@ -490,20 +490,11 @@
         "pending_after_reconcile": [
           "4190"
         ],
-        "queued_events": [
-          {
-            "symbol": "4190",
-            "title": "Jarir Marketing Company announces the estimated financial results for the period ending on 30-09-2026 (Nine Months)",
-            "published_at": "2026-10-13T09:44:00+03:00",
-            "url": "https://english.mubasher.info/news/4684207/Jarir-Marketing-Company-announces-the-estimated-financial-results-for-the-period-ending-on-30-09-2026-Nine-Months-//news",
-            "discovery_source": "https://english.mubasher.info/news/sa/now/announcements",
-            "mode": "fundamental+price"
-          }
-        ]
+        "queued_events": []
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-13T17:30:23.496265+03:00",
+      "updated_at": "2026-10-13T22:14:25.666470+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -814,7 +805,7 @@
       "6002": "CASH:IGNORE",
       "6004": "CASH:IGNORE",
       "6010": "CASH:IGNORE",
-      "6012": "CASH:IGNORE",
+      "6012": "CASH:WATCH",
       "6013": "CASH:IGNORE",
       "6014": "CASH:IGNORE",
       "6015": "CASH:IGNORE",
@@ -861,11 +852,12 @@
       "8300": "CASH:IGNORE",
       "8311": "CASH:IGNORE",
       "8313": "CASH:WATCH",
-      "1325": "CASH:WATCH"
+      "1325": "CASH:WATCH",
+      "4265": "CASH:IGNORE"
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-13T17:30:10.185824+03:00",
+      "updated_at": "2026-10-13T22:14:13.508725+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -51610,7 +51602,7 @@
       "mean_20d_r": -2.4035,
       "ready_for_meta_model": false,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-13T17:30:10.234804+03:00",
+      "updated_at": "2026-10-13T22:14:13.547710+03:00",
       "session": "2026-10-13",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
