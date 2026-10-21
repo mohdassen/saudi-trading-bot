@@ -201,11 +201,11 @@
           "target": 18.8573,
           "score": 72.0,
           "opened_on": "2026-10-14",
-          "last_marked_on": "2026-10-20",
-          "bars_held": 5,
+          "last_marked_on": "2026-10-21",
+          "bars_held": 6,
           "strategy": "pead_shadow",
           "entry_regime": "RISK_OFF",
-          "mae_r": -0.6718191726486401,
+          "mae_r": -0.9185706359070616,
           "mfe_r": 0.0
         }
       },
@@ -213,38 +213,8 @@
       "closed": []
     },
     "artifacts/momentum_shadow_portfolio.json": {
-      "equity_sar": 99590.85,
+      "equity_sar": 98820.45,
       "positions": {
-        "2370": {
-          "symbol": "2370",
-          "qty": 102,
-          "entry": 33.4134,
-          "stop": 30.9834,
-          "target": 38.2734,
-          "score": 93.96,
-          "opened_on": "2026-09-22",
-          "last_marked_on": "2026-10-20",
-          "bars_held": 20,
-          "strategy": "momentum_leadership_shadow",
-          "entry_regime": "RISK_OFF",
-          "mae_r": -0.8203291867103106,
-          "mfe_r": 0.9574492503978563
-        },
-        "4310": {
-          "symbol": "4310",
-          "qty": 131,
-          "entry": 21.4314,
-          "stop": 19.5514,
-          "target": 25.1914,
-          "score": 97.61,
-          "opened_on": "2026-10-04",
-          "last_marked_on": "2026-10-20",
-          "bars_held": 13,
-          "strategy": "momentum_leadership_shadow",
-          "entry_regime": "RISK_OFF",
-          "mae_r": -0.5007448025967215,
-          "mfe_r": 0.8822341237169635
-        },
         "6015": {
           "symbol": "6015",
           "qty": 2081,
@@ -253,27 +223,12 @@
           "target": 2.6024,
           "score": 97.82,
           "opened_on": "2026-10-05",
-          "last_marked_on": "2026-10-20",
-          "bars_held": 12,
+          "last_marked_on": "2026-10-21",
+          "bars_held": 13,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.11272831309925506,
           "mfe_r": 0.8872729006680579
-        },
-        "7200": {
-          "symbol": "7200",
-          "qty": 11,
-          "entry": 302.302,
-          "stop": 280.572,
-          "target": 345.762,
-          "score": 97.06,
-          "opened_on": "2026-10-08",
-          "last_marked_on": "2026-10-20",
-          "bars_held": 9,
-          "strategy": "momentum_leadership_shadow",
-          "entry_regime": "RISK_OFF",
-          "mae_r": -0.9803037275655777,
-          "mfe_r": 0.12416014726184892
         },
         "2380": {
           "symbol": "2380",
@@ -283,15 +238,25 @@
           "target": 19.4472,
           "score": 96.53,
           "opened_on": "2026-10-20",
-          "last_marked_on": "2026-10-20",
-          "bars_held": 1,
+          "last_marked_on": "2026-10-21",
+          "bars_held": 2,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
-          "mae_r": -0.318532040097297,
+          "mae_r": -0.8506420618459711,
           "mfe_r": 0.15853260005286074
         }
       },
-      "pending": {},
+      "pending": {
+        "4310": {
+          "symbol": "4310",
+          "score": 95.93,
+          "risk_distance": 1.93,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-10-21",
+          "queued_on": "2026-10-21",
+          "strategy": "momentum_leadership_shadow"
+        }
+      },
       "closed": [
         {
           "symbol": "2380",
@@ -420,12 +385,60 @@
           "entry_regime": "UNKNOWN",
           "mae_r": -0.984,
           "mfe_r": 0.803
+        },
+        {
+          "symbol": "2370",
+          "qty": 102,
+          "entry": 33.4134,
+          "exit": 30.9524,
+          "opened_on": "2026-09-22",
+          "closed_on": "2026-10-21",
+          "reason": "stop",
+          "pnl_sar": -261.2,
+          "return_pct": -7.66,
+          "strategy": "momentum_leadership_shadow",
+          "initial_risk_sar": 247.86,
+          "entry_regime": "RISK_OFF",
+          "mae_r": -1.578,
+          "mfe_r": 0.957
+        },
+        {
+          "symbol": "4310",
+          "qty": 131,
+          "entry": 21.4314,
+          "exit": 19.5318,
+          "opened_on": "2026-10-04",
+          "closed_on": "2026-10-21",
+          "reason": "stop",
+          "pnl_sar": -257.16,
+          "return_pct": -9.16,
+          "strategy": "momentum_leadership_shadow",
+          "initial_risk_sar": 246.28,
+          "entry_regime": "RISK_OFF",
+          "mae_r": -1.001,
+          "mfe_r": 0.882
+        },
+        {
+          "symbol": "7200",
+          "qty": 11,
+          "entry": 302.302,
+          "exit": 280.2914,
+          "opened_on": "2026-10-08",
+          "closed_on": "2026-10-21",
+          "reason": "stop",
+          "pnl_sar": -252.05,
+          "return_pct": -7.58,
+          "strategy": "momentum_leadership_shadow",
+          "initial_risk_sar": 239.03,
+          "entry_regime": "RISK_OFF",
+          "mae_r": -1.523,
+          "mfe_r": 0.124
         }
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-20T21:07:52.860455+03:00",
-      "data_quality": "verified session 2026-10-20, consensus 99.2%",
+      "updated_at": "2026-10-21T20:09:00.465014+03:00",
+      "data_quality": "verified session 2026-10-21, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
         "min_expectancy_r": 0.1,
@@ -449,17 +462,17 @@
         },
         {
           "name": "Momentum Leadership",
-          "closed_trades": 8,
+          "closed_trades": 11,
           "target_trades": 30,
-          "win_rate_pct": 25.0,
-          "expectancy_r": -0.224,
-          "profit_factor": 0.702,
-          "max_drawdown_r": 3.374,
-          "pnl_sar": -409.13,
-          "open_positions": 5,
-          "pending": 0,
+          "win_rate_pct": 18.18,
+          "expectancy_r": -0.449,
+          "profit_factor": 0.45,
+          "max_drawdown_r": 4.942,
+          "pnl_sar": -1179.54,
+          "open_positions": 2,
+          "pending": 1,
           "qualified": false,
-          "status": "LEARNING 8/30"
+          "status": "LEARNING 11/30"
         }
       ]
     },
@@ -487,25 +500,25 @@
       },
       "momentum": {
         "name": "Momentum Leadership",
-        "closed_trades": 8,
+        "closed_trades": 11,
         "target_trades": 30,
-        "win_rate_pct": 25.0,
-        "expectancy_r": -0.224,
-        "profit_factor": 0.702,
-        "max_drawdown_r": 3.374,
-        "pnl_sar": -409.13,
-        "open_positions": 5,
-        "pending": 0,
+        "win_rate_pct": 18.18,
+        "expectancy_r": -0.449,
+        "profit_factor": 0.45,
+        "max_drawdown_r": 4.942,
+        "pnl_sar": -1179.54,
+        "open_positions": 2,
+        "pending": 1,
         "qualified": false,
-        "status": "LEARNING 8/30"
+        "status": "LEARNING 11/30"
       },
       "pead_source": {
         "verification": "detail-page-v1",
         "source": "https://english.mubasher.info/news/sa/now/announcements",
-        "verified_recent_financial_events": 6,
-        "eligible_symbols_with_events": 6,
-        "events_inspected": 6,
-        "financial_tables_parsed": 6,
+        "verified_recent_financial_events": 4,
+        "eligible_symbols_with_events": 4,
+        "events_inspected": 4,
+        "financial_tables_parsed": 4,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
@@ -514,14 +527,14 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-21T15:11:25.744561+03:00",
+      "updated_at": "2026-10-21T20:09:14.442424+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
-        "eligible": 257,
+        "eligible": 258,
         "above_ema50_pct": 5.4,
-        "above_ema200_pct": 7.4,
-        "median_momentum20_pct": -8.1
+        "above_ema200_pct": 6.6,
+        "median_momentum20_pct": -10.0
       },
       "scoreboard": [
         {
@@ -541,18 +554,18 @@
         },
         {
           "name": "Momentum Leadership",
-          "closed": 8,
+          "closed": 11,
           "target": 30,
           "wins": 2,
-          "win_rate_pct": 25.0,
-          "expectancy_r": -0.224,
-          "profit_factor": 0.702,
-          "max_drawdown_r": 3.374,
-          "pnl_sar": -409.13,
-          "open_positions": 5,
-          "pending": 0,
-          "status": "EVALUATING 8/30",
-          "rank_score": -32.23
+          "win_rate_pct": 18.18,
+          "expectancy_r": -0.449,
+          "profit_factor": 0.45,
+          "max_drawdown_r": 4.942,
+          "pnl_sar": -1179.54,
+          "open_positions": 2,
+          "pending": 1,
+          "status": "EVALUATING 11/30",
+          "rank_score": -65.15
         },
         {
           "name": "Explorer Control",
@@ -580,16 +593,16 @@
           "diagnosis": "NO_CLOSED_LOSSES_YET"
         },
         "Momentum Leadership": {
-          "closed_losses": 6,
-          "loss_rate_pct": 75.0,
+          "closed_losses": 9,
+          "loss_rate_pct": 81.82,
           "reasons": {
-            "stop": 5,
+            "stop": 8,
             "max_hold": 1
           },
           "strategies": {
-            "momentum_leadership_shadow": 6
+            "momentum_leadership_shadow": 9
           },
-          "avg_loss_r": 0.945,
+          "avg_loss_r": 0.98,
           "diagnosis": "STOP_DOMINATED: review entry quality before changing stop width"
         },
         "Explorer Control": {
@@ -643,7 +656,7 @@
       "1323": "CASH:IGNORE",
       "1810": "CASH:IGNORE",
       "1820": "CASH:IGNORE",
-      "1830": "CASH:IGNORE",
+      "1830": "CASH:WATCH",
       "1831": "CASH:IGNORE",
       "1832": "CASH:IGNORE",
       "1833": "CASH:IGNORE",
@@ -695,7 +708,7 @@
       "2300": "CASH:IGNORE",
       "2310": "CASH:IGNORE",
       "2320": "CASH:IGNORE",
-      "2330": "CASH:IGNORE",
+      "2330": "CASH:WATCH",
       "2340": "CASH:IGNORE",
       "2350": "CASH:IGNORE",
       "2360": "CASH:IGNORE",
@@ -759,7 +772,7 @@
       "4141": "CASH:IGNORE",
       "4142": "CASH:IGNORE",
       "4143": "CASH:IGNORE",
-      "4144": "CASH:WATCH",
+      "4144": "CASH:IGNORE",
       "4145": "CASH:IGNORE",
       "4146": "CASH:IGNORE",
       "4148": "CASH:IGNORE",
@@ -845,7 +858,7 @@
       "7030": "CASH:IGNORE",
       "7040": "CASH:IGNORE",
       "7200": "CASH:IGNORE",
-      "7201": "CASH:WATCH",
+      "7201": "CASH:IGNORE",
       "7202": "CASH:IGNORE",
       "7203": "CASH:IGNORE",
       "7204": "CASH:IGNORE",
@@ -879,7 +892,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-21T15:11:07.676353+03:00",
+      "updated_at": "2026-10-21T20:08:59.871610+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -73537,7 +73550,7 @@
       "mean_20d_r": -2.5398,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-21T15:11:07.724030+03:00",
+      "updated_at": "2026-10-21T20:08:59.934603+03:00",
       "session": "2026-10-21",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
