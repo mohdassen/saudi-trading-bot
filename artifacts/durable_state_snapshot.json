@@ -266,6 +266,15 @@
           "signal_bar_date": "2026-10-26",
           "queued_on": "2026-10-26",
           "strategy": "momentum_leadership_shadow"
+        },
+        "2083": {
+          "symbol": "2083",
+          "score": 88.11,
+          "risk_distance": 2.92,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-10-26",
+          "queued_on": "2026-10-26",
+          "strategy": "momentum_leadership_shadow"
         }
       },
       "closed": [
@@ -496,7 +505,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-26T16:27:19.765681+03:00",
+      "updated_at": "2026-10-26T21:39:48.007207+03:00",
       "data_quality": "verified session 2026-10-26, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -515,7 +524,7 @@
           "max_drawdown_r": 1.09,
           "pnl_sar": -241.64,
           "open_positions": 0,
-          "pending": 0,
+          "pending": 1,
           "qualified": false,
           "status": "LEARNING 1/30"
         },
@@ -529,7 +538,7 @@
           "max_drawdown_r": 8.131,
           "pnl_sar": -1948.99,
           "open_positions": 2,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 14/30"
         }
@@ -567,7 +576,7 @@
         "max_drawdown_r": 8.131,
         "pnl_sar": -1948.99,
         "open_positions": 2,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 14/30"
       },
@@ -584,20 +593,11 @@
         "pending_after_reconcile": [
           "7211"
         ],
-        "queued_events": [
-          {
-            "symbol": "7211",
-            "title": "Saudi Azm for Communication and Information Technology Co. announces its Interim financial results for the period ended on 30-09-2026 ( Three Months )",
-            "published_at": "2026-10-26T08:04:00+03:00",
-            "url": "https://english.mubasher.info/news/4690284/Saudi-Azm-for-Communication-and-Information-Technology-Co-announces-its-Interim-financial-results-for-the-period-ended-on-30-09-2026-Three-Months-//news",
-            "discovery_source": "https://english.mubasher.info/news/sa/now/announcements",
-            "mode": "fundamental+price"
-          }
-        ]
+        "queued_events": []
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-26T16:27:29.223149+03:00",
+      "updated_at": "2026-10-26T21:39:59.782391+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -633,7 +633,7 @@
           "max_drawdown_r": 8.131,
           "pnl_sar": -1948.99,
           "open_positions": 2,
-          "pending": 1,
+          "pending": 2,
           "status": "EVALUATING 14/30",
           "rank_score": -95.42
         },
@@ -967,7 +967,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-26T16:27:19.309926+03:00",
+      "updated_at": "2026-10-26T21:39:47.411137+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -62356,6 +62356,12 @@
               "close": 53.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 53.55,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -64162,6 +64168,12 @@
               "close": 53.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 53.55,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -65882,6 +65894,12 @@
             {
               "session": "2026-10-25",
               "close": 53.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 53.55,
               "high": null,
               "low": null
             }
@@ -69460,6 +69478,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -69914,6 +69938,12 @@
             {
               "session": "2026-10-25",
               "close": 53.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 53.55,
               "high": null,
               "low": null
             }
@@ -72148,6 +72178,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -74032,6 +74068,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -74125,6 +74167,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -74133,7 +74181,9 @@
             "return_3d_pct": 20.8904,
             "return_3d_r": 10.4452,
             "return_5d_pct": -0.6849,
-            "return_5d_r": -0.3425
+            "return_5d_r": -0.3425,
+            "return_10d_pct": 0.3425,
+            "return_10d_r": 0.1712
           },
           "barrier": null
         },
@@ -75693,6 +75743,12 @@
             {
               "session": "2026-10-25",
               "close": 2.51,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
               "high": null,
               "low": null
             }
@@ -77503,6 +77559,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -79191,6 +79253,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -80735,6 +80803,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -81794,13 +81868,21 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 0.0,
             "return_1d_r": 0.0,
             "return_3d_pct": -4.1379,
-            "return_3d_r": -2.069
+            "return_3d_r": -2.069,
+            "return_5d_pct": 1.0345,
+            "return_5d_r": 0.5172
           },
           "barrier": null
         },
@@ -82619,6 +82701,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -83409,11 +83497,19 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -7.0234,
-            "return_1d_r": -3.5117
+            "return_1d_r": -3.5117,
+            "return_3d_pct": -2.0067,
+            "return_3d_r": -1.0033
           },
           "barrier": null
         },
@@ -83901,6 +83997,12 @@
               "close": 2.51,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -84243,8 +84345,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-26",
+              "close": 2.93,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 16.7331,
+            "return_1d_r": 8.3665
+          },
           "barrier": null
         },
         {
@@ -84537,11 +84649,40 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-10-26:1325:CASH",
+          "session": "2026-10-26",
+          "symbol": "1325",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 76.97,
+          "strategy_score": 0.0,
+          "entry": 2.93,
+          "stop": 2.8714,
+          "target": 3.0472,
+          "risk": 0.0586,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 567,
+      "candidates": 568,
       "mature_20d": 288,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -84550,7 +84691,7 @@
       "mean_20d_r": -2.1471,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-26T16:27:19.354296+03:00",
+      "updated_at": "2026-10-26T21:39:47.481467+03:00",
       "session": "2026-10-26",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
