@@ -218,6 +218,15 @@
           "signal_bar_date": "2026-10-28",
           "queued_on": "2026-10-28",
           "strategy": "pead_shadow"
+        },
+        "4030": {
+          "symbol": "4030",
+          "score": 83.59,
+          "risk_distance": 1.89,
+          "reward_risk": 2.0,
+          "signal_bar_date": "2026-10-28",
+          "queued_on": "2026-10-28",
+          "strategy": "pead_shadow"
         }
       },
       "closed": [
@@ -532,7 +541,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-28T16:22:58.176612+03:00",
+      "updated_at": "2026-10-28T21:20:02.392340+03:00",
       "data_quality": "verified session 2026-10-28, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -551,7 +560,7 @@
           "max_drawdown_r": 1.09,
           "pnl_sar": -241.64,
           "open_positions": 1,
-          "pending": 0,
+          "pending": 1,
           "qualified": false,
           "status": "LEARNING 1/30"
         },
@@ -589,7 +598,7 @@
         "max_drawdown_r": 1.09,
         "pnl_sar": -241.64,
         "open_positions": 1,
-        "pending": 1,
+        "pending": 2,
         "qualified": false,
         "status": "LEARNING 1/30"
       },
@@ -618,14 +627,15 @@
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
         "pending_after_reconcile": [
+          "4030",
           "6015"
         ],
         "queued_events": [
           {
-            "symbol": "6015",
-            "title": "Americana Restaurants International PLC - Foreign Company announces its Interim Financial results for the Period Ending on 2026-09-30 ( Nine Months )",
+            "symbol": "4030",
+            "title": "The National Shipping Company of Saudi Arabia (Bahri) announces its interim financial results for the period ending on 30-09-2026 (Nine Months)",
             "published_at": "2026-10-28T08:04:00+03:00",
-            "url": "https://english.mubasher.info/news/4691803/Americana-Restaurants-International-PLC-Foreign-Company-announces-its-Interim-Financial-results-for-the-Period-Ending-on-2026-09-30-Nine-Months-//news",
+            "url": "https://english.mubasher.info/news/4691804/The-National-Shipping-Company-of-Saudi-Arabia-Bahri-announces-its-interim-financial-results-for-the-period-ending-on-30-09-2026-Nine-Months-//news",
             "discovery_source": "https://english.mubasher.info/news/sa/now/announcements",
             "mode": "fundamental+price"
           }
@@ -633,7 +643,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-28T16:23:12.091905+03:00",
+      "updated_at": "2026-10-28T21:20:14.423730+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -654,7 +664,7 @@
           "max_drawdown_r": 1.09,
           "pnl_sar": -241.64,
           "open_positions": 1,
-          "pending": 1,
+          "pending": 2,
           "status": "LEARNING 1/30",
           "rank_score": null
         },
@@ -1003,7 +1013,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-28T16:22:57.547736+03:00",
+      "updated_at": "2026-10-28T21:20:01.686485+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -66276,6 +66286,12 @@
               "close": 56.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 55.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -68250,6 +68266,12 @@
               "close": 56.0,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 55.8,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -70138,6 +70160,12 @@
             {
               "session": "2026-10-27",
               "close": 56.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 55.8,
               "high": null,
               "low": null
             }
@@ -74076,6 +74104,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -74578,6 +74612,12 @@
             {
               "session": "2026-10-27",
               "close": 56.0,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 55.8,
               "high": null,
               "low": null
             }
@@ -77052,6 +77092,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -79152,6 +79198,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -79255,6 +79307,12 @@
             {
               "session": "2026-10-27",
               "close": 3.16,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
               "high": null,
               "low": null
             }
@@ -81019,6 +81077,12 @@
             {
               "session": "2026-10-27",
               "close": 3.16,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
               "high": null,
               "low": null
             }
@@ -83109,6 +83173,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -83117,7 +83187,9 @@
             "return_3d_pct": -9.6573,
             "return_3d_r": -4.8287,
             "return_5d_pct": -6.8536,
-            "return_5d_r": -3.4268
+            "return_5d_r": -3.4268,
+            "return_10d_pct": -5.6075,
+            "return_10d_r": -2.8037
           },
           "barrier": null
         },
@@ -85075,6 +85147,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -86859,6 +86937,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -88098,6 +88182,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -89089,6 +89179,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -90075,13 +90171,21 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -7.0234,
             "return_1d_r": -3.5117,
             "return_3d_pct": -2.0067,
-            "return_3d_r": -1.0033
+            "return_3d_r": -1.0033,
+            "return_5d_pct": 1.3378,
+            "return_5d_r": 0.6689
           },
           "barrier": null
         },
@@ -90707,6 +90811,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -91161,11 +91271,19 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 16.7331,
-            "return_1d_r": 8.3665
+            "return_1d_r": 8.3665,
+            "return_3d_pct": 20.7171,
+            "return_3d_r": 10.3586
           },
           "barrier": null
         },
@@ -91629,6 +91747,12 @@
               "close": 3.16,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -91818,8 +91942,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-28",
+              "close": 3.03,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -4.1139,
+            "return_1d_r": -2.057
+          },
           "barrier": null
         },
         {
@@ -92481,11 +92615,40 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-10-28:1325:CASH",
+          "session": "2026-10-28",
+          "symbol": "1325",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 76.39,
+          "strategy_score": 0.0,
+          "entry": 3.03,
+          "stop": 2.9694,
+          "target": 3.1512,
+          "risk": 0.0606,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 593,
+      "candidates": 594,
       "mature_20d": 304,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -92494,7 +92657,7 @@
       "mean_20d_r": -2.1171,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-28T16:22:57.625808+03:00",
+      "updated_at": "2026-10-28T21:20:01.768452+03:00",
       "session": "2026-10-28",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
