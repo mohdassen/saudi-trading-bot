@@ -541,7 +541,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-28T21:20:02.392340+03:00",
+      "updated_at": "2026-10-28T21:31:27.704623+03:00",
       "data_quality": "verified session 2026-10-28, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -560,7 +560,7 @@
           "max_drawdown_r": 1.09,
           "pnl_sar": -241.64,
           "open_positions": 1,
-          "pending": 1,
+          "pending": 2,
           "qualified": false,
           "status": "LEARNING 1/30"
         },
@@ -630,20 +630,11 @@
           "4030",
           "6015"
         ],
-        "queued_events": [
-          {
-            "symbol": "4030",
-            "title": "The National Shipping Company of Saudi Arabia (Bahri) announces its interim financial results for the period ending on 30-09-2026 (Nine Months)",
-            "published_at": "2026-10-28T08:04:00+03:00",
-            "url": "https://english.mubasher.info/news/4691804/The-National-Shipping-Company-of-Saudi-Arabia-Bahri-announces-its-interim-financial-results-for-the-period-ending-on-30-09-2026-Nine-Months-//news",
-            "discovery_source": "https://english.mubasher.info/news/sa/now/announcements",
-            "mode": "fundamental+price"
-          }
-        ]
+        "queued_events": []
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-28T21:20:14.423730+03:00",
+      "updated_at": "2026-10-28T21:31:38.436391+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1013,7 +1004,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-28T21:20:01.686485+03:00",
+      "updated_at": "2026-10-28T21:31:27.086145+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -92657,7 +92648,7 @@
       "mean_20d_r": -2.1171,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-28T21:20:01.768452+03:00",
+      "updated_at": "2026-10-28T21:31:27.166938+03:00",
       "session": "2026-10-28",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
