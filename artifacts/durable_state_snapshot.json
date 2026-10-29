@@ -547,7 +547,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-10-29T16:31:36.257402+03:00",
+      "updated_at": "2026-10-29T21:26:38.592228+03:00",
       "data_quality": "verified session 2026-10-29, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -637,7 +637,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-10-29T16:31:49.788939+03:00",
+      "updated_at": "2026-10-29T21:26:51.013432+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1000,14 +1000,14 @@
       "8300": "CASH:IGNORE",
       "8311": "CASH:IGNORE",
       "8313": "CASH:IGNORE",
-      "1325": "CASH:WATCH",
+      "1325": "CASH:IGNORE",
       "4265": "CASH:IGNORE",
       "6019": "CASH:IGNORE",
       "4147": "CASH:IGNORE"
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-10-29T16:31:35.608645+03:00",
+      "updated_at": "2026-10-29T21:26:37.968585+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -68222,6 +68222,12 @@
               "close": 55.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 55.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -70280,6 +70286,12 @@
               "close": 55.8,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 55.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -72252,6 +72264,12 @@
             {
               "session": "2026-10-28",
               "close": 55.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 55.05,
               "high": null,
               "low": null
             }
@@ -76370,6 +76388,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -76896,6 +76920,12 @@
             {
               "session": "2026-10-28",
               "close": 55.8,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 55.05,
               "high": null,
               "low": null
             }
@@ -79490,6 +79520,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -81698,6 +81734,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -81807,6 +81849,12 @@
             {
               "session": "2026-10-28",
               "close": 3.03,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
               "high": null,
               "low": null
             }
@@ -83667,6 +83715,12 @@
             {
               "session": "2026-10-28",
               "close": 3.03,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
               "high": null,
               "low": null
             }
@@ -85877,6 +85931,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -87965,6 +88025,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -87973,7 +88039,9 @@
             "return_3d_pct": -17.847,
             "return_3d_r": -8.9235,
             "return_5d_pct": -21.2465,
-            "return_5d_r": -10.6232
+            "return_5d_r": -10.6232,
+            "return_10d_pct": -16.7139,
+            "return_10d_r": -8.3569
           },
           "barrier": null
         },
@@ -89899,6 +89967,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -91228,6 +91302,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -92295,6 +92375,12 @@
             {
               "session": "2026-10-28",
               "close": 3.03,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
               "high": null,
               "low": null
             }
@@ -93367,6 +93453,12 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -94067,13 +94159,21 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -9.7122,
             "return_1d_r": -4.8561,
             "return_3d_pct": 13.6691,
-            "return_3d_r": 6.8345
+            "return_3d_r": 6.8345,
+            "return_5d_pct": 5.7554,
+            "return_5d_r": 2.8777
           },
           "barrier": null
         },
@@ -94579,6 +94679,12 @@
             {
               "session": "2026-10-28",
               "close": 3.03,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
               "high": null,
               "low": null
             }
@@ -95123,11 +95229,19 @@
               "close": 3.03,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": 7.8498,
-            "return_1d_r": 3.9249
+            "return_1d_r": 3.9249,
+            "return_3d_pct": 0.3413,
+            "return_3d_r": 0.1706
           },
           "barrier": null
         },
@@ -95340,6 +95454,12 @@
             {
               "session": "2026-10-28",
               "close": 3.03,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
               "high": null,
               "low": null
             }
@@ -96203,8 +96323,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-10-29",
+              "close": 2.94,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -2.9703,
+            "return_1d_r": -1.4851
+          },
           "barrier": null
         },
         {
@@ -96467,11 +96597,40 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-10-29:1325:CASH",
+          "session": "2026-10-29",
+          "symbol": "1325",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 74.38,
+          "strategy_score": 0.0,
+          "entry": 2.94,
+          "stop": 2.8812,
+          "target": 3.0576,
+          "risk": 0.0588,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 603,
+      "candidates": 604,
       "mature_20d": 312,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -96480,7 +96639,7 @@
       "mean_20d_r": -2.1159,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-10-29T16:31:35.690333+03:00",
+      "updated_at": "2026-10-29T21:26:38.050350+03:00",
       "session": "2026-10-29",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
