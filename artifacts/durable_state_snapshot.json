@@ -573,7 +573,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-01T16:42:31.699869+03:00",
+      "updated_at": "2026-11-01T20:55:27.921252+03:00",
       "data_quality": "verified session 2026-11-01, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -592,7 +592,7 @@
           "max_drawdown_r": 1.09,
           "pnl_sar": -241.64,
           "open_positions": 2,
-          "pending": 0,
+          "pending": 1,
           "qualified": false,
           "status": "LEARNING 1/30"
         },
@@ -661,20 +661,11 @@
         "pending_after_reconcile": [
           "1325"
         ],
-        "queued_events": [
-          {
-            "symbol": "1325",
-            "title": "Watani Iron Steel Co. announces its Interim Financial results for the Period Ending on 2026-09-30 ( Nine Months )",
-            "published_at": "2026-11-01T09:06:00+03:00",
-            "url": "https://english.mubasher.info/news/4693860/Watani-Iron-Steel-Co-announces-its-Interim-Financial-results-for-the-Period-Ending-on-2026-09-30-Nine-Months-//news",
-            "discovery_source": "https://english.mubasher.info/news/sa/now/announcements",
-            "mode": "fundamental+price"
-          }
-        ]
+        "queued_events": []
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-01T16:42:43.507733+03:00",
+      "updated_at": "2026-11-01T20:55:36.019695+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1040,11 +1031,12 @@
       "1325": "CASH:WATCH",
       "4265": "CASH:IGNORE",
       "6019": "CASH:IGNORE",
-      "4147": "CASH:IGNORE"
+      "4147": "CASH:IGNORE",
+      "4327": "CASH:IGNORE"
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-01T16:42:31.028542+03:00",
+      "updated_at": "2026-11-01T20:55:27.483135+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -70201,6 +70193,12 @@
               "close": 55.05,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-01",
+              "close": 55.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -72347,6 +72345,12 @@
               "close": 55.05,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-01",
+              "close": 55.3,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -74403,6 +74407,12 @@
             {
               "session": "2026-10-29",
               "close": 55.05,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-01",
+              "close": 55.3,
               "high": null,
               "low": null
             }
@@ -79257,6 +79267,12 @@
             {
               "session": "2026-10-29",
               "close": 55.05,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-01",
+              "close": 55.3,
               "high": null,
               "low": null
             }
@@ -100692,7 +100708,7 @@
       "mean_20d_r": -2.1369,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-01T16:42:31.114651+03:00",
+      "updated_at": "2026-11-01T20:55:27.533975+03:00",
       "session": "2026-11-01",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
