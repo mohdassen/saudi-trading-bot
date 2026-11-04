@@ -583,7 +583,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-04T17:48:00.082430+03:00",
+      "updated_at": "2026-11-04T22:43:11.115742+03:00",
       "data_quality": "verified session 2026-11-04, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -673,7 +673,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-04T17:48:11.659506+03:00",
+      "updated_at": "2026-11-04T22:43:21.326434+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1036,7 +1036,7 @@
       "8300": "CASH:IGNORE",
       "8311": "CASH:IGNORE",
       "8313": "CASH:IGNORE",
-      "1325": "CASH:IGNORE",
+      "1325": "CASH:WATCH",
       "4265": "CASH:IGNORE",
       "6019": "CASH:IGNORE",
       "4147": "CASH:IGNORE",
@@ -1044,7 +1044,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-04T17:47:59.569243+03:00",
+      "updated_at": "2026-11-04T22:43:10.488212+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -75973,6 +75973,12 @@
               "close": 55.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 56.45,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -78389,6 +78395,12 @@
               "close": 55.9,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 56.45,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -78399,7 +78411,9 @@
             "return_5d_pct": -3.9277,
             "return_5d_r": -1.9639,
             "return_10d_pct": -7.3056,
-            "return_10d_r": -3.6528
+            "return_10d_r": -3.6528,
+            "return_20d_pct": -11.3119,
+            "return_20d_r": -5.6559
           },
           "barrier": null
         },
@@ -80717,6 +80731,12 @@
             {
               "session": "2026-11-03",
               "close": 55.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 56.45,
               "high": null,
               "low": null
             }
@@ -85613,6 +85633,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -85623,7 +85649,9 @@
             "return_5d_pct": 45.9091,
             "return_5d_r": 22.9545,
             "return_10d_pct": 35.9091,
-            "return_10d_r": 17.9545
+            "return_10d_r": 17.9545,
+            "return_20d_pct": 38.6364,
+            "return_20d_r": 19.3182
           },
           "barrier": null
         },
@@ -86235,6 +86263,12 @@
             {
               "session": "2026-11-03",
               "close": 55.9,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 56.45,
               "high": null,
               "low": null
             }
@@ -89315,6 +89349,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -91955,6 +91995,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -92088,6 +92134,12 @@
             {
               "session": "2026-11-03",
               "close": 2.94,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
               "high": null,
               "low": null
             }
@@ -94332,6 +94384,12 @@
             {
               "session": "2026-11-03",
               "close": 2.94,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
               "high": null,
               "low": null
             }
@@ -97022,6 +97080,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -99590,6 +99654,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -102014,6 +102084,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -103733,6 +103809,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -105138,6 +105220,12 @@
             {
               "session": "2026-11-03",
               "close": 2.94,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
               "high": null,
               "low": null
             }
@@ -106574,6 +106662,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -106582,7 +106676,9 @@
             "return_3d_pct": -2.0067,
             "return_3d_r": -1.0033,
             "return_5d_pct": 1.3378,
-            "return_5d_r": 0.6689
+            "return_5d_r": 0.6689,
+            "return_10d_pct": 2.0067,
+            "return_10d_r": 1.0033
           },
           "barrier": null
         },
@@ -107526,6 +107622,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -108234,6 +108336,12 @@
             {
               "session": "2026-11-03",
               "close": 2.94,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
               "high": null,
               "low": null
             }
@@ -109038,6 +109146,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -109395,6 +109509,12 @@
             {
               "session": "2026-11-03",
               "close": 2.94,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
               "high": null,
               "low": null
             }
@@ -110846,13 +110966,21 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.9703,
             "return_1d_r": -1.4851,
             "return_3d_pct": -2.9703,
-            "return_3d_r": -1.4851
+            "return_3d_r": -1.4851,
+            "return_5d_pct": 0.6601,
+            "return_5d_r": 0.33
           },
           "barrier": null
         },
@@ -111430,6 +111558,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -111583,11 +111717,19 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
             "return_1d_pct": -2.3256,
-            "return_1d_r": -1.1628
+            "return_1d_r": -1.1628,
+            "return_3d_pct": 1.3289,
+            "return_3d_r": 0.6645
           },
           "barrier": null
         },
@@ -112083,6 +112225,12 @@
               "close": 2.94,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -112329,8 +112477,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-11-04",
+              "close": 3.05,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": 3.7415,
+            "return_1d_r": 1.8707
+          },
           "barrier": null
         },
         {
@@ -112436,8 +112594,18 @@
             "xs_roc63_percentile": null,
             "market_regime": "UNKNOWN"
           },
-          "observations": [],
-          "labels": {},
+          "observations": [
+            {
+              "session": "2026-11-04",
+              "close": 52.85,
+              "high": null,
+              "low": null
+            }
+          ],
+          "labels": {
+            "return_1d_pct": -3.2937,
+            "return_1d_r": -1.6468
+          },
           "barrier": null
         },
         {
@@ -112875,20 +113043,49 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-11-04:1325:CASH",
+          "session": "2026-11-04",
+          "symbol": "1325",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 74.87,
+          "strategy_score": 0.0,
+          "entry": 3.05,
+          "stop": 2.989,
+          "target": 3.172,
+          "risk": 0.061,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 640,
-      "mature_20d": 382,
+      "candidates": 641,
+      "mature_20d": 384,
       "barrier_labeled": 0,
       "target_first": 0,
       "stop_first": 0,
       "target_first_pct": null,
-      "mean_20d_r": -2.5305,
+      "mean_20d_r": -2.4817,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-04T17:47:59.647155+03:00",
+      "updated_at": "2026-11-04T22:43:10.582717+03:00",
       "session": "2026-11-04",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
