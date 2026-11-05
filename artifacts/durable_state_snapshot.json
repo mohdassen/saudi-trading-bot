@@ -583,7 +583,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-05T22:53:52.943028+03:00",
+      "updated_at": "2026-11-05T23:17:48.382874+03:00",
       "data_quality": "verified session 2026-11-05, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -673,7 +673,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-05T22:54:01.403131+03:00",
+      "updated_at": "2026-11-05T23:17:56.792410+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1044,7 +1044,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-05T22:53:52.456332+03:00",
+      "updated_at": "2026-11-05T23:17:47.934430+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -117415,7 +117415,7 @@
       "mean_20d_r": -2.4934,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-05T22:53:52.513802+03:00",
+      "updated_at": "2026-11-05T23:17:47.995510+03:00",
       "session": "2026-11-05",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
