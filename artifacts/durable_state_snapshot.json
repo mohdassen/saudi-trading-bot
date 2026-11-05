@@ -583,7 +583,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-05T17:54:31.432158+03:00",
+      "updated_at": "2026-11-05T22:53:52.943028+03:00",
       "data_quality": "verified session 2026-11-05, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -673,7 +673,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-05T17:54:45.751717+03:00",
+      "updated_at": "2026-11-05T22:54:01.403131+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -851,7 +851,7 @@
       "2283": "CASH:WATCH",
       "2284": "CASH:IGNORE",
       "2285": "CASH:IGNORE",
-      "2286": "CASH:WATCH",
+      "2286": "CASH:IGNORE",
       "2287": "CASH:IGNORE",
       "2288": "CASH:IGNORE",
       "2290": "CASH:IGNORE",
@@ -895,7 +895,7 @@
       "4013": "CASH:IGNORE",
       "4014": "CASH:IGNORE",
       "4015": "CASH:IGNORE",
-      "4016": "CASH:IGNORE",
+      "4016": "CASH:WATCH",
       "4017": "CASH:IGNORE",
       "4018": "CASH:IGNORE",
       "4019": "CASH:IGNORE",
@@ -1044,7 +1044,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-05T17:54:30.769542+03:00",
+      "updated_at": "2026-11-05T22:53:52.456332+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -77899,6 +77899,12 @@
               "close": 56.45,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-05",
+              "close": 54.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -80399,6 +80405,12 @@
               "close": 56.45,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-05",
+              "close": 54.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -82815,6 +82827,12 @@
               "close": 56.45,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-05",
+              "close": 54.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -82825,7 +82843,9 @@
             "return_5d_pct": -3.6135,
             "return_5d_r": -1.8068,
             "return_10d_pct": -10.2121,
-            "return_10d_r": -5.106
+            "return_10d_r": -5.106,
+            "return_20d_pct": -14.0613,
+            "return_20d_r": -7.0306
           },
           "barrier": null
         },
@@ -88543,6 +88563,12 @@
             {
               "session": "2026-11-04",
               "close": 56.45,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-05",
+              "close": 54.7,
               "high": null,
               "low": null
             }
@@ -116412,6 +116438,12 @@
               "close": 52.85,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-05",
+              "close": 53.15,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -117341,20 +117373,49 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-11-05:4016:CASH",
+          "session": "2026-11-05",
+          "symbol": "4016",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 68.81,
+          "strategy_score": 0.0,
+          "entry": 64.8,
+          "stop": 63.504,
+          "target": 67.392,
+          "risk": 1.296,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 652,
-      "mature_20d": 401,
+      "candidates": 653,
+      "mature_20d": 402,
       "barrier_labeled": 0,
       "target_first": 0,
       "stop_first": 0,
       "target_first_pct": null,
-      "mean_20d_r": -2.4821,
+      "mean_20d_r": -2.4934,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-05T17:54:30.872600+03:00",
+      "updated_at": "2026-11-05T22:53:52.513802+03:00",
       "session": "2026-11-05",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
