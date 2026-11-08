@@ -583,7 +583,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-08T16:45:51.357071+03:00",
+      "updated_at": "2026-11-08T20:54:28.440347+03:00",
       "data_quality": "verified session 2026-11-08, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -661,10 +661,10 @@
       "pead_source": {
         "verification": "detail-page-v1",
         "source": "https://english.mubasher.info/news/sa/now/announcements",
-        "verified_recent_financial_events": 7,
-        "eligible_symbols_with_events": 7,
-        "events_inspected": 7,
-        "financial_tables_parsed": 7,
+        "verified_recent_financial_events": 5,
+        "eligible_symbols_with_events": 5,
+        "events_inspected": 5,
+        "financial_tables_parsed": 5,
         "fundamental_candidates": 0,
         "price_only_candidates": 0,
         "purged_invalid_pending": [],
@@ -673,7 +673,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-08T16:46:03.516150+03:00",
+      "updated_at": "2026-11-08T20:54:38.684922+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -851,7 +851,7 @@
       "2283": "CASH:WATCH",
       "2284": "CASH:IGNORE",
       "2285": "CASH:IGNORE",
-      "2286": "CASH:WATCH",
+      "2286": "CASH:IGNORE",
       "2287": "CASH:IGNORE",
       "2288": "CASH:IGNORE",
       "2290": "CASH:IGNORE",
@@ -1044,7 +1044,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-08T16:45:50.680269+03:00",
+      "updated_at": "2026-11-08T20:54:27.804186+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -79825,6 +79825,12 @@
               "close": 54.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-08",
+              "close": 55.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -82409,6 +82415,12 @@
               "close": 54.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-08",
+              "close": 55.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -84907,6 +84919,12 @@
             {
               "session": "2026-11-05",
               "close": 54.7,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-08",
+              "close": 55.05,
               "high": null,
               "low": null
             }
@@ -90845,6 +90863,12 @@
               "close": 54.7,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-08",
+              "close": 55.05,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -90855,7 +90879,9 @@
             "return_5d_pct": -6.6874,
             "return_5d_r": -3.3437,
             "return_10d_pct": -13.4526,
-            "return_10d_r": -6.7263
+            "return_10d_r": -6.7263,
+            "return_20d_pct": -14.3857,
+            "return_20d_r": -7.1928
           },
           "barrier": null
         },
@@ -121781,15 +121807,15 @@
     },
     "artifacts/adaptive_learning_report.json": {
       "candidates": 665,
-      "mature_20d": 420,
+      "mature_20d": 421,
       "barrier_labeled": 0,
       "target_first": 0,
       "stop_first": 0,
       "target_first_pct": null,
-      "mean_20d_r": -2.544,
+      "mean_20d_r": -2.555,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-08T16:45:50.787491+03:00",
+      "updated_at": "2026-11-08T20:54:27.889838+03:00",
       "session": "2026-11-08",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
