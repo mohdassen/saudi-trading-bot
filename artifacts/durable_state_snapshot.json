@@ -598,7 +598,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-10T18:09:00.810630+03:00",
+      "updated_at": "2026-11-10T22:41:14.831463+03:00",
       "data_quality": "verified session 2026-11-10, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -688,7 +688,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-10T18:09:12.573625+03:00",
+      "updated_at": "2026-11-10T22:41:24.708227+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -846,7 +846,7 @@
       "2120": "CASH:IGNORE",
       "2130": "CASH:IGNORE",
       "2140": "CASH:IGNORE",
-      "2150": "CASH:WATCH",
+      "2150": "CASH:IGNORE",
       "2160": "CASH:IGNORE",
       "2170": "CASH:IGNORE",
       "2180": "CASH:IGNORE",
@@ -866,7 +866,7 @@
       "2283": "CASH:WATCH",
       "2284": "CASH:IGNORE",
       "2285": "CASH:IGNORE",
-      "2286": "CASH:WATCH",
+      "2286": "CASH:IGNORE",
       "2287": "CASH:IGNORE",
       "2288": "CASH:IGNORE",
       "2290": "CASH:IGNORE",
@@ -1047,7 +1047,7 @@
       "8240": "CASH:IGNORE",
       "8250": "CASH:IGNORE",
       "8260": "CASH:IGNORE",
-      "8280": "CASH:IGNORE",
+      "8280": "CASH:WATCH",
       "8300": "CASH:IGNORE",
       "8311": "CASH:IGNORE",
       "8313": "CASH:IGNORE",
@@ -1059,7 +1059,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-10T18:09:00.152399+03:00",
+      "updated_at": "2026-11-10T22:41:14.306923+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -131370,11 +131370,40 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-11-10:8280:CASH",
+          "session": "2026-11-10",
+          "symbol": "8280",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 66.32,
+          "strategy_score": 0.0,
+          "entry": 13.3,
+          "stop": 13.034,
+          "target": 13.832,
+          "risk": 0.266,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 706,
+      "candidates": 707,
       "mature_20d": 457,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -131383,7 +131412,7 @@
       "mean_20d_r": -2.6194,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-10T18:09:00.266804+03:00",
+      "updated_at": "2026-11-10T22:41:14.395174+03:00",
       "session": "2026-11-10",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
