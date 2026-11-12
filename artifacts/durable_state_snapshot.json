@@ -619,7 +619,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-12T18:31:27.796896+03:00",
+      "updated_at": "2026-11-12T22:52:15.338558+03:00",
       "data_quality": "verified session 2026-11-12, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -638,7 +638,7 @@
           "max_drawdown_r": 1.09,
           "pnl_sar": -241.64,
           "open_positions": 4,
-          "pending": 0,
+          "pending": 1,
           "qualified": false,
           "status": "LEARNING 1/30"
         },
@@ -707,20 +707,11 @@
         "pending_after_reconcile": [
           "2282"
         ],
-        "queued_events": [
-          {
-            "symbol": "2282",
-            "title": "Naqi Water Co. announces its Interim Financial results for the Period Ending on 2026-09-30 ( Nine Months )",
-            "published_at": "2026-11-11T15:41:00+03:00",
-            "url": "https://english.mubasher.info/news/4700758/Naqi-Water-Co-announces-its-Interim-Financial-results-for-the-Period-Ending-on-2026-09-30-Nine-Months-//news",
-            "discovery_source": "verified-cache-rehydrated",
-            "mode": "fundamental+price"
-          }
-        ]
+        "queued_events": []
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-12T18:31:34.782190+03:00",
+      "updated_at": "2026-11-12T22:52:26.709177+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1091,7 +1082,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-12T18:31:27.366807+03:00",
+      "updated_at": "2026-11-12T22:52:14.667376+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -87570,6 +87561,12 @@
               "close": 57.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-12",
+              "close": 58.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -90484,6 +90481,12 @@
               "close": 57.5,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-12",
+              "close": 58.65,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -93312,6 +93315,12 @@
             {
               "session": "2026-11-11",
               "close": 57.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-12",
+              "close": 58.65,
               "high": null,
               "low": null
             }
@@ -100058,6 +100067,12 @@
             {
               "session": "2026-11-11",
               "close": 57.5,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-12",
+              "close": 58.65,
               "high": null,
               "low": null
             }
@@ -142978,7 +142993,7 @@
       "mean_20d_r": -2.5452,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-12T18:31:27.437751+03:00",
+      "updated_at": "2026-11-12T22:52:14.791165+03:00",
       "session": "2026-11-12",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
