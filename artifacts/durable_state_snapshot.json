@@ -629,7 +629,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-15T17:13:46.666645+03:00",
+      "updated_at": "2026-11-15T21:47:48.480415+03:00",
       "data_quality": "verified session 2026-11-15, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -719,7 +719,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-15T17:13:54.875542+03:00",
+      "updated_at": "2026-11-15T21:47:57.116518+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -1090,7 +1090,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-15T17:13:45.986009+03:00",
+      "updated_at": "2026-11-15T21:47:47.806084+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -91421,6 +91421,12 @@
               "close": 58.65,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-15",
+              "close": 57.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -94503,6 +94509,12 @@
               "close": 58.65,
               "high": null,
               "low": null
+            },
+            {
+              "session": "2026-11-15",
+              "close": 57.7,
+              "high": null,
+              "low": null
             }
           ],
           "labels": {
@@ -97499,6 +97511,12 @@
             {
               "session": "2026-11-13",
               "close": 58.65,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-15",
+              "close": 57.7,
               "high": null,
               "low": null
             }
@@ -104653,6 +104671,12 @@
             {
               "session": "2026-11-13",
               "close": 58.65,
+              "high": null,
+              "low": null
+            },
+            {
+              "session": "2026-11-15",
+              "close": 57.7,
               "high": null,
               "low": null
             }
@@ -155183,7 +155207,7 @@
       "mean_20d_r": -2.4544,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-15T17:13:46.121520+03:00",
+      "updated_at": "2026-11-15T21:47:47.935584+03:00",
       "session": "2026-11-15",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
