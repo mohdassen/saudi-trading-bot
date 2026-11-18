@@ -640,7 +640,7 @@
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-18T18:54:47.192299+03:00",
+      "updated_at": "2026-11-18T23:27:16.442155+03:00",
       "data_quality": "verified session 2026-11-18, consensus 98.8%",
       "production_unchanged": "CASH",
       "qualification": {
@@ -730,7 +730,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-18T18:54:56.693828+03:00",
+      "updated_at": "2026-11-18T23:27:28.554987+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
@@ -904,9 +904,9 @@
       "2270": "CASH:IGNORE",
       "2280": "CASH:IGNORE",
       "2281": "CASH:IGNORE",
-      "2282": "CASH:WATCH",
+      "2282": "CASH:IGNORE",
       "2283": "CASH:WATCH",
-      "2284": "CASH:IGNORE",
+      "2284": "CASH:WATCH",
       "2285": "CASH:IGNORE",
       "2286": "CASH:IGNORE",
       "2287": "CASH:IGNORE",
@@ -919,7 +919,7 @@
       "2340": "CASH:IGNORE",
       "2350": "CASH:IGNORE",
       "2360": "CASH:IGNORE",
-      "2370": "CASH:IGNORE",
+      "2370": "CASH:WATCH",
       "2380": "CASH:IGNORE",
       "2381": "CASH:WATCH",
       "2382": "CASH:IGNORE",
@@ -941,7 +941,7 @@
       "3092": "CASH:IGNORE",
       "4001": "CASH:IGNORE",
       "4002": "CASH:IGNORE",
-      "4003": "CASH:IGNORE",
+      "4003": "CASH:WATCH",
       "4004": "CASH:IGNORE",
       "4005": "CASH:IGNORE",
       "4006": "CASH:IGNORE",
@@ -1101,7 +1101,7 @@
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-18T18:54:46.647638+03:00",
+      "updated_at": "2026-11-18T23:27:15.781337+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -175183,11 +175183,98 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-11-18:4003:CASH",
+          "session": "2026-11-18",
+          "symbol": "4003",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.77,
+          "strategy_score": 0.0,
+          "entry": 65.5,
+          "stop": 64.19,
+          "target": 68.12,
+          "risk": 1.31,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-11-18:2370:CASH",
+          "session": "2026-11-18",
+          "symbol": "2370",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 67.27,
+          "strategy_score": 0.0,
+          "entry": 30.82,
+          "stop": 30.2036,
+          "target": 32.0528,
+          "risk": 0.6164,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-11-18:2270:CASH",
+          "session": "2026-11-18",
+          "symbol": "2270",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 60.17,
+          "strategy_score": 0.0,
+          "entry": 188.7,
+          "stop": 184.926,
+          "target": 196.248,
+          "risk": 3.774,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 961,
+      "candidates": 964,
       "mature_20d": 556,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -175196,7 +175283,7 @@
       "mean_20d_r": -2.2547,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-18T18:54:46.757409+03:00",
+      "updated_at": "2026-11-18T23:27:15.915770+03:00",
       "session": "2026-11-18",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
