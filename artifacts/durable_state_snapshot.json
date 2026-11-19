@@ -201,8 +201,8 @@
           "target": 36.2506,
           "score": 84.39,
           "opened_on": "2026-10-27",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 17,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 18,
           "strategy": "pead_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.6349646472254549,
@@ -216,12 +216,12 @@
           "target": 2.8925,
           "score": 85.32,
           "opened_on": "2026-10-29",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 15,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 16,
           "strategy": "pead_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.4852939493515914,
-          "mfe_r": 0.985294285942523
+          "mfe_r": 1.161764705882349
         },
         "1325": {
           "symbol": "1325",
@@ -231,11 +231,11 @@
           "target": 3.943,
           "score": 85.76,
           "opened_on": "2026-11-02",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 13,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 14,
           "strategy": "pead_shadow",
           "entry_regime": "RISK_OFF",
-          "mae_r": -0.7021738093832268,
+          "mae_r": -0.7673911384914236,
           "mfe_r": 0.1891302067300545
         },
         "2330": {
@@ -246,8 +246,8 @@
           "target": 27.364,
           "score": 82.51,
           "opened_on": "2026-11-10",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 7,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 8,
           "strategy": "pead_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.6670659596334673,
@@ -261,11 +261,11 @@
           "target": 69.912,
           "score": 88.18,
           "opened_on": "2026-11-15",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 4,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 5,
           "strategy": "pead_shadow",
           "entry_regime": "RISK_OFF",
-          "mae_r": -0.5093670886075947,
+          "mae_r": -0.5346831580053399,
           "mfe_r": 0.36405082606062067
         }
       },
@@ -290,23 +290,8 @@
       ]
     },
     "artifacts/momentum_shadow_portfolio.json": {
-      "equity_sar": 98010.62,
+      "equity_sar": 98481.85,
       "positions": {
-        "6015": {
-          "symbol": "6015",
-          "qty": 1750,
-          "entry": 2.4424,
-          "stop": 2.3024,
-          "target": 2.7224,
-          "score": 88.62,
-          "opened_on": "2026-10-27",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 17,
-          "strategy": "momentum_leadership_shadow",
-          "entry_regime": "RISK_OFF",
-          "mae_r": -0.0885709517342712,
-          "mfe_r": 1.9828573472159223
-        },
         "2282": {
           "symbol": "2282",
           "qty": 61,
@@ -315,8 +300,8 @@
           "target": 67.4995,
           "score": 82.53,
           "opened_on": "2026-11-01",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 14,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 15,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
           "mae_r": -0.41800969121438136,
@@ -330,11 +315,11 @@
           "target": 39.9362,
           "score": 79.61,
           "opened_on": "2026-11-02",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 13,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 14,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
-          "mae_r": -0.8411890242293082,
+          "mae_r": -0.8520000824799416,
           "mfe_r": 0.15340565284523033
         },
         "4310": {
@@ -345,25 +330,30 @@
           "target": 25.241,
           "score": 97.08,
           "opened_on": "2026-11-15",
-          "last_marked_on": "2026-11-18",
-          "bars_held": 4,
+          "last_marked_on": "2026-11-19",
+          "bars_held": 5,
           "strategy": "momentum_leadership_shadow",
           "entry_regime": "RISK_OFF",
-          "mae_r": -0.7398108604395,
+          "mae_r": -0.8156401720092201,
           "mfe_r": 0.12748858555798248
-        }
-      },
-      "pending": {
+        },
         "7211": {
           "symbol": "7211",
+          "qty": 94,
+          "entry": 34.7347,
+          "stop": 32.1447,
+          "target": 39.9147,
           "score": 99.76,
-          "risk_distance": 2.59,
-          "reward_risk": 2.0,
-          "signal_bar_date": "2026-11-18",
-          "queued_on": "2026-11-18",
-          "strategy": "momentum_leadership_shadow"
+          "opened_on": "2026-11-19",
+          "last_marked_on": "2026-11-19",
+          "bars_held": 1,
+          "strategy": "momentum_leadership_shadow",
+          "entry_regime": "RISK_OFF",
+          "mae_r": -0.3531661409945093,
+          "mfe_r": 0.0020469801030117006
         }
       },
+      "pending": {},
       "closed": [
         {
           "symbol": "2380",
@@ -636,12 +626,28 @@
           "entry_regime": "RISK_OFF",
           "mae_r": -1.19,
           "mfe_r": 1.09
+        },
+        {
+          "symbol": "6015",
+          "qty": 1750,
+          "entry": 2.4424,
+          "exit": 2.7197,
+          "opened_on": "2026-10-27",
+          "closed_on": "2026-11-19",
+          "reason": "target",
+          "pnl_sar": 471.23,
+          "return_pct": 11.03,
+          "strategy": "momentum_leadership_shadow",
+          "initial_risk_sar": 245.0,
+          "entry_regime": "RISK_OFF",
+          "mae_r": -0.089,
+          "mfe_r": 2.197
         }
       ]
     },
     "artifacts/edge_lab_progress.json": {
-      "updated_at": "2026-11-19T00:38:04.535589+03:00",
-      "data_quality": "verified session 2026-11-18, consensus 98.8%",
+      "updated_at": "2026-11-19T18:58:42.543369+03:00",
+      "data_quality": "verified session 2026-11-19, consensus 99.2%",
       "production_unchanged": "CASH",
       "qualification": {
         "min_expectancy_r": 0.1,
@@ -665,17 +671,17 @@
         },
         {
           "name": "Momentum Leadership",
-          "closed_trades": 17,
+          "closed_trades": 18,
           "target_trades": 30,
-          "win_rate_pct": 17.65,
-          "expectancy_r": -0.488,
-          "profit_factor": 0.42,
+          "win_rate_pct": 22.22,
+          "expectancy_r": -0.354,
+          "profit_factor": 0.557,
           "max_drawdown_r": 9.187,
-          "pnl_sar": -1989.38,
+          "pnl_sar": -1518.15,
           "open_positions": 4,
-          "pending": 1,
+          "pending": 0,
           "qualified": false,
-          "status": "LEARNING 17/30"
+          "status": "LEARNING 18/30"
         }
       ]
     },
@@ -703,17 +709,17 @@
       },
       "momentum": {
         "name": "Momentum Leadership",
-        "closed_trades": 17,
+        "closed_trades": 18,
         "target_trades": 30,
-        "win_rate_pct": 17.65,
-        "expectancy_r": -0.488,
-        "profit_factor": 0.42,
+        "win_rate_pct": 22.22,
+        "expectancy_r": -0.354,
+        "profit_factor": 0.557,
         "max_drawdown_r": 9.187,
-        "pnl_sar": -1989.38,
+        "pnl_sar": -1518.15,
         "open_positions": 4,
-        "pending": 1,
+        "pending": 0,
         "qualified": false,
-        "status": "LEARNING 17/30"
+        "status": "LEARNING 18/30"
       },
       "pead_source": {
         "verification": "detail-page-v1",
@@ -730,14 +736,14 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-19T00:38:14.455869+03:00",
+      "updated_at": "2026-11-19T18:58:51.489595+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
         "eligible": 259,
-        "above_ema50_pct": 22.4,
-        "above_ema200_pct": 13.9,
-        "median_momentum20_pct": -0.4
+        "above_ema50_pct": 22.0,
+        "above_ema200_pct": 13.5,
+        "median_momentum20_pct": 2.4
       },
       "scoreboard": [
         {
@@ -757,18 +763,18 @@
         },
         {
           "name": "Momentum Leadership",
-          "closed": 17,
+          "closed": 18,
           "target": 30,
-          "wins": 3,
-          "win_rate_pct": 17.65,
-          "expectancy_r": -0.488,
-          "profit_factor": 0.42,
+          "wins": 4,
+          "win_rate_pct": 22.22,
+          "expectancy_r": -0.354,
+          "profit_factor": 0.557,
           "max_drawdown_r": 9.187,
-          "pnl_sar": -1989.38,
+          "pnl_sar": -1518.15,
           "open_positions": 4,
-          "pending": 1,
-          "status": "EVALUATING 17/30",
-          "rank_score": -90.55
+          "pending": 0,
+          "status": "EVALUATING 18/30",
+          "rank_score": -75.78
         },
         {
           "name": "Explorer Control",
@@ -801,7 +807,7 @@
         },
         "Momentum Leadership": {
           "closed_losses": 14,
-          "loss_rate_pct": 82.35,
+          "loss_rate_pct": 77.78,
           "reasons": {
             "stop": 13,
             "max_hold": 1
@@ -827,8 +833,8 @@
         }
       },
       "champion_challenger": {
-        "champion": "Explorer Control",
-        "challenger": "Momentum Leadership",
+        "champion": "Momentum Leadership",
+        "challenger": "Explorer Control",
         "minimum_closed_before_ranking": 5,
         "promotion_requires_full_forward_gate": true,
         "production_auto_promotion": false
@@ -888,7 +894,7 @@
       "2120": "CASH:IGNORE",
       "2130": "CASH:IGNORE",
       "2140": "CASH:IGNORE",
-      "2150": "CASH:WATCH",
+      "2150": "CASH:IGNORE",
       "2160": "CASH:IGNORE",
       "2170": "CASH:IGNORE",
       "2180": "CASH:IGNORE",
@@ -904,14 +910,14 @@
       "2270": "CASH:IGNORE",
       "2280": "CASH:IGNORE",
       "2281": "CASH:IGNORE",
-      "2282": "CASH:IGNORE",
+      "2282": "CASH:WATCH",
       "2283": "CASH:WATCH",
       "2284": "CASH:WATCH",
       "2285": "CASH:IGNORE",
       "2286": "CASH:IGNORE",
       "2287": "CASH:IGNORE",
       "2288": "CASH:IGNORE",
-      "2290": "CASH:IGNORE",
+      "2290": "CASH:WATCH",
       "2300": "CASH:IGNORE",
       "2310": "CASH:IGNORE",
       "2320": "CASH:IGNORE",
@@ -919,7 +925,7 @@
       "2340": "CASH:IGNORE",
       "2350": "CASH:IGNORE",
       "2360": "CASH:IGNORE",
-      "2370": "CASH:WATCH",
+      "2370": "CASH:IGNORE",
       "2380": "CASH:IGNORE",
       "2381": "CASH:WATCH",
       "2382": "CASH:IGNORE",
@@ -970,16 +976,16 @@
       "4081": "CASH:IGNORE",
       "4082": "CASH:IGNORE",
       "4083": "CASH:IGNORE",
-      "4084": "CASH:IGNORE",
+      "4084": "CASH:WATCH",
       "4090": "CASH:IGNORE",
       "4100": "CASH:IGNORE",
       "4110": "CASH:IGNORE",
       "4130": "CASH:IGNORE",
       "4140": "CASH:IGNORE",
-      "4141": "CASH:WATCH",
+      "4141": "CASH:IGNORE",
       "4142": "CASH:IGNORE",
       "4143": "CASH:IGNORE",
-      "4144": "CASH:WATCH",
+      "4144": "CASH:IGNORE",
       "4145": "CASH:IGNORE",
       "4146": "CASH:IGNORE",
       "4148": "CASH:IGNORE",
@@ -987,7 +993,7 @@
       "4160": "CASH:IGNORE",
       "4161": "CASH:IGNORE",
       "4162": "CASH:IGNORE",
-      "4163": "CASH:WATCH",
+      "4163": "CASH:IGNORE",
       "4164": "CASH:WATCH",
       "4165": "CASH:WATCH",
       "4170": "CASH:IGNORE",
@@ -1083,7 +1089,7 @@
       "8170": "CASH:IGNORE",
       "8180": "CASH:IGNORE",
       "8190": "CASH:IGNORE",
-      "8200": "CASH:WATCH",
+      "8200": "CASH:IGNORE",
       "8210": "CASH:IGNORE",
       "8230": "CASH:IGNORE",
       "8240": "CASH:IGNORE",
@@ -1092,16 +1098,16 @@
       "8280": "CASH:IGNORE",
       "8300": "CASH:IGNORE",
       "8311": "CASH:IGNORE",
-      "8313": "CASH:WATCH",
+      "8313": "CASH:IGNORE",
       "1325": "CASH:IGNORE",
       "4265": "CASH:IGNORE",
       "6019": "CASH:IGNORE",
-      "4147": "CASH:IGNORE",
+      "4147": "CASH:WATCH",
       "4327": "CASH:IGNORE"
     },
     "artifacts/adaptive_learning_ledger.json": {
       "version": 1,
-      "updated_at": "2026-11-19T00:38:04.014331+03:00",
+      "updated_at": "2026-11-19T18:58:42.091986+03:00",
       "candidates": [
         {
           "id": "2026-09-15:1320:CASH",
@@ -182397,11 +182403,69 @@
           "observations": [],
           "labels": {},
           "barrier": null
+        },
+        {
+          "id": "2026-11-19:2290:CASH",
+          "session": "2026-11-19",
+          "symbol": "2290",
+          "state": "WATCH",
+          "strategy": "CASH",
+          "score": 68.14,
+          "strategy_score": 0.0,
+          "entry": 31.6,
+          "stop": 30.968,
+          "target": 32.864,
+          "risk": 0.632,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
+        },
+        {
+          "id": "2026-11-19:8280:CASH",
+          "session": "2026-11-19",
+          "symbol": "8280",
+          "state": "IGNORE",
+          "strategy": "CASH",
+          "score": 61.57,
+          "strategy_score": 0.0,
+          "entry": 12.84,
+          "stop": 12.5832,
+          "target": 13.3536,
+          "risk": 0.2568,
+          "risk_source": "shadow_2pct_proxy",
+          "features": {
+            "trend_score": null,
+            "momentum_score": null,
+            "swing_score": null,
+            "disclosure_score": null,
+            "atr_pct": null,
+            "ema50_distance_pct": null,
+            "ema200_distance_pct": null,
+            "avg_value20": null,
+            "xs_roc63_percentile": null,
+            "market_regime": "UNKNOWN"
+          },
+          "observations": [],
+          "labels": {},
+          "barrier": null
         }
       ]
     },
     "artifacts/adaptive_learning_report.json": {
-      "candidates": 999,
+      "candidates": 1001,
       "mature_20d": 561,
       "barrier_labeled": 0,
       "target_first": 0,
@@ -182410,7 +182474,7 @@
       "mean_20d_r": -2.2189,
       "ready_for_meta_model": true,
       "meta_model_mode": "SHADOW_ONLY",
-      "updated_at": "2026-11-19T00:38:04.116316+03:00",
+      "updated_at": "2026-11-19T18:58:42.185422+03:00",
       "session": "2026-11-19",
       "rule": "Observe every score>=60 candidate; never alter production thresholds."
     }
