@@ -736,7 +736,7 @@
       }
     },
     "artifacts/decision_intelligence.json": {
-      "updated_at": "2026-11-20T00:37:30.973449+03:00",
+      "updated_at": "2026-11-20T00:51:50.820481+03:00",
       "production_strategy": "CASH",
       "market_regime": {
         "regime": "RISK_OFF",
